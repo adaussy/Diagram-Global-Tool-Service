@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="DiagramGeneralToolService">
+  <eClassifiers xsi:type="ecore:EClass" name="DiagramDefinition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="EReference0" upperBound="-1"
+        eType="#//DrawerDefinition" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DrawerDefinition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="EReference0" upperBound="-1"
+        eType="#//ToolElement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ToolElement" eSuperTypes="../../org.eclipse.uml2.uml/model/UML.ecore#//Element"/>
+</ecore:EPackage>
