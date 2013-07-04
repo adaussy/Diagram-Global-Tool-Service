@@ -1,4 +1,4 @@
-package org.papyrus.dgts.service;
+package org.eclipse.papyrus.dgts.service.interfaces;
 
 import java.io.IOException;
 

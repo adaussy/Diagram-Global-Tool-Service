@@ -1,4 +1,4 @@
-package org.papyrus.dgts.service;
+package org.eclipse.papyrus.dgts.service;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;

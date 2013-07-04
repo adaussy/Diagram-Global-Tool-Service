@@ -1,4 +1,4 @@
-package org.papyrus.dgts.service;
+package org.eclipse.papyrus.dgts.service;
 
 
 
@@ -10,6 +10,7 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.*;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.papyrus.dgts.service.interfaces.IDgtsResourceLoader;
 public class DgtsResourceLoader implements IDgtsResourceLoader {
 
 	public void LoadResource(IFile file) throws IOException{
@@ -18,9 +19,6 @@ public class DgtsResourceLoader implements IDgtsResourceLoader {
 		  org.eclipse.emf.ecore.resource.Resource resource = resourceSet.getResource(uri, true);
 		  Map<Object,Object> options = new HashMap<Object,Object>();
 		  resource.load(options);
-
 	}
-	
-	
 
 }
