@@ -1,0 +1,69 @@
+/**
+ */
+package DiagramGlobalToolService;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EObject;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Diagram Definition</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * <ul>
+ *   <li>{@link DiagramGlobalToolService.DiagramDefinition#getEReference0 <em>EReference0</em>}</li>
+ *   <li>{@link DiagramGlobalToolService.DiagramDefinition#getDiagramType <em>Diagram Type</em>}</li>
+ * </ul>
+ * </p>
+ *
+ * @see DiagramGlobalToolService.DiagramGlobalToolServicePackage#getDiagramDefinition()
+ * @model
+ * @generated
+ */
+public interface DiagramDefinition extends EObject {
+	/**
+	 * Returns the value of the '<em><b>EReference0</b></em>' containment reference list.
+	 * The list contents are of type {@link DiagramGlobalToolService.DrawerDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>EReference0</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>EReference0</em>' containment reference list.
+	 * @see DiagramGlobalToolService.DiagramGlobalToolServicePackage#getDiagramDefinition_EReference0()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<DrawerDefinition> getEReference0();
+
+	/**
+	 * Returns the value of the '<em><b>Diagram Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Diagram Type</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Diagram Type</em>' attribute.
+	 * @see #setDiagramType(String)
+	 * @see DiagramGlobalToolService.DiagramGlobalToolServicePackage#getDiagramDefinition_DiagramType()
+	 * @model required="true"
+	 * @generated
+	 */
+	String getDiagramType();
+
+	/**
+	 * Sets the value of the '{@link DiagramGlobalToolService.DiagramDefinition#getDiagramType <em>Diagram Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Diagram Type</em>' attribute.
+	 * @see #getDiagramType()
+	 * @generated
+	 */
+	void setDiagramType(String value);
+
+} // DiagramDefinition

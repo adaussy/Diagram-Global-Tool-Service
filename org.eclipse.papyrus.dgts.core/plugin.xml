@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated dgts -->
+      <package
+            uri="http://DiagramGlobalToolService/1.0"
+            class="DiagramGlobalToolService.DiagramGlobalToolServicePackage"
+            genModel="model/dgts.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated dgts -->
+      <parser
+            type="diagramglobaltoolservice"
+            class="DiagramGlobalToolService.util.DiagramGlobalToolServiceResourceFactoryImpl"/>
+   </extension>
+</plugin>
