@@ -3,21 +3,23 @@
 package DiagramGlobalToolService.provider;
 
 
-import DiagramGlobalToolService.DiagramGlobalToolServiceFactory;
+import DiagramGlobalToolService.DiagramGlobalToolServicePackage;
 import DiagramGlobalToolService.ToolElement;
 import java.util.Collection;
 import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.uml2.uml.UMLPackage;
-import org.eclipse.uml2.uml.edit.providers.PackageItemProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link DiagramGlobalToolService.ToolElement} object.
@@ -26,7 +28,7 @@ import org.eclipse.uml2.uml.edit.providers.PackageItemProvider;
  * @generated
  */
 public class ToolElementItemProvider
-	extends PackageItemProvider
+	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -54,8 +56,31 @@ public class ToolElementItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addToolPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Tool feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addToolPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ToolElement_Tool_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ToolElement_Tool_feature", "_UI_ToolElement_type"),
+				 DiagramGlobalToolServicePackage.Literals.TOOL_ELEMENT__TOOL,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -77,7 +102,7 @@ public class ToolElementItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ToolElement)object).getName();
+		String label = ((ToolElement)object).getTool();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ToolElement_type") :
 			getString("_UI_ToolElement_type") + " " + label;
@@ -93,6 +118,12 @@ public class ToolElementItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(ToolElement.class)) {
+			case DiagramGlobalToolServicePackage.TOOL_ELEMENT__TOOL:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 
@@ -106,43 +137,6 @@ public class ToolElementItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(UMLPackage.Literals.PACKAGE__NESTED_PACKAGE,
-				 DiagramGlobalToolServiceFactory.eINSTANCE.createToolElement()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(UMLPackage.Literals.PACKAGE__PACKAGED_ELEMENT,
-				 DiagramGlobalToolServiceFactory.eINSTANCE.createToolElement()));
-	}
-
-	/**
-	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
-		Object childFeature = feature;
-		Object childObject = child;
-
-		boolean qualify =
-			childFeature == UMLPackage.Literals.NAMED_ELEMENT__NAME_EXPRESSION ||
-			childFeature == UMLPackage.Literals.PACKAGE__PACKAGED_ELEMENT ||
-			childFeature == UMLPackage.Literals.NAMESPACE__OWNED_RULE ||
-			childFeature == UMLPackage.Literals.PACKAGE__NESTED_PACKAGE ||
-			childFeature == UMLPackage.Literals.PACKAGE__OWNED_STEREOTYPE ||
-			childFeature == UMLPackage.Literals.PACKAGE__OWNED_TYPE;
-
-		if (qualify) {
-			return getString
-				("_UI_CreateChild_text2",
-				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
-		}
-		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 	/**

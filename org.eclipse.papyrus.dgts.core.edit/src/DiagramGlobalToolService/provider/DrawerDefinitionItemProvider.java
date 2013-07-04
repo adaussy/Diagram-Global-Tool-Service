@@ -102,7 +102,7 @@ public class DrawerDefinitionItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(DiagramGlobalToolServicePackage.Literals.DRAWER_DEFINITION__EREFERENCE0);
+			childrenFeatures.add(DiagramGlobalToolServicePackage.Literals.DRAWER_DEFINITION__TOOL_ELEMENT_REF);
 		}
 		return childrenFeatures;
 	}
@@ -160,7 +160,7 @@ public class DrawerDefinitionItemProvider
 			case DiagramGlobalToolServicePackage.DRAWER_DEFINITION__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case DiagramGlobalToolServicePackage.DRAWER_DEFINITION__EREFERENCE0:
+			case DiagramGlobalToolServicePackage.DRAWER_DEFINITION__TOOL_ELEMENT_REF:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -180,7 +180,7 @@ public class DrawerDefinitionItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramGlobalToolServicePackage.Literals.DRAWER_DEFINITION__EREFERENCE0,
+				(DiagramGlobalToolServicePackage.Literals.DRAWER_DEFINITION__TOOL_ELEMENT_REF,
 				 DiagramGlobalToolServiceFactory.eINSTANCE.createToolElement()));
 	}
 

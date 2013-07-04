@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link DiagramGlobalToolService.DiagramDefinition#getEReference0 <em>EReference0</em>}</li>
+ *   <li>{@link DiagramGlobalToolService.DiagramDefinition#getDrawerDefinitionRef <em>Drawer Definition Ref</em>}</li>
  *   <li>{@link DiagramGlobalToolService.DiagramDefinition#getDiagramType <em>Diagram Type</em>}</li>
  * </ul>
  * </p>
@@ -25,20 +25,20 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface DiagramDefinition extends EObject {
 	/**
-	 * Returns the value of the '<em><b>EReference0</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Drawer Definition Ref</b></em>' containment reference list.
 	 * The list contents are of type {@link DiagramGlobalToolService.DrawerDefinition}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>EReference0</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Drawer Definition Ref</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>EReference0</em>' containment reference list.
-	 * @see DiagramGlobalToolService.DiagramGlobalToolServicePackage#getDiagramDefinition_EReference0()
+	 * @return the value of the '<em>Drawer Definition Ref</em>' containment reference list.
+	 * @see DiagramGlobalToolService.DiagramGlobalToolServicePackage#getDiagramDefinition_DrawerDefinitionRef()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<DrawerDefinition> getEReference0();
+	EList<DrawerDefinition> getDrawerDefinitionRef();
 
 	/**
 	 * Returns the value of the '<em><b>Diagram Type</b></em>' attribute.

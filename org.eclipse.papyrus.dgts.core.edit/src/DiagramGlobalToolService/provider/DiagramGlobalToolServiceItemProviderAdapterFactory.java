@@ -72,6 +72,29 @@ public class DiagramGlobalToolServiceItemProviderAdapterFactory extends DiagramG
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link DiagramGlobalToolService.DiagramGlobalToolDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DiagramGlobalToolDefinitionItemProvider diagramGlobalToolDefinitionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link DiagramGlobalToolService.DiagramGlobalToolDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDiagramGlobalToolDefinitionAdapter() {
+		if (diagramGlobalToolDefinitionItemProvider == null) {
+			diagramGlobalToolDefinitionItemProvider = new DiagramGlobalToolDefinitionItemProvider(this);
+		}
+
+		return diagramGlobalToolDefinitionItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link DiagramGlobalToolService.DiagramDefinition} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -239,6 +262,7 @@ public class DiagramGlobalToolServiceItemProviderAdapterFactory extends DiagramG
 	 * @generated
 	 */
 	public void dispose() {
+		if (diagramGlobalToolDefinitionItemProvider != null) diagramGlobalToolDefinitionItemProvider.dispose();
 		if (diagramDefinitionItemProvider != null) diagramDefinitionItemProvider.dispose();
 		if (drawerDefinitionItemProvider != null) drawerDefinitionItemProvider.dispose();
 		if (toolElementItemProvider != null) toolElementItemProvider.dispose();

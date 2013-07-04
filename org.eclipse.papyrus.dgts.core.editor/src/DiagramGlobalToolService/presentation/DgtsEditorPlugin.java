@@ -6,7 +6,6 @@ import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.ui.EclipseUIPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
-import org.eclipse.uml2.uml.edit.UMLEditPlugin;
 
 /**
  * This is the central singleton for the Dgts editor plugin.
@@ -41,7 +40,6 @@ public final class DgtsEditorPlugin extends EMFPlugin {
 		super
 			(new ResourceLocator [] {
 				EcoreEditPlugin.INSTANCE,
-				UMLEditPlugin.INSTANCE,
 			});
 	}
 

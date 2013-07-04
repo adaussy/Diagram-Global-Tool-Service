@@ -22,6 +22,15 @@ public interface DiagramGlobalToolServiceFactory extends EFactory {
 	DiagramGlobalToolServiceFactory eINSTANCE = DiagramGlobalToolService.impl.DiagramGlobalToolServiceFactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>Diagram Global Tool Definition</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Diagram Global Tool Definition</em>'.
+	 * @generated
+	 */
+	DiagramGlobalToolDefinition createDiagramGlobalToolDefinition();
+
+	/**
 	 * Returns a new object of class '<em>Diagram Definition</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

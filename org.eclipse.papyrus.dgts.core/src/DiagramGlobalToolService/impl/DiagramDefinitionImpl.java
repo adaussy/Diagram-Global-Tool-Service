@@ -29,7 +29,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link DiagramGlobalToolService.impl.DiagramDefinitionImpl#getEReference0 <em>EReference0</em>}</li>
+ *   <li>{@link DiagramGlobalToolService.impl.DiagramDefinitionImpl#getDrawerDefinitionRef <em>Drawer Definition Ref</em>}</li>
  *   <li>{@link DiagramGlobalToolService.impl.DiagramDefinitionImpl#getDiagramType <em>Diagram Type</em>}</li>
  * </ul>
  * </p>
@@ -38,14 +38,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class DiagramDefinitionImpl extends MinimalEObjectImpl.Container implements DiagramDefinition {
 	/**
-	 * The cached value of the '{@link #getEReference0() <em>EReference0</em>}' containment reference list.
+	 * The cached value of the '{@link #getDrawerDefinitionRef() <em>Drawer Definition Ref</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getEReference0()
+	 * @see #getDrawerDefinitionRef()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<DrawerDefinition> eReference0;
+	protected EList<DrawerDefinition> drawerDefinitionRef;
 
 	/**
 	 * The default value of the '{@link #getDiagramType() <em>Diagram Type</em>}' attribute.
@@ -91,11 +91,11 @@ public class DiagramDefinitionImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<DrawerDefinition> getEReference0() {
-		if (eReference0 == null) {
-			eReference0 = new EObjectContainmentEList<DrawerDefinition>(DrawerDefinition.class, this, DiagramGlobalToolServicePackage.DIAGRAM_DEFINITION__EREFERENCE0);
+	public EList<DrawerDefinition> getDrawerDefinitionRef() {
+		if (drawerDefinitionRef == null) {
+			drawerDefinitionRef = new EObjectContainmentEList<DrawerDefinition>(DrawerDefinition.class, this, DiagramGlobalToolServicePackage.DIAGRAM_DEFINITION__DRAWER_DEFINITION_REF);
 		}
-		return eReference0;
+		return drawerDefinitionRef;
 	}
 
 	/**
@@ -127,8 +127,8 @@ public class DiagramDefinitionImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DiagramGlobalToolServicePackage.DIAGRAM_DEFINITION__EREFERENCE0:
-				return ((InternalEList<?>)getEReference0()).basicRemove(otherEnd, msgs);
+			case DiagramGlobalToolServicePackage.DIAGRAM_DEFINITION__DRAWER_DEFINITION_REF:
+				return ((InternalEList<?>)getDrawerDefinitionRef()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -141,8 +141,8 @@ public class DiagramDefinitionImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case DiagramGlobalToolServicePackage.DIAGRAM_DEFINITION__EREFERENCE0:
-				return getEReference0();
+			case DiagramGlobalToolServicePackage.DIAGRAM_DEFINITION__DRAWER_DEFINITION_REF:
+				return getDrawerDefinitionRef();
 			case DiagramGlobalToolServicePackage.DIAGRAM_DEFINITION__DIAGRAM_TYPE:
 				return getDiagramType();
 		}
@@ -158,9 +158,9 @@ public class DiagramDefinitionImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case DiagramGlobalToolServicePackage.DIAGRAM_DEFINITION__EREFERENCE0:
-				getEReference0().clear();
-				getEReference0().addAll((Collection<? extends DrawerDefinition>)newValue);
+			case DiagramGlobalToolServicePackage.DIAGRAM_DEFINITION__DRAWER_DEFINITION_REF:
+				getDrawerDefinitionRef().clear();
+				getDrawerDefinitionRef().addAll((Collection<? extends DrawerDefinition>)newValue);
 				return;
 			case DiagramGlobalToolServicePackage.DIAGRAM_DEFINITION__DIAGRAM_TYPE:
 				setDiagramType((String)newValue);
@@ -177,8 +177,8 @@ public class DiagramDefinitionImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case DiagramGlobalToolServicePackage.DIAGRAM_DEFINITION__EREFERENCE0:
-				getEReference0().clear();
+			case DiagramGlobalToolServicePackage.DIAGRAM_DEFINITION__DRAWER_DEFINITION_REF:
+				getDrawerDefinitionRef().clear();
 				return;
 			case DiagramGlobalToolServicePackage.DIAGRAM_DEFINITION__DIAGRAM_TYPE:
 				setDiagramType(DIAGRAM_TYPE_EDEFAULT);
@@ -195,8 +195,8 @@ public class DiagramDefinitionImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case DiagramGlobalToolServicePackage.DIAGRAM_DEFINITION__EREFERENCE0:
-				return eReference0 != null && !eReference0.isEmpty();
+			case DiagramGlobalToolServicePackage.DIAGRAM_DEFINITION__DRAWER_DEFINITION_REF:
+				return drawerDefinitionRef != null && !drawerDefinitionRef.isEmpty();
 			case DiagramGlobalToolServicePackage.DIAGRAM_DEFINITION__DIAGRAM_TYPE:
 				return DIAGRAM_TYPE_EDEFAULT == null ? diagramType != null : !DIAGRAM_TYPE_EDEFAULT.equals(diagramType);
 		}

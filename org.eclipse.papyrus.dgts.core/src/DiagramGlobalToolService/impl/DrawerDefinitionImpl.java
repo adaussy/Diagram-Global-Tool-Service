@@ -29,7 +29,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link DiagramGlobalToolService.impl.DrawerDefinitionImpl#getEReference0 <em>EReference0</em>}</li>
+ *   <li>{@link DiagramGlobalToolService.impl.DrawerDefinitionImpl#getToolElementRef <em>Tool Element Ref</em>}</li>
  *   <li>{@link DiagramGlobalToolService.impl.DrawerDefinitionImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
@@ -38,14 +38,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class DrawerDefinitionImpl extends MinimalEObjectImpl.Container implements DrawerDefinition {
 	/**
-	 * The cached value of the '{@link #getEReference0() <em>EReference0</em>}' containment reference list.
+	 * The cached value of the '{@link #getToolElementRef() <em>Tool Element Ref</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getEReference0()
+	 * @see #getToolElementRef()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ToolElement> eReference0;
+	protected EList<ToolElement> toolElementRef;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -56,6 +56,7 @@ public class DrawerDefinitionImpl extends MinimalEObjectImpl.Container implement
 	 * @ordered
 	 */
 	protected static final String NAME_EDEFAULT = null;
+
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -90,11 +91,11 @@ public class DrawerDefinitionImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ToolElement> getEReference0() {
-		if (eReference0 == null) {
-			eReference0 = new EObjectContainmentEList<ToolElement>(ToolElement.class, this, DiagramGlobalToolServicePackage.DRAWER_DEFINITION__EREFERENCE0);
+	public EList<ToolElement> getToolElementRef() {
+		if (toolElementRef == null) {
+			toolElementRef = new EObjectContainmentEList<ToolElement>(ToolElement.class, this, DiagramGlobalToolServicePackage.DRAWER_DEFINITION__TOOL_ELEMENT_REF);
 		}
-		return eReference0;
+		return toolElementRef;
 	}
 
 	/**
@@ -126,8 +127,8 @@ public class DrawerDefinitionImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DiagramGlobalToolServicePackage.DRAWER_DEFINITION__EREFERENCE0:
-				return ((InternalEList<?>)getEReference0()).basicRemove(otherEnd, msgs);
+			case DiagramGlobalToolServicePackage.DRAWER_DEFINITION__TOOL_ELEMENT_REF:
+				return ((InternalEList<?>)getToolElementRef()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -140,8 +141,8 @@ public class DrawerDefinitionImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case DiagramGlobalToolServicePackage.DRAWER_DEFINITION__EREFERENCE0:
-				return getEReference0();
+			case DiagramGlobalToolServicePackage.DRAWER_DEFINITION__TOOL_ELEMENT_REF:
+				return getToolElementRef();
 			case DiagramGlobalToolServicePackage.DRAWER_DEFINITION__NAME:
 				return getName();
 		}
@@ -157,9 +158,9 @@ public class DrawerDefinitionImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case DiagramGlobalToolServicePackage.DRAWER_DEFINITION__EREFERENCE0:
-				getEReference0().clear();
-				getEReference0().addAll((Collection<? extends ToolElement>)newValue);
+			case DiagramGlobalToolServicePackage.DRAWER_DEFINITION__TOOL_ELEMENT_REF:
+				getToolElementRef().clear();
+				getToolElementRef().addAll((Collection<? extends ToolElement>)newValue);
 				return;
 			case DiagramGlobalToolServicePackage.DRAWER_DEFINITION__NAME:
 				setName((String)newValue);
@@ -176,8 +177,8 @@ public class DrawerDefinitionImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case DiagramGlobalToolServicePackage.DRAWER_DEFINITION__EREFERENCE0:
-				getEReference0().clear();
+			case DiagramGlobalToolServicePackage.DRAWER_DEFINITION__TOOL_ELEMENT_REF:
+				getToolElementRef().clear();
 				return;
 			case DiagramGlobalToolServicePackage.DRAWER_DEFINITION__NAME:
 				setName(NAME_EDEFAULT);
@@ -194,8 +195,8 @@ public class DrawerDefinitionImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case DiagramGlobalToolServicePackage.DRAWER_DEFINITION__EREFERENCE0:
-				return eReference0 != null && !eReference0.isEmpty();
+			case DiagramGlobalToolServicePackage.DRAWER_DEFINITION__TOOL_ELEMENT_REF:
+				return toolElementRef != null && !toolElementRef.isEmpty();
 			case DiagramGlobalToolServicePackage.DRAWER_DEFINITION__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}

@@ -102,7 +102,7 @@ public class DiagramDefinitionItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(DiagramGlobalToolServicePackage.Literals.DIAGRAM_DEFINITION__EREFERENCE0);
+			childrenFeatures.add(DiagramGlobalToolServicePackage.Literals.DIAGRAM_DEFINITION__DRAWER_DEFINITION_REF);
 		}
 		return childrenFeatures;
 	}
@@ -160,7 +160,7 @@ public class DiagramDefinitionItemProvider
 			case DiagramGlobalToolServicePackage.DIAGRAM_DEFINITION__DIAGRAM_TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case DiagramGlobalToolServicePackage.DIAGRAM_DEFINITION__EREFERENCE0:
+			case DiagramGlobalToolServicePackage.DIAGRAM_DEFINITION__DRAWER_DEFINITION_REF:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -180,7 +180,7 @@ public class DiagramDefinitionItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramGlobalToolServicePackage.Literals.DIAGRAM_DEFINITION__EREFERENCE0,
+				(DiagramGlobalToolServicePackage.Literals.DIAGRAM_DEFINITION__DRAWER_DEFINITION_REF,
 				 DiagramGlobalToolServiceFactory.eINSTANCE.createDrawerDefinition()));
 	}
 

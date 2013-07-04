@@ -56,12 +56,23 @@ public class DiagramGlobalToolServiceFactoryImpl extends EFactoryImpl implements
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case DiagramGlobalToolServicePackage.DIAGRAM_GLOBAL_TOOL_DEFINITION: return createDiagramGlobalToolDefinition();
 			case DiagramGlobalToolServicePackage.DIAGRAM_DEFINITION: return createDiagramDefinition();
 			case DiagramGlobalToolServicePackage.DRAWER_DEFINITION: return createDrawerDefinition();
 			case DiagramGlobalToolServicePackage.TOOL_ELEMENT: return createToolElement();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DiagramGlobalToolDefinition createDiagramGlobalToolDefinition() {
+		DiagramGlobalToolDefinitionImpl diagramGlobalToolDefinition = new DiagramGlobalToolDefinitionImpl();
+		return diagramGlobalToolDefinition;
 	}
 
 	/**

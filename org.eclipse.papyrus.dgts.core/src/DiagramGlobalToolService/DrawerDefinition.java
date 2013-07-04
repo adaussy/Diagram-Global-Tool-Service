@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link DiagramGlobalToolService.DrawerDefinition#getEReference0 <em>EReference0</em>}</li>
+ *   <li>{@link DiagramGlobalToolService.DrawerDefinition#getToolElementRef <em>Tool Element Ref</em>}</li>
  *   <li>{@link DiagramGlobalToolService.DrawerDefinition#getName <em>Name</em>}</li>
  * </ul>
  * </p>
@@ -25,20 +25,20 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface DrawerDefinition extends EObject {
 	/**
-	 * Returns the value of the '<em><b>EReference0</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Tool Element Ref</b></em>' containment reference list.
 	 * The list contents are of type {@link DiagramGlobalToolService.ToolElement}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>EReference0</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Tool Element Ref</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>EReference0</em>' containment reference list.
-	 * @see DiagramGlobalToolService.DiagramGlobalToolServicePackage#getDrawerDefinition_EReference0()
+	 * @return the value of the '<em>Tool Element Ref</em>' containment reference list.
+	 * @see DiagramGlobalToolService.DiagramGlobalToolServicePackage#getDrawerDefinition_ToolElementRef()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<ToolElement> getEReference0();
+	EList<ToolElement> getToolElementRef();
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.

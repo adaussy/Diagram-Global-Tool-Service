@@ -3,6 +3,7 @@
 package DiagramGlobalToolService.impl;
 
 import DiagramGlobalToolService.DiagramDefinition;
+import DiagramGlobalToolService.DiagramGlobalToolDefinition;
 import DiagramGlobalToolService.DiagramGlobalToolServiceFactory;
 import DiagramGlobalToolService.DiagramGlobalToolServicePackage;
 import DiagramGlobalToolService.DrawerDefinition;
@@ -13,7 +14,6 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-import org.eclipse.uml2.uml.UMLPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,6 +22,13 @@ import org.eclipse.uml2.uml.UMLPackage;
  * @generated
  */
 public class DiagramGlobalToolServicePackageImpl extends EPackageImpl implements DiagramGlobalToolServicePackage {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass diagramGlobalToolDefinitionEClass = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -90,7 +97,7 @@ public class DiagramGlobalToolServicePackageImpl extends EPackageImpl implements
 		isInited = true;
 
 		// Initialize simple dependencies
-		UMLPackage.eINSTANCE.eClass();
+		EcorePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theDiagramGlobalToolServicePackage.createPackageContents();
@@ -112,6 +119,24 @@ public class DiagramGlobalToolServicePackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getDiagramGlobalToolDefinition() {
+		return diagramGlobalToolDefinitionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDiagramGlobalToolDefinition_DiagramDefinitionRef() {
+		return (EReference)diagramGlobalToolDefinitionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDiagramDefinition() {
 		return diagramDefinitionEClass;
 	}
@@ -121,7 +146,7 @@ public class DiagramGlobalToolServicePackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDiagramDefinition_EReference0() {
+	public EReference getDiagramDefinition_DrawerDefinitionRef() {
 		return (EReference)diagramDefinitionEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -148,7 +173,7 @@ public class DiagramGlobalToolServicePackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDrawerDefinition_EReference0() {
+	public EReference getDrawerDefinition_ToolElementRef() {
 		return (EReference)drawerDefinitionEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -168,6 +193,15 @@ public class DiagramGlobalToolServicePackageImpl extends EPackageImpl implements
 	 */
 	public EClass getToolElement() {
 		return toolElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getToolElement_Tool() {
+		return (EAttribute)toolElementEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -198,15 +232,19 @@ public class DiagramGlobalToolServicePackageImpl extends EPackageImpl implements
 		isCreated = true;
 
 		// Create classes and their features
+		diagramGlobalToolDefinitionEClass = createEClass(DIAGRAM_GLOBAL_TOOL_DEFINITION);
+		createEReference(diagramGlobalToolDefinitionEClass, DIAGRAM_GLOBAL_TOOL_DEFINITION__DIAGRAM_DEFINITION_REF);
+
 		diagramDefinitionEClass = createEClass(DIAGRAM_DEFINITION);
-		createEReference(diagramDefinitionEClass, DIAGRAM_DEFINITION__EREFERENCE0);
+		createEReference(diagramDefinitionEClass, DIAGRAM_DEFINITION__DRAWER_DEFINITION_REF);
 		createEAttribute(diagramDefinitionEClass, DIAGRAM_DEFINITION__DIAGRAM_TYPE);
 
 		drawerDefinitionEClass = createEClass(DRAWER_DEFINITION);
-		createEReference(drawerDefinitionEClass, DRAWER_DEFINITION__EREFERENCE0);
+		createEReference(drawerDefinitionEClass, DRAWER_DEFINITION__TOOL_ELEMENT_REF);
 		createEAttribute(drawerDefinitionEClass, DRAWER_DEFINITION__NAME);
 
 		toolElementEClass = createEClass(TOOL_ELEMENT);
+		createEAttribute(toolElementEClass, TOOL_ELEMENT__TOOL);
 	}
 
 	/**
@@ -234,25 +272,27 @@ public class DiagramGlobalToolServicePackageImpl extends EPackageImpl implements
 
 		// Obtain other dependent packages
 		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
-		UMLPackage theUMLPackage = (UMLPackage)EPackage.Registry.INSTANCE.getEPackage(UMLPackage.eNS_URI);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		toolElementEClass.getESuperTypes().add(theUMLPackage.getPackage());
 
 		// Initialize classes, features, and operations; add parameters
+		initEClass(diagramGlobalToolDefinitionEClass, DiagramGlobalToolDefinition.class, "DiagramGlobalToolDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDiagramGlobalToolDefinition_DiagramDefinitionRef(), this.getDiagramDefinition(), null, "DiagramDefinitionRef", null, 0, -1, DiagramGlobalToolDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(diagramDefinitionEClass, DiagramDefinition.class, "DiagramDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDiagramDefinition_EReference0(), this.getDrawerDefinition(), null, "EReference0", null, 0, -1, DiagramDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDiagramDefinition_DrawerDefinitionRef(), this.getDrawerDefinition(), null, "DrawerDefinitionRef", null, 0, -1, DiagramDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDiagramDefinition_DiagramType(), theEcorePackage.getEString(), "DiagramType", null, 1, 1, DiagramDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(drawerDefinitionEClass, DrawerDefinition.class, "DrawerDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDrawerDefinition_EReference0(), this.getToolElement(), null, "EReference0", null, 0, -1, DrawerDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDrawerDefinition_ToolElementRef(), this.getToolElement(), null, "ToolElementRef", null, 0, -1, DrawerDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDrawerDefinition_Name(), theEcorePackage.getEString(), "Name", null, 0, 1, DrawerDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(toolElementEClass, ToolElement.class, "ToolElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getToolElement_Tool(), theEcorePackage.getEString(), "Tool", null, 0, 1, ToolElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
