@@ -10,10 +10,9 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.*;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.papyrus.dgts.service.interfaces.IDgtsResourceLoader;
-public class DgtsResourceLoader implements IDgtsResourceLoader {
+public class DgtsResourceLoader  {
 
-	public void LoadResource(IFile file) throws IOException{
+	public static void LoadResource(IFile file) throws IOException{
 		  URI uri = URI.createFileURI(file.getFullPath().toString());
 		  ResourceSet resourceSet = new ResourceSetImpl();
 		  org.eclipse.emf.ecore.resource.Resource resource = resourceSet.getResource(uri, true);
