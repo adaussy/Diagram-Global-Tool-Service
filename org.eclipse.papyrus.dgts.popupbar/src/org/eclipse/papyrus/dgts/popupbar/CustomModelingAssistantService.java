@@ -18,8 +18,11 @@ import org.eclipse.papyrus.dgts.service.ToolDefinitionResourceProvider;
 import org.eclipse.papyrus.dgts.service.ToolsProvider;
 
 
+import org.eclipse.papyrus.uml.diagram.clazz.edit.parts.ClassEditPart;
 import org.eclipse.uml2.uml.UMLFactory;
 import org.eclipse.uml2.uml.UMLPackage;
+
+
 
 
 import DiagramGlobalToolService.DiagramDefinition;
@@ -53,7 +56,16 @@ public class CustomModelingAssistantService {
 	public List getTypesForPopupBar(IAdaptable host) {
 		IGraphicalEditPart editPart = (IGraphicalEditPart) host
 				.getAdapter(IGraphicalEditPart.class);
-		if (editPart instanceof DiagramEditPart) {
+		
+		
+		
+		//type du diagrame courant
+		DiagramEditPart diagramPart = (DiagramEditPart)editPart.getRoot().getChildren().get(0);
+		String diagramType = diagramPart.getDiagramView().getType();
+		//System.out.println(diagramType);
+	
+		System.out.println(editPart);
+		//if (editPart instanceof DiagramEditPart) {
 			//declaration
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
 			ToolsProvider toolsProvider = new ToolsProvider();
@@ -62,20 +74,18 @@ public class CustomModelingAssistantService {
 			Resource resource = ToolDefinitionResourceProvider.getResource();
 			DiagramGlobalToolDefinition globalDiagramConfiguration = DgtsResourceLoader.getDiagramGlobalToolDefinitionFromResource(resource);
 			
-			//Recupere le type du diagrame courant
-			String diagramType =((DiagramEditPart) editPart).getDiagramView().getType();
-		    System.out.println(diagramType);
 			
 			//recupere la liste des tools correspondant au diagrame
 			DiagramDefinition diag = toolsProvider.getDiagram(diagramType, globalDiagramConfiguration);
 			List<ToolElement> listOfTools = new ArrayList<ToolElement>();
 			listOfTools = toolsProvider.getTools(diag);
 			
+			
 			//traitement de chaque tool
 			if (listOfTools !=null){
 				for (ToolElement tool : listOfTools) {
 	
-					System.out.println(tool.getTool());
+					//System.out.println(tool.getTool());
 					EClassifier eClazzifier = UMLPackage.eINSTANCE.getEClassifier(tool.getTool());
 					if (eClazzifier != null) {
 						
@@ -93,7 +103,7 @@ public class CustomModelingAssistantService {
 				}
 				
 				return types;
-			}
+			//}
 		}
 
 		return Collections.EMPTY_LIST;

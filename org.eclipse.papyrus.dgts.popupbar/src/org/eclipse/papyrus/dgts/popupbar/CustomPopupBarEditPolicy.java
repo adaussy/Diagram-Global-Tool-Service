@@ -42,7 +42,10 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DiagramAssistantEditPolic
 import org.eclipse.gmf.runtime.diagram.ui.internal.editparts.ISurfaceEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.internal.l10n.DiagramUIPluginImages;
 import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramUIMessages;
+import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramGraphicalViewer;
+import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramWorkbenchPart;
 import org.eclipse.gmf.runtime.diagram.ui.preferences.IPreferenceConstants;
+import org.eclipse.gmf.runtime.diagram.ui.render.editparts.RenderedDiagramRootEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.tools.AbstractPopupBarTool;
 import org.eclipse.gmf.runtime.diagram.ui.tools.PopupBarTool;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
@@ -50,13 +53,20 @@ import org.eclipse.gmf.runtime.emf.ui.services.modelingassistant.ModelingAssista
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.osgi.util.NLS;
+import org.eclipse.papyrus.editor.PapyrusMultiDiagramEditor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Cursor;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.internal.part.IMultiPageEditorSiteHolder;
 import org.eclipse.ui.part.EditorPart;
+import org.eclipse.ui.part.MultiPageEditor;
+import org.eclipse.ui.part.MultiPageEditorPart;
 
 /**
  * Popup bars are esentially a cartoon balloon with buttons that are activated
@@ -65,6 +75,8 @@ import org.eclipse.ui.part.EditorPart;
  * @author affrantz@us.ibm.com, cmahoney
  */
 public class CustomPopupBarEditPolicy extends DiagramAssistantEditPolicy {
+	
+
 
 	/* ************************** nested classes *********************** */
 	/**
@@ -647,7 +659,13 @@ public class CustomPopupBarEditPolicy extends DiagramAssistantEditPolicy {
 	protected void populatePopupBars() {
 		
 		//////ICI on apelle direct la fonction du custommodelingassistantprovider
+
+		
+		
 		List types = CustomModelingAssistantService.getInstance().getTypesForPopupBar(getHost());
+		
+		
+	
 		
 		for (Iterator iter = types.iterator(); iter.hasNext();) {
 			Object type = iter.next();
@@ -1085,8 +1103,8 @@ public class CustomPopupBarEditPolicy extends DiagramAssistantEditPolicy {
 
 	protected boolean shouldShowDiagramAssistant() {
 
-
 		
+		//si on instance de fiagramedit part, on met a jour le type du diagrame courant
 		if (!(getHost().isActive() && isPreferenceOn() && isHostEditable() && isHostResolvable())) {
 			return false;
 		}
