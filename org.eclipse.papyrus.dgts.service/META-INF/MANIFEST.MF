@@ -5,11 +5,18 @@ Bundle-SymbolicName: org.eclipse.papyrus.dgts.service
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: org.eclipse.papyrus.dgts.service.Activator
 Require-Bundle: org.eclipse.ui,
- org.eclipse.core.runtime,
- org.eclipse.emf.ecore;bundle-version="2.9.0",
- org.eclipse.core.resources,
  org.eclipse.papyrus.dgts.core;bundle-version="1.0.0",
- org.eclipse.papyrus.dgts;bundle-version="1.0.0"
+ org.eclipse.papyrus.uml.diagram.clazz;bundle-version="0.10.0",
+ org.eclipse.papyrus.uml.diagram.activity;bundle-version="0.10.1",
+ org.eclipse.papyrus.uml.diagram.component;bundle-version="0.10.1",
+ org.eclipse.papyrus.uml.diagram.composite;bundle-version="0.10.1",
+ org.eclipse.papyrus.uml.diagram.interactionoverview;bundle-version="0.10.1",
+ org.eclipse.papyrus.uml.diagram.statemachine;bundle-version="0.10.1",
+ org.eclipse.papyrus.uml.diagram.deployment;bundle-version="0.10.1",
+ org.eclipse.papyrus.uml.diagram.sequence;bundle-version="0.10.1",
+ org.eclipse.papyrus.uml.diagram.communication;bundle-version="0.10.1",
+ org.eclipse.gmf.runtime.emf.type.core,
+ org.eclipse.gmf.runtime.notation.edit
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Export-Package: org.eclipse.papyrus.dgts.service,
