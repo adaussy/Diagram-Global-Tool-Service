@@ -5,6 +5,8 @@ import org.eclipse.emf.ecore.resource.Resource;
 import DiagramGlobalToolService.DiagramGlobalToolDefinition;
 
 public class ToolDefinitionResourceProvider {
+	
+	
 
 	protected static Resource resource = null;
 
@@ -29,5 +31,6 @@ public class ToolDefinitionResourceProvider {
 		return DgtsResourceLoader
 				.getDiagramGlobalToolDefinitionFromResource(resource);
 	}
+
 
 }
