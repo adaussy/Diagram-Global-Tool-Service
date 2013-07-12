@@ -16,5 +16,6 @@ Require-Bundle: org.eclipse.ui,
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: DiagramGlobalToolService,
  DiagramGlobalToolService.impl,
- DiagramGlobalToolService.util
+ DiagramGlobalToolService.util,
+ org.eclipse.dgtd.core
 Bundle-ActivationPolicy: lazy

@@ -13,12 +13,16 @@ public class ToolsProvider implements IToolsProvider {
 	// get Diagram from diagram string and resource
 	public DiagramDefinition getDiagram(String diagramType,
 			DiagramGlobalToolDefinition global) {
+
 		if (global != null) {
 			for (DiagramDefinition diagram : global.getDiagramDefinitionRef()) {
 				if (diagram.getDiagramType().equals(diagramType)) {
 					return diagram;
 				}
+
 			}
+			
+			
 		}
 		return null;
 	}
