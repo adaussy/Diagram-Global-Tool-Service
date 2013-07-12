@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.FigureCanvas;
@@ -30,6 +31,7 @@ import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.DragTracker;
+import org.eclipse.gef.EditPart;
 import org.eclipse.gef.Handle;
 import org.eclipse.gef.LayerConstants;
 import org.eclipse.gef.Tool;
@@ -67,6 +69,8 @@ import org.eclipse.ui.internal.part.IMultiPageEditorSiteHolder;
 import org.eclipse.ui.part.EditorPart;
 import org.eclipse.ui.part.MultiPageEditor;
 import org.eclipse.ui.part.MultiPageEditorPart;
+
+import DiagramGlobalToolService.ToolElement;
 
 /**
  * Popup bars are esentially a cartoon balloon with buttons that are activated
@@ -660,13 +664,8 @@ public class CustomPopupBarEditPolicy extends DiagramAssistantEditPolicy {
 		
 		//////ICI on apelle direct la fonction du custommodelingassistantprovider
 
-		
-		
 		List types = CustomModelingAssistantService.getInstance().getTypesForPopupBar(getHost());
-		
-		
 	
-		
 		for (Iterator iter = types.iterator(); iter.hasNext();) {
 			Object type = iter.next();
 			if (type instanceof IElementType) {
@@ -1100,11 +1099,11 @@ public class CustomPopupBarEditPolicy extends DiagramAssistantEditPolicy {
 	}
 
 	/* MON CODE */
-
+	@Override
 	protected boolean shouldShowDiagramAssistant() {
 
 		
-		//si on instance de fiagramedit part, on met a jour le type du diagrame courant
+		//si on instance de diagramedit part, on met a jour le type du diagrame courant
 		if (!(getHost().isActive() && isPreferenceOn() && isHostEditable() && isHostResolvable())) {
 			return false;
 		}
