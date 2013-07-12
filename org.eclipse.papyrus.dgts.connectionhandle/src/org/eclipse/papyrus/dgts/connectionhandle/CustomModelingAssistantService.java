@@ -4,23 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.core.runtime.IAdaptable;
-import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.gmf.runtime.common.core.service.IOperation;
-import org.eclipse.gmf.runtime.common.core.service.Service;
-import org.eclipse.gmf.runtime.common.ui.services.util.ActivityFilterProviderDescriptor;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
-import org.eclipse.gmf.runtime.emf.type.core.ElementTypeRegistry;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
-import org.eclipse.gmf.runtime.emf.type.core.ISpecializationType;
-import org.eclipse.gmf.runtime.emf.type.core.SpecializationType;
 import org.eclipse.gmf.runtime.emf.ui.internal.MslUIPlugin;
-import org.eclipse.gmf.runtime.emf.ui.services.modelingassistant.IModelingAssistantOperation;
-import org.eclipse.gmf.runtime.emf.ui.services.modelingassistant.ModelingAssistantProviderConfiguration;
 import org.eclipse.gmf.runtime.emf.ui.services.modelingassistant.ModelingAssistantService;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.papyrus.dgts.service.DgtsResourceLoader;
@@ -37,143 +28,65 @@ import DiagramGlobalToolService.ToolElement;
 @SuppressWarnings("restriction")
 public class CustomModelingAssistantService extends ModelingAssistantService {
 
-    protected static class ProviderDescriptor extends ActivityFilterProviderDescriptor {
-
-	/** the provider configuration parsed from XML */
-	private ModelingAssistantProviderConfiguration providerConfiguration;
-
-	/**
-	 * Constructs a <code>ISemanticProvider</code> descriptor for the
-	 * specified configuration element.
-	 * 
-	 * @param element
-	 *            The configuration element describing the provider.
-	 */
-	public ProviderDescriptor(IConfigurationElement element) {
-	    super(element);
-
-	    this.providerConfiguration = ModelingAssistantProviderConfiguration.parse(element);
-	    assert providerConfiguration != null : "providerConfiguration is null"; //$NON-NLS-1$
-	}
-
-	public boolean provides(IOperation operation) {
-	    if (!super.provides(operation)) {
-		return false;
-	    }
-	    if (!policyInitialized) {
-		policy = getPolicy();
-		policyInitialized = true;
-	    }
-	    if (policy != null)
-		return policy.provides(operation);
-
-	    return isSupportedInExtension(operation) ? getProvider().provides(operation) : false;
-	}
-
-	/**
-	 * Checks if the operation is supported by the XML extension
-	 * 
-	 * @param operation
-	 * @return true if the operation is supported; false otherwise
-	 */
-	private boolean isSupportedInExtension(IOperation operation) {
-	    if (operation instanceof IModelingAssistantOperation) {
-		String operationId = ((IModelingAssistantOperation) operation).getId();
-		IAdaptable context = ((IModelingAssistantOperation) operation).getContext();
-
-		return providerConfiguration.supports(operationId, context);
-	    }
-	    return false;
-	}
-
-    }
 
     /** The singleton instance of the modeling assistant service. */
     private final static CustomModelingAssistantService service = new CustomModelingAssistantService();
 
+    
     static {
 	service.configureProviders(MslUIPlugin.getPluginId(), "modelingAssistantProviders"); //$NON-NLS-1$
     }
 
-    protected Service.ProviderDescriptor newProviderDescriptor(IConfigurationElement element) {
-	return new ProviderDescriptor(element);
-    }
-
     /**
-     * Retrieves the singleton instance of the modeling assistant service.
+     * Retrieves the singleton instance of the custom modeling assistant service.
      * 
-     * @return The modeling assistant service singleton.
+     * @return The custom modeling assistant service singleton.
      */
 
     public static CustomModelingAssistantService getInstance() {
 	return service;
     }
-
-    public List getTypes(String hint, IAdaptable data) {
-	System.out.println("function : getTypes");
-	return super.getTypes(hint, data);
-    }
-
-
-    public List getRelTypesOnSource(IAdaptable source) {
-	System.out.println("function : getRelTypesOnSource"+source);
-	// on recupere la liste des lien possible depuis la source
-	getPossibleRelTypes(source);
-
+    
+    
+   
+    @Override
+    public List<?> getRelTypesOnSource(IAdaptable source) {
 	return getPossibleRelTypes(source);
-	// return super.getRelTypesOnSource(source);
     }
-
-    /**
-     * Executes the <code>GetRelTypesOnTargetOperation</code> using the
-     * <code>FORWARD</code> execution strategy.
-     */
-    public List getRelTypesOnTarget(IAdaptable target) {
-	System.out.println("function : getRelTypesOnTarget");
+    @Override
+    public List<?> getRelTypesOnTarget(IAdaptable target) {
 	return getPossibleRelTypes(target);
-	// return super.getRelTypesOnTarget(target);
     }
-
-    /**
-     * Executes the <code>GetRelTypesOnSourceAndTargetOperation</code> using the
-     * <code>FORWARD</code> execution strategy.
-     */
-    public List getRelTypesOnSourceAndTarget(IAdaptable source, IAdaptable target) {
-	System.out.println("function : getRelTypesOnSourceAndTarget");
-	return super.getRelTypesOnSourceAndTarget(source, target);
-    }
-
-    /**
-     * Executes the <code>GetRelTypesForSREOnSourceOperation</code> using the
-     * <code>FORWARD</code> execution strategy.
-     */
-    public List getRelTypesForSREOnSource(IAdaptable source) {
-	System.out.println("function : getRelTypesForSREOnSource");
+    @Override
+    public List<?> getRelTypesForSREOnSource(IAdaptable source) {
 	return getPossibleRelTypes(source);
-	// return super.getRelTypesForSREOnSource(source);
     }
-
-    /**
-     * Executes the <code>GetRelTypesForSREOnTargetOperation</code> using the
-     * <code>FORWARD</code> execution strategy.
-     */
-    public List getRelTypesForSREOnTarget(IAdaptable target) {
-	System.out.println("function : getRelTypesForSREOnTarget");
+    @Override
+    public List<?> getRelTypesForSREOnTarget(IAdaptable target) {
 	return getPossibleRelTypes(target);
-	// return super.getRelTypesForSREOnTarget(target);
     }
+    @Override
+    public List<?> getTypesForSource(IAdaptable target, IElementType relationshipType) {
 
-    /**
-     * Executes the <code>GetTypesForSourceOperation</code> using the
-     * <code>FORWARD</code> execution strategy.
-     */
-    public List getTypesForSource(IAdaptable target, IElementType relationshipType) {
-
-	System.out.println("function : getTypesForSource");
+	
 	// on recupere tout les types possible générés par le generateur
-	List generatedTypes = super.getTypesForSource(target, relationshipType);
+	List<?> generatedTypes = super.getTypesForSource(target, relationshipType);
 	// on recupere les types présents dans le modele de tools
-	List possibleTypes = getPossibleElementTypes(target);
+	List<?> possibleTypes = getPossibleElementTypes(target);
+
+	// intersection des 2 listes
+	possibleTypes.retainAll(generatedTypes);
+	return possibleTypes;
+
+    }
+    @Override
+    public List<?> getTypesForTarget(IAdaptable source, IElementType relationshipType) {
+
+	
+	// on recupere tout les types possible générés par le generateur
+	List<?> generatedTypes = super.getTypesForSource(source, relationshipType);
+	// on recupere les types présents dans le modele de tools
+	List<?> possibleTypes = getPossibleElementTypes(source);
 
 	// intersection des 2 listes
 	possibleTypes.retainAll(generatedTypes);
@@ -181,66 +94,8 @@ public class CustomModelingAssistantService extends ModelingAssistantService {
 
     }
 
-    /**
-     * Executes the <code>GetTypesForTargetOperation</code> using the
-     * <code>FORWARD</code> execution strategy.
-     */
-
-    public List getTypesForTarget(IAdaptable source, IElementType relationshipType) {
-
-	System.out.println("function : getTypesForSource");
-	// on recupere tout les types possible générés par le generateur
-	List generatedTypes = super.getTypesForSource(source, relationshipType);
-	// on recupere les types présents dans le modele de tools
-	List possibleTypes = getPossibleElementTypes(source);
-
-	// intersection des 2 listes
-	possibleTypes.retainAll(generatedTypes);
-	return possibleTypes;
-
-    }
-
-    /**
-     * Executes the <code>SelectExistingElementForSourceOperation</code> using
-     * the <code>FIRST</code> execution strategy.
-     */
-    public EObject selectExistingElementForSource(IAdaptable target, IElementType relationshipType) {
-	System.out.println("function : selectExistingElementForSource");
-	return super.selectExistingElementForSource(target, relationshipType);
-    }
-
-    /**
-     * Executes the <code>SelectExistingElementForTargetOperation</code> using
-     * the <code>FIRST</code> execution strategy.
-     */
-    public EObject selectExistingElementForTarget(IAdaptable source, IElementType relationshipType) {
-	System.out.println("function : selectExistingElementForTarget");
-	return super.selectExistingElementForTarget(source, relationshipType);
-    }
-
-    /**
-     * Executes the <code>GetTypesForPopupBarOperation</code> using the
-     * <code>FORWARD</code> execution strategy.
-     */
-    /*
-     * public List getTypesForPopupBar(IAdaptable host) { List results =
-     * execute(ExecutionStrategy.FORWARD, new
-     * GetTypesForPopupBarOperation(host)); return collapseList(results); }
-     */
-
-    /**
-     * Executes the <code>GetTypesForPopupBarOperation</code> using the
-     * <code>FORWARD</code> execution strategy.
-     * 
-     * @see org.eclipse.gmf.runtime.emf.ui.services.modelingassistant.IModelingAssistantProvider#getTypesForActionBar(IAdaptable)
-     * @deprecated Renamed to {@link #getTypesForPopupBar(IAdaptable)}
-     */
-
-    public List getTypesForActionBar(IAdaptable host) {
-	return super.getTypesForActionBar(host);
-    }
-
-    private List getPossibleElementTypes(IAdaptable element) {
+    
+    private List<?> getPossibleElementTypes(IAdaptable element) {
 	IGraphicalEditPart editPart = (IGraphicalEditPart) element.getAdapter(IGraphicalEditPart.class);
 
 	// type du diagrame courant
@@ -290,7 +145,7 @@ public class CustomModelingAssistantService extends ModelingAssistantService {
 
     }
 
-    private List getPossibleRelTypes(IAdaptable element) {
+    private List<?> getPossibleRelTypes(IAdaptable element) {
 	IGraphicalEditPart editPart = (IGraphicalEditPart) element.getAdapter(IGraphicalEditPart.class);
 
 	// type du diagrame courant
@@ -340,6 +195,9 @@ public class CustomModelingAssistantService extends ModelingAssistantService {
 
     }
 
+    /*
+     * Return the element type of the link obj, return null if obj is not a link
+     */
     private IElementType getLinkType(EObject obj, String diagram) {
 	int visualID;
 	switch (diagram) {
@@ -431,6 +289,9 @@ public class CustomModelingAssistantService extends ModelingAssistantService {
 	return null;
     }
 
+    /*
+     * Return the element type of the node obj, return null if obj is not a node or is not defined
+     */
     private IElementType getElementType(View containerview, EObject obj, String diagram) {
 	int visualID;
 
@@ -441,7 +302,7 @@ public class CustomModelingAssistantService extends ModelingAssistantService {
 		return null;
 	    }
 	    visualID = org.eclipse.papyrus.uml.diagram.clazz.part.UMLVisualIDRegistry.getNodeVisualID(containerview, obj);
-	    // Objets speciauw a enlever du popup :
+	    // Objets speciaux a enlever du popup :
 	    if (visualID == DefaultNamedElementEditPart.VISUAL_ID) {
 		return null;
 	    }

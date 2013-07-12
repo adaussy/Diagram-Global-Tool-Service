@@ -10,6 +10,8 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.services.editpolicy.CreateEditPoliciesOperation;
 import org.eclipse.gmf.runtime.diagram.ui.services.editpolicy.IEditPolicyProvider;
+import org.eclipse.papyrus.dgts.connectionhandle.editpolicies.CustomConnectionHandleEditPolicy;
+import org.eclipse.papyrus.dgts.connectionhandle.editpolicies.CustomContainerNodeEditPolicy;
 
 public class CustomEditPolicyProvider extends AbstractProvider implements
 		IEditPolicyProvider {
@@ -26,10 +28,8 @@ public class CustomEditPolicyProvider extends AbstractProvider implements
 			editPart.installEditPolicy(org.eclipse.gef.EditPolicy.GRAPHICAL_NODE_ROLE,
 					new CustomContainerNodeEditPolicy());
 		}
-		
-		
+			
 	}
-
 
 	public boolean provides(IOperation operation) {
 		if (operation instanceof CreateEditPoliciesOperation) {
