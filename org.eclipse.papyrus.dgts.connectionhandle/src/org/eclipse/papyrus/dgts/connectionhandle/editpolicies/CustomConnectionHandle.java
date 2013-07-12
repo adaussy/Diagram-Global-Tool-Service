@@ -17,7 +17,7 @@ public CustomConnectionHandle(IGraphicalEditPart ownerEditPart,
 	}
 
 protected DragTracker createDragTracker() {
-	return new ConnectionHandleTool(this);
+	return new CustomConnectionHandleTool(this);
 }
 
 }

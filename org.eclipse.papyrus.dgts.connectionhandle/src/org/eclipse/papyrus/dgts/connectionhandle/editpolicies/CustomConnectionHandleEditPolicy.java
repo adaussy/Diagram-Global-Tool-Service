@@ -27,7 +27,6 @@ import org.eclipse.gef.tools.SelectionTool;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DiagramAssistantEditPolicy;
-import org.eclipse.gmf.runtime.diagram.ui.handles.ConnectionHandle;
 import org.eclipse.gmf.runtime.diagram.ui.handles.ConnectionHandleLocator;
 import org.eclipse.gmf.runtime.diagram.ui.handles.ConnectionHandle.HandleDirection;
 import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramUIMessages;
@@ -76,7 +75,7 @@ public class CustomConnectionHandleEditPolicy extends DiagramAssistantEditPolicy
      * #isDiagramAssistant(java.lang.Object)
      */
     protected boolean isDiagramAssistant(Object object) {
-	return object instanceof ConnectionHandle;
+	return object instanceof CustomConnectionHandle;
     }
 
     /**
@@ -92,7 +91,7 @@ public class CustomConnectionHandleEditPolicy extends DiagramAssistantEditPolicy
 	String tooltip;
 	tooltip = buildTooltip(HandleDirection.INCOMING);
 	if (tooltip != null) {
-	    list.add(new ConnectionHandle((IGraphicalEditPart) getHost(), HandleDirection.INCOMING, tooltip){
+	    list.add(new CustomConnectionHandle((IGraphicalEditPart) getHost(), HandleDirection.INCOMING, tooltip){
 		
 		@Override
 		public void handleMouseEntered(MouseEvent event) {
@@ -111,7 +110,7 @@ public class CustomConnectionHandleEditPolicy extends DiagramAssistantEditPolicy
 
 	tooltip = buildTooltip(HandleDirection.OUTGOING);
 	if (tooltip != null) {
-	    list.add(new ConnectionHandle((IGraphicalEditPart) getHost(), HandleDirection.OUTGOING, tooltip){
+	    list.add(new CustomConnectionHandle((IGraphicalEditPart) getHost(), HandleDirection.OUTGOING, tooltip){
 		@Override
 		public void handleMouseEntered(MouseEvent event) { 
 		   mouseHover = true;
@@ -189,7 +188,7 @@ public class CustomConnectionHandleEditPolicy extends DiagramAssistantEditPolicy
 	ConnectionHandleLocator locator = getConnectionHandleLocator(referencePoint);
 	IFigure layer = getLayer(LayerConstants.HANDLE_LAYER);
 	for (Iterator iter = handles.iterator(); iter.hasNext();) {
-	    ConnectionHandle handle = (ConnectionHandle) iter.next();
+	    CustomConnectionHandle handle = (CustomConnectionHandle) iter.next();
 
 	    handle.setLocator(locator);
 	    locator.addHandle(handle);
@@ -292,7 +291,7 @@ public class CustomConnectionHandleEditPolicy extends DiagramAssistantEditPolicy
      *            the connection handle.
      * @since 1.2
      */
-    public void addHandle(ConnectionHandle aHandle) {
+    public void addHandle(CustomConnectionHandle aHandle) {
 	handles.add(aHandle);
     }
 

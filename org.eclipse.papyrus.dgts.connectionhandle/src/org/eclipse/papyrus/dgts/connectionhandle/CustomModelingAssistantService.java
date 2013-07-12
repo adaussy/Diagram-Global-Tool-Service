@@ -8,10 +8,12 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.gmf.runtime.common.core.service.ExecutionStrategy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.ui.internal.MslUIPlugin;
+import org.eclipse.gmf.runtime.emf.ui.services.modelingassistant.GetRelTypesOnSourceAndTargetOperation;
 import org.eclipse.gmf.runtime.emf.ui.services.modelingassistant.ModelingAssistantService;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.papyrus.dgts.service.DgtsResourceLoader;
@@ -52,6 +54,7 @@ public class CustomModelingAssistantService extends ModelingAssistantService {
     @Override
     public List<?> getRelTypesOnSource(IAdaptable source) {
 	return getPossibleRelTypes(source);
+	
     }
     @Override
     public List<?> getRelTypesOnTarget(IAdaptable target) {
@@ -65,6 +68,13 @@ public class CustomModelingAssistantService extends ModelingAssistantService {
     public List<?> getRelTypesForSREOnTarget(IAdaptable target) {
 	return getPossibleRelTypes(target);
     }
+@Override
+public List getRelTypesOnSourceAndTarget(IAdaptable source, IAdaptable target) {
+    return getPossibleRelTypes(source);
+		
+}
+
+    
     @Override
     public List<?> getTypesForSource(IAdaptable target, IElementType relationshipType) {
 
@@ -97,10 +107,11 @@ public class CustomModelingAssistantService extends ModelingAssistantService {
     
     private List<?> getPossibleElementTypes(IAdaptable element) {
 	IGraphicalEditPart editPart = (IGraphicalEditPart) element.getAdapter(IGraphicalEditPart.class);
-
+	
 	// type du diagrame courant
 	DiagramEditPart diagramPart = (DiagramEditPart) editPart.getRoot().getChildren().get(0);
 	String diagramType = diagramPart.getDiagramView().getType();
+	
 
 	// declaration
 	List<IElementType> types = new ArrayList<IElementType>(1);
