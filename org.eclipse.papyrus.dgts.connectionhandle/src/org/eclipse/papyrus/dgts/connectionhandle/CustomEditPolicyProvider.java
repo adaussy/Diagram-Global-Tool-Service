@@ -31,13 +31,13 @@ public class CustomEditPolicyProvider extends AbstractProvider implements
 			
 		}
 		//creation of link and element with the handle system
-		if (editPart instanceof DiagramEditPart) {
+		if (editPart instanceof DiagramEditPart || editPart instanceof CompartmentEditPart) {
 			editPart.installEditPolicy(org.eclipse.gef.EditPolicy.GRAPHICAL_NODE_ROLE,
 					new CustomContainerNodeEditPolicy());
 		}
-		//Creation of link between 2 shapeeditpart
+		//Creation of link between 2 shapeEditpart
 		if (editPart instanceof ShapeEditPart){
-		    	editPart.installEditPolicy(org.eclipse.gef.EditPolicy.GRAPHICAL_NODE_ROLE,
+		    editPart.installEditPolicy(org.eclipse.gef.EditPolicy.GRAPHICAL_NODE_ROLE,
 				new CustomGraphicalNodeEditPolicy());
 		}
 			
@@ -48,7 +48,8 @@ public class CustomEditPolicyProvider extends AbstractProvider implements
 			CreateEditPoliciesOperation cepOper = (CreateEditPoliciesOperation) operation;
 			if (cepOper.getEditPart() instanceof  ShapeNodeEditPart ||
 				cepOper.getEditPart() instanceof ShapeEditPart||
-				cepOper.getEditPart() instanceof DiagramEditPart
+				cepOper.getEditPart() instanceof DiagramEditPart||
+				cepOper.getEditPart() instanceof CompartmentEditPart
 				)
 				return true;
 		}

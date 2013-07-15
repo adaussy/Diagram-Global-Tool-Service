@@ -7,8 +7,7 @@ import org.eclipse.gmf.runtime.notation.View;
 
 public class UMLTypesProvider {
    
-    
-    
+
     /*
      * Return the element type of the link obj, return null if obj is not a link
      */
@@ -99,6 +98,20 @@ public class UMLTypesProvider {
 	case "Package":
 	    // TO DO --> le mecanisme est un peu different......c'est la loose.
 
+	
+	
+	//////////////////////SYSML///////////////////////
+	case "BlockDefinition":   
+	    return null;
+	case "InternalBlock": 
+	    return null;
+	case "RequirementDiagram":
+	    return null;
+	    
+	    
+	
+	
+	
 	}
 	return null;
     }
@@ -183,6 +196,17 @@ public class UMLTypesProvider {
 	case "Package":
 	    // TO DO --> le mecanisme est un peu different......c'est la loose.
 
+	    
+	//////////////////////SYSML///////////////////
+	case "BlockDefinition":
+	    return null;
+	case "InternalBlock":
+	    return null;
+	case "RequirementDiagram":
+	    return null;
+	    
+	    
+	    
 	}
 	return null;
     }
