@@ -20,109 +20,109 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  */
 public class DiagramGlobalToolServiceFactoryImpl extends EFactoryImpl implements DiagramGlobalToolServiceFactory {
 	/**
-	 * Creates the default factory implementation.
-	 * <!-- begin-user-doc -->
+         * Creates the default factory implementation.
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	public static DiagramGlobalToolServiceFactory init() {
-		try {
-			DiagramGlobalToolServiceFactory theDiagramGlobalToolServiceFactory = (DiagramGlobalToolServiceFactory)EPackage.Registry.INSTANCE.getEFactory(DiagramGlobalToolServicePackage.eNS_URI);
-			if (theDiagramGlobalToolServiceFactory != null) {
-				return theDiagramGlobalToolServiceFactory;
-			}
-		}
-		catch (Exception exception) {
-			EcorePlugin.INSTANCE.log(exception);
-		}
-		return new DiagramGlobalToolServiceFactoryImpl();
-	}
+                try {
+                        DiagramGlobalToolServiceFactory theDiagramGlobalToolServiceFactory = (DiagramGlobalToolServiceFactory)EPackage.Registry.INSTANCE.getEFactory(DiagramGlobalToolServicePackage.eNS_URI);
+                        if (theDiagramGlobalToolServiceFactory != null) {
+                                return theDiagramGlobalToolServiceFactory;
+                        }
+                }
+                catch (Exception exception) {
+                        EcorePlugin.INSTANCE.log(exception);
+                }
+                return new DiagramGlobalToolServiceFactoryImpl();
+        }
 
 	/**
-	 * Creates an instance of the factory.
-	 * <!-- begin-user-doc -->
+         * Creates an instance of the factory.
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	public DiagramGlobalToolServiceFactoryImpl() {
-		super();
-	}
+                super();
+        }
 
 	/**
-	 * <!-- begin-user-doc -->
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	@Override
 	public EObject create(EClass eClass) {
-		switch (eClass.getClassifierID()) {
-			case DiagramGlobalToolServicePackage.DIAGRAM_GLOBAL_TOOL_DEFINITION: return createDiagramGlobalToolDefinition();
-			case DiagramGlobalToolServicePackage.DIAGRAM_DEFINITION: return createDiagramDefinition();
-			case DiagramGlobalToolServicePackage.DRAWER_DEFINITION: return createDrawerDefinition();
-			case DiagramGlobalToolServicePackage.TOOL_ELEMENT: return createToolElement();
-			default:
-				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
-		}
-	}
+                switch (eClass.getClassifierID()) {
+                        case DiagramGlobalToolServicePackage.DIAGRAM_GLOBAL_TOOL_DEFINITION: return createDiagramGlobalToolDefinition();
+                        case DiagramGlobalToolServicePackage.DIAGRAM_DEFINITION: return createDiagramDefinition();
+                        case DiagramGlobalToolServicePackage.DRAWER_DEFINITION: return createDrawerDefinition();
+                        case DiagramGlobalToolServicePackage.TOOL_ELEMENT: return createToolElement();
+                        default:
+                                throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+                }
+        }
 
 	/**
-	 * <!-- begin-user-doc -->
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	public DiagramGlobalToolDefinition createDiagramGlobalToolDefinition() {
-		DiagramGlobalToolDefinitionImpl diagramGlobalToolDefinition = new DiagramGlobalToolDefinitionImpl();
-		return diagramGlobalToolDefinition;
-	}
+                DiagramGlobalToolDefinitionImpl diagramGlobalToolDefinition = new DiagramGlobalToolDefinitionImpl();
+                return diagramGlobalToolDefinition;
+        }
 
 	/**
-	 * <!-- begin-user-doc -->
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	public DiagramDefinition createDiagramDefinition() {
-		DiagramDefinitionImpl diagramDefinition = new DiagramDefinitionImpl();
-		return diagramDefinition;
-	}
+                DiagramDefinitionImpl diagramDefinition = new DiagramDefinitionImpl();
+                return diagramDefinition;
+        }
 
 	/**
-	 * <!-- begin-user-doc -->
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	public DrawerDefinition createDrawerDefinition() {
-		DrawerDefinitionImpl drawerDefinition = new DrawerDefinitionImpl();
-		return drawerDefinition;
-	}
+                DrawerDefinitionImpl drawerDefinition = new DrawerDefinitionImpl();
+                return drawerDefinition;
+        }
 
 	/**
-	 * <!-- begin-user-doc -->
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	public ToolElement createToolElement() {
-		ToolElementImpl toolElement = new ToolElementImpl();
-		return toolElement;
-	}
+                ToolElementImpl toolElement = new ToolElementImpl();
+                return toolElement;
+        }
 
 	/**
-	 * <!-- begin-user-doc -->
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	public DiagramGlobalToolServicePackage getDiagramGlobalToolServicePackage() {
-		return (DiagramGlobalToolServicePackage)getEPackage();
-	}
+                return (DiagramGlobalToolServicePackage)getEPackage();
+        }
 
 	/**
-	 * <!-- begin-user-doc -->
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @deprecated
-	 * @generated
-	 */
+         * @deprecated
+         * @generated
+         */
 	@Deprecated
 	public static DiagramGlobalToolServicePackage getPackage() {
-		return DiagramGlobalToolServicePackage.eINSTANCE;
-	}
+                return DiagramGlobalToolServicePackage.eINSTANCE;
+        }
 
 } //DiagramGlobalToolServiceFactoryImpl

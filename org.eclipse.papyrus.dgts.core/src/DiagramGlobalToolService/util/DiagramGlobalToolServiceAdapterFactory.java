@@ -18,154 +18,154 @@ import org.eclipse.emf.ecore.EObject;
  */
 public class DiagramGlobalToolServiceAdapterFactory extends AdapterFactoryImpl {
 	/**
-	 * The cached model package.
-	 * <!-- begin-user-doc -->
+         * The cached model package.
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	protected static DiagramGlobalToolServicePackage modelPackage;
 
 	/**
-	 * Creates an instance of the adapter factory.
-	 * <!-- begin-user-doc -->
+         * Creates an instance of the adapter factory.
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	public DiagramGlobalToolServiceAdapterFactory() {
-		if (modelPackage == null) {
-			modelPackage = DiagramGlobalToolServicePackage.eINSTANCE;
-		}
-	}
+                if (modelPackage == null) {
+                        modelPackage = DiagramGlobalToolServicePackage.eINSTANCE;
+                }
+        }
 
 	/**
-	 * Returns whether this factory is applicable for the type of the object.
-	 * <!-- begin-user-doc -->
+         * Returns whether this factory is applicable for the type of the object.
+         * <!-- begin-user-doc -->
 	 * This implementation returns <code>true</code> if the object is either the model's package or is an instance object of the model.
 	 * <!-- end-user-doc -->
-	 * @return whether this factory is applicable for the type of the object.
-	 * @generated
-	 */
+         * @return whether this factory is applicable for the type of the object.
+         * @generated
+         */
 	@Override
 	public boolean isFactoryForType(Object object) {
-		if (object == modelPackage) {
-			return true;
-		}
-		if (object instanceof EObject) {
-			return ((EObject)object).eClass().getEPackage() == modelPackage;
-		}
-		return false;
-	}
+                if (object == modelPackage) {
+                        return true;
+                }
+                if (object instanceof EObject) {
+                        return ((EObject)object).eClass().getEPackage() == modelPackage;
+                }
+                return false;
+        }
 
 	/**
-	 * The switch that delegates to the <code>createXXX</code> methods.
-	 * <!-- begin-user-doc -->
+         * The switch that delegates to the <code>createXXX</code> methods.
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	protected DiagramGlobalToolServiceSwitch<Adapter> modelSwitch =
 		new DiagramGlobalToolServiceSwitch<Adapter>() {
-			@Override
-			public Adapter caseDiagramGlobalToolDefinition(DiagramGlobalToolDefinition object) {
-				return createDiagramGlobalToolDefinitionAdapter();
-			}
-			@Override
-			public Adapter caseDiagramDefinition(DiagramDefinition object) {
-				return createDiagramDefinitionAdapter();
-			}
-			@Override
-			public Adapter caseDrawerDefinition(DrawerDefinition object) {
-				return createDrawerDefinitionAdapter();
-			}
-			@Override
-			public Adapter caseToolElement(ToolElement object) {
-				return createToolElementAdapter();
-			}
-			@Override
-			public Adapter defaultCase(EObject object) {
-				return createEObjectAdapter();
-			}
-		};
+                        @Override
+                        public Adapter caseDiagramGlobalToolDefinition(DiagramGlobalToolDefinition object) {
+                                return createDiagramGlobalToolDefinitionAdapter();
+                        }
+                        @Override
+                        public Adapter caseDiagramDefinition(DiagramDefinition object) {
+                                return createDiagramDefinitionAdapter();
+                        }
+                        @Override
+                        public Adapter caseDrawerDefinition(DrawerDefinition object) {
+                                return createDrawerDefinitionAdapter();
+                        }
+                        @Override
+                        public Adapter caseToolElement(ToolElement object) {
+                                return createToolElementAdapter();
+                        }
+                        @Override
+                        public Adapter defaultCase(EObject object) {
+                                return createEObjectAdapter();
+                        }
+                };
 
 	/**
-	 * Creates an adapter for the <code>target</code>.
-	 * <!-- begin-user-doc -->
+         * Creates an adapter for the <code>target</code>.
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param target the object to adapt.
-	 * @return the adapter for the <code>target</code>.
-	 * @generated
-	 */
+         * @param target the object to adapt.
+         * @return the adapter for the <code>target</code>.
+         * @generated
+         */
 	@Override
 	public Adapter createAdapter(Notifier target) {
-		return modelSwitch.doSwitch((EObject)target);
-	}
+                return modelSwitch.doSwitch((EObject)target);
+        }
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link DiagramGlobalToolService.DiagramGlobalToolDefinition <em>Diagram Global Tool Definition</em>}'.
-	 * <!-- begin-user-doc -->
+         * Creates a new adapter for an object of class '{@link DiagramGlobalToolService.DiagramGlobalToolDefinition <em>Diagram Global Tool Definition</em>}'.
+         * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see DiagramGlobalToolService.DiagramGlobalToolDefinition
-	 * @generated
-	 */
+         * @return the new adapter.
+         * @see DiagramGlobalToolService.DiagramGlobalToolDefinition
+         * @generated
+         */
 	public Adapter createDiagramGlobalToolDefinitionAdapter() {
-		return null;
-	}
+                return null;
+        }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link DiagramGlobalToolService.DiagramDefinition <em>Diagram Definition</em>}'.
-	 * <!-- begin-user-doc -->
+         * Creates a new adapter for an object of class '{@link DiagramGlobalToolService.DiagramDefinition <em>Diagram Definition</em>}'.
+         * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see DiagramGlobalToolService.DiagramDefinition
-	 * @generated
-	 */
+         * @return the new adapter.
+         * @see DiagramGlobalToolService.DiagramDefinition
+         * @generated
+         */
 	public Adapter createDiagramDefinitionAdapter() {
-		return null;
-	}
+                return null;
+        }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link DiagramGlobalToolService.DrawerDefinition <em>Drawer Definition</em>}'.
-	 * <!-- begin-user-doc -->
+         * Creates a new adapter for an object of class '{@link DiagramGlobalToolService.DrawerDefinition <em>Drawer Definition</em>}'.
+         * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see DiagramGlobalToolService.DrawerDefinition
-	 * @generated
-	 */
+         * @return the new adapter.
+         * @see DiagramGlobalToolService.DrawerDefinition
+         * @generated
+         */
 	public Adapter createDrawerDefinitionAdapter() {
-		return null;
-	}
+                return null;
+        }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link DiagramGlobalToolService.ToolElement <em>Tool Element</em>}'.
-	 * <!-- begin-user-doc -->
+         * Creates a new adapter for an object of class '{@link DiagramGlobalToolService.ToolElement <em>Tool Element</em>}'.
+         * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see DiagramGlobalToolService.ToolElement
-	 * @generated
-	 */
+         * @return the new adapter.
+         * @see DiagramGlobalToolService.ToolElement
+         * @generated
+         */
 	public Adapter createToolElementAdapter() {
-		return null;
-	}
+                return null;
+        }
 
 	/**
-	 * Creates a new adapter for the default case.
-	 * <!-- begin-user-doc -->
+         * Creates a new adapter for the default case.
+         * <!-- begin-user-doc -->
 	 * This default implementation returns null.
 	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @generated
-	 */
+         * @return the new adapter.
+         * @generated
+         */
 	public Adapter createEObjectAdapter() {
-		return null;
-	}
+                return null;
+        }
 
 } //DiagramGlobalToolServiceAdapterFactory

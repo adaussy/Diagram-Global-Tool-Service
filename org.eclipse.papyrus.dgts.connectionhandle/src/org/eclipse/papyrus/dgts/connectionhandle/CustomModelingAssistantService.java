@@ -135,7 +135,7 @@ public List getRelTypesOnSourceAndTarget(IAdaptable source, IAdaptable target) {
 	    for (ToolElement tool : listOfTools) {
 
 		// System.out.println(tool.getTool());
-		EClassifier eClazzifier = UMLPackage.eINSTANCE.getEClassifier(tool.getTool());
+		EClassifier eClazzifier = UMLPackage.eINSTANCE.getEClassifier(tool.getName());
 		if (eClazzifier != null) {
 
 		    IElementType type = null;
@@ -185,12 +185,11 @@ public List getRelTypesOnSourceAndTarget(IAdaptable source, IAdaptable target) {
 	    for (ToolElement tool : listOfTools) {
 
 		// System.out.println(tool.getTool());
-		EClassifier eClazzifier = UMLPackage.eINSTANCE.getEClassifier(tool.getTool());
+		EClassifier eClazzifier = UMLPackage.eINSTANCE.getEClassifier(tool.getName());
 		if (eClazzifier != null) {
 
 		    IElementType type = null;
 		    EObject obj = UMLFactory.eINSTANCE.create((EClass) eClazzifier);
-
 		    type = UMLTypesProvider.getLinkType(obj, diagramType);
 		    if (type != null) {
 			types.add(type);

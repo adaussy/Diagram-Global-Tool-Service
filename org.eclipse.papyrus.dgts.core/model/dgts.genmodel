@@ -20,7 +20,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dgts.ecore#//DrawerDefinition/Name"/>
     </genClasses>
     <genClasses ecoreClass="dgts.ecore#//ToolElement">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dgts.ecore#//ToolElement/Tool"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dgts.ecore#//ToolElement/Name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dgts.ecore#//ToolElement/IElementType"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

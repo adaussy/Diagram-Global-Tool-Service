@@ -78,7 +78,7 @@ public class CustomModelingAssistantService {
 				for (ToolElement tool : listOfTools) {
 	
 					//System.out.println(tool.getTool());
-					EClassifier eClazzifier = UMLPackage.eINSTANCE.getEClassifier(tool.getTool());
+					EClassifier eClazzifier = UMLPackage.eINSTANCE.getEClassifier(tool.getName());
 					if (eClazzifier != null) {
 						
 						
