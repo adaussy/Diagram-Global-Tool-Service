@@ -25,186 +25,186 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public class ToolElementImpl extends MinimalEObjectImpl.Container implements ToolElement {
 	/**
-         * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getName()
-         * @generated
-         * @ordered
-         */
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
         protected static final String NAME_EDEFAULT = null;
         /**
-         * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getName()
-         * @generated
-         * @ordered
-         */
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
         protected String name = NAME_EDEFAULT;
         /**
-         * The default value of the '{@link #getIElementType() <em>IElement Type</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getIElementType() <em>IElement Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getIElementType()
-         * @generated
-         * @ordered
-         */
+	 * @see #getIElementType()
+	 * @generated
+	 * @ordered
+	 */
         protected static final String IELEMENT_TYPE_EDEFAULT = null;
         /**
-         * The cached value of the '{@link #getIElementType() <em>IElement Type</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getIElementType() <em>IElement Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getIElementType()
-         * @generated
-         * @ordered
-         */
+	 * @see #getIElementType()
+	 * @generated
+	 * @ordered
+	 */
         protected String iElementType = IELEMENT_TYPE_EDEFAULT;
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
 	protected ToolElementImpl() {
-                super();
-        }
+		super();
+	}
 
 	/**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
 	@Override
 	protected EClass eStaticClass() {
-                return DiagramGlobalToolServicePackage.Literals.TOOL_ELEMENT;
-        }
+		return DiagramGlobalToolServicePackage.Literals.TOOL_ELEMENT;
+	}
 
 	/**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public String getName() {
-                return name;
-        }
+		return name;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void setName(String newName) {
-                String oldName = name;
-                name = newName;
-                if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, DiagramGlobalToolServicePackage.TOOL_ELEMENT__NAME, oldName, name));
-        }
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DiagramGlobalToolServicePackage.TOOL_ELEMENT__NAME, oldName, name));
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public String getIElementType() {
-                return iElementType;
-        }
+		return iElementType;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void setIElementType(String newIElementType) {
-                String oldIElementType = iElementType;
-                iElementType = newIElementType;
-                if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, DiagramGlobalToolServicePackage.TOOL_ELEMENT__IELEMENT_TYPE, oldIElementType, iElementType));
-        }
+		String oldIElementType = iElementType;
+		iElementType = newIElementType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DiagramGlobalToolServicePackage.TOOL_ELEMENT__IELEMENT_TYPE, oldIElementType, iElementType));
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-                switch (featureID) {
-                        case DiagramGlobalToolServicePackage.TOOL_ELEMENT__NAME:
-                                return getName();
-                        case DiagramGlobalToolServicePackage.TOOL_ELEMENT__IELEMENT_TYPE:
-                                return getIElementType();
-                }
-                return super.eGet(featureID, resolve, coreType);
-        }
+		switch (featureID) {
+			case DiagramGlobalToolServicePackage.TOOL_ELEMENT__NAME:
+				return getName();
+			case DiagramGlobalToolServicePackage.TOOL_ELEMENT__IELEMENT_TYPE:
+				return getIElementType();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-                switch (featureID) {
-                        case DiagramGlobalToolServicePackage.TOOL_ELEMENT__NAME:
-                                setName((String)newValue);
-                                return;
-                        case DiagramGlobalToolServicePackage.TOOL_ELEMENT__IELEMENT_TYPE:
-                                setIElementType((String)newValue);
-                                return;
-                }
-                super.eSet(featureID, newValue);
-        }
+		switch (featureID) {
+			case DiagramGlobalToolServicePackage.TOOL_ELEMENT__NAME:
+				setName((String)newValue);
+				return;
+			case DiagramGlobalToolServicePackage.TOOL_ELEMENT__IELEMENT_TYPE:
+				setIElementType((String)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
 	@Override
 	public void eUnset(int featureID) {
-                switch (featureID) {
-                        case DiagramGlobalToolServicePackage.TOOL_ELEMENT__NAME:
-                                setName(NAME_EDEFAULT);
-                                return;
-                        case DiagramGlobalToolServicePackage.TOOL_ELEMENT__IELEMENT_TYPE:
-                                setIElementType(IELEMENT_TYPE_EDEFAULT);
-                                return;
-                }
-                super.eUnset(featureID);
-        }
+		switch (featureID) {
+			case DiagramGlobalToolServicePackage.TOOL_ELEMENT__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case DiagramGlobalToolServicePackage.TOOL_ELEMENT__IELEMENT_TYPE:
+				setIElementType(IELEMENT_TYPE_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-                switch (featureID) {
-                        case DiagramGlobalToolServicePackage.TOOL_ELEMENT__NAME:
-                                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-                        case DiagramGlobalToolServicePackage.TOOL_ELEMENT__IELEMENT_TYPE:
-                                return IELEMENT_TYPE_EDEFAULT == null ? iElementType != null : !IELEMENT_TYPE_EDEFAULT.equals(iElementType);
-                }
-                return super.eIsSet(featureID);
-        }
+		switch (featureID) {
+			case DiagramGlobalToolServicePackage.TOOL_ELEMENT__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case DiagramGlobalToolServicePackage.TOOL_ELEMENT__IELEMENT_TYPE:
+				return IELEMENT_TYPE_EDEFAULT == null ? iElementType != null : !IELEMENT_TYPE_EDEFAULT.equals(iElementType);
+		}
+		return super.eIsSet(featureID);
+	}
 
 	/**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
 	@Override
 	public String toString() {
-                if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-                StringBuffer result = new StringBuffer(super.toString());
-                result.append(" (Name: ");
-                result.append(name);
-                result.append(", IElementType: ");
-                result.append(iElementType);
-                result.append(')');
-                return result.toString();
-        }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (Name: ");
+		result.append(name);
+		result.append(", IElementType: ");
+		result.append(iElementType);
+		result.append(')');
+		return result.toString();
+	}
 
 } //ToolElementImpl

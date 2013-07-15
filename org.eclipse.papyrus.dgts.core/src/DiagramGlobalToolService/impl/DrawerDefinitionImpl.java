@@ -38,185 +38,185 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class DrawerDefinitionImpl extends MinimalEObjectImpl.Container implements DrawerDefinition {
 	/**
-         * The cached value of the '{@link #getToolElementRef() <em>Tool Element Ref</em>}' containment reference list.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getToolElementRef() <em>Tool Element Ref</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-         * @see #getToolElementRef()
-         * @generated
-         * @ordered
-         */
+	 * @see #getToolElementRef()
+	 * @generated
+	 * @ordered
+	 */
 	protected EList<ToolElement> toolElementRef;
 
 	/**
-         * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-         * @see #getName()
-         * @generated
-         * @ordered
-         */
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final String NAME_EDEFAULT = null;
 
 	/**
-         * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-         * @see #getName()
-         * @generated
-         * @ordered
-         */
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
 	protected String name = NAME_EDEFAULT;
 
 	/**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
 	protected DrawerDefinitionImpl() {
-                super();
-        }
+		super();
+	}
 
 	/**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
 	@Override
 	protected EClass eStaticClass() {
-                return DiagramGlobalToolServicePackage.Literals.DRAWER_DEFINITION;
-        }
+		return DiagramGlobalToolServicePackage.Literals.DRAWER_DEFINITION;
+	}
 
 	/**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
 	public EList<ToolElement> getToolElementRef() {
-                if (toolElementRef == null) {
-                        toolElementRef = new EObjectContainmentEList<ToolElement>(ToolElement.class, this, DiagramGlobalToolServicePackage.DRAWER_DEFINITION__TOOL_ELEMENT_REF);
-                }
-                return toolElementRef;
-        }
+		if (toolElementRef == null) {
+			toolElementRef = new EObjectContainmentEList<ToolElement>(ToolElement.class, this, DiagramGlobalToolServicePackage.DRAWER_DEFINITION__TOOL_ELEMENT_REF);
+		}
+		return toolElementRef;
+	}
 
 	/**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
 	public String getName() {
-                return name;
-        }
+		return name;
+	}
 
 	/**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
 	public void setName(String newName) {
-                String oldName = name;
-                name = newName;
-                if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, DiagramGlobalToolServicePackage.DRAWER_DEFINITION__NAME, oldName, name));
-        }
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DiagramGlobalToolServicePackage.DRAWER_DEFINITION__NAME, oldName, name));
+	}
 
 	/**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-                switch (featureID) {
-                        case DiagramGlobalToolServicePackage.DRAWER_DEFINITION__TOOL_ELEMENT_REF:
-                                return ((InternalEList<?>)getToolElementRef()).basicRemove(otherEnd, msgs);
-                }
-                return super.eInverseRemove(otherEnd, featureID, msgs);
-        }
+		switch (featureID) {
+			case DiagramGlobalToolServicePackage.DRAWER_DEFINITION__TOOL_ELEMENT_REF:
+				return ((InternalEList<?>)getToolElementRef()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
 	/**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-                switch (featureID) {
-                        case DiagramGlobalToolServicePackage.DRAWER_DEFINITION__TOOL_ELEMENT_REF:
-                                return getToolElementRef();
-                        case DiagramGlobalToolServicePackage.DRAWER_DEFINITION__NAME:
-                                return getName();
-                }
-                return super.eGet(featureID, resolve, coreType);
-        }
+		switch (featureID) {
+			case DiagramGlobalToolServicePackage.DRAWER_DEFINITION__TOOL_ELEMENT_REF:
+				return getToolElementRef();
+			case DiagramGlobalToolServicePackage.DRAWER_DEFINITION__NAME:
+				return getName();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-                switch (featureID) {
-                        case DiagramGlobalToolServicePackage.DRAWER_DEFINITION__TOOL_ELEMENT_REF:
-                                getToolElementRef().clear();
-                                getToolElementRef().addAll((Collection<? extends ToolElement>)newValue);
-                                return;
-                        case DiagramGlobalToolServicePackage.DRAWER_DEFINITION__NAME:
-                                setName((String)newValue);
-                                return;
-                }
-                super.eSet(featureID, newValue);
-        }
+		switch (featureID) {
+			case DiagramGlobalToolServicePackage.DRAWER_DEFINITION__TOOL_ELEMENT_REF:
+				getToolElementRef().clear();
+				getToolElementRef().addAll((Collection<? extends ToolElement>)newValue);
+				return;
+			case DiagramGlobalToolServicePackage.DRAWER_DEFINITION__NAME:
+				setName((String)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
 	@Override
 	public void eUnset(int featureID) {
-                switch (featureID) {
-                        case DiagramGlobalToolServicePackage.DRAWER_DEFINITION__TOOL_ELEMENT_REF:
-                                getToolElementRef().clear();
-                                return;
-                        case DiagramGlobalToolServicePackage.DRAWER_DEFINITION__NAME:
-                                setName(NAME_EDEFAULT);
-                                return;
-                }
-                super.eUnset(featureID);
-        }
+		switch (featureID) {
+			case DiagramGlobalToolServicePackage.DRAWER_DEFINITION__TOOL_ELEMENT_REF:
+				getToolElementRef().clear();
+				return;
+			case DiagramGlobalToolServicePackage.DRAWER_DEFINITION__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-                switch (featureID) {
-                        case DiagramGlobalToolServicePackage.DRAWER_DEFINITION__TOOL_ELEMENT_REF:
-                                return toolElementRef != null && !toolElementRef.isEmpty();
-                        case DiagramGlobalToolServicePackage.DRAWER_DEFINITION__NAME:
-                                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-                }
-                return super.eIsSet(featureID);
-        }
+		switch (featureID) {
+			case DiagramGlobalToolServicePackage.DRAWER_DEFINITION__TOOL_ELEMENT_REF:
+				return toolElementRef != null && !toolElementRef.isEmpty();
+			case DiagramGlobalToolServicePackage.DRAWER_DEFINITION__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+		}
+		return super.eIsSet(featureID);
+	}
 
 	/**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
 	@Override
 	public String toString() {
-                if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-                StringBuffer result = new StringBuffer(super.toString());
-                result.append(" (Name: ");
-                result.append(name);
-                result.append(')');
-                return result.toString();
-        }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (Name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
+	}
 
 } //DrawerDefinitionImpl
