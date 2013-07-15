@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Custom
+Bundle-SymbolicName: org.eclipse.papyrus.dgts.connectionhandle;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: org.eclipse.gmf.runtime.diagram.ui.properties,
+ org.eclipse.papyrus.uml.diagram.clazz;bundle-version="0.10.0",
+ org.eclipse.papyrus.dgts.core,
+ org.eclipse.papyrus.dgts.service,
+ org.eclipse.papyrus.uml.diagram.activity;bundle-version="0.10.1",
+ org.eclipse.papyrus.uml.diagram.component;bundle-version="0.10.1",
+ org.eclipse.papyrus.uml.diagram.composite;bundle-version="0.10.1",
+ org.eclipse.papyrus.uml.diagram.statemachine;bundle-version="0.10.1",
+ org.eclipse.gmf.runtime.diagram.ui
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7

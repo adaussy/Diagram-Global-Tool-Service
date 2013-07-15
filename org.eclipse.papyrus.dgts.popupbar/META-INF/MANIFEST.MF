@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Custom
+Bundle-SymbolicName: org.eclipse.papyrus.dgts.popupbar;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: org.eclipse.gmf.runtime.diagram.ui.properties,
+ org.eclipse.gmf.runtime.diagram.ui.render,
+ org.eclipse.papyrus.dgts.core,
+ org.eclipse.papyrus.dgts.service,
+ org.eclipse.papyrus.editor;bundle-version="0.10.1"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7

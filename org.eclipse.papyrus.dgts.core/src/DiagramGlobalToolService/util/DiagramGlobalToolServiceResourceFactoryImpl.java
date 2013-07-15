@@ -15,25 +15,25 @@ import org.eclipse.emf.ecore.resource.impl.ResourceFactoryImpl;
  */
 public class DiagramGlobalToolServiceResourceFactoryImpl extends ResourceFactoryImpl {
 	/**
-	 * Creates an instance of the resource factory.
-	 * <!-- begin-user-doc -->
+         * Creates an instance of the resource factory.
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	public DiagramGlobalToolServiceResourceFactoryImpl() {
-		super();
-	}
+                super();
+        }
 
 	/**
-	 * Creates an instance of the resource.
-	 * <!-- begin-user-doc -->
+         * Creates an instance of the resource.
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	@Override
 	public Resource createResource(URI uri) {
-		Resource result = new DiagramGlobalToolServiceResourceImpl(uri);
-		return result;
-	}
+                Resource result = new DiagramGlobalToolServiceResourceImpl(uri);
+                return result;
+        }
 
 } //DiagramGlobalToolServiceResourceFactoryImpl
