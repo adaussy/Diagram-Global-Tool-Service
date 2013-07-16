@@ -48,12 +48,10 @@ public class CustomModelingAssistantService {
     }
 
     /*
-    private static String getUMLID(String type) {
-	StringBuilder builder = new StringBuilder("org.eclipse.papyrus.uml.diagram.clazz.");
-	builder.append(type);
-	return builder.toString();
-    }
-*/
+     * private static String getUMLID(String type) { StringBuilder builder = new
+     * StringBuilder("org.eclipse.papyrus.uml.diagram.clazz.");
+     * builder.append(type); return builder.toString(); }
+     */
     public List<?> getTypesForPopupBar(IAdaptable host) {
 	IGraphicalEditPart editPart = (IGraphicalEditPart) host.getAdapter(IGraphicalEditPart.class);
 
@@ -79,42 +77,49 @@ public class CustomModelingAssistantService {
 	DiagramDefinition diag = toolsProvider.getDiagram(diagramType, globalDiagramConfiguration);
 	List<AbstractTool> listOfTools = new ArrayList<AbstractTool>();
 	listOfTools = toolsProvider.getTools(diag);
-
+	
+	//TODO recuperer le context !!!!!!!!!!!!!
+	IClientContext clientContext = ClientContextManager.getInstance().getClientContext("org.eclipse.papyrus.uml.diagram.clazz.TypeContext");
+	
+	
+	
+	
 	// traitement de chaque tool
 	if (listOfTools != null) {
 	    for (AbstractTool tool : listOfTools) {
+		if (!(tool.isIsEdge())) {
+		    List<IElementType> possibleTypes = new ArrayList<IElementType>(1);
 
-		List<IElementType> possibleTypes = new ArrayList<IElementType>(1);
+		    // //Methode utilisant le metamodele du Tool
+		    if (tool instanceof ToolMetaModel) {
+			
+			possibleTypes = toolsProvider.getIElementTypesFromToolMetaModel((ToolMetaModel) tool,clientContext);
 
-		// //Methode utilisant le metamodele du Tool
-		if (tool instanceof ToolMetaModel) {
-		    possibleTypes = getTypesFromToolMetaModel((ToolMetaModel) tool);
+		    }
 
-		}
+		    // //Methode utilisant les IelementTypes du tool (plus bas
+		    // niveau)
+		    if (tool instanceof Tool) {
+			possibleTypes = toolsProvider.getIElementTypesFromTool((Tool) tool);
+		    }
 
-		// //Methode utilisant les IelementTypes du tool (plus bas
-		// niveau)
-		if (tool instanceof Tool) {
-		    possibleTypes = getTypesFromElementType((Tool) tool);
-		}
-
-		if (possibleTypes != null) {
-		    for (IElementType type : possibleTypes) {
-			// check if its a visual type or not :
-			if (type != null && (!(type instanceof MetamodelType))) {
-			    // check if the type can be add to the current
-			    // container :
-			    if (isValidateType(type, editPart)) {
-				// dont add if already exist
-				if (!(types.contains(type))) {
-				    types.add(type);
+		    if (possibleTypes != null) {
+			for (IElementType type : possibleTypes) {
+			    // check if its a visual type or not :
+			    if (type != null && (!(type instanceof MetamodelType))) {
+				// check if the type can be add to the current
+				// container :
+				if (isValidType(type, editPart)) {
+				    // dont add if already exist
+				    if (!(types.contains(type))) {
+					types.add(type);
+				    }
 				}
 			    }
 			}
 		    }
 		}
 	    }
-
 	    return types;
 
 	}
@@ -122,40 +127,9 @@ public class CustomModelingAssistantService {
 	return Collections.emptyList();
     }
 
-    // recupere une liste d'element en fonction du metamodele tu tool.
-    private List<IElementType> getTypesFromToolMetaModel(ToolMetaModel tool) {
-	List<IElementType> types = new ArrayList<IElementType>(1);
-	EClassifier eClazzifier = UMLPackage.eINSTANCE.getEClassifier(tool.getMetaModel());
-	if (eClazzifier != null) {
-	    EObject obj = UMLFactory.eINSTANCE.create((EClass) eClazzifier);
-	    IClientContext clientContext = ClientContextManager.getInstance().getClientContext("org.eclipse.papyrus.uml.diagram.clazz.TypeContext");
-	    IElementType[] elementstype = ElementTypeRegistry.getInstance().getAllTypesMatching(obj, clientContext);
-	    for (IElementType type : elementstype) {
-		types.add(type);
-	    }
-	    return types;
-	}
-	return null;
-    }
-    
+   
 
-    private List<IElementType> getTypesFromElementType(Tool tool) {
-	List<IElementType> types = new ArrayList<IElementType>(1);
-	if (tool.getElementTypes() != null) {
-	    for (ElementType type : tool.getElementTypes()) {
-		String ID = type.getElementType();
-		IElementType elementType = ElementTypeRegistry.getInstance().getType(ID);
-		if (elementType != null) {
-		    types.add(elementType);
-		}
-	    }
-	    return types;
-	}
-	return null;
-
-    }
-
-    private boolean isValidateType(IElementType elementType, IGraphicalEditPart host) {
+    private boolean isValidType(IElementType elementType, IGraphicalEditPart host) {
 	CreateViewAndElementRequest request = new CreateViewAndElementRequest(elementType, null);
 	Command cmd = host.getCommand(request);
 	if (cmd != null && cmd.canExecute()) {

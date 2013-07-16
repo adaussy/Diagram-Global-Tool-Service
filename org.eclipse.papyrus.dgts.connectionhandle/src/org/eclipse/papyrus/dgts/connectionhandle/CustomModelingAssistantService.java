@@ -16,6 +16,7 @@ import org.eclipse.gmf.runtime.emf.type.core.ElementTypeRegistry;
 import org.eclipse.gmf.runtime.emf.type.core.IClientContext;
 import org.eclipse.gmf.runtime.emf.type.core.IElementMatcher;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
+import org.eclipse.gmf.runtime.emf.type.core.MetamodelType;
 import org.eclipse.gmf.runtime.emf.ui.internal.MslUIPlugin;
 import org.eclipse.gmf.runtime.emf.ui.services.modelingassistant.ModelingAssistantService;
 import org.eclipse.gmf.runtime.notation.View;
@@ -31,6 +32,8 @@ import org.eclipse.uml2.uml.UMLPackage;
 import DiagramGlobalToolService.DiagramDefinition;
 import DiagramGlobalToolService.DiagramGlobalToolDefinition;
 import DiagramGlobalToolService.AbstractTool;
+import DiagramGlobalToolService.Tool;
+import DiagramGlobalToolService.ToolMetaModel;
 
 @SuppressWarnings("restriction")
 public class CustomModelingAssistantService extends ModelingAssistantService {
@@ -170,7 +173,7 @@ public class CustomModelingAssistantService extends ModelingAssistantService {
 	IGraphicalEditPart editPart = (IGraphicalEditPart) element.getAdapter(IGraphicalEditPart.class);
 	
 	
-	IClientContext clientContext = ClientContextManager.getInstance().getClientContext("org.eclipse.papyrus.uml.diagram.clazz.TypeContext");
+	
 	
 	
 	// type du diagrame courant
@@ -193,10 +196,48 @@ public class CustomModelingAssistantService extends ModelingAssistantService {
 	List<AbstractTool> listOfTools = new ArrayList<AbstractTool>();
 	listOfTools = toolsProvider.getTools(diag);
 
+	//TODO recuperer le context !!!!!!!!!!!!!
+	IClientContext clientContext = ClientContextManager.getInstance().getClientContext("org.eclipse.papyrus.uml.diagram.clazz.TypeContext");
+		
+		
+	
 	// traitement de chaque tool
 	if (listOfTools != null) {
 	    for (AbstractTool tool : listOfTools) {
 
+		if(tool.isIsEdge()){
+		    
+		    List<IElementType> possibleTypes = new ArrayList<IElementType>(1);
+
+		    // //Methode utilisant le metamodele du Tool
+		    if (tool instanceof ToolMetaModel) {
+			possibleTypes = toolsProvider.getIElementTypesFromToolMetaModel((ToolMetaModel) tool,clientContext );
+
+		    }
+
+		    // //Methode utilisant les IelementTypes du tool (plus bas niveau)
+		    if (tool instanceof Tool) {
+			possibleTypes = toolsProvider.getIElementTypesFromTool((Tool) tool);
+		    }
+
+		    if (possibleTypes != null) {
+			for (IElementType type : possibleTypes) {
+			    // check if its a visual type or not :
+			    if (type != null && (!(type instanceof MetamodelType))) {
+				
+				    if (!(types.contains(type))) {
+					types.add(type);
+				    }
+				
+			    }
+			}
+		    }
+		}
+	    }
+	    return types;
+		    
+		
+		/*
 		// System.out.println(tool.getTool());
 		EClassifier eClazzifier = UMLPackage.eINSTANCE.getEClassifier(tool.getName());
 		if (eClazzifier != null) {
@@ -212,9 +253,9 @@ public class CustomModelingAssistantService extends ModelingAssistantService {
 
 		}
 
-	    }
+	    
 
-	    return types;
+	    return types;*/
 
 	}
 	return null;
