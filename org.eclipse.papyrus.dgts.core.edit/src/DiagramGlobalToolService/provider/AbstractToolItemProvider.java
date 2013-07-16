@@ -3,8 +3,7 @@
 package DiagramGlobalToolService.provider;
 
 
-import DiagramGlobalToolService.DiagramGlobalToolDefinition;
-import DiagramGlobalToolService.DiagramGlobalToolServiceFactory;
+import DiagramGlobalToolService.AbstractTool;
 import DiagramGlobalToolService.DiagramGlobalToolServicePackage;
 
 import java.util.Collection;
@@ -15,24 +14,24 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import org.eclipse.emf.ecore.EStructuralFeature;
-
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link DiagramGlobalToolService.DiagramGlobalToolDefinition} object.
+ * This is the item provider adapter for a {@link DiagramGlobalToolService.AbstractTool} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class DiagramGlobalToolDefinitionItemProvider
+public class AbstractToolItemProvider
         extends ItemProviderAdapter
         implements
                 IEditingDomainItemProvider,
@@ -46,7 +45,7 @@ public class DiagramGlobalToolDefinitionItemProvider
          * <!-- end-user-doc -->
          * @generated
          */
-        public DiagramGlobalToolDefinitionItemProvider(AdapterFactory adapterFactory) {
+        public AbstractToolItemProvider(AdapterFactory adapterFactory) {
                 super(adapterFactory);
         }
 
@@ -61,49 +60,65 @@ public class DiagramGlobalToolDefinitionItemProvider
                 if (itemPropertyDescriptors == null) {
                         super.getPropertyDescriptors(object);
 
+                        addNamePropertyDescriptor(object);
+                        addIsEdgePropertyDescriptor(object);
                 }
                 return itemPropertyDescriptors;
         }
 
         /**
-         * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-         * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-         * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+         * This adds a property descriptor for the Name feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        @Override
-        public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-                if (childrenFeatures == null) {
-                        super.getChildrenFeatures(object);
-                        childrenFeatures.add(DiagramGlobalToolServicePackage.Literals.DIAGRAM_GLOBAL_TOOL_DEFINITION__DIAGRAM_DEFINITION_REF);
-                }
-                return childrenFeatures;
+        protected void addNamePropertyDescriptor(Object object) {
+                itemPropertyDescriptors.add
+                        (createItemPropertyDescriptor
+                                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                                 getResourceLocator(),
+                                 getString("_UI_AbstractTool_name_feature"),
+                                 getString("_UI_PropertyDescriptor_description", "_UI_AbstractTool_name_feature", "_UI_AbstractTool_type"),
+                                 DiagramGlobalToolServicePackage.Literals.ABSTRACT_TOOL__NAME,
+                                 true,
+                                 false,
+                                 false,
+                                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                                 null,
+                                 null));
         }
 
         /**
+         * This adds a property descriptor for the Is Edge feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        @Override
-        protected EStructuralFeature getChildFeature(Object object, Object child) {
-                // Check the type of the specified child object and return the proper feature to use for
-                // adding (see {@link AddCommand}) it as a child.
-
-                return super.getChildFeature(object, child);
+        protected void addIsEdgePropertyDescriptor(Object object) {
+                itemPropertyDescriptors.add
+                        (createItemPropertyDescriptor
+                                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                                 getResourceLocator(),
+                                 getString("_UI_AbstractTool_isEdge_feature"),
+                                 getString("_UI_PropertyDescriptor_description", "_UI_AbstractTool_isEdge_feature", "_UI_AbstractTool_type"),
+                                 DiagramGlobalToolServicePackage.Literals.ABSTRACT_TOOL__IS_EDGE,
+                                 true,
+                                 false,
+                                 false,
+                                 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                                 null,
+                                 null));
         }
 
         /**
-         * This returns DiagramGlobalToolDefinition.gif.
+         * This returns AbstractTool.gif.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
         @Override
         public Object getImage(Object object) {
-                return overlayImage(object, getResourceLocator().getImage("full/obj16/DiagramGlobalToolDefinition"));
+                return overlayImage(object, getResourceLocator().getImage("full/obj16/AbstractTool"));
         }
 
         /**
@@ -114,7 +129,10 @@ public class DiagramGlobalToolDefinitionItemProvider
          */
         @Override
         public String getText(Object object) {
-                return getString("_UI_DiagramGlobalToolDefinition_type");
+                String label = ((AbstractTool)object).getName();
+                return label == null || label.length() == 0 ?
+                        getString("_UI_AbstractTool_type") :
+                        getString("_UI_AbstractTool_type") + " " + label;
         }
 
         /**
@@ -128,9 +146,10 @@ public class DiagramGlobalToolDefinitionItemProvider
         public void notifyChanged(Notification notification) {
                 updateChildren(notification);
 
-                switch (notification.getFeatureID(DiagramGlobalToolDefinition.class)) {
-                        case DiagramGlobalToolServicePackage.DIAGRAM_GLOBAL_TOOL_DEFINITION__DIAGRAM_DEFINITION_REF:
-                                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+                switch (notification.getFeatureID(AbstractTool.class)) {
+                        case DiagramGlobalToolServicePackage.ABSTRACT_TOOL__NAME:
+                        case DiagramGlobalToolServicePackage.ABSTRACT_TOOL__IS_EDGE:
+                                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
                                 return;
                 }
                 super.notifyChanged(notification);
@@ -146,11 +165,6 @@ public class DiagramGlobalToolDefinitionItemProvider
         @Override
         protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
                 super.collectNewChildDescriptors(newChildDescriptors, object);
-
-                newChildDescriptors.add
-                        (createChildParameter
-                                (DiagramGlobalToolServicePackage.Literals.DIAGRAM_GLOBAL_TOOL_DEFINITION__DIAGRAM_DEFINITION_REF,
-                                 DiagramGlobalToolServiceFactory.eINSTANCE.createDiagramDefinition()));
         }
 
         /**

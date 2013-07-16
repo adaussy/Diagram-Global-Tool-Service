@@ -3,7 +3,9 @@
 package DiagramGlobalToolService.util;
 
 import org.eclipse.emf.common.util.URI;
+
 import org.eclipse.emf.ecore.resource.Resource;
+
 import org.eclipse.emf.ecore.resource.impl.ResourceFactoryImpl;
 
 /**
@@ -14,26 +16,26 @@ import org.eclipse.emf.ecore.resource.impl.ResourceFactoryImpl;
  * @generated
  */
 public class DiagramGlobalToolServiceResourceFactoryImpl extends ResourceFactoryImpl {
-	/**
-	 * Creates an instance of the resource factory.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DiagramGlobalToolServiceResourceFactoryImpl() {
-		super();
-	}
+        /**
+         * Creates an instance of the resource factory.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public DiagramGlobalToolServiceResourceFactoryImpl() {
+                super();
+        }
 
-	/**
-	 * Creates an instance of the resource.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Resource createResource(URI uri) {
-		Resource result = new DiagramGlobalToolServiceResourceImpl(uri);
-		return result;
-	}
+        /**
+         * Creates an instance of the resource.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        @Override
+        public Resource createResource(URI uri) {
+                Resource result = new DiagramGlobalToolServiceResourceImpl(uri);
+                return result;
+        }
 
 } //DiagramGlobalToolServiceResourceFactoryImpl

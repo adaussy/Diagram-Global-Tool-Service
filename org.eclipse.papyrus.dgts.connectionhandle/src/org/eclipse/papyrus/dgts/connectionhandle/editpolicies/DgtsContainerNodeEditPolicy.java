@@ -5,7 +5,7 @@ import org.eclipse.gmf.runtime.diagram.ui.commands.PromptForConnectionAndEndComm
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ContainerNodeEditPolicy;
 
-public class CustomContainerNodeEditPolicy extends ContainerNodeEditPolicy {
+public class DgtsContainerNodeEditPolicy extends ContainerNodeEditPolicy {
 	
 	
 	@Override

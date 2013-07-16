@@ -17,7 +17,7 @@ import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramWorkbenchPart;
 import org.eclipse.gmf.runtime.diagram.ui.services.palette.PaletteService;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.papyrus.dgts.palette.ToolDefinitionCustomPaletteProvider;
+
 import org.eclipse.papyrus.dgts.service.DgtsResourceLoader;
 import org.eclipse.papyrus.dgts.service.ToolDefinitionResourceProvider;
 import org.eclipse.ui.IEditorPart;

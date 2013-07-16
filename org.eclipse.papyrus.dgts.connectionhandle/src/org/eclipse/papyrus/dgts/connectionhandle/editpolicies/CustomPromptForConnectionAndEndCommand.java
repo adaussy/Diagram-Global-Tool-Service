@@ -35,6 +35,7 @@ import org.eclipse.swt.widgets.Display;
 public class CustomPromptForConnectionAndEndCommand extends PromptForConnectionAndEndCommand {
 
     public CustomPromptForConnectionAndEndCommand(CreateConnectionRequest request, IGraphicalEditPart containerEP) {
+	
 	super(request, containerEP);
 	this.request = request;
 	this.containerEP = containerEP;
@@ -45,17 +46,7 @@ public class CustomPromptForConnectionAndEndCommand extends PromptForConnectionA
      */
     private static String EXISTING_ELEMENT = DiagramUIMessages.ConnectionHandle_Popup_ExistingElement;
 
-    /** Label provider of the popup menu for the connection types. */
-    private ConnectionLabelProvider connectionLabelProvider;
 
-    /** Label provider of the submenus for the other end element. */
-    private static EndLabelProvider endLabelProvider;
-
-    /** Adapts to the connection type result. */
-    private ObjectAdapter connectionAdapter = new ObjectAdapter();
-
-    /** Adapts to the other end type result. */
-    private ObjectAdapter endAdapter = new ObjectAdapter();
 
     /**
      * The request to create a connection. It may contain the connection type or
@@ -162,14 +153,14 @@ public class CustomPromptForConnectionAndEndCommand extends PromptForConnectionA
     protected List getEndMenuContent(Object connectionItem) {
 	if (connectionItem instanceof IElementType) {
 	    IElementType connectionType = (IElementType) connectionItem;
-	    List menuContent = isDirectionReversed() ? CustomModelingAssistantService.getInstance().getTypesForSource(getKnownEnd(), connectionType) : CustomModelingAssistantService.getInstance()
-		    .getTypesForTarget(getKnownEnd(), connectionType);
+	    List menuContent = isDirectionReversed() ? CustomModelingAssistantService.getInstance().getTypesForSourceAndContainer(getKnownEnd(), connectionType,containerEP) : CustomModelingAssistantService.getInstance()
+		    .getTypesForTargetAndContainer(getKnownEnd(), connectionType, containerEP);
+	    
+	    System.out.println(connectionType);
+	    System.out.println(containerEP);
+	    System.out.println(menuContent);
 
-	    menuContent = filterUnsupportedNodeTypes(menuContent);
-
-	    if (!menuContent.isEmpty() && supportsExistingElement(connectionType)) {
-		menuContent.add(EXISTING_ELEMENT);
-	    }
+	 
 
 	    return menuContent;
 	}
@@ -177,29 +168,7 @@ public class CustomPromptForConnectionAndEndCommand extends PromptForConnectionA
     }
 
 
-    /**
-     * Returns a new list with all the types from the list given that can be
-     * created.
-     * 
-     * @param allTypes
-     *            a list of <code>IElementTypes</code>.
-     */
-    private List filterUnsupportedNodeTypes(List allTypes) {
-	List validTypes = new ArrayList();
-	for (Iterator iter = allTypes.iterator(); iter.hasNext();) {
-	    IElementType type = (IElementType) iter.next();
-	    Request createRequest = CreateViewRequestFactory.getCreateShapeRequest(type, containerEP.getDiagramPreferencesHint());
 
-	    EditPart target = containerEP.getTargetEditPart(createRequest);
-	    if (target != null) {
-		Command cmd = target.getCommand(createRequest);
-		if (cmd != null && cmd.canExecute()) {
-		    validTypes.add(type);
-		}
-	    }
-	}
-	return validTypes;
-    }
 
 
     /**
