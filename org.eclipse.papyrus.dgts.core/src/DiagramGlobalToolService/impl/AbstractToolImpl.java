@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class AbstractToolImpl extends MinimalEObjectImpl.Container implements AbstractTool {
+public abstract class AbstractToolImpl extends MinimalEObjectImpl.Container implements AbstractTool {
         /**
          * The default value of the '{@link #getName() <em>Name</em>}' attribute.
          * <!-- begin-user-doc -->

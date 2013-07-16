@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  *
  * @see DiagramGlobalToolService.DiagramGlobalToolServicePackage#getAbstractTool()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface AbstractTool extends EObject {
