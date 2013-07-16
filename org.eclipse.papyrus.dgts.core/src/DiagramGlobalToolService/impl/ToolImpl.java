@@ -5,14 +5,13 @@ package DiagramGlobalToolService.impl;
 import DiagramGlobalToolService.DiagramGlobalToolServicePackage;
 import DiagramGlobalToolService.ElementType;
 import DiagramGlobalToolService.Tool;
-
 import java.util.Collection;
-
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +28,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  */
 public class ToolImpl extends AbstractToolImpl implements Tool {
         /**
-         * The cached value of the '{@link #getElementTypes() <em>Element Types</em>}' reference list.
+         * The cached value of the '{@link #getElementTypes() <em>Element Types</em>}' containment reference list.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @see #getElementTypes()
@@ -64,9 +63,23 @@ public class ToolImpl extends AbstractToolImpl implements Tool {
          */
         public EList<ElementType> getElementTypes() {
                 if (elementTypes == null) {
-                        elementTypes = new EObjectResolvingEList<ElementType>(ElementType.class, this, DiagramGlobalToolServicePackage.TOOL__ELEMENT_TYPES);
+                        elementTypes = new EObjectContainmentEList<ElementType>(ElementType.class, this, DiagramGlobalToolServicePackage.TOOL__ELEMENT_TYPES);
                 }
                 return elementTypes;
+        }
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        @Override
+        public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+                switch (featureID) {
+                        case DiagramGlobalToolServicePackage.TOOL__ELEMENT_TYPES:
+                                return ((InternalEList<?>)getElementTypes()).basicRemove(otherEnd, msgs);
+                }
+                return super.eInverseRemove(otherEnd, featureID, msgs);
         }
 
         /**

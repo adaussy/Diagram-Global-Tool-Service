@@ -260,7 +260,7 @@ public interface DiagramGlobalToolServicePackage extends EPackage {
         int TOOL__IS_EDGE = ABSTRACT_TOOL__IS_EDGE;
 
         /**
-         * The feature id for the '<em><b>Element Types</b></em>' reference list.
+         * The feature id for the '<em><b>Element Types</b></em>' containment reference list.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
@@ -507,10 +507,10 @@ public interface DiagramGlobalToolServicePackage extends EPackage {
         EClass getTool();
 
         /**
-         * Returns the meta object for the reference list '{@link DiagramGlobalToolService.Tool#getElementTypes <em>Element Types</em>}'.
+         * Returns the meta object for the containment reference list '{@link DiagramGlobalToolService.Tool#getElementTypes <em>Element Types</em>}'.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @return the meta object for the reference list '<em>Element Types</em>'.
+         * @return the meta object for the containment reference list '<em>Element Types</em>'.
          * @see DiagramGlobalToolService.Tool#getElementTypes()
          * @see #getTool()
          * @generated
@@ -689,7 +689,7 @@ public interface DiagramGlobalToolServicePackage extends EPackage {
                 EClass TOOL = eINSTANCE.getTool();
 
                 /**
-                 * The meta object literal for the '<em><b>Element Types</b></em>' reference list feature.
+                 * The meta object literal for the '<em><b>Element Types</b></em>' containment reference list feature.
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
                  * @generated

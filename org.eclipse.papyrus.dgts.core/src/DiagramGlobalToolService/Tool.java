@@ -22,7 +22,7 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Tool extends AbstractTool {
         /**
-         * Returns the value of the '<em><b>Element Types</b></em>' reference list.
+         * Returns the value of the '<em><b>Element Types</b></em>' containment reference list.
          * The list contents are of type {@link DiagramGlobalToolService.ElementType}.
          * <!-- begin-user-doc -->
          * <p>
@@ -30,9 +30,9 @@ public interface Tool extends AbstractTool {
          * there really should be more of a description here...
          * </p>
          * <!-- end-user-doc -->
-         * @return the value of the '<em>Element Types</em>' reference list.
+         * @return the value of the '<em>Element Types</em>' containment reference list.
          * @see DiagramGlobalToolService.DiagramGlobalToolServicePackage#getTool_ElementTypes()
-         * @model
+         * @model containment="true"
          * @generated
          */
         EList<ElementType> getElementTypes();
