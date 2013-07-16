@@ -3,7 +3,15 @@ package org.eclipse.papyrus.dgts.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EClassifier;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.gmf.runtime.emf.type.core.ElementTypeRegistry;
+import org.eclipse.gmf.runtime.emf.type.core.IClientContext;
+import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.papyrus.dgts.service.interfaces.IToolsProvider;
+import org.eclipse.uml2.uml.UMLFactory;
+import org.eclipse.uml2.uml.UMLPackage;
 
 import DiagramGlobalToolService.AbstractTool;
 import DiagramGlobalToolService.DiagramDefinition;
@@ -11,6 +19,8 @@ import DiagramGlobalToolService.DiagramGlobalToolDefinition;
 import DiagramGlobalToolService.DrawerDefinition;
 import DiagramGlobalToolService.ElementType;
 import DiagramGlobalToolService.Tool;
+
+import DiagramGlobalToolService.ToolMetaModel;
 
 public class ToolsProvider implements IToolsProvider {
 
@@ -80,4 +90,41 @@ public class ToolsProvider implements IToolsProvider {
 		return null;
 		
 	}
+
+	
+	
+	 // recupere une liste d'element en fonction du metamodele tu tool.
+	    public List<IElementType> getIElementTypesFromToolMetaModel(ToolMetaModel tool, IClientContext clientContext) {
+		List<IElementType> types = new ArrayList<IElementType>(1);
+		EClassifier eClazzifier = UMLPackage.eINSTANCE.getEClassifier(tool.getMetaModel());
+		if (eClazzifier != null) {
+		    EObject obj = UMLFactory.eINSTANCE.create((EClass) eClazzifier);
+		
+		    IElementType[] elementstype = ElementTypeRegistry.getInstance().getAllTypesMatching(obj, clientContext);
+		    for (IElementType type : elementstype) {
+			types.add(type);
+		    }
+		    return types;
+		}
+		return null;
+	    }
+	    // recupere une liste d'IElementType en fonction d'un tool
+	    public List<IElementType> getIElementTypesFromTool(Tool tool) {
+
+		List<IElementType> types = new ArrayList<IElementType>(1);
+		if (tool.getElementTypes() != null) {
+		    for (ElementType type : tool.getElementTypes()) {
+			String ID = type.getElementType();
+			IElementType elementType = ElementTypeRegistry.getInstance().getType(ID);
+			if (elementType != null) {
+			    types.add(elementType);
+			}
+		    }
+		    return types;
+		}
+		return null;
+
+	    }
+	
+
 }
