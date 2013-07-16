@@ -59,7 +59,6 @@ public class DiagramGlobalToolServiceFactoryImpl extends EFactoryImpl implements
                         case DiagramGlobalToolServicePackage.DIAGRAM_GLOBAL_TOOL_DEFINITION: return createDiagramGlobalToolDefinition();
                         case DiagramGlobalToolServicePackage.DIAGRAM_DEFINITION: return createDiagramDefinition();
                         case DiagramGlobalToolServicePackage.DRAWER_DEFINITION: return createDrawerDefinition();
-                        case DiagramGlobalToolServicePackage.ABSTRACT_TOOL: return createAbstractTool();
                         case DiagramGlobalToolServicePackage.TOOL: return createTool();
                         case DiagramGlobalToolServicePackage.ELEMENT_TYPE: return createElementType();
                         case DiagramGlobalToolServicePackage.TOOL_META_MODEL: return createToolMetaModel();
@@ -96,16 +95,6 @@ public class DiagramGlobalToolServiceFactoryImpl extends EFactoryImpl implements
         public DrawerDefinition createDrawerDefinition() {
                 DrawerDefinitionImpl drawerDefinition = new DrawerDefinitionImpl();
                 return drawerDefinition;
-        }
-
-        /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        public AbstractTool createAbstractTool() {
-                AbstractToolImpl abstractTool = new AbstractToolImpl();
-                return abstractTool;
         }
 
         /**

@@ -181,11 +181,6 @@ public class DrawerDefinitionItemProvider
                 newChildDescriptors.add
                         (createChildParameter
                                 (DiagramGlobalToolServicePackage.Literals.DRAWER_DEFINITION__ABSTRACT_TOOL_REF,
-                                 DiagramGlobalToolServiceFactory.eINSTANCE.createAbstractTool()));
-
-                newChildDescriptors.add
-                        (createChildParameter
-                                (DiagramGlobalToolServicePackage.Literals.DRAWER_DEFINITION__ABSTRACT_TOOL_REF,
                                  DiagramGlobalToolServiceFactory.eINSTANCE.createTool()));
 
                 newChildDescriptors.add

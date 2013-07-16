@@ -392,7 +392,7 @@ public class DiagramGlobalToolServicePackageImpl extends EPackageImpl implements
                 initEReference(getDrawerDefinition_AbstractToolRef(), this.getAbstractTool(), null, "AbstractToolRef", null, 0, -1, DrawerDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
                 initEAttribute(getDrawerDefinition_Name(), theEcorePackage.getEString(), "Name", null, 0, 1, DrawerDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-                initEClass(abstractToolEClass, AbstractTool.class, "AbstractTool", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+                initEClass(abstractToolEClass, AbstractTool.class, "AbstractTool", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
                 initEAttribute(getAbstractTool_Name(), theEcorePackage.getEString(), "name", null, 0, 1, AbstractTool.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
                 initEAttribute(getAbstractTool_IsEdge(), theEcorePackage.getEBoolean(), "isEdge", "false", 0, 1, AbstractTool.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

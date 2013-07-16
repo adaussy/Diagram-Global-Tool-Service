@@ -49,15 +49,6 @@ public interface DiagramGlobalToolServiceFactory extends EFactory {
         DrawerDefinition createDrawerDefinition();
 
         /**
-         * Returns a new object of class '<em>Abstract Tool</em>'.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @return a new object of class '<em>Abstract Tool</em>'.
-         * @generated
-         */
-        AbstractTool createAbstractTool();
-
-        /**
          * Returns a new object of class '<em>Tool</em>'.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
