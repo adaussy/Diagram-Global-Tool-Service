@@ -17,7 +17,7 @@ import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramWorkbenchPart;
 import org.eclipse.gmf.runtime.diagram.ui.services.palette.PaletteService;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.papyrus.dgts.palette.ToolDefinitionCustomPaletteProvider;
+
 import org.eclipse.papyrus.dgts.service.DgtsResourceLoader;
 import org.eclipse.papyrus.dgts.service.ToolDefinitionResourceProvider;
 import org.eclipse.ui.IEditorPart;
@@ -53,7 +53,7 @@ public class LoadModelCommandHandler extends AbstractHandler {
 									.LoadResource(file);
 							ToolDefinitionResourceProvider
 									.setResource(resource);
-							UpdatePalette();
+						//	UpdatePalette();
 
 						} catch (IOException e) {
 							// TODO Auto-generated catch block
@@ -68,6 +68,7 @@ public class LoadModelCommandHandler extends AbstractHandler {
 		return null;
 	}
 
+	/*
 	protected void UpdatePalette() {
 		PaletteRoot root = ToolDefinitionCustomPaletteProvider.getRoot();
 		IEditorPart editor = ToolDefinitionCustomPaletteProvider.getEditor();
@@ -77,5 +78,7 @@ public class LoadModelCommandHandler extends AbstractHandler {
 		}
 
 	}
+	
+	*/
 
 }

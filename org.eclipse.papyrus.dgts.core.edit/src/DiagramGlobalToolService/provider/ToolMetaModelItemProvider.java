@@ -3,9 +3,8 @@
 package DiagramGlobalToolService.provider;
 
 
-import DiagramGlobalToolService.DiagramGlobalToolDefinition;
-import DiagramGlobalToolService.DiagramGlobalToolServiceFactory;
 import DiagramGlobalToolService.DiagramGlobalToolServicePackage;
+import DiagramGlobalToolService.ToolMetaModel;
 
 import java.util.Collection;
 import java.util.List;
@@ -13,27 +12,24 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.ResourceLocator;
-
-import org.eclipse.emf.ecore.EStructuralFeature;
-
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link DiagramGlobalToolService.DiagramGlobalToolDefinition} object.
+ * This is the item provider adapter for a {@link DiagramGlobalToolService.ToolMetaModel} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class DiagramGlobalToolDefinitionItemProvider
-        extends ItemProviderAdapter
+public class ToolMetaModelItemProvider
+        extends AbstractToolItemProvider
         implements
                 IEditingDomainItemProvider,
                 IStructuredItemContentProvider,
@@ -46,7 +42,7 @@ public class DiagramGlobalToolDefinitionItemProvider
          * <!-- end-user-doc -->
          * @generated
          */
-        public DiagramGlobalToolDefinitionItemProvider(AdapterFactory adapterFactory) {
+        public ToolMetaModelItemProvider(AdapterFactory adapterFactory) {
                 super(adapterFactory);
         }
 
@@ -61,49 +57,42 @@ public class DiagramGlobalToolDefinitionItemProvider
                 if (itemPropertyDescriptors == null) {
                         super.getPropertyDescriptors(object);
 
+                        addMetaModelPropertyDescriptor(object);
                 }
                 return itemPropertyDescriptors;
         }
 
         /**
-         * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-         * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-         * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+         * This adds a property descriptor for the Meta Model feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        @Override
-        public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-                if (childrenFeatures == null) {
-                        super.getChildrenFeatures(object);
-                        childrenFeatures.add(DiagramGlobalToolServicePackage.Literals.DIAGRAM_GLOBAL_TOOL_DEFINITION__DIAGRAM_DEFINITION_REF);
-                }
-                return childrenFeatures;
+        protected void addMetaModelPropertyDescriptor(Object object) {
+                itemPropertyDescriptors.add
+                        (createItemPropertyDescriptor
+                                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                                 getResourceLocator(),
+                                 getString("_UI_ToolMetaModel_metaModel_feature"),
+                                 getString("_UI_PropertyDescriptor_description", "_UI_ToolMetaModel_metaModel_feature", "_UI_ToolMetaModel_type"),
+                                 DiagramGlobalToolServicePackage.Literals.TOOL_META_MODEL__META_MODEL,
+                                 true,
+                                 false,
+                                 false,
+                                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                                 null,
+                                 null));
         }
 
         /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        @Override
-        protected EStructuralFeature getChildFeature(Object object, Object child) {
-                // Check the type of the specified child object and return the proper feature to use for
-                // adding (see {@link AddCommand}) it as a child.
-
-                return super.getChildFeature(object, child);
-        }
-
-        /**
-         * This returns DiagramGlobalToolDefinition.gif.
+         * This returns ToolMetaModel.gif.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
         @Override
         public Object getImage(Object object) {
-                return overlayImage(object, getResourceLocator().getImage("full/obj16/DiagramGlobalToolDefinition"));
+                return overlayImage(object, getResourceLocator().getImage("full/obj16/ToolMetaModel"));
         }
 
         /**
@@ -114,7 +103,10 @@ public class DiagramGlobalToolDefinitionItemProvider
          */
         @Override
         public String getText(Object object) {
-                return getString("_UI_DiagramGlobalToolDefinition_type");
+                String label = ((ToolMetaModel)object).getName();
+                return label == null || label.length() == 0 ?
+                        getString("_UI_ToolMetaModel_type") :
+                        getString("_UI_ToolMetaModel_type") + " " + label;
         }
 
         /**
@@ -128,9 +120,9 @@ public class DiagramGlobalToolDefinitionItemProvider
         public void notifyChanged(Notification notification) {
                 updateChildren(notification);
 
-                switch (notification.getFeatureID(DiagramGlobalToolDefinition.class)) {
-                        case DiagramGlobalToolServicePackage.DIAGRAM_GLOBAL_TOOL_DEFINITION__DIAGRAM_DEFINITION_REF:
-                                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+                switch (notification.getFeatureID(ToolMetaModel.class)) {
+                        case DiagramGlobalToolServicePackage.TOOL_META_MODEL__META_MODEL:
+                                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
                                 return;
                 }
                 super.notifyChanged(notification);
@@ -146,22 +138,6 @@ public class DiagramGlobalToolDefinitionItemProvider
         @Override
         protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
                 super.collectNewChildDescriptors(newChildDescriptors, object);
-
-                newChildDescriptors.add
-                        (createChildParameter
-                                (DiagramGlobalToolServicePackage.Literals.DIAGRAM_GLOBAL_TOOL_DEFINITION__DIAGRAM_DEFINITION_REF,
-                                 DiagramGlobalToolServiceFactory.eINSTANCE.createDiagramDefinition()));
-        }
-
-        /**
-         * Return the resource locator for this item provider's resources.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        @Override
-        public ResourceLocator getResourceLocator() {
-                return DgtsEditPlugin.INSTANCE;
         }
 
 }

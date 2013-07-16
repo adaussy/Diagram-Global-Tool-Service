@@ -19,110 +19,143 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  * @generated
  */
 public class DiagramGlobalToolServiceFactoryImpl extends EFactoryImpl implements DiagramGlobalToolServiceFactory {
-	/**
-	 * Creates the default factory implementation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static DiagramGlobalToolServiceFactory init() {
-		try {
-			DiagramGlobalToolServiceFactory theDiagramGlobalToolServiceFactory = (DiagramGlobalToolServiceFactory)EPackage.Registry.INSTANCE.getEFactory(DiagramGlobalToolServicePackage.eNS_URI);
-			if (theDiagramGlobalToolServiceFactory != null) {
-				return theDiagramGlobalToolServiceFactory;
-			}
-		}
-		catch (Exception exception) {
-			EcorePlugin.INSTANCE.log(exception);
-		}
-		return new DiagramGlobalToolServiceFactoryImpl();
-	}
+        /**
+         * Creates the default factory implementation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public static DiagramGlobalToolServiceFactory init() {
+                try {
+                        DiagramGlobalToolServiceFactory theDiagramGlobalToolServiceFactory = (DiagramGlobalToolServiceFactory)EPackage.Registry.INSTANCE.getEFactory(DiagramGlobalToolServicePackage.eNS_URI);
+                        if (theDiagramGlobalToolServiceFactory != null) {
+                                return theDiagramGlobalToolServiceFactory;
+                        }
+                }
+                catch (Exception exception) {
+                        EcorePlugin.INSTANCE.log(exception);
+                }
+                return new DiagramGlobalToolServiceFactoryImpl();
+        }
 
-	/**
-	 * Creates an instance of the factory.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DiagramGlobalToolServiceFactoryImpl() {
-		super();
-	}
+        /**
+         * Creates an instance of the factory.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public DiagramGlobalToolServiceFactoryImpl() {
+                super();
+        }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EObject create(EClass eClass) {
-		switch (eClass.getClassifierID()) {
-			case DiagramGlobalToolServicePackage.DIAGRAM_GLOBAL_TOOL_DEFINITION: return createDiagramGlobalToolDefinition();
-			case DiagramGlobalToolServicePackage.DIAGRAM_DEFINITION: return createDiagramDefinition();
-			case DiagramGlobalToolServicePackage.DRAWER_DEFINITION: return createDrawerDefinition();
-			case DiagramGlobalToolServicePackage.TOOL_ELEMENT: return createToolElement();
-			default:
-				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
-		}
-	}
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        @Override
+        public EObject create(EClass eClass) {
+                switch (eClass.getClassifierID()) {
+                        case DiagramGlobalToolServicePackage.DIAGRAM_GLOBAL_TOOL_DEFINITION: return createDiagramGlobalToolDefinition();
+                        case DiagramGlobalToolServicePackage.DIAGRAM_DEFINITION: return createDiagramDefinition();
+                        case DiagramGlobalToolServicePackage.DRAWER_DEFINITION: return createDrawerDefinition();
+                        case DiagramGlobalToolServicePackage.ABSTRACT_TOOL: return createAbstractTool();
+                        case DiagramGlobalToolServicePackage.TOOL: return createTool();
+                        case DiagramGlobalToolServicePackage.ELEMENT_TYPE: return createElementType();
+                        case DiagramGlobalToolServicePackage.TOOL_META_MODEL: return createToolMetaModel();
+                        default:
+                                throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+                }
+        }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DiagramGlobalToolDefinition createDiagramGlobalToolDefinition() {
-		DiagramGlobalToolDefinitionImpl diagramGlobalToolDefinition = new DiagramGlobalToolDefinitionImpl();
-		return diagramGlobalToolDefinition;
-	}
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public DiagramGlobalToolDefinition createDiagramGlobalToolDefinition() {
+                DiagramGlobalToolDefinitionImpl diagramGlobalToolDefinition = new DiagramGlobalToolDefinitionImpl();
+                return diagramGlobalToolDefinition;
+        }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DiagramDefinition createDiagramDefinition() {
-		DiagramDefinitionImpl diagramDefinition = new DiagramDefinitionImpl();
-		return diagramDefinition;
-	}
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public DiagramDefinition createDiagramDefinition() {
+                DiagramDefinitionImpl diagramDefinition = new DiagramDefinitionImpl();
+                return diagramDefinition;
+        }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DrawerDefinition createDrawerDefinition() {
-		DrawerDefinitionImpl drawerDefinition = new DrawerDefinitionImpl();
-		return drawerDefinition;
-	}
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public DrawerDefinition createDrawerDefinition() {
+                DrawerDefinitionImpl drawerDefinition = new DrawerDefinitionImpl();
+                return drawerDefinition;
+        }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ToolElement createToolElement() {
-		ToolElementImpl toolElement = new ToolElementImpl();
-		return toolElement;
-	}
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public AbstractTool createAbstractTool() {
+                AbstractToolImpl abstractTool = new AbstractToolImpl();
+                return abstractTool;
+        }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DiagramGlobalToolServicePackage getDiagramGlobalToolServicePackage() {
-		return (DiagramGlobalToolServicePackage)getEPackage();
-	}
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public Tool createTool() {
+                ToolImpl tool = new ToolImpl();
+                return tool;
+        }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @deprecated
-	 * @generated
-	 */
-	@Deprecated
-	public static DiagramGlobalToolServicePackage getPackage() {
-		return DiagramGlobalToolServicePackage.eINSTANCE;
-	}
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public ElementType createElementType() {
+                ElementTypeImpl elementType = new ElementTypeImpl();
+                return elementType;
+        }
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public ToolMetaModel createToolMetaModel() {
+                ToolMetaModelImpl toolMetaModel = new ToolMetaModelImpl();
+                return toolMetaModel;
+        }
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public DiagramGlobalToolServicePackage getDiagramGlobalToolServicePackage() {
+                return (DiagramGlobalToolServicePackage)getEPackage();
+        }
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @deprecated
+         * @generated
+         */
+        @Deprecated
+        public static DiagramGlobalToolServicePackage getPackage() {
+                return DiagramGlobalToolServicePackage.eINSTANCE;
+        }
 
 } //DiagramGlobalToolServiceFactoryImpl

@@ -1,7 +1,12 @@
 package org.eclipse.papyrus.dgts.service;
 
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.gmf.runtime.emf.type.core.ClientContextManager;
+import org.eclipse.gmf.runtime.emf.type.core.ElementTypeRegistry;
+import org.eclipse.gmf.runtime.emf.type.core.IClientContext;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
+import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
 
 
@@ -12,6 +17,7 @@ public class UMLTypesProvider {
      * Return the element type of the link obj, return null if obj is not a link
      */
     public static IElementType getLinkType(EObject obj, String diagram) {
+	
 	int visualID;
 	switch (diagram) {
 	case "PapyrusUMLClassDiagram":
@@ -98,22 +104,37 @@ public class UMLTypesProvider {
 	case "Package":
 	    // TO DO --> le mecanisme est un peu different......c'est la loose.
 
+	    
 	
 	
+	//sysml
+	
+	
+	String sysmlID = getSysmlID(obj);
+	Object elementType = ElementTypeRegistry.getInstance().getType(sysmlID);
 	//////////////////////SYSML///////////////////////
+	
+	
 	case "BlockDefinition":   
+	    
 	    return null;
 	case "InternalBlock": 
 	    return null;
 	case "RequirementDiagram":
 	    return null;
-	    
+	
 	    
 	
 	
 	
 	}
 	return null;
+    }
+
+    private static String getSysmlID(EObject obj) {
+	StringBuilder builder = new StringBuilder("org.eclipse.papyrus.sysml.");
+	builder.append(obj.eClass().getName());
+	return builder.toString();
     }
 
     /*
@@ -198,6 +219,7 @@ public class UMLTypesProvider {
 
 	    
 	//////////////////////SYSML///////////////////
+	    //is sysml element
 	case "BlockDefinition":
 	    return null;
 	case "InternalBlock":

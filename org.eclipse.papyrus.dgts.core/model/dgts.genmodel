@@ -16,12 +16,21 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dgts.ecore#//DiagramDefinition/DiagramType"/>
     </genClasses>
     <genClasses ecoreClass="dgts.ecore#//DrawerDefinition">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dgts.ecore#//DrawerDefinition/ToolElementRef"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dgts.ecore#//DrawerDefinition/AbstractToolRef"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dgts.ecore#//DrawerDefinition/Name"/>
     </genClasses>
-    <genClasses ecoreClass="dgts.ecore#//ToolElement">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dgts.ecore#//ToolElement/Name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dgts.ecore#//ToolElement/IElementType"/>
+    <genClasses ecoreClass="dgts.ecore#//AbstractTool">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dgts.ecore#//AbstractTool/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dgts.ecore#//AbstractTool/isEdge"/>
+    </genClasses>
+    <genClasses ecoreClass="dgts.ecore#//Tool">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dgts.ecore#//Tool/elementTypes"/>
+    </genClasses>
+    <genClasses ecoreClass="dgts.ecore#//ElementType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dgts.ecore#//ElementType/elementType"/>
+    </genClasses>
+    <genClasses ecoreClass="dgts.ecore#//ToolMetaModel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dgts.ecore#//ToolMetaModel/metaModel"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

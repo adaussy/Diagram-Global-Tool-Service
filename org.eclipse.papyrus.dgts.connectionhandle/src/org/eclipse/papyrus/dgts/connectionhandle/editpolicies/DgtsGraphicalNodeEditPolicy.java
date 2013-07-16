@@ -18,7 +18,7 @@ import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.papyrus.dgts.connectionhandle.CustomModelingAssistantService;
 
 
-public class CustomGraphicalNodeEditPolicy extends GraphicalNodeEditPolicy {
+public class DgtsGraphicalNodeEditPolicy extends GraphicalNodeEditPolicy {
    
     @Override
     protected List getConnectionMenuContent(CreateConnectionRequest request) {

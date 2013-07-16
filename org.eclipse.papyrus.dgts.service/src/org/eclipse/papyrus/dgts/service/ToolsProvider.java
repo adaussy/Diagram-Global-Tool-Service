@@ -2,11 +2,13 @@ package org.eclipse.papyrus.dgts.service;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.eclipse.papyrus.dgts.service.interfaces.IToolsProvider;
+
+import DiagramGlobalToolService.AbstractTool;
 import DiagramGlobalToolService.DiagramDefinition;
 import DiagramGlobalToolService.DiagramGlobalToolDefinition;
 import DiagramGlobalToolService.DrawerDefinition;
-import DiagramGlobalToolService.ToolElement;
 
 public class ToolsProvider implements IToolsProvider {
 
@@ -28,11 +30,11 @@ public class ToolsProvider implements IToolsProvider {
 	}
 
 	// get all tools from a diagram
-	public List<ToolElement> getTools(DiagramDefinition diagram) {
+	public List<AbstractTool> getTools(DiagramDefinition diagram) {
 		if (diagram != null) {
-			List<ToolElement> toolList = new ArrayList<ToolElement>();
+			List<AbstractTool> toolList = new ArrayList<AbstractTool>();
 			for (DrawerDefinition drawer : diagram.getDrawerDefinitionRef()) {
-				for (ToolElement tool : drawer.getToolElementRef()) {
+				for (AbstractTool tool : drawer.getAbstractToolRef()) {
 					toolList.add(tool);
 				}
 			}
@@ -42,10 +44,10 @@ public class ToolsProvider implements IToolsProvider {
 	}
 
 	// get all tools from a given drawer
-	public List<ToolElement> getTools(DrawerDefinition drawer) {
+	public List<AbstractTool> getTools(DrawerDefinition drawer) {
 		if (drawer != null) {
-			List<ToolElement> toolList = new ArrayList<ToolElement>();
-			for (ToolElement tool : drawer.getToolElementRef()) {
+			List<AbstractTool> toolList = new ArrayList<AbstractTool>();
+			for (AbstractTool tool : drawer.getAbstractToolRef()) {
 				toolList.add(tool);
 			}
 			return toolList;
