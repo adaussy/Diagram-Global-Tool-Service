@@ -53,6 +53,7 @@ public class LoadModelCommandHandler extends AbstractHandler {
 									.LoadResource(file);
 							ToolDefinitionResourceProvider
 									.setResource(resource);
+							UpdatePalette();
 
 						} catch (IOException e) {
 							// TODO Auto-generated catch block
