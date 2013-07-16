@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link DiagramGlobalToolService.impl.ToolElementImpl#getName <em>Name</em>}</li>
  *   <li>{@link DiagramGlobalToolService.impl.ToolElementImpl#getIElementType <em>IElement Type</em>}</li>
+ *   <li>{@link DiagramGlobalToolService.impl.ToolElementImpl#isEdge <em>Edge</em>}</li>
  * </ul>
  * </p>
  *
@@ -50,7 +51,7 @@ public class ToolElementImpl extends MinimalEObjectImpl.Container implements Too
 	 * @generated
 	 * @ordered
 	 */
-        protected static final String IELEMENT_TYPE_EDEFAULT = null;
+        protected static final String IELEMENT_TYPE_EDEFAULT = "";
         /**
 	 * The cached value of the '{@link #getIElementType() <em>IElement Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -61,6 +62,24 @@ public class ToolElementImpl extends MinimalEObjectImpl.Container implements Too
 	 */
         protected String iElementType = IELEMENT_TYPE_EDEFAULT;
         /**
+	 * The default value of the '{@link #isEdge() <em>Edge</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isEdge()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean EDGE_EDEFAULT = false;
+								/**
+	 * The cached value of the '{@link #isEdge() <em>Edge</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isEdge()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean edge = EDGE_EDEFAULT;
+								/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -126,6 +145,27 @@ public class ToolElementImpl extends MinimalEObjectImpl.Container implements Too
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isEdge() {
+		return edge;
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEdge(boolean newEdge) {
+		boolean oldEdge = edge;
+		edge = newEdge;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DiagramGlobalToolServicePackage.TOOL_ELEMENT__EDGE, oldEdge, edge));
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -133,6 +173,8 @@ public class ToolElementImpl extends MinimalEObjectImpl.Container implements Too
 				return getName();
 			case DiagramGlobalToolServicePackage.TOOL_ELEMENT__IELEMENT_TYPE:
 				return getIElementType();
+			case DiagramGlobalToolServicePackage.TOOL_ELEMENT__EDGE:
+				return isEdge();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -150,6 +192,9 @@ public class ToolElementImpl extends MinimalEObjectImpl.Container implements Too
 				return;
 			case DiagramGlobalToolServicePackage.TOOL_ELEMENT__IELEMENT_TYPE:
 				setIElementType((String)newValue);
+				return;
+			case DiagramGlobalToolServicePackage.TOOL_ELEMENT__EDGE:
+				setEdge((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -169,6 +214,9 @@ public class ToolElementImpl extends MinimalEObjectImpl.Container implements Too
 			case DiagramGlobalToolServicePackage.TOOL_ELEMENT__IELEMENT_TYPE:
 				setIElementType(IELEMENT_TYPE_EDEFAULT);
 				return;
+			case DiagramGlobalToolServicePackage.TOOL_ELEMENT__EDGE:
+				setEdge(EDGE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -185,6 +233,8 @@ public class ToolElementImpl extends MinimalEObjectImpl.Container implements Too
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case DiagramGlobalToolServicePackage.TOOL_ELEMENT__IELEMENT_TYPE:
 				return IELEMENT_TYPE_EDEFAULT == null ? iElementType != null : !IELEMENT_TYPE_EDEFAULT.equals(iElementType);
+			case DiagramGlobalToolServicePackage.TOOL_ELEMENT__EDGE:
+				return edge != EDGE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -203,6 +253,8 @@ public class ToolElementImpl extends MinimalEObjectImpl.Container implements Too
 		result.append(name);
 		result.append(", IElementType: ");
 		result.append(iElementType);
+		result.append(", Edge: ");
+		result.append(edge);
 		result.append(')');
 		return result.toString();
 	}

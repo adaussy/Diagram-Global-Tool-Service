@@ -58,6 +58,7 @@ public class ToolElementItemProvider
 
 			addNamePropertyDescriptor(object);
 			addIElementTypePropertyDescriptor(object);
+			addEdgePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -107,6 +108,28 @@ public class ToolElementItemProvider
 	}
 
         /**
+	 * This adds a property descriptor for the Edge feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addEdgePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ToolElement_Edge_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ToolElement_Edge_feature", "_UI_ToolElement_type"),
+				 DiagramGlobalToolServicePackage.Literals.TOOL_ELEMENT__EDGE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+								/**
 	 * This returns ToolElement.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -145,6 +168,7 @@ public class ToolElementItemProvider
 		switch (notification.getFeatureID(ToolElement.class)) {
 			case DiagramGlobalToolServicePackage.TOOL_ELEMENT__NAME:
 			case DiagramGlobalToolServicePackage.TOOL_ELEMENT__IELEMENT_TYPE:
+			case DiagramGlobalToolServicePackage.TOOL_ELEMENT__EDGE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

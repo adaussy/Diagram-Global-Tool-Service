@@ -218,6 +218,15 @@ public class DiagramGlobalToolServicePackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getToolElement_Edge() {
+		return (EAttribute)toolElementEClass.getEStructuralFeatures().get(2);
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public DiagramGlobalToolServiceFactory getDiagramGlobalToolServiceFactory() {
 		return (DiagramGlobalToolServiceFactory)getEFactoryInstance();
 	}
@@ -255,6 +264,7 @@ public class DiagramGlobalToolServicePackageImpl extends EPackageImpl implements
 		toolElementEClass = createEClass(TOOL_ELEMENT);
 		createEAttribute(toolElementEClass, TOOL_ELEMENT__NAME);
 		createEAttribute(toolElementEClass, TOOL_ELEMENT__IELEMENT_TYPE);
+		createEAttribute(toolElementEClass, TOOL_ELEMENT__EDGE);
 	}
 
 	/**
@@ -303,7 +313,8 @@ public class DiagramGlobalToolServicePackageImpl extends EPackageImpl implements
 
 		initEClass(toolElementEClass, ToolElement.class, "ToolElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getToolElement_Name(), theEcorePackage.getEString(), "Name", null, 0, 1, ToolElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getToolElement_IElementType(), theEcorePackage.getEString(), "IElementType", null, 0, 1, ToolElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getToolElement_IElementType(), theEcorePackage.getEString(), "IElementType", "", 0, 1, ToolElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getToolElement_Edge(), theEcorePackage.getEBoolean(), "Edge", "false", 0, 1, ToolElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -214,13 +214,22 @@ public interface DiagramGlobalToolServicePackage extends EPackage {
         int TOOL_ELEMENT__IELEMENT_TYPE = 1;
 
         /**
+	 * The feature id for the '<em><b>Edge</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOOL_ELEMENT__EDGE = 2;
+
+								/**
 	 * The number of structural features of the '<em>Tool Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TOOL_ELEMENT_FEATURE_COUNT = 2;
+	int TOOL_ELEMENT_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Tool Element</em>' class.
@@ -350,6 +359,17 @@ public interface DiagramGlobalToolServicePackage extends EPackage {
         EAttribute getToolElement_IElementType();
 
         /**
+	 * Returns the meta object for the attribute '{@link DiagramGlobalToolService.ToolElement#isEdge <em>Edge</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Edge</em>'.
+	 * @see DiagramGlobalToolService.ToolElement#isEdge()
+	 * @see #getToolElement()
+	 * @generated
+	 */
+	EAttribute getToolElement_Edge();
+
+								/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -467,6 +487,14 @@ public interface DiagramGlobalToolServicePackage extends EPackage {
 		 * @generated
 		 */
                 EAttribute TOOL_ELEMENT__IELEMENT_TYPE = eINSTANCE.getToolElement_IElementType();
+
+																/**
+		 * The meta object literal for the '<em><b>Edge</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TOOL_ELEMENT__EDGE = eINSTANCE.getToolElement_Edge();
 
 	}
 
