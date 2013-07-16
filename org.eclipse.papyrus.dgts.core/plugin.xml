@@ -14,10 +14,4 @@
             genModel="model/dgts.genmodel"/>
    </extension>
 
-   <extension point="org.eclipse.emf.ecore.extension_parser">
-      <!-- @generated dgts -->
-      <parser
-            type="diagramglobaltoolservice"
-            class="DiagramGlobalToolService.util.DiagramGlobalToolServiceResourceFactoryImpl"/>
-   </extension>
 </plugin>
