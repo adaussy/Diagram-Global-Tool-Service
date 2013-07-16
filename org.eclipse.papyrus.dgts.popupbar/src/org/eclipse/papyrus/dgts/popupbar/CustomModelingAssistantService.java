@@ -35,6 +35,9 @@ import org.eclipse.uml2.uml.UMLPackage;
 import DiagramGlobalToolService.AbstractTool;
 import DiagramGlobalToolService.DiagramDefinition;
 import DiagramGlobalToolService.DiagramGlobalToolDefinition;
+import DiagramGlobalToolService.ElementType;
+import DiagramGlobalToolService.Tool;
+import DiagramGlobalToolService.ToolMetaModel;
 
 public class CustomModelingAssistantService {
 
@@ -44,30 +47,13 @@ public class CustomModelingAssistantService {
 	return service;
     }
 
-    // test function
-    private List<IElementType> getAllTypeFromName(AbstractTool tool) {
-	List<IElementType> types = new ArrayList<IElementType>(1);
-	EClassifier eClazzifier = UMLPackage.eINSTANCE.getEClassifier(tool.getName());
-	if (eClazzifier != null) {
-	    EObject obj = UMLFactory.eINSTANCE.create((EClass) eClazzifier);
-	    IClientContext clientContext = ClientContextManager.getInstance().getClientContext("org.eclipse.papyrus.uml.diagram.clazz.TypeContext");
-	    IElementType[] elementstype = ElementTypeRegistry.getInstance().getAllTypesMatching(obj, clientContext);
-	    for (IElementType type : elementstype) {
-		
-		types.add(type);
-	    }
-	    return types;
-	}
-	return null;
-    }
-    
+    /*
     private static String getUMLID(String type) {
-   	StringBuilder builder = new StringBuilder("org.eclipse.papyrus.uml.diagram.clazz.");
-   	builder.append(type);
-   	return builder.toString();
-       }
-
-
+	StringBuilder builder = new StringBuilder("org.eclipse.papyrus.uml.diagram.clazz.");
+	builder.append(type);
+	return builder.toString();
+    }
+*/
     public List<?> getTypesForPopupBar(IAdaptable host) {
 	IGraphicalEditPart editPart = (IGraphicalEditPart) host.getAdapter(IGraphicalEditPart.class);
 
@@ -77,7 +63,6 @@ public class CustomModelingAssistantService {
 	// type du diagrame courant
 	DiagramEditPart diagramPart = (DiagramEditPart) editPart.getRoot().getChildren().get(0);
 	String diagramType = diagramPart.getDiagramView().getType();
-	
 
 	// declaration
 	List<IElementType> types = new ArrayList<IElementType>(1);
@@ -98,60 +83,36 @@ public class CustomModelingAssistantService {
 	// traitement de chaque tool
 	if (listOfTools != null) {
 	    for (AbstractTool tool : listOfTools) {
-		
-		
-		
-		/*
-		 * OLD WAY // System.out.println(tool.getTool()); EClassifier
-		 * eClazzifier =
-		 * UMLPackage.eINSTANCE.getEClassifier(tool.getName()); if
-		 * (eClazzifier != null) {
-		 * 
-		 * EObject obj = UMLFactory.eINSTANCE.create((EClass)
-		 * eClazzifier);
-		 * 
-		 * // recupere type correspondant au container a l'objet et au
-		 * // diagrame en cours IElementType type =
-		 * UMLTypesProvider.getElementType(containerview, obj,
-		 * diagramType); //IElementType[] elementstype =
-		 * ElementTypeRegistry.getInstance().getAllTypesMatching(obj,
-		 * clientContext);
-		 * 
-		 * 
-		 * 
-		 * types.add(type);
-		 */
-		
-		
-		
-		/*
-		List <IElementType> typesToTest = getAllTypeFromName(tool);
-		if (typesToTest !=null){
-        		for (IElementType type : typesToTest){
-        		    if (type != null && (!(type instanceof MetamodelType))) {
-        			    CreateViewAndElementRequest request = new CreateViewAndElementRequest(type, null);
-        			    Command cmd = editPart.getCommand(request);
-        			    if (cmd != null && cmd.canExecute()) {
-        				types.add(type);
-        
-        			    }
-        			}
-        		}
-		}*/
-		/*
-		String ID = tool.getIElementType();
-		IElementType elementType = ElementTypeRegistry.getInstance().getType(getUMLID(ID));
-		if (elementType != null) {
-		    CreateViewAndElementRequest request = new CreateViewAndElementRequest(elementType, null);
-		    Command cmd = editPart.getCommand(request);
-		    if (cmd != null && cmd.canExecute()) {
-			types.add(elementType);
 
+		List<IElementType> possibleTypes = new ArrayList<IElementType>(1);
+
+		// //Methode utilisant le metamodele du Tool
+		if (tool instanceof ToolMetaModel) {
+		    possibleTypes = getTypesFromToolMetaModel((ToolMetaModel) tool);
+
+		}
+
+		// //Methode utilisant les IelementTypes du tool (plus bas
+		// niveau)
+		if (tool instanceof Tool) {
+		    possibleTypes = getTypesFromElementType((Tool) tool);
+		}
+
+		if (possibleTypes != null) {
+		    for (IElementType type : possibleTypes) {
+			// check if its a visual type or not :
+			if (type != null && (!(type instanceof MetamodelType))) {
+			    // check if the type can be add to the current
+			    // container :
+			    if (isValidateType(type, editPart)) {
+				// dont add if already exist
+				if (!(types.contains(type))) {
+				    types.add(type);
+				}
+			    }
+			}
 		    }
-		}*/
-		
-		
-
+		}
 	    }
 
 	    return types;
@@ -159,6 +120,48 @@ public class CustomModelingAssistantService {
 	}
 
 	return Collections.emptyList();
+    }
+
+    // recupere une liste d'element en fonction du metamodele tu tool.
+    private List<IElementType> getTypesFromToolMetaModel(ToolMetaModel tool) {
+	List<IElementType> types = new ArrayList<IElementType>(1);
+	EClassifier eClazzifier = UMLPackage.eINSTANCE.getEClassifier(tool.getMetaModel());
+	if (eClazzifier != null) {
+	    EObject obj = UMLFactory.eINSTANCE.create((EClass) eClazzifier);
+	    IClientContext clientContext = ClientContextManager.getInstance().getClientContext("org.eclipse.papyrus.uml.diagram.clazz.TypeContext");
+	    IElementType[] elementstype = ElementTypeRegistry.getInstance().getAllTypesMatching(obj, clientContext);
+	    for (IElementType type : elementstype) {
+		types.add(type);
+	    }
+	    return types;
+	}
+	return null;
+    }
+    
+
+    private List<IElementType> getTypesFromElementType(Tool tool) {
+	List<IElementType> types = new ArrayList<IElementType>(1);
+	if (tool.getElementTypes() != null) {
+	    for (ElementType type : tool.getElementTypes()) {
+		String ID = type.getElementType();
+		IElementType elementType = ElementTypeRegistry.getInstance().getType(ID);
+		if (elementType != null) {
+		    types.add(elementType);
+		}
+	    }
+	    return types;
+	}
+	return null;
+
+    }
+
+    private boolean isValidateType(IElementType elementType, IGraphicalEditPart host) {
+	CreateViewAndElementRequest request = new CreateViewAndElementRequest(elementType, null);
+	Command cmd = host.getCommand(request);
+	if (cmd != null && cmd.canExecute()) {
+	    return true;
+	}
+	return false;
     }
 
 }
