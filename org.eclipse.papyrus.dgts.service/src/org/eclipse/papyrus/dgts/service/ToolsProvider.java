@@ -9,6 +9,8 @@ import DiagramGlobalToolService.AbstractTool;
 import DiagramGlobalToolService.DiagramDefinition;
 import DiagramGlobalToolService.DiagramGlobalToolDefinition;
 import DiagramGlobalToolService.DrawerDefinition;
+import DiagramGlobalToolService.ElementType;
+import DiagramGlobalToolService.Tool;
 
 public class ToolsProvider implements IToolsProvider {
 
@@ -65,5 +67,17 @@ public class ToolsProvider implements IToolsProvider {
 			return drawerList;
 		}
 		return null;
+	}
+	
+	public List<ElementType> getElementTypes(Tool tool){
+		if(tool != null){
+			List<ElementType> elementTypeList = new ArrayList<ElementType>();	
+			for(ElementType elementType : tool.getElementTypes()){
+				elementTypeList.add(elementType);
+			}
+			return elementTypeList ;
+		}
+		return null;
+		
 	}
 }

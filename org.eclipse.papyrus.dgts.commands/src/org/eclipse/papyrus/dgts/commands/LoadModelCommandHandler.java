@@ -53,6 +53,7 @@ public class LoadModelCommandHandler extends AbstractHandler {
 									.LoadResource(file);
 							ToolDefinitionResourceProvider
 									.setResource(resource);
+						//	UpdatePalette();
 
 						} catch (IOException e) {
 							// TODO Auto-generated catch block
@@ -67,6 +68,7 @@ public class LoadModelCommandHandler extends AbstractHandler {
 		return null;
 	}
 	/*
+	/*
 	protected void UpdatePalette() {
 		PaletteRoot root = ToolDefinitionCustomPaletteProvider.getRoot();
 		IEditorPart editor = ToolDefinitionCustomPaletteProvider.getEditor();
@@ -76,5 +78,7 @@ public class LoadModelCommandHandler extends AbstractHandler {
 		}
 
 	}*/
+	
+	*/
 
 }
