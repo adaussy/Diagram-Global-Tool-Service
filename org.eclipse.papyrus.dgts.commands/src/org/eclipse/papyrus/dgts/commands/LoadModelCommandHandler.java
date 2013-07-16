@@ -67,7 +67,7 @@ public class LoadModelCommandHandler extends AbstractHandler {
 		}
 		return null;
 	}
-	/*
+	
 	/*
 	protected void UpdatePalette() {
 		PaletteRoot root = ToolDefinitionCustomPaletteProvider.getRoot();
@@ -79,6 +79,6 @@ public class LoadModelCommandHandler extends AbstractHandler {
 
 	}*/
 	
-	*/
+	
 
 }
