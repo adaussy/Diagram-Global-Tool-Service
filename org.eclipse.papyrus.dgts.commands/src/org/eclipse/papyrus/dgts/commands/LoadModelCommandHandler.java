@@ -67,8 +67,7 @@ public class LoadModelCommandHandler extends AbstractHandler {
 		}
 		return null;
 	}
-	
-	/*
+/*
 	protected void UpdatePalette() {
 		PaletteRoot root = ToolDefinitionCustomPaletteProvider.getRoot();
 		IEditorPart editor = ToolDefinitionCustomPaletteProvider.getEditor();
@@ -77,8 +76,8 @@ public class LoadModelCommandHandler extends AbstractHandler {
 			PaletteService.getInstance().updatePalette(root, editor, content);
 		}
 
+
 	}*/
-	
 	
 
 }

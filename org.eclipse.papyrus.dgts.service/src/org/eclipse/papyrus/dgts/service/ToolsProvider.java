@@ -19,6 +19,7 @@ import DiagramGlobalToolService.DiagramGlobalToolDefinition;
 import DiagramGlobalToolService.DrawerDefinition;
 import DiagramGlobalToolService.ElementType;
 import DiagramGlobalToolService.Tool;
+
 import DiagramGlobalToolService.ToolMetaModel;
 
 public class ToolsProvider implements IToolsProvider {
@@ -89,6 +90,7 @@ public class ToolsProvider implements IToolsProvider {
 		return null;
 		
 	}
+
 	
 	
 	 // recupere une liste d'element en fonction du metamodele tu tool.
@@ -124,5 +126,5 @@ public class ToolsProvider implements IToolsProvider {
 
 	    }
 	
-	
+
 }
