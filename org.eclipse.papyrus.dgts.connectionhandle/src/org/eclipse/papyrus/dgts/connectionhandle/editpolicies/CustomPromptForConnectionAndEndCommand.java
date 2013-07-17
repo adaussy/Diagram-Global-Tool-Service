@@ -155,12 +155,7 @@ public class CustomPromptForConnectionAndEndCommand extends PromptForConnectionA
 	    IElementType connectionType = (IElementType) connectionItem;
 	    List menuContent = isDirectionReversed() ? CustomModelingAssistantService.getInstance().getTypesForSourceAndContainer(getKnownEnd(), connectionType,containerEP) : CustomModelingAssistantService.getInstance()
 		    .getTypesForTargetAndContainer(getKnownEnd(), connectionType, containerEP);
-	    
-	    System.out.println(connectionType);
-	    System.out.println(containerEP);
-	    System.out.println(menuContent);
-
-	 
+	    	 
 
 	    return menuContent;
 	}
