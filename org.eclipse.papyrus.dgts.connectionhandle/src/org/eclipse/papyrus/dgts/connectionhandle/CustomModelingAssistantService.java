@@ -2,36 +2,47 @@ package org.eclipse.papyrus.dgts.connectionhandle;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.gef.EditPart;
+import org.eclipse.gef.commands.Command;
+import org.eclipse.gmf.runtime.diagram.core.edithelpers.CreateElementRequestAdapter;
+import org.eclipse.gmf.runtime.diagram.core.services.ViewService;
+import org.eclipse.gmf.runtime.diagram.core.view.factories.ViewFactory;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.requests.CreateConnectionViewAndElementRequest;
+import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
+import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewRequest;
+import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest.ViewAndElementDescriptor;
+import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewRequest.ViewDescriptor;
+import org.eclipse.gmf.runtime.diagram.ui.services.editpart.EditPartService;
+import org.eclipse.gmf.runtime.diagram.ui.view.factories.ConnectionViewFactory;
 import org.eclipse.gmf.runtime.emf.type.core.ClientContextManager;
-import org.eclipse.gmf.runtime.emf.type.core.ElementTypeRegistry;
 import org.eclipse.gmf.runtime.emf.type.core.IClientContext;
-import org.eclipse.gmf.runtime.emf.type.core.IElementMatcher;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
+import org.eclipse.gmf.runtime.emf.type.core.IHintedType;
 import org.eclipse.gmf.runtime.emf.type.core.MetamodelType;
+import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.ui.internal.MslUIPlugin;
 import org.eclipse.gmf.runtime.emf.ui.services.modelingassistant.ModelingAssistantService;
+import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.papyrus.dgts.service.DgtsResourceLoader;
 import org.eclipse.papyrus.dgts.service.ToolDefinitionResourceProvider;
 import org.eclipse.papyrus.dgts.service.ToolsProvider;
-import org.eclipse.papyrus.dgts.service.UMLTypesProvider;
-import org.eclipse.papyrus.infra.extendedtypes.ExtendedTypesRegistry;
-import org.eclipse.uml2.uml.Element;
+import org.eclipse.papyrus.uml.diagram.common.util.ViewServiceUtil;
+import org.eclipse.papyrus.uml.diagram.statemachine.providers.UMLElementTypes;
 import org.eclipse.uml2.uml.UMLFactory;
-import org.eclipse.uml2.uml.UMLPackage;
 
+import DiagramGlobalToolService.AbstractTool;
 import DiagramGlobalToolService.DiagramDefinition;
 import DiagramGlobalToolService.DiagramGlobalToolDefinition;
-import DiagramGlobalToolService.AbstractTool;
 import DiagramGlobalToolService.Tool;
 import DiagramGlobalToolService.ToolMetaModel;
 
@@ -58,68 +69,131 @@ public class CustomModelingAssistantService extends ModelingAssistantService {
 
     @Override
     public List<?> getRelTypesOnSource(IAdaptable source) {
-	return getPossibleRelTypes(source);
+	IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source.getAdapter(IGraphicalEditPart.class);
+	EClass sourceEClass = sourceEditPart.resolveSemanticElement().eClass();
+	
+	List<IElementType> types = new ArrayList<IElementType>();
+	List<IElementType> possibleTypes = getPossibleRelTypes(source);
+	if (possibleTypes != null) {
+	    for (IElementType type : possibleTypes) {
+		EClass typeEClass = type.getEClass();
+		 if (isValidRelationForSource(typeEClass, sourceEClass)) {
+		 types.add(type);
+		 }
+	    }
+	    return types;
+	}
+	return null;
 
     }
 
     @Override
     public List<?> getRelTypesOnTarget(IAdaptable target) {
-	return getPossibleRelTypes(target);
-    }
+	IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target.getAdapter(IGraphicalEditPart.class);
+	EClass sourceEClass = targetEditPart.resolveSemanticElement().eClass();
+	
+	List<IElementType> types = new ArrayList<IElementType>();
+	List<IElementType> possibleTypes = getPossibleRelTypes(target);
+	if (possibleTypes != null) {
+	    for (IElementType type : possibleTypes) {
+		EClass typeEClass = type.getEClass();
+		 if (isValidRelationForTarget(typeEClass, sourceEClass)) {
+		 types.add(type);
+		 }
+	    }
+	    return types;
+	}
+	return null;
 
-    @Override
-    public List<?> getRelTypesForSREOnSource(IAdaptable source) {
-	return getPossibleRelTypes(source);
-    }
-
-    @Override
-    public List<?> getRelTypesForSREOnTarget(IAdaptable target) {
-	return getPossibleRelTypes(target);
     }
 
     @Override
     public List<?> getRelTypesOnSourceAndTarget(IAdaptable source, IAdaptable target) {
-	return getPossibleRelTypes(source);
+
+	IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source.getAdapter(IGraphicalEditPart.class);
+	IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target.getAdapter(IGraphicalEditPart.class);
+	System.out.println("source : "+sourceEditPart);
+	System.out.println("target : "+targetEditPart);
+	List<IElementType> types = new ArrayList<IElementType>();
+	List<IElementType> possibleTypes = getPossibleRelTypes(source);
+	if (possibleTypes != null) {
+	    for (IElementType type : possibleTypes) {
+
+		if (isValidRelationForSourceAndTarget(type, sourceEditPart, targetEditPart)) {
+		  
+		    types.add(type);
+		}
+
+	    }
+	    return types;
+	}
+	return null;
 
     }
 
     public List<?> getTypesForSourceAndContainer(IAdaptable target, IElementType relationshipType, IGraphicalEditPart container) {
 	
-	//TODO : recuperer les types possibles directement depuis le modèle et non pas avec la fonction super.getTypesFor source, qui ne renvoie pas toujours ce qu'il faut.
-	
-	// on recupere tout les types possible générés
-	List<?> generatedTypes = super.getTypesForSource(target, relationshipType);
-	if (generatedTypes!=null){
-	// on recupere les types présents dans le modele de tools
-	List<?> possibleTypes = getPossibleElementTypes(container);
+	List<IElementType> types = new ArrayList<IElementType>();
+	List<IElementType> possibleTypes = getPossibleElementTypes(container);
 
-	// intersection des 2 listes
-	possibleTypes.retainAll(generatedTypes);
-	return possibleTypes;
+	EClass relationEClass = relationshipType.getEClass();
+	if (possibleTypes != null) {
+	    for (IElementType type : possibleTypes) {
+		
+		
+		
+		EClass targetEClass = type.getEClass();
+		if (isValidSource(relationEClass, targetEClass)) {
+
+		    // check if we can create the element at this place
+		    if (isValidType(type, container)) {
+			String semanticHint = ((IHintedType)type).getSemanticHint();
+			System.out.println(semanticHint);
+		
+			types.add(type);
+			
+
+		    }
+		}
+
+	    }
+	    return types;
 	}
+
 	return null;
 
     }
 
-    public List<?> getTypesForTargetAndContainer(IAdaptable source, IElementType relationshipType, IGraphicalEditPart container) {
+    public List<IElementType> getTypesForTargetAndContainer(IAdaptable source, IElementType relationshipType, IGraphicalEditPart container) {
 	
-	//TODO : recuperer les types possibles directement depuis le modèle et non pas avec la fonction super.getTypesFor source, qui ne renvoie pas toujours ce qu'il faut.
-	
-	// on recupere tout les types possible générés
-	List<?> generatedTypes = super.getTypesForTarget(source, relationshipType);
-	
-	if (generatedTypes != null) {
-	 // on recupere les types présents dans le modele de tools
-	    List<?> possibleTypes = getPossibleElementTypes(container);
+	List<IElementType> types = new ArrayList<IElementType>();
+	List<IElementType> possibleTypes = getPossibleElementTypes(container);
 
-	    // intersection des 2 listes
-	    possibleTypes.retainAll(generatedTypes);
-	    return possibleTypes;
+	EClass relationEClass = relationshipType.getEClass();
+	if (possibleTypes != null) {
+	    for (IElementType type : possibleTypes) {
+
+		EClass targetEClass = type.getEClass();
+		if (isValidTarget(relationEClass, targetEClass)) {
+
+		    // check if we can create the element at this place
+		    if (isValidType(type, container)) {
+
+			types.add(type);
+			// System.out.println(relationEClass.getName()+" with "+eRef.getName()+" for type "+type.getDisplayName());
+
+		    }
+
+		}
+
+	    }
+	    return types;
 	}
+
 	return null;
     }
 
-    private List<?> getPossibleElementTypes(IAdaptable element) {
+    private List<IElementType> getPossibleElementTypes(IAdaptable element) {
 	IGraphicalEditPart editPart = (IGraphicalEditPart) element.getAdapter(IGraphicalEditPart.class);
 
 	// type du diagrame courant
@@ -142,40 +216,52 @@ public class CustomModelingAssistantService extends ModelingAssistantService {
 	List<AbstractTool> listOfTools = new ArrayList<AbstractTool>();
 	listOfTools = toolsProvider.getTools(diag);
 
+	// TODO recuperer le context !!!!!!!!!!!!!
+	IClientContext clientContext = ClientContextManager.getInstance().getClientContext("org.eclipse.papyrus.uml.diagram.clazz.TypeContext");
+
 	// traitement de chaque tool
 	if (listOfTools != null) {
 	    for (AbstractTool tool : listOfTools) {
 
-		// System.out.println(tool.getTool());
-		EClassifier eClazzifier = UMLPackage.eINSTANCE.getEClassifier(tool.getName());
-		if (eClazzifier != null) {
+		if (!(tool.isIsEdge())) {
 
-		    IElementType type = null;
-		    EObject obj = UMLFactory.eINSTANCE.create((EClass) eClazzifier);
+		    List<IElementType> possibleTypes = new ArrayList<IElementType>(1);
 
-		    type = UMLTypesProvider.getElementType(containerview, obj, diagramType);
-		    if (type != null) {
-			types.add(type);
+		    // //Methode utilisant le metamodele du Tool
+		    if (tool instanceof ToolMetaModel) {
+			possibleTypes = toolsProvider.getIElementTypesFromToolMetaModel((ToolMetaModel) tool, clientContext);
 		    }
 
+		    // //Methode utilisant les IelementTypes du tool (plus bas
+		    // niveau)
+		    if (tool instanceof Tool) {
+			possibleTypes = toolsProvider.getIElementTypesFromTool((Tool) tool);
+		    }
+
+		    if (possibleTypes != null) {
+			for (IElementType type : possibleTypes) {
+			    // check if its a visual type or not :
+			    if (type != null && (!(type instanceof MetamodelType))) {
+
+				if (!(types.contains(type))) {
+				    types.add(type);
+				}
+
+			    }
+			}
+		    }
 		}
 
 	    }
 
 	    return types;
-
 	}
 	return null;
-
     }
 
-    private List<?> getPossibleRelTypes(IAdaptable element) {
+    private List<IElementType> getPossibleRelTypes(IAdaptable element) {
 	IGraphicalEditPart editPart = (IGraphicalEditPart) element.getAdapter(IGraphicalEditPart.class);
-	
-	
-	
-	
-	
+
 	// type du diagrame courant
 	DiagramEditPart diagramPart = (DiagramEditPart) editPart.getRoot().getChildren().get(0);
 	String diagramType = diagramPart.getDiagramView().getType();
@@ -196,26 +282,25 @@ public class CustomModelingAssistantService extends ModelingAssistantService {
 	List<AbstractTool> listOfTools = new ArrayList<AbstractTool>();
 	listOfTools = toolsProvider.getTools(diag);
 
-	//TODO recuperer le context !!!!!!!!!!!!!
+	// TODO recuperer le context !!!!!!!!!!!!!
 	IClientContext clientContext = ClientContextManager.getInstance().getClientContext("org.eclipse.papyrus.uml.diagram.clazz.TypeContext");
-		
-		
-	
+
 	// traitement de chaque tool
 	if (listOfTools != null) {
 	    for (AbstractTool tool : listOfTools) {
 
-		if(tool.isIsEdge()){
-		    
+		if (tool.isIsEdge()) {
+
 		    List<IElementType> possibleTypes = new ArrayList<IElementType>(1);
 
 		    // //Methode utilisant le metamodele du Tool
 		    if (tool instanceof ToolMetaModel) {
-			possibleTypes = toolsProvider.getIElementTypesFromToolMetaModel((ToolMetaModel) tool,clientContext );
+			possibleTypes = toolsProvider.getIElementTypesFromToolMetaModel((ToolMetaModel) tool, clientContext);
 
 		    }
 
-		    // //Methode utilisant les IelementTypes du tool (plus bas niveau)
+		    // //Methode utilisant les IelementTypes du tool (plus bas
+		    // niveau)
 		    if (tool instanceof Tool) {
 			possibleTypes = toolsProvider.getIElementTypesFromTool((Tool) tool);
 		    }
@@ -224,42 +309,78 @@ public class CustomModelingAssistantService extends ModelingAssistantService {
 			for (IElementType type : possibleTypes) {
 			    // check if its a visual type or not :
 			    if (type != null && (!(type instanceof MetamodelType))) {
-				
-				    if (!(types.contains(type))) {
-					types.add(type);
-				    }
-				
+				if (!(types.contains(type))) {
+				    types.add(type);
+				}
+
 			    }
 			}
 		    }
 		}
 	    }
+
 	    return types;
-		    
-		
-		/*
-		// System.out.println(tool.getTool());
-		EClassifier eClazzifier = UMLPackage.eINSTANCE.getEClassifier(tool.getName());
-		if (eClazzifier != null) {
-
-		    IElementType type = null;
-		    EObject obj = UMLFactory.eINSTANCE.create((EClass) eClazzifier);
-		    type = UMLTypesProvider.getLinkType(obj, diagramType);
-		    IElementType elementTypeTest = ElementTypeRegistry.getInstance().getElementType((EClass)eClazzifier, clientContext);
-		    IElementType[] elementstype = ElementTypeRegistry.getInstance().getAllTypesMatching(obj, clientContext);
-		    if (type != null) {
-			types.add(type);
-		    }
-
-		}
-
-	    
-
-	    return types;*/
 
 	}
 	return null;
 
     }
+
+    private boolean isValidSource(EClass relation, EClass source) {
+	return hasReferenceTo(relation, source);
+
+    }
+
+    private boolean isValidTarget(EClass relation, EClass target) {
+
+	return hasReferenceTo(relation, target);
+    }
+
+    private boolean isValidRelationForSource(EClass relation, EClass source) {
+
+	return hasReferenceTo(source, relation);
+    }
+    private boolean isValidRelationForTarget(EClass relation, EClass source) {
+
+	return hasReferenceTo(source, relation);
+    }
+
+    private boolean isValidRelationForSourceAndTarget(IElementType relationType, EditPart sourceEditPart, EditPart targetEditPart) {
+
+	CreateConnectionViewAndElementRequest request = new CreateConnectionViewAndElementRequest(relationType, null);
+	
+	Command cmd = CreateConnectionViewAndElementRequest.getCreateCommand(request, sourceEditPart, targetEditPart);
+	if (cmd != null && cmd.canExecute()) {
+	    return true;
+	}
+	return false;
+    }
+
+    private boolean isValidType(IElementType elementType, IGraphicalEditPart host) {
+	CreateViewAndElementRequest request = new CreateViewAndElementRequest(elementType, null);
+	Command cmd = host.getCommand(request);
+	if (cmd != null && cmd.canExecute()) {
+	    
+	    return true;
+	}
+	return false;
+    }
+    
+    private boolean hasReferenceTo(EClass eClass, EClass eClassReferenced) {
+
+ 	for (EReference eRef : eClass.getEAllReferences()) {
+ 	    if (!eRef.isContainment() && !eRef.isDerived() && !eRef.isUnsettable()) {
+ 		EClassifier typeEC = eRef.getEType();
+ 		if (typeEC instanceof EClass) {
+ 		    EClass typeEClass = (EClass) typeEC;
+ 		    if (typeEClass.isSuperTypeOf(eClassReferenced)) {
+
+ 			return true;
+ 		    }
+ 		}
+ 	    }
+ 	}
+ 	return false;
+     }
 
 }

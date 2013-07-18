@@ -120,6 +120,7 @@ public class CustomModelingAssistantService {
 		    }
 		}
 	    }
+	    
 	    return types;
 
 	}

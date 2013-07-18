@@ -1,21 +1,11 @@
 package org.eclipse.papyrus.dgts.connectionhandle.editpolicies;
 
-/******************************************************************************
- * Copyright (c) 2003, 2009 IBM Corporation and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *    IBM Corporation - initial API and implementation 
- ****************************************************************************/
+
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.FigureListener;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.MouseEvent;
@@ -27,22 +17,16 @@ import org.eclipse.gef.tools.SelectionTool;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DiagramAssistantEditPolicy;
-import org.eclipse.gmf.runtime.diagram.ui.handles.ConnectionHandleLocator;
 import org.eclipse.gmf.runtime.diagram.ui.handles.ConnectionHandle.HandleDirection;
+import org.eclipse.gmf.runtime.diagram.ui.handles.ConnectionHandleLocator;
 import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramUIMessages;
-import org.eclipse.gmf.runtime.diagram.ui.preferences.IPreferenceConstants;
-import org.eclipse.gmf.runtime.emf.ui.services.modelingassistant.ModelingAssistantService;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.papyrus.dgts.connectionhandle.CustomModelingAssistantService;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Cursor;
 import org.eclipse.swt.widgets.Display;
 
-/**
- * This editpolicy is responsible for adding the connection handles to a shape.
- * 
- * @author cmahoney
- */
+
 public class CustomConnectionHandleEditPolicy extends DiagramAssistantEditPolicy {
 
     /**
@@ -51,39 +35,25 @@ public class CustomConnectionHandleEditPolicy extends DiagramAssistantEditPolicy
      */
     private class OwnerMovedListener implements FigureListener {
 
-	/**
-	 * @see org.eclipse.draw2d.FigureListener#figureMoved(org.eclipse.draw2d.IFigure)
-	 */
 	public void figureMoved(IFigure source) {
 	    hideDiagramAssistant();
 	}
     }
 
-    /** listener for owner shape movement */
+    // listener for owner shape movement 
     private OwnerMovedListener ownerMovedListener = new OwnerMovedListener();
 
-    /** list of connection handles currently being displayed */
+    //list of connection handles currently being displayed 
     private List handles = null;
 
-    
+    // mouseHover on the handle
     private boolean mouseHover = false;
-    /*
-     * (non-Javadoc)
-     * 
-     * @see
-     * org.eclipse.gmf.runtime.diagram.ui.editpolicies.DiagramAssistantEditPolicy
-     * #isDiagramAssistant(java.lang.Object)
-     */
+  
     protected boolean isDiagramAssistant(Object object) {
 	return object instanceof CustomConnectionHandle;
     }
 
-    /**
-     * Gets the two connection handle figures to be added to this shape if they
-     * support user gestures.
-     * 
-     * @return a list of <code>ConnectionHandle</code> objects
-     */
+    //Add the connections handles figures :
     @SuppressWarnings("unchecked")
     protected List getHandleFigures() {
 	List list = new ArrayList(2);
@@ -93,13 +63,15 @@ public class CustomConnectionHandleEditPolicy extends DiagramAssistantEditPolicy
 	if (tooltip != null) {
 	    list.add(new CustomConnectionHandle((IGraphicalEditPart) getHost(), HandleDirection.INCOMING, tooltip){
 		
+		
+		// if mouse hover
 		@Override
 		public void handleMouseEntered(MouseEvent event) {
 		   mouseHover = true;
 		   super.handleMouseEntered(event);
 		}
 		
-		
+		// if mouse go out
 		@Override
 		public void handleMouseExited(MouseEvent event) {
 		    mouseHover = false;
@@ -111,6 +83,8 @@ public class CustomConnectionHandleEditPolicy extends DiagramAssistantEditPolicy
 	tooltip = buildTooltip(HandleDirection.OUTGOING);
 	if (tooltip != null) {
 	    list.add(new CustomConnectionHandle((IGraphicalEditPart) getHost(), HandleDirection.OUTGOING, tooltip){
+		
+		//if mouse hover
 		@Override
 		public void handleMouseEntered(MouseEvent event) { 
 		   mouseHover = true;
@@ -118,7 +92,7 @@ public class CustomConnectionHandleEditPolicy extends DiagramAssistantEditPolicy
 		}
 		
 		
-		
+		//if mouse go out
 		@Override
 		public void handleMouseExited(MouseEvent event) {
 		    mouseHover = false;
@@ -131,6 +105,8 @@ public class CustomConnectionHandleEditPolicy extends DiagramAssistantEditPolicy
 	return list;
     }
 
+    
+    
     /**
      * Builds the applicable tooltip string based on whether the Modeling
      * Assistant Service supports handle gestures on this element. If no
@@ -145,16 +121,8 @@ public class CustomConnectionHandleEditPolicy extends DiagramAssistantEditPolicy
 	CustomModelingAssistantService service = CustomModelingAssistantService.getInstance();
 
 	boolean supportsCreation = (direction == HandleDirection.OUTGOING) ? !service.getRelTypesOnSource(getHost()).isEmpty() : !service.getRelTypesOnTarget(getHost()).isEmpty();
-
-	boolean supportsSRE = (direction == HandleDirection.OUTGOING) ? !service.getRelTypesForSREOnSource(getHost()).isEmpty() : !service.getRelTypesForSREOnTarget(getHost()).isEmpty();
-
-	if (supportsSRE) {
-	    if (supportsCreation) {
-		return DiagramUIMessages.ConnectionHandle_ToolTip_ShowRelatedElementsAndCreateRelationship;
-	    } else {
-		return DiagramUIMessages.ConnectionHandle_ToolTip_ShowRelatedElementsOnly;
-	    }
-	} else if (supportsCreation) {
+	
+	if (supportsCreation) {
 	    return DiagramUIMessages.ConnectionHandle_ToolTip_CreateRelationshipOnly;
 	}
 	return null;
@@ -172,8 +140,12 @@ public class CustomConnectionHandleEditPolicy extends DiagramAssistantEditPolicy
 	super.deactivate();
     }
 
+    
+    
+    //show the connections handles
     protected void showDiagramAssistant(Point referencePoint) {
-
+	
+	//to avoid double connections handles :
 	hideDiagramAssistant();
 	
 	if (referencePoint == null) {
@@ -210,20 +182,11 @@ public class CustomConnectionHandleEditPolicy extends DiagramAssistantEditPolicy
 	}
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see
-     * org.eclipse.gmf.runtime.diagram.ui.editpolicies.DiagramAssistantEditPolicy
-     * #getPreferenceName()
-     */
-    String getPreferenceName() {
-	return IPreferenceConstants.PREF_SHOW_CONNECTION_HANDLES;
-    }
 
-    /**
-     * Removes the connection handles.
-     */
+  
+
+  
+    // Removes the connection handles.
     protected void hideDiagramAssistant() {
 	if (handles == null) {
 	    return;
@@ -269,13 +232,7 @@ public class CustomConnectionHandleEditPolicy extends DiagramAssistantEditPolicy
 	return new ConnectionHandleLocator(getHostFigure(), referencePoint);
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see
-     * org.eclipse.gmf.runtime.diagram.ui.editpolicies.DiagramAssistantEditPolicy
-     * #isDiagramAssistantShowing()
-     */
+
     protected boolean isDiagramAssistantShowing() {
 	return handles != null;
     }
@@ -284,21 +241,14 @@ public class CustomConnectionHandleEditPolicy extends DiagramAssistantEditPolicy
 	return CustomConnectionHandleEditPolicy.class.getName();
     }
 
-    /**
-     * Add a connection handle to the edit policy.
-     * 
-     * @param aHandle
-     *            the connection handle.
-     * @since 1.2
-     */
     public void addHandle(CustomConnectionHandle aHandle) {
 	handles.add(aHandle);
     }
 
-    /* MON CODE */
+  
     @Override
     protected boolean shouldShowDiagramAssistant() {
-	return getHost().isActive() && isPreferenceOn() && isHostEditable() && isHostResolvable() && isNotMouseHover();
+	return getHost().isActive() && isPreferenceOn() && isHostEditable() && isHostResolvable() && isNotMouseHover() &&isSelectionToolActive();
     }
 
     
@@ -308,7 +258,7 @@ public class CustomConnectionHandleEditPolicy extends DiagramAssistantEditPolicy
     }
     
     
-    // Meme code que DiagramAssistantEditPolicy
+    // Check if host is editable
     private boolean isHostEditable() {
 	if (getHost() instanceof GraphicalEditPart) {
 	    return ((GraphicalEditPart) getHost()).isEditModeEnabled();
@@ -316,13 +266,7 @@ public class CustomConnectionHandleEditPolicy extends DiagramAssistantEditPolicy
 	return true;
     }
 
-    /**
-     * Is the host's semantic reference resolvable (if applicable)?
-     * 
-     * @return true if the semantic reference is resolvable, true if there is no
-     *         semantic reference, and false otherwise
-     */
-    // Meme code que DiagramAssistantEditPolicy
+    // Check if host is resolvable
     private boolean isHostResolvable() {
 	final View view = (View) getHost().getModel();
 	EObject element = view.getElement();
@@ -331,6 +275,5 @@ public class CustomConnectionHandleEditPolicy extends DiagramAssistantEditPolicy
 	}
 	return true;
     }
-    // //////////////////////////////////////////////////////////
 
 }
