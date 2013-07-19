@@ -137,7 +137,7 @@ public class CustomModelingAssistantService {
 	String diagramType = diagramPart.getDiagramView().getType();
 
 	// declaration
-	List<IElementType> types = new ArrayList<IElementType>(1);
+	List<Object> types = new ArrayList<>(1);
 	ToolsProvider toolsProvider = new ToolsProvider();
 
 	// recupere le container
@@ -156,13 +156,13 @@ public class CustomModelingAssistantService {
 	// TODO recuperer le context !!!!!!!!!!!!!
 	IClientContext clientContext = ClientContextManager.getInstance().getClientContext("org.eclipse.papyrus.uml.diagram.clazz.TypeContext");
 	boolean drawerContainType = false;
-
+	
 	if (listOfDrawers != null) {
 
 	    for (DrawerDefinition drawer : listOfDrawers) {
-		// ADD null block to symbolise drawers in the popup bar
+		// ADD "drawerflag" to symbolise adrawer in the popup bar
 		if (drawerContainType) {
-		    types.add(null);
+		    types.add("drawerFlag");
 		}
 		drawerContainType = false;
 		listOfTools = toolsProvider.getTools(drawer);

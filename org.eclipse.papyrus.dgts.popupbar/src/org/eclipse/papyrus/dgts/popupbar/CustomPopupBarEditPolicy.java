@@ -89,6 +89,7 @@ public class CustomPopupBarEditPolicy extends DiagramAssistantEditPolicy {
 		/** The DracgTracker / Tool associatd with the popup bar button */
 		private DragTracker _dragTracker = null;
 
+		private boolean _isDrawerBar;
 		/**
 		 * constructor
 		 * 
@@ -97,12 +98,13 @@ public class CustomPopupBarEditPolicy extends DiagramAssistantEditPolicy {
 		 * @param elementType
 		 * @param theTracker
 		 */
-		public PopupBarDescriptor(String s, Image i, IElementType elementType,
+		public PopupBarDescriptor(boolean isDrawerBar,String s, Image i, IElementType elementType,
 				DragTracker theTracker) {
 			_tooltip = s;
 			_icon = i;
 			_dragTracker = theTracker;
 			_elementType = elementType;
+			_isDrawerBar = isDrawerBar;
 
 		}
 
@@ -131,6 +133,10 @@ public class CustomPopupBarEditPolicy extends DiagramAssistantEditPolicy {
 		 */
 		public final String getToolTip() {
 			return _tooltip;
+		}
+		
+		public final boolean isDrawerBar() {
+			return _isDrawerBar;
 		}
 
 	} // end PopupBarDescriptor
@@ -659,10 +665,11 @@ public class CustomPopupBarEditPolicy extends DiagramAssistantEditPolicy {
 				addPopupBarDescriptor((IElementType) type, IconService
 						.getInstance().getIcon((IElementType) type));
 			}
-			else if (type == null){
-			addPopupBarDescriptor(null,
-				null, null, "drawerBar");
-			}
+			else if (type instanceof String){
+			    if (((String) type).equals("drawerFlag")){
+				addPopupBarDescriptor(true,null,
+				null, null, null);
+			}}
 		}
 		
 	}
@@ -696,10 +703,10 @@ public class CustomPopupBarEditPolicy extends DiagramAssistantEditPolicy {
 	 * @param theTracker
 	 * @param theTip
 	 */
-	protected void addPopupBarDescriptor(IElementType elementType,
+	protected void addPopupBarDescriptor(boolean isDrawerBar,IElementType elementType,
 			Image theImage, DragTracker theTracker, String theTip) {
 
-		PopupBarDescriptor desc = new PopupBarDescriptor(theTip, theImage,
+		PopupBarDescriptor desc = new PopupBarDescriptor(isDrawerBar,theTip, theImage,
 				elementType, theTracker);
 		myPopupBarDescriptors.add(desc);
 
@@ -719,7 +726,7 @@ public class CustomPopupBarEditPolicy extends DiagramAssistantEditPolicy {
 
 		String theTip = NLS.bind(theInputStr, elementType.getDisplayName());
 
-		addPopupBarDescriptor(elementType, theImage, theTracker, theTip);
+		addPopupBarDescriptor(false,elementType, theImage, theTracker, theTip);
 	}
 
 	/**
@@ -742,12 +749,15 @@ public class CustomPopupBarEditPolicy extends DiagramAssistantEditPolicy {
 	 * @param theImage
 	 * @param theTip
 	 */
-	protected void addPopupBarDescriptor(IElementType elementType,
+	protected void addPopupBarDescriptor(boolean isDrawerBar, IElementType elementType,
 			Image theImage, String theTip) {
-
+	    	
+	    
+	
 		PopupBarTool theTracker = new PopupBarTool(getHost(), elementType);
-		PopupBarDescriptor desc = new PopupBarDescriptor(theTip, theImage,
+		PopupBarDescriptor desc = new PopupBarDescriptor(isDrawerBar,theTip, theImage,
 				elementType, theTracker);
+
 		myPopupBarDescriptors.add(desc);
 
 	}
@@ -824,7 +834,7 @@ public class CustomPopupBarEditPolicy extends DiagramAssistantEditPolicy {
 		for (Iterator iter = theList.iterator(); iter.hasNext();) {
 			PopupBarDescriptor theDesc = (PopupBarDescriptor) iter.next();
 
-			if (theDesc.getToolTip().equals("drawerBar")){
+			if (theDesc.isDrawerBar()){
 			    	totalSize = totalSize + DRAWERBAR_WIDTH;
 				Image drawerBarImage = new Image(null,getClass().getResourceAsStream("icons/drawerbar.gif"));
 				
