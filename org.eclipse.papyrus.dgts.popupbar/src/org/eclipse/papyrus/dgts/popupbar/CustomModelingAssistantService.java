@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.gef.commands.Command;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.CompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.internal.editparts.DefaultNodeEditPart;
@@ -35,6 +36,7 @@ import org.eclipse.uml2.uml.UMLPackage;
 import DiagramGlobalToolService.AbstractTool;
 import DiagramGlobalToolService.DiagramDefinition;
 import DiagramGlobalToolService.DiagramGlobalToolDefinition;
+import DiagramGlobalToolService.DrawerDefinition;
 import DiagramGlobalToolService.ElementType;
 import DiagramGlobalToolService.Tool;
 import DiagramGlobalToolService.ToolMetaModel;
@@ -52,6 +54,78 @@ public class CustomModelingAssistantService {
      * StringBuilder("org.eclipse.papyrus.uml.diagram.clazz.");
      * builder.append(type); return builder.toString(); }
      */
+
+    /*
+     * 
+     * public List<?> getTypesForPopupBar(IAdaptable host) { IGraphicalEditPart
+     * editPart = (IGraphicalEditPart)
+     * host.getAdapter(IGraphicalEditPart.class);
+     * 
+     * // IClientContext clientContext = //
+     * ClientContextManager.getInstance().getClientContext
+     * ("org.eclipse.papyrus.uml.diagram.clazz.TypeContext");
+     * 
+     * // type du diagrame courant DiagramEditPart diagramPart =
+     * (DiagramEditPart) editPart.getRoot().getChildren().get(0); String
+     * diagramType = diagramPart.getDiagramView().getType();
+     * 
+     * // declaration List<IElementType> types = new ArrayList<IElementType>(1);
+     * ToolsProvider toolsProvider = new ToolsProvider();
+     * 
+     * // recupere le container // View containerview =
+     * editPart.getNotationView();
+     * 
+     * // recupere le globalDiagramConfiguration actif Resource resource =
+     * ToolDefinitionResourceProvider.getResource(); DiagramGlobalToolDefinition
+     * globalDiagramConfiguration =
+     * DgtsResourceLoader.getDiagramGlobalToolDefinitionFromResource(resource);
+     * 
+     * // recupere la liste des tools correspondant au diagrame
+     * DiagramDefinition diag = toolsProvider.getDiagram(diagramType,
+     * globalDiagramConfiguration); List<AbstractTool> listOfTools = new
+     * ArrayList<AbstractTool>(); listOfTools = toolsProvider.getTools(diag);
+     * 
+     * //TODO recuperer le context !!!!!!!!!!!!! IClientContext clientContext =
+     * ClientContextManager.getInstance().getClientContext(
+     * "org.eclipse.papyrus.uml.diagram.clazz.TypeContext");
+     * 
+     * 
+     * 
+     * 
+     * // traitement de chaque tool if (listOfTools != null) { for (AbstractTool
+     * tool : listOfTools) { if (!(tool.isIsEdge())) { List<IElementType>
+     * possibleTypes = new ArrayList<IElementType>(1);
+     * 
+     * // //Methode utilisant le metamodele du Tool /* if (tool instanceof
+     * ToolMetaModel) {
+     * 
+     * possibleTypes =
+     * toolsProvider.getIElementTypesFromToolMetaModel((ToolMetaModel)
+     * tool,clientContext);
+     * 
+     * }
+     */
+
+    // //Methode utilisant les IelementTypes du tool (plus bas
+    // niveau)
+    /*
+     * if (tool instanceof Tool) { possibleTypes =
+     * toolsProvider.getIElementTypesFromTool((Tool) tool); }
+     * 
+     * if (possibleTypes != null) { for (IElementType type : possibleTypes) { //
+     * check if its a visual type or not : if (type != null && (!(type
+     * instanceof MetamodelType))) { // check if the type can be add to the
+     * current // container : if (isValidType(type, editPart)) { // dont add if
+     * already exist if (!(types.contains(type))) { types.add(type); } } } } } }
+     * }
+     * 
+     * return types;
+     * 
+     * }
+     * 
+     * return Collections.emptyList(); }
+     */
+
     public List<?> getTypesForPopupBar(IAdaptable host) {
 	IGraphicalEditPart editPart = (IGraphicalEditPart) host.getAdapter(IGraphicalEditPart.class);
 
@@ -76,51 +150,61 @@ public class CustomModelingAssistantService {
 	// recupere la liste des tools correspondant au diagrame
 	DiagramDefinition diag = toolsProvider.getDiagram(diagramType, globalDiagramConfiguration);
 	List<AbstractTool> listOfTools = new ArrayList<AbstractTool>();
-	listOfTools = toolsProvider.getTools(diag);
-	
-	//TODO recuperer le context !!!!!!!!!!!!!
+	List<DrawerDefinition> listOfDrawers = new ArrayList<DrawerDefinition>();
+	listOfDrawers = toolsProvider.getDrawers(diag);
+
+	// TODO recuperer le context !!!!!!!!!!!!!
 	IClientContext clientContext = ClientContextManager.getInstance().getClientContext("org.eclipse.papyrus.uml.diagram.clazz.TypeContext");
-	
-	
-	
-	
-	// traitement de chaque tool
-	if (listOfTools != null) {
-	    for (AbstractTool tool : listOfTools) {
-		if (!(tool.isIsEdge())) {
-		    List<IElementType> possibleTypes = new ArrayList<IElementType>(1);
+	boolean drawerContainType = false;
 
-		    // //Methode utilisant le metamodele du Tool
-		    if (tool instanceof ToolMetaModel) {
-			
-			possibleTypes = toolsProvider.getIElementTypesFromToolMetaModel((ToolMetaModel) tool,clientContext);
+	if (listOfDrawers != null) {
 
-		    }
+	    for (DrawerDefinition drawer : listOfDrawers) {
+		// ADD null block to symbolise drawers in the popup bar
+		if (drawerContainType) {
+		    types.add(null);
+		}
+		drawerContainType = false;
+		listOfTools = toolsProvider.getTools(drawer);
+		for (AbstractTool tool : listOfTools) {
+		    if (!(tool.isIsEdge())) {
+			List<IElementType> possibleTypes = new ArrayList<IElementType>(1);
+			// //Methode utilisant le metamodele du Tool
+			if (tool instanceof ToolMetaModel) {
+			    possibleTypes = toolsProvider.getIElementTypesFromToolMetaModel((ToolMetaModel) tool, clientContext);
+			}
 
-		    // //Methode utilisant les IelementTypes du tool (plus bas
-		    // niveau)
-		    if (tool instanceof Tool) {
-			possibleTypes = toolsProvider.getIElementTypesFromTool((Tool) tool);
-		    }
+			// //Methode utilisant les IelementTypes du tool
+			if (tool instanceof Tool) {
+			    possibleTypes = toolsProvider.getIElementTypesFromTool((Tool) tool);
+			}
 
-		    if (possibleTypes != null) {
-			for (IElementType type : possibleTypes) {
-			    // check if its a visual type or not :
-			    if (type != null && (!(type instanceof MetamodelType))) {
-				// check if the type can be add to the current
-				// container :
-				if (isValidType(type, editPart)) {
-				    // dont add if already exist
-				    if (!(types.contains(type))) {
+			if (possibleTypes != null) {
+			    for (IElementType type : possibleTypes) {
+				// check if its a visual type or not :
+
+				if (type != null && (!(type instanceof MetamodelType))) {
+				    // check if the type can be add to the
+				    // current
+				    // container :
+				    if (isValidType(type, editPart)) {
+
+					// dont add if already exist
+					// if (!(types.contains(type))) {
 					types.add(type);
+					drawerContainType = true;
+					// }
 				    }
 				}
 			    }
 			}
+
 		    }
+
 		}
+
 	    }
-	    
+	    System.out.println(types);
 	    return types;
 
 	}
@@ -128,15 +212,25 @@ public class CustomModelingAssistantService {
 	return Collections.emptyList();
     }
 
-   
-
     private boolean isValidType(IElementType elementType, IGraphicalEditPart host) {
+	System.out.println(host);
+	boolean valid = false;
+
 	CreateViewAndElementRequest request = new CreateViewAndElementRequest(elementType, null);
 	Command cmd = host.getCommand(request);
 	if (cmd != null && cmd.canExecute()) {
-	    return true;
+	    valid = true;
 	}
-	return false;
-    }
+	// If we are in a compartement, we test and his parent if this
+	// compartement returned false :
+	if (host instanceof CompartmentEditPart && valid == false) {
+	    host = (IGraphicalEditPart) host.getParent();
+	    cmd = host.getCommand(request);
+	    if (cmd != null && cmd.canExecute()) {
+		valid = true;
+	    }
 
+	}
+	return valid;
+    }
 }

@@ -11,12 +11,14 @@
 
 package org.eclipse.papyrus.dgts.popupbar;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
 import org.eclipse.draw2d.ColorConstants;
+import org.eclipse.draw2d.Figure;
 import org.eclipse.draw2d.FigureCanvas;
 import org.eclipse.draw2d.FigureListener;
 import org.eclipse.draw2d.Graphics;
@@ -166,9 +168,6 @@ public class CustomPopupBarEditPolicy extends DiagramAssistantEditPolicy {
 			return myDisabledImage;
 			
 			
-			
-			
-			
 		}
 
 		/**
@@ -311,12 +310,16 @@ public class CustomPopupBarEditPolicy extends DiagramAssistantEditPolicy {
 		}
 	}
 
-	private static Image IMAGE_POPUPBAR_PLUS = DiagramUIPluginImages
-			.get(DiagramUIPluginImages.IMG_POPUPBAR_PLUS);
+	private static Image IMAGE_POPUPBAR_PLUS = DiagramUIPluginImages.get(DiagramUIPluginImages.IMG_POPUPBAR_PLUS);
 
-	private static Image IMAGE_POPUPBAR = DiagramUIPluginImages
-			.get(DiagramUIPluginImages.IMG_POPUPBAR);
+	private static Image IMAGE_POPUPBAR = DiagramUIPluginImages.get(DiagramUIPluginImages.IMG_POPUPBAR);
 
+	
+	
+	
+	
+	
+	
 	/**
 	 * 
 	 * This is the figure that represents the ballon portion of the popup bar
@@ -526,6 +529,8 @@ public class CustomPopupBarEditPolicy extends DiagramAssistantEditPolicy {
 
 	/** Y postion offset from shape where the balloon top begin. */
 	static private int ACTION_WIDTH_HGT = 30;
+	
+	static private int DRAWERBAR_WIDTH = 5;
 
 	static private int ACTION_BUTTON_START_X = 5;
 
@@ -654,6 +659,10 @@ public class CustomPopupBarEditPolicy extends DiagramAssistantEditPolicy {
 				addPopupBarDescriptor((IElementType) type, IconService
 						.getInstance().getIcon((IElementType) type));
 			}
+			else if (type == null){
+			addPopupBarDescriptor(null,
+				null, null, "drawerBar");
+			}
 		}
 		
 	}
@@ -769,9 +778,35 @@ public class CustomPopupBarEditPolicy extends DiagramAssistantEditPolicy {
 		return myPopupBarDescriptors;
 	}
 
+	
+	
+	
+
+	
+	
 	/**
 	 * initialize the popup bars from the list of action descriptors.
 	 */
+	
+	private class DrawerBarFigure extends Label{
+	    
+	    
+	    public DrawerBarFigure(Image image){
+		
+		super(image);
+		
+		
+		
+		
+	    }
+	   
+	    
+	    
+	}
+	
+	
+	
+	
 	private void initPopupBars() {
 
 		List theList = getPopupBarDescriptors();
@@ -779,11 +814,9 @@ public class CustomPopupBarEditPolicy extends DiagramAssistantEditPolicy {
 			return;
 		}
 		myBalloon = createPopupBarFigure();
+		int totalSize = ACTION_MARGIN_RIGHT;
 
-		int iTotal = ACTION_WIDTH_HGT * theList.size() + ACTION_MARGIN_RIGHT;
-
-		getBalloon().setSize(iTotal,
-				ACTION_WIDTH_HGT + 2 * ACTION_BUTTON_START_Y);
+	
 
 		int xLoc = ACTION_BUTTON_START_X;
 		int yLoc = ACTION_BUTTON_START_Y;
@@ -791,6 +824,24 @@ public class CustomPopupBarEditPolicy extends DiagramAssistantEditPolicy {
 		for (Iterator iter = theList.iterator(); iter.hasNext();) {
 			PopupBarDescriptor theDesc = (PopupBarDescriptor) iter.next();
 
+			if (theDesc.getToolTip().equals("drawerBar")){
+			    	totalSize = totalSize + DRAWERBAR_WIDTH;
+				Image drawerBarImage = new Image(null,getClass().getResourceAsStream("icons/drawerbar.gif"));
+				
+			    	DrawerBarFigure drawerbar = new DrawerBarFigure(drawerBarImage);
+				Rectangle r1 = new Rectangle();
+				r1.setLocation(xLoc, yLoc);
+				xLoc += DRAWERBAR_WIDTH;
+				r1.setSize(DRAWERBAR_WIDTH, ACTION_WIDTH_HGT - ACTION_MARGIN_RIGHT);
+				drawerbar.setBounds(r1);
+				getBalloon().add(drawerbar);
+				drawerbar.setBackgroundColor(ColorConstants.buttonLightest);
+				
+					
+			    
+			}
+			else{
+			totalSize = totalSize+ACTION_WIDTH_HGT;
 			// Button b = new Button(theDesc.myButtonIcon);
 			PopupBarLabelHandle b = new PopupBarLabelHandle(
 					theDesc.getDragTracker(), theDesc.getIcon());
@@ -816,7 +867,8 @@ public class CustomPopupBarEditPolicy extends DiagramAssistantEditPolicy {
 			b.addMouseMotionListener(this);
 			b.addMouseListener(this.myMouseKeyListener);
 
-		}
+		}}
+		getBalloon().setSize(totalSize,ACTION_WIDTH_HGT + 2 * ACTION_BUTTON_START_Y);
 	}
 
 	/*
