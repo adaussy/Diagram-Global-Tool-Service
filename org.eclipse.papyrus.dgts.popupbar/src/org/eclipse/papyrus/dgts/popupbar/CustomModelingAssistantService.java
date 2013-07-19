@@ -204,7 +204,7 @@ public class CustomModelingAssistantService {
 		}
 
 	    }
-	    System.out.println(types);
+
 	    return types;
 
 	}
@@ -213,7 +213,7 @@ public class CustomModelingAssistantService {
     }
 
     private boolean isValidType(IElementType elementType, IGraphicalEditPart host) {
-	System.out.println(host);
+
 	boolean valid = false;
 
 	CreateViewAndElementRequest request = new CreateViewAndElementRequest(elementType, null);

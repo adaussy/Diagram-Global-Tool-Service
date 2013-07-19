@@ -112,8 +112,6 @@ public class CustomModelingAssistantService extends ModelingAssistantService {
 
 	IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source.getAdapter(IGraphicalEditPart.class);
 	IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target.getAdapter(IGraphicalEditPart.class);
-	System.out.println("source : "+sourceEditPart);
-	System.out.println("target : "+targetEditPart);
 	List<IElementType> types = new ArrayList<IElementType>();
 	List<IElementType> possibleTypes = getPossibleRelTypes(source);
 	if (possibleTypes != null) {
@@ -148,7 +146,7 @@ public class CustomModelingAssistantService extends ModelingAssistantService {
 		    // check if we can create the element at this place
 		    if (isValidType(type, container)) {
 			String semanticHint = ((IHintedType)type).getSemanticHint();
-			System.out.println(semanticHint);
+			
 		
 			types.add(type);
 			
