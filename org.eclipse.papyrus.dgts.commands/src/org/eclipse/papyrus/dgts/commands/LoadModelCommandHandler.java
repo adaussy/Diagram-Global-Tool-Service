@@ -33,27 +33,33 @@ public class LoadModelCommandHandler extends AbstractHandler {
 				Object firstElement = structuredSelection.getFirstElement();
 				if (firstElement instanceof IFile) {
 					IFile file = (IFile) firstElement;
-					if (EXTENSION.equals(file
-							.getFileExtension())) {
-						try {
-							Resource resource = DgtsResourceLoader
-									.LoadResource(file);
-							ToolDefinitionResourceProvider
-									.setResource(resource);
-						//	UpdatePalette();
-
-						} catch (IOException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-
-					}
+					loadFileResource(file);
 
 				}
 			}
 		}
 		return null;
 	}
+
+	public static void loadFileResource(IFile file) {
+		if (EXTENSION.equals(file
+				.getFileExtension())) {
+			try {
+				Resource resource = DgtsResourceLoader
+						.LoadResource(file);
+				ToolDefinitionResourceProvider
+						.setResource(resource);
+			//	UpdatePalette();
+
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		}
+	}
+	
+
 /*
 	protected void UpdatePalette() {
 		PaletteRoot root = ToolDefinitionCustomPaletteProvider.getRoot();

@@ -4,12 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.gef.palette.ToolEntry;
-import org.eclipse.gef.tools.TargetingTool;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.jface.resource.ImageDescriptor;
-
-import DiagramGlobalToolService.AbstractTool;
-import DiagramGlobalToolService.Tool;
 
 public abstract class AbstractToolDefinitionPaletteEntry extends ToolEntry {
 	protected List<IElementType> types = new ArrayList<IElementType>();
@@ -17,11 +13,11 @@ public abstract class AbstractToolDefinitionPaletteEntry extends ToolEntry {
 
 
 
-	public AbstractToolDefinitionPaletteEntry(ToolEntry entry, DiagramGlobalToolService.ToolMetaModel  toolMetaTool) {
-		super(toolMetaTool.getName(), entry.getDescription(), entry.getSmallIcon(),
-				entry.getLargeIcon());
-		setId(entry.getId());
-	}
+//	public AbstractToolDefinitionPaletteEntry(ToolEntry entry, DiagramGlobalToolService.ToolMetaModel  toolMetaTool) {
+//		super(toolMetaTool.getName(), entry.getDescription(), entry.getSmallIcon(),
+//				entry.getLargeIcon());
+//		setId(entry.getId());
+//	}
 
 	public AbstractToolDefinitionPaletteEntry(
 			DiagramGlobalToolService.Tool elementTool,

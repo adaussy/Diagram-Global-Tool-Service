@@ -34,286 +34,262 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  */
 public class DiagramGlobalToolServiceItemProviderAdapterFactory extends DiagramGlobalToolServiceAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
         /**
-         * This keeps track of the root adapter factory that delegates to this adapter factory.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the root adapter factory that delegates to this adapter factory.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected ComposedAdapterFactory parentAdapterFactory;
 
         /**
-         * This is used to implement {@link org.eclipse.emf.edit.provider.IChangeNotifier}.
-         * <!-- begin-user-doc -->
+	 * This is used to implement {@link org.eclipse.emf.edit.provider.IChangeNotifier}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected IChangeNotifier changeNotifier = new ChangeNotifier();
 
         /**
-         * This keeps track of all the supported types checked by {@link #isFactoryForType isFactoryForType}.
-         * <!-- begin-user-doc -->
+	 * This keeps track of all the supported types checked by {@link #isFactoryForType isFactoryForType}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
         /**
-         * This constructs an instance.
-         * <!-- begin-user-doc -->
+	 * This constructs an instance.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public DiagramGlobalToolServiceItemProviderAdapterFactory() {
-                supportedTypes.add(IEditingDomainItemProvider.class);
-                supportedTypes.add(IStructuredItemContentProvider.class);
-                supportedTypes.add(ITreeItemContentProvider.class);
-                supportedTypes.add(IItemLabelProvider.class);
-                supportedTypes.add(IItemPropertySource.class);
-        }
+		supportedTypes.add(IEditingDomainItemProvider.class);
+		supportedTypes.add(IStructuredItemContentProvider.class);
+		supportedTypes.add(ITreeItemContentProvider.class);
+		supportedTypes.add(IItemLabelProvider.class);
+		supportedTypes.add(IItemPropertySource.class);
+	}
 
         /**
-         * This keeps track of the one adapter used for all {@link DiagramGlobalToolService.DiagramGlobalToolDefinition} instances.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link DiagramGlobalToolService.DiagramGlobalToolDefinition} instances.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected DiagramGlobalToolDefinitionItemProvider diagramGlobalToolDefinitionItemProvider;
 
         /**
-         * This creates an adapter for a {@link DiagramGlobalToolService.DiagramGlobalToolDefinition}.
-         * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link DiagramGlobalToolService.DiagramGlobalToolDefinition}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter createDiagramGlobalToolDefinitionAdapter() {
-                if (diagramGlobalToolDefinitionItemProvider == null) {
-                        diagramGlobalToolDefinitionItemProvider = new DiagramGlobalToolDefinitionItemProvider(this);
-                }
+		if (diagramGlobalToolDefinitionItemProvider == null) {
+			diagramGlobalToolDefinitionItemProvider = new DiagramGlobalToolDefinitionItemProvider(this);
+		}
 
-                return diagramGlobalToolDefinitionItemProvider;
-        }
+		return diagramGlobalToolDefinitionItemProvider;
+	}
 
         /**
-         * This keeps track of the one adapter used for all {@link DiagramGlobalToolService.DiagramDefinition} instances.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link DiagramGlobalToolService.DiagramDefinition} instances.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected DiagramDefinitionItemProvider diagramDefinitionItemProvider;
 
         /**
-         * This creates an adapter for a {@link DiagramGlobalToolService.DiagramDefinition}.
-         * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link DiagramGlobalToolService.DiagramDefinition}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter createDiagramDefinitionAdapter() {
-                if (diagramDefinitionItemProvider == null) {
-                        diagramDefinitionItemProvider = new DiagramDefinitionItemProvider(this);
-                }
+		if (diagramDefinitionItemProvider == null) {
+			diagramDefinitionItemProvider = new DiagramDefinitionItemProvider(this);
+		}
 
-                return diagramDefinitionItemProvider;
-        }
+		return diagramDefinitionItemProvider;
+	}
 
         /**
-         * This keeps track of the one adapter used for all {@link DiagramGlobalToolService.DrawerDefinition} instances.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link DiagramGlobalToolService.DrawerDefinition} instances.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected DrawerDefinitionItemProvider drawerDefinitionItemProvider;
 
         /**
-         * This creates an adapter for a {@link DiagramGlobalToolService.DrawerDefinition}.
-         * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link DiagramGlobalToolService.DrawerDefinition}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter createDrawerDefinitionAdapter() {
-                if (drawerDefinitionItemProvider == null) {
-                        drawerDefinitionItemProvider = new DrawerDefinitionItemProvider(this);
-                }
+		if (drawerDefinitionItemProvider == null) {
+			drawerDefinitionItemProvider = new DrawerDefinitionItemProvider(this);
+		}
 
-                return drawerDefinitionItemProvider;
-        }
+		return drawerDefinitionItemProvider;
+	}
 
         /**
-         * This keeps track of the one adapter used for all {@link DiagramGlobalToolService.Tool} instances.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link DiagramGlobalToolService.Tool} instances.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected ToolItemProvider toolItemProvider;
 
         /**
-         * This creates an adapter for a {@link DiagramGlobalToolService.Tool}.
-         * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link DiagramGlobalToolService.Tool}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter createToolAdapter() {
-                if (toolItemProvider == null) {
-                        toolItemProvider = new ToolItemProvider(this);
-                }
+		if (toolItemProvider == null) {
+			toolItemProvider = new ToolItemProvider(this);
+		}
 
-                return toolItemProvider;
-        }
+		return toolItemProvider;
+	}
 
         /**
-         * This keeps track of the one adapter used for all {@link DiagramGlobalToolService.ElementType} instances.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link DiagramGlobalToolService.ElementType} instances.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected ElementTypeItemProvider elementTypeItemProvider;
 
         /**
-         * This creates an adapter for a {@link DiagramGlobalToolService.ElementType}.
-         * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link DiagramGlobalToolService.ElementType}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter createElementTypeAdapter() {
-                if (elementTypeItemProvider == null) {
-                        elementTypeItemProvider = new ElementTypeItemProvider(this);
-                }
+		if (elementTypeItemProvider == null) {
+			elementTypeItemProvider = new ElementTypeItemProvider(this);
+		}
 
-                return elementTypeItemProvider;
-        }
-
-        /**
-         * This keeps track of the one adapter used for all {@link DiagramGlobalToolService.ToolMetaModel} instances.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        protected ToolMetaModelItemProvider toolMetaModelItemProvider;
+		return elementTypeItemProvider;
+	}
 
         /**
-         * This creates an adapter for a {@link DiagramGlobalToolService.ToolMetaModel}.
-         * <!-- begin-user-doc -->
+	 * This returns the root adapter factory that contains this factory.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
-        @Override
-        public Adapter createToolMetaModelAdapter() {
-                if (toolMetaModelItemProvider == null) {
-                        toolMetaModelItemProvider = new ToolMetaModelItemProvider(this);
-                }
-
-                return toolMetaModelItemProvider;
-        }
-
-        /**
-         * This returns the root adapter factory that contains this factory.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public ComposeableAdapterFactory getRootAdapterFactory() {
-                return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
-        }
+		return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
+	}
 
         /**
-         * This sets the composed adapter factory that contains this factory.
-         * <!-- begin-user-doc -->
+	 * This sets the composed adapter factory that contains this factory.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
-                this.parentAdapterFactory = parentAdapterFactory;
-        }
+		this.parentAdapterFactory = parentAdapterFactory;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public boolean isFactoryForType(Object type) {
-                return supportedTypes.contains(type) || super.isFactoryForType(type);
-        }
+		return supportedTypes.contains(type) || super.isFactoryForType(type);
+	}
 
         /**
-         * This implementation substitutes the factory itself as the key for the adapter.
-         * <!-- begin-user-doc -->
+	 * This implementation substitutes the factory itself as the key for the adapter.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter adapt(Notifier notifier, Object type) {
-                return super.adapt(notifier, this);
-        }
+		return super.adapt(notifier, this);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Object adapt(Object object, Object type) {
-                if (isFactoryForType(type)) {
-                        Object adapter = super.adapt(object, type);
-                        if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
-                                return adapter;
-                        }
-                }
+		if (isFactoryForType(type)) {
+			Object adapter = super.adapt(object, type);
+			if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
+				return adapter;
+			}
+		}
 
-                return null;
-        }
+		return null;
+	}
 
         /**
-         * This adds a listener.
-         * <!-- begin-user-doc -->
+	 * This adds a listener.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void addListener(INotifyChangedListener notifyChangedListener) {
-                changeNotifier.addListener(notifyChangedListener);
-        }
+		changeNotifier.addListener(notifyChangedListener);
+	}
 
         /**
-         * This removes a listener.
-         * <!-- begin-user-doc -->
+	 * This removes a listener.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void removeListener(INotifyChangedListener notifyChangedListener) {
-                changeNotifier.removeListener(notifyChangedListener);
-        }
+		changeNotifier.removeListener(notifyChangedListener);
+	}
 
         /**
-         * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}.
-         * <!-- begin-user-doc -->
+	 * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void fireNotifyChanged(Notification notification) {
-                changeNotifier.fireNotifyChanged(notification);
+		changeNotifier.fireNotifyChanged(notification);
 
-                if (parentAdapterFactory != null) {
-                        parentAdapterFactory.fireNotifyChanged(notification);
-                }
-        }
+		if (parentAdapterFactory != null) {
+			parentAdapterFactory.fireNotifyChanged(notification);
+		}
+	}
 
         /**
-         * This disposes all of the item providers created by this factory. 
-         * <!-- begin-user-doc -->
+	 * This disposes all of the item providers created by this factory. 
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void dispose() {
-                if (diagramGlobalToolDefinitionItemProvider != null) diagramGlobalToolDefinitionItemProvider.dispose();
-                if (diagramDefinitionItemProvider != null) diagramDefinitionItemProvider.dispose();
-                if (drawerDefinitionItemProvider != null) drawerDefinitionItemProvider.dispose();
-                if (toolItemProvider != null) toolItemProvider.dispose();
-                if (elementTypeItemProvider != null) elementTypeItemProvider.dispose();
-                if (toolMetaModelItemProvider != null) toolMetaModelItemProvider.dispose();
-        }
+		if (diagramGlobalToolDefinitionItemProvider != null) diagramGlobalToolDefinitionItemProvider.dispose();
+		if (diagramDefinitionItemProvider != null) diagramDefinitionItemProvider.dispose();
+		if (drawerDefinitionItemProvider != null) drawerDefinitionItemProvider.dispose();
+		if (toolItemProvider != null) toolItemProvider.dispose();
+		if (elementTypeItemProvider != null) elementTypeItemProvider.dispose();
+	}
 
 }

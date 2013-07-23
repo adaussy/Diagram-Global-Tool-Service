@@ -12,7 +12,7 @@ public class ToolDefinitionResourceProvider {
 	
 
 	protected static Resource resource = null;
-	protected static Observer observer ;
+	protected static ToolDefintionObservable  listener = new ToolDefintionObservable();
 
 	private ToolDefinitionResourceProvider() {
 
@@ -24,9 +24,15 @@ public class ToolDefinitionResourceProvider {
 
 	public static void setResource(Resource resource) {
 		ToolDefinitionResourceProvider.resource = resource;
-		ToolDefintionObservable.setChange();
-		ToolDefintionObservable.notifyObserver(observer);
-		
+		notifyObserver();
+	}
+
+	public static void notifyObserver() {
+		if(isAvailable()){
+			listener.setChange();
+			listener.notifyObservers(resource);
+		}
+
 	}
 
 	public static boolean isAvailable() {
@@ -40,17 +46,13 @@ public class ToolDefinitionResourceProvider {
 	}
 
 	public static void addObserver(Observer o) {
-				observer = o ;
+		listener.addObserver(o);
 	}
 	
 	protected static class ToolDefintionObservable extends Observable{
 		
-		public static void setChange(){
-			setChange();
-		}
-		
-		public static void notifyObserver(Observer o ){
-			notifyObserver(o);
+		public  void setChange(){
+			setChanged();
 		}
 		
 	
