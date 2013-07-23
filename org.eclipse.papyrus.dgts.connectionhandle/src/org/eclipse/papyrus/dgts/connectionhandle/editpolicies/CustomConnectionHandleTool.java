@@ -11,44 +11,13 @@ package org.eclipse.papyrus.dgts.connectionhandle.editpolicies;
  *    IBM Corporation - initial API and implementation 
  ****************************************************************************/
 
-import java.lang.reflect.InvocationTargetException;
-import java.util.Collections;
-import java.util.List;
-
-import org.eclipse.core.commands.ExecutionException;
-import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.gef.DragTracker;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
-import org.eclipse.gef.commands.CompoundCommand;
-import org.eclipse.gmf.runtime.common.core.util.Log;
-import org.eclipse.gmf.runtime.common.core.util.Trace;
-import org.eclipse.gmf.runtime.common.ui.dialogs.ExpansionType;
-import org.eclipse.gmf.runtime.diagram.ui.commands.PopupMenuCommand;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.handles.ConnectionHandle;
-import org.eclipse.gmf.runtime.diagram.ui.internal.DiagramUIDebugOptions;
-import org.eclipse.gmf.runtime.diagram.ui.internal.DiagramUIPlugin;
-import org.eclipse.gmf.runtime.diagram.ui.internal.DiagramUIStatusCodes;
-import org.eclipse.gmf.runtime.diagram.ui.internal.commands.ElementTypeLabelProvider;
-import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramUIMessages;
-import org.eclipse.gmf.runtime.diagram.ui.menus.PopupMenu;
-import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramCommandStack;
-import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditDomain;
-import org.eclipse.gmf.runtime.diagram.ui.requests.ArrangeRequest;
-import org.eclipse.gmf.runtime.diagram.ui.requests.CreateUnspecifiedTypeConnectionRequest;
-import org.eclipse.gmf.runtime.diagram.ui.requests.RequestConstants;
-import org.eclipse.gmf.runtime.diagram.ui.requests.ShowRelatedElementsRequest;
 import org.eclipse.gmf.runtime.diagram.ui.tools.ConnectionCreationTool;
-import org.eclipse.gmf.runtime.emf.type.core.IElementType;
-import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.jface.dialogs.ProgressMonitorDialog;
-import org.eclipse.jface.operation.IRunnableWithProgress;
-import org.eclipse.jface.viewers.LabelProvider;
-import org.eclipse.osgi.util.NLS;
 import org.eclipse.papyrus.dgts.connectionhandle.CustomModelingAssistantService;
+import org.eclipse.papyrus.dgts.connectionhandle.requests.DgtsCreateUnspecifiedTypeConnectionRequest;
 import org.eclipse.swt.widgets.Display;
 
 /**
@@ -85,11 +54,11 @@ public class CustomConnectionHandleTool extends ConnectionCreationTool implement
      */
     protected Request createTargetRequest() {
 	if (getConnectionHandle().isIncoming()) {
-	    CreateUnspecifiedTypeConnectionRequest request = new CreateUnspecifiedTypeConnectionRequest(CustomModelingAssistantService.getInstance().getRelTypesOnTarget(getConnectionHandle().getOwner()), true, getPreferencesHint());
+	    DgtsCreateUnspecifiedTypeConnectionRequest request = new DgtsCreateUnspecifiedTypeConnectionRequest(CustomModelingAssistantService.getInstance().getRelTypesOnTarget(getConnectionHandle().getOwner()), true, getPreferencesHint());
 	    request.setDirectionReversed(true);
 	    return request;
 	} else {
-	    return new CreateUnspecifiedTypeConnectionRequest(CustomModelingAssistantService.getInstance().getRelTypesOnSource(getConnectionHandle().getOwner()), true, getPreferencesHint());
+	    return new DgtsCreateUnspecifiedTypeConnectionRequest(CustomModelingAssistantService.getInstance().getRelTypesOnSource(getConnectionHandle().getOwner()), true, getPreferencesHint());
 	}
     }
 
@@ -100,7 +69,7 @@ public class CustomConnectionHandleTool extends ConnectionCreationTool implement
      */
     protected Command getCommand() {
 	if (getConnectionHandle().isIncoming()) {
-	    CreateUnspecifiedTypeConnectionRequest unspecifiedTypeRequest = (CreateUnspecifiedTypeConnectionRequest) getTargetRequest();
+	    DgtsCreateUnspecifiedTypeConnectionRequest unspecifiedTypeRequest = (DgtsCreateUnspecifiedTypeConnectionRequest) getTargetRequest();
 	    unspecifiedTypeRequest.setDirectionReversed(true);
 	}
 

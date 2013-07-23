@@ -60,8 +60,6 @@ public class CustomPromptForConnectionAndEndCommand extends PromptForConnectionA
 	return validRelTypes;
     }
 
-
-    
     
     @Override
     protected List getEndMenuContent(Object connectionItem) {
@@ -76,63 +74,7 @@ public class CustomPromptForConnectionAndEndCommand extends PromptForConnectionA
 
     
     
-    @Override
-    protected PopupMenu createPopupMenu() {
-
-	final List connectionMenuContent = getConnectionMenuContent();
-
-	if (connectionMenuContent == null || connectionMenuContent.isEmpty()) {
-		return null;
-	} else if (connectionMenuContent.size() == 1) {
-		List menuContent = getEndMenuContent(connectionMenuContent.get(0));
-		if (menuContent == null || menuContent.isEmpty()) {
-			return null;
-		}
-
-		ILabelProvider labelProvider = getConnectionAndEndLabelProvider(connectionMenuContent
-			.get(0));
-		return new PopupMenu(menuContent, labelProvider) {
-
-			/**
-			 * @see org.eclipse.gmf.runtime.diagram.ui.menus.PopupMenu#getResult()
-			 */
-			public Object getResult() {
-				Object endResult = super.getResult();
-				if (endResult == null) {
-					return null;
-				} else {
-					List resultList = new ArrayList(2);
-					resultList.add(connectionMenuContent.get(0));
-					resultList.add(endResult);
-					return resultList;
-				}
-			}
-		};
-	} else {
-		List menuContent = new ArrayList();
-		for (Iterator iter = connectionMenuContent.iterator(); iter
-			.hasNext();) {
-			Object connectionItem = iter.next();
-
-			List subMenuContent = getEndMenuContent(connectionItem);
-
-			if (subMenuContent.isEmpty()) {
-				continue;
-			}
-
-			PopupMenu subMenu = new PopupMenu(subMenuContent,
-				getEndLabelProvider());
-
-			menuContent.add(new PopupMenu.CascadingMenu(connectionItem,
-				subMenu));
-			
-		}
-		if (!menuContent.isEmpty()) {
-			return new PopupMenu(menuContent, getConnectionLabelProvider());
-		}
-	}
-	return null;
-}
+ 
     
     
     

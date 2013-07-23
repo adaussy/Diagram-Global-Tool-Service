@@ -109,6 +109,7 @@ public class CustomModelingAssistantService extends ModelingAssistantService {
 
     @Override
     public List<?> getRelTypesOnSourceAndTarget(IAdaptable source, IAdaptable target) {
+	
 
 	IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source.getAdapter(IGraphicalEditPart.class);
 	IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target.getAdapter(IGraphicalEditPart.class);

@@ -39,17 +39,15 @@ public class CustomEditPolicyProvider extends AbstractProvider implements
 		//creation of link and element with the handle system
 		
 		if (editPart instanceof DiagramEditPart || editPart instanceof ShapeCompartmentEditPart) {
-			editPart.installEditPolicy(org.eclipse.gef.EditPolicy.GRAPHICAL_NODE_ROLE,
+			editPart.installEditPolicy("DgtsGraphicalContainer",
 					new DgtsContainerNodeEditPolicy());
 		}
 		
-		
 		//Creation of link between 2 shapeEditpart
+		
 		if (editPart instanceof ShapeEditPart ){
-		    
-		    editPart.installEditPolicy(org.eclipse.gef.EditPolicy.GRAPHICAL_NODE_ROLE,
+		    editPart.installEditPolicy("DgtsGraphicalNode",
 				new DgtsGraphicalNodeEditPolicy());
-		  
 		}
 		
 		
