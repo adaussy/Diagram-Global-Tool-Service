@@ -125,6 +125,16 @@ public class ToolsProvider implements IToolsProvider {
 		return null;
 
 	    }
+
+		public List<AbstractTool> getAllElement(
+				DiagramGlobalToolDefinition globalToolDefinition) {
+			List<AbstractTool> listElement = new ArrayList<AbstractTool>() ;
+			for( DiagramDefinition diagram : globalToolDefinition.getDiagramDefinitionRef()){
+				listElement.addAll(this.getTools(diagram));
+				
+			}
+			return listElement;
+		}
 	
 
 }
