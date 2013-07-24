@@ -77,7 +77,7 @@ public class CustomConnectionHandleEditPolicy extends DiagramAssistantEditPolicy
 		@Override
 		public void handleMouseEntered(MouseEvent event) {
 		   mouseHover = true;
-	//	   super.handleMouseEntered(event);
+		   super.handleMouseEntered(event);
 		}
 		
 		// if mouse go out
@@ -85,7 +85,7 @@ public class CustomConnectionHandleEditPolicy extends DiagramAssistantEditPolicy
 		public void handleMouseExited(MouseEvent event) {
 		    mouseHover = false;
 	//	    hideDiagramAssistantAfterDelay(0);
-		 //   super.handleMouseExited(event);
+		   super.handleMouseExited(event);
 		    
 		}
 	    });
@@ -99,7 +99,7 @@ public class CustomConnectionHandleEditPolicy extends DiagramAssistantEditPolicy
 		@Override
 		public void handleMouseEntered(MouseEvent event) { 
 		   mouseHover = true;
-	//	   super.handleMouseEntered(event);
+		   super.handleMouseEntered(event);
 		}
 		
 		
@@ -108,7 +108,7 @@ public class CustomConnectionHandleEditPolicy extends DiagramAssistantEditPolicy
 		public void handleMouseExited(MouseEvent event) {
 		    mouseHover = false;
 	//	    hideDiagramAssistantAfterDelay(0);
-		//    super.handleMouseExited(event);
+		    super.handleMouseExited(event);
 		   
 		}
 		
