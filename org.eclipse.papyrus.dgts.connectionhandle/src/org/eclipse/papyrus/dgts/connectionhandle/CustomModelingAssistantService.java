@@ -212,7 +212,7 @@ public class CustomModelingAssistantService extends ModelingAssistantService {
 
 	// recupere la liste des tools correspondant au diagrame
 	DiagramDefinition diag = toolsProvider.getDiagram(diagramType, globalDiagramConfiguration);
-	List<AbstractTool> listOfTools = new ArrayList<AbstractTool>();
+	List<Tool> listOfTools = new ArrayList<Tool>();
 	listOfTools = toolsProvider.getTools(diag);
 
 	// TODO recuperer le context !!!!!!!!!!!!!
@@ -220,19 +220,13 @@ public class CustomModelingAssistantService extends ModelingAssistantService {
 
 	// traitement de chaque tool
 	if (listOfTools != null) {
-	    for (AbstractTool tool : listOfTools) {
+	    for (Tool tool : listOfTools) {
 
 		if (!(tool.isIsEdge())) {
 
 		    List<IElementType> possibleTypes = new ArrayList<IElementType>(1);
 
-		    // //Methode utilisant le metamodele du Tool
-		    if (tool instanceof ToolMetaModel) {
-			possibleTypes = toolsProvider.getIElementTypesFromToolMetaModel((ToolMetaModel) tool, clientContext);
-		    }
-
-		    // //Methode utilisant les IelementTypes du tool (plus bas
-		    // niveau)
+	
 		    if (tool instanceof Tool) {
 			possibleTypes = toolsProvider.getIElementTypesFromTool((Tool) tool);
 		    }
@@ -278,7 +272,7 @@ public class CustomModelingAssistantService extends ModelingAssistantService {
 
 	// recupere la liste des tools correspondant au diagrame
 	DiagramDefinition diag = toolsProvider.getDiagram(diagramType, globalDiagramConfiguration);
-	List<AbstractTool> listOfTools = new ArrayList<AbstractTool>();
+	List<Tool> listOfTools = new ArrayList<Tool>();
 	listOfTools = toolsProvider.getTools(diag);
 
 	// TODO recuperer le context !!!!!!!!!!!!!
@@ -286,20 +280,14 @@ public class CustomModelingAssistantService extends ModelingAssistantService {
 
 	// traitement de chaque tool
 	if (listOfTools != null) {
-	    for (AbstractTool tool : listOfTools) {
+	    for (Tool tool : listOfTools) {
 
 		if (tool.isIsEdge()) {
 
 		    List<IElementType> possibleTypes = new ArrayList<IElementType>(1);
 
-		    // //Methode utilisant le metamodele du Tool
-		    if (tool instanceof ToolMetaModel) {
-			possibleTypes = toolsProvider.getIElementTypesFromToolMetaModel((ToolMetaModel) tool, clientContext);
+		
 
-		    }
-
-		    // //Methode utilisant les IelementTypes du tool (plus bas
-		    // niveau)
 		    if (tool instanceof Tool) {
 			possibleTypes = toolsProvider.getIElementTypesFromTool((Tool) tool);
 		    }
