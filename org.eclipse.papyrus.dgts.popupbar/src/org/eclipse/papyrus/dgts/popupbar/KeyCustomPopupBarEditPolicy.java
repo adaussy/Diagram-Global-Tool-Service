@@ -366,21 +366,6 @@ public class KeyCustomPopupBarEditPolicy extends GraphicalEditPolicy {
 
     }
 
- 
-    ////////////////////////////////////////////////////////////////////////////
-    
-    
-    
-    
-    
-    protected boolean isDiagramAssistant(Object object) {
-	return object instanceof RoundedRectangleWithTail || object instanceof PopupBarLabelHandle;
-    }
-
-    /**
-     * Adds the popup bar after a delay
-     */
-
     /**
      * Listens for mouse key presses so the popup bar can be dismissed if the
      * context menu is displayed
@@ -403,7 +388,6 @@ public class KeyCustomPopupBarEditPolicy extends GraphicalEditPolicy {
 
 	}
     }
-
 
     private class PopupBarMouseMotionListener extends MouseMotionListener.Stub {
 
@@ -434,17 +418,18 @@ public class KeyCustomPopupBarEditPolicy extends GraphicalEditPolicy {
 	}
 
     }
-    
-    
-    
-
 
     private class PopupBarKeyListener implements KeyListener {
 
 	public void keyPressed(KeyEvent event) {
 	    // System.out.println("Code touche pressée : " + event.keyCode +
 	    // " - caractère touche pressée : " + event.character);
-	    showDiagramAssistant(getMouseLocation());
+
+	    if (event.keyCode == codeKey) {
+		if (getMouseLocation() != null) {
+		    showDiagramAssistant(getMouseLocation());
+		}
+	    }
 	}
 
 	public void keyReleased(KeyEvent event) {
@@ -463,8 +448,6 @@ public class KeyCustomPopupBarEditPolicy extends GraphicalEditPolicy {
     /** Y postion offset from shape where the balloon top begin. */
     static private double BALLOON_X_OFFSET_RHS = 0.65;
 
-    static private double BALLOON_X_OFFSET_LHS = 0.25;
-
     /** Y postion offset from shape where the balloon top begin. */
     static private int ACTION_WIDTH_HGT = 30;
 
@@ -477,41 +460,18 @@ public class KeyCustomPopupBarEditPolicy extends GraphicalEditPolicy {
     static private int ACTION_MARGIN_RIGHT = 10;
 
     /** popup bar bits */
-    static private int POPUPBAR_ACTIVATEONHOVER = 0x01; /*
-							 * Display the action
-							 * when hovering
-							 */
+    static private int POPUPBAR_ACTIVATEONHOVER = 0x01;
+    /*
+     * Display the action when hovering
+     */
 
-    static private int POPUPBAR_DISPLAYATMOUSEHOVERLOCATION = 0x04; /*
-								     * Display
-								     * the popup
-								     * bar at
-								     * the mouse
-								     * location
-								     * used by
-								     * diagrams
-								     * and
-								     * machine
-								     * edit
-								     * parts
-								     */
-    static private int POPUPBAR_ONDIAGRAMACTIVATED = 0x10; /*
-							    * For popup bars on
-							    * diagram and
-							    * machine edit
-							    * parts, where we
-							    * POPUPBAR_DISPLAYATMOUSEHOVERLOCATION
-							    * , don't display
-							    * popup bar until
-							    * user clicks on
-							    * surface
-							    */
-    static private int POPUPBAR_HOST_IS_CONNECTION = 0x20; /*
-							    * For popup bars on
-							    * connection edit
-							    * parts
-							    */
+    static private int POPUPBAR_DISPLAYATMOUSEHOVERLOCATION = 0x04;
 
+
+    // Code of the key for display the popup bar:
+    private int codeKey = 262144; // CTRL
+
+    
     /** Bit field for the actrionbar associated bits */
     private int myPopupBarFlags = POPUPBAR_ACTIVATEONHOVER;
 
@@ -526,13 +486,15 @@ public class KeyCustomPopupBarEditPolicy extends GraphicalEditPolicy {
     /** Images created that must be deleted when popup bar is removed */
     protected List imagesToBeDisposed = null;
 
-    /** mouse keys listener for the owner shape */
+    /** mouse and keys listeners */
     private PopupBarMouseListener myMouseListener = new PopupBarMouseListener();
 
     private MouseMotionListener myMouseMotionListener = new PopupBarMouseMotionListener();
-    
+
     private PopupBarKeyListener myPopupBarKeyListener = new PopupBarKeyListener();
     
+    
+
     /** flag for whether mouse cursor within shape */
 
     private void setFlag(int bit, boolean b) {
@@ -546,10 +508,6 @@ public class KeyCustomPopupBarEditPolicy extends GraphicalEditPolicy {
     private boolean getFlag(int bit) {
 	return ((myPopupBarFlags & bit) > 0);
     }
-
-
-
-
 
     /**
      * Populates the popup bar with popup bar descriptors added by suclassing
@@ -937,11 +895,7 @@ public class KeyCustomPopupBarEditPolicy extends GraphicalEditPolicy {
 	((IGraphicalEditPart) getHost()).getFigure().addMouseMotionListener(this.myMouseMotionListener);
 	getHostFigure().addMouseListener(this.myMouseListener);
 
-	// on rajoute un keylistener sur le viewer une seule fois par diagrame
-	// (donc si on est sur la diagram edit part)
-	//if (getHost() instanceof DiagramEditPart) {
-	    getHost().getViewer().getControl().addKeyListener(this.myPopupBarKeyListener);
-	//}
+	getHost().getViewer().getControl().addKeyListener(this.myPopupBarKeyListener);
 
 	if (getHost() instanceof ISurfaceEditPart) {
 	    setIsDisplayAtMouseHoverLocation(true);
@@ -967,7 +921,7 @@ public class KeyCustomPopupBarEditPolicy extends GraphicalEditPolicy {
 	    return false;
 	}
 
-	    return isSelectionToolActive();
+	return isSelectionToolActive();
 
     }
 
@@ -1006,7 +960,5 @@ public class KeyCustomPopupBarEditPolicy extends GraphicalEditPolicy {
     }
 
     // //////////////////////////////////////////////////////////
-
-  
 
 }

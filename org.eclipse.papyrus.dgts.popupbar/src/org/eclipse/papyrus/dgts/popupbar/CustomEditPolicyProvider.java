@@ -23,10 +23,10 @@ public class CustomEditPolicyProvider extends AbstractProvider implements
 					new KeyCustomPopupBarEditPolicy());
 		}
 
-		if (editPart instanceof DiagramEditPart) {
+	/*	if (editPart instanceof DiagramEditPart) {
 			editPart.installEditPolicy("KeyListenerForPopupBar",
 					new KeyListenerForPopupBarEditPolicy());
-		}
+		}*/
 
 	}
 	
