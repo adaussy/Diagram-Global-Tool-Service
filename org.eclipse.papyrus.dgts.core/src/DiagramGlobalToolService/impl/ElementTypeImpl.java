@@ -27,137 +27,137 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public class ElementTypeImpl extends MinimalEObjectImpl.Container implements ElementType {
         /**
-         * The default value of the '{@link #getElementType() <em>Element Type</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getElementType() <em>Element Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getElementType()
-         * @generated
-         * @ordered
-         */
+	 * @see #getElementType()
+	 * @generated
+	 * @ordered
+	 */
         protected static final String ELEMENT_TYPE_EDEFAULT = "";
 
         /**
-         * The cached value of the '{@link #getElementType() <em>Element Type</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getElementType() <em>Element Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getElementType()
-         * @generated
-         * @ordered
-         */
+	 * @see #getElementType()
+	 * @generated
+	 * @ordered
+	 */
         protected String elementType = ELEMENT_TYPE_EDEFAULT;
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected ElementTypeImpl() {
-                super();
-        }
+		super();
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         protected EClass eStaticClass() {
-                return DiagramGlobalToolServicePackage.Literals.ELEMENT_TYPE;
-        }
+		return DiagramGlobalToolServicePackage.Literals.ELEMENT_TYPE;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public String getElementType() {
-                return elementType;
-        }
+		return elementType;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void setElementType(String newElementType) {
-                String oldElementType = elementType;
-                elementType = newElementType;
-                if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, DiagramGlobalToolServicePackage.ELEMENT_TYPE__ELEMENT_TYPE, oldElementType, elementType));
-        }
+		String oldElementType = elementType;
+		elementType = newElementType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DiagramGlobalToolServicePackage.ELEMENT_TYPE__ELEMENT_TYPE, oldElementType, elementType));
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Object eGet(int featureID, boolean resolve, boolean coreType) {
-                switch (featureID) {
-                        case DiagramGlobalToolServicePackage.ELEMENT_TYPE__ELEMENT_TYPE:
-                                return getElementType();
-                }
-                return super.eGet(featureID, resolve, coreType);
-        }
+		switch (featureID) {
+			case DiagramGlobalToolServicePackage.ELEMENT_TYPE__ELEMENT_TYPE:
+				return getElementType();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public void eSet(int featureID, Object newValue) {
-                switch (featureID) {
-                        case DiagramGlobalToolServicePackage.ELEMENT_TYPE__ELEMENT_TYPE:
-                                setElementType((String)newValue);
-                                return;
-                }
-                super.eSet(featureID, newValue);
-        }
+		switch (featureID) {
+			case DiagramGlobalToolServicePackage.ELEMENT_TYPE__ELEMENT_TYPE:
+				setElementType((String)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public void eUnset(int featureID) {
-                switch (featureID) {
-                        case DiagramGlobalToolServicePackage.ELEMENT_TYPE__ELEMENT_TYPE:
-                                setElementType(ELEMENT_TYPE_EDEFAULT);
-                                return;
-                }
-                super.eUnset(featureID);
-        }
+		switch (featureID) {
+			case DiagramGlobalToolServicePackage.ELEMENT_TYPE__ELEMENT_TYPE:
+				setElementType(ELEMENT_TYPE_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public boolean eIsSet(int featureID) {
-                switch (featureID) {
-                        case DiagramGlobalToolServicePackage.ELEMENT_TYPE__ELEMENT_TYPE:
-                                return ELEMENT_TYPE_EDEFAULT == null ? elementType != null : !ELEMENT_TYPE_EDEFAULT.equals(elementType);
-                }
-                return super.eIsSet(featureID);
-        }
+		switch (featureID) {
+			case DiagramGlobalToolServicePackage.ELEMENT_TYPE__ELEMENT_TYPE:
+				return ELEMENT_TYPE_EDEFAULT == null ? elementType != null : !ELEMENT_TYPE_EDEFAULT.equals(elementType);
+		}
+		return super.eIsSet(featureID);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public String toString() {
-                if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-                StringBuffer result = new StringBuffer(super.toString());
-                result.append(" (elementType: ");
-                result.append(elementType);
-                result.append(')');
-                return result.toString();
-        }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (elementType: ");
+		result.append(elementType);
+		result.append(')');
+		return result.toString();
+	}
 
 } //ElementTypeImpl

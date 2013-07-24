@@ -21,3 +21,4 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Export-Package: org.eclipse.papyrus.dgts.service,
  org.eclipse.papyrus.dgts.service.interfaces
+Import-Package: DiagramGlobalToolService

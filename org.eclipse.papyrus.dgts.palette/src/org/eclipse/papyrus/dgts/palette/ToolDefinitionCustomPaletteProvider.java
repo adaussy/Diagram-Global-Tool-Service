@@ -7,9 +7,9 @@ import java.util.Map;
 import java.util.Set;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.gef.Tool;
 import org.eclipse.gef.palette.PaletteRoot;
 import org.eclipse.gef.palette.ToolEntry;
+import org.eclipse.gef.tools.AbstractTool;
 import org.eclipse.gmf.runtime.diagram.ui.internal.services.palette.PaletteToolEntry;
 import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramWorkbenchPart;
 import org.eclipse.gmf.runtime.diagram.ui.providers.DefaultPaletteProvider;
@@ -20,19 +20,15 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.papyrus.dgts.service.ToolDefinitionResourceProvider;
 import org.eclipse.papyrus.dgts.service.ToolsProvider;
 import org.eclipse.papyrus.uml.diagram.common.part.PaletteUtil;
-import org.eclipse.papyrus.uml.diagram.common.part.PapyrusPalettePreferences;
 import org.eclipse.papyrus.uml.diagram.common.service.AspectUnspecifiedTypeConnectionTool;
 import org.eclipse.papyrus.uml.diagram.common.service.AspectUnspecifiedTypeCreationTool;
-import org.eclipse.papyrus.uml.diagram.common.service.PapyrusPaletteService;
-import org.eclipse.papyrus.uml.diagram.common.service.PapyrusPaletteService.ProviderDescriptor;
 import org.eclipse.ui.IEditorPart;
 
-import DiagramGlobalToolService.AbstractTool;
 import DiagramGlobalToolService.DiagramDefinition;
 import DiagramGlobalToolService.DiagramGlobalToolDefinition;
 import DiagramGlobalToolService.DrawerDefinition;
 import DiagramGlobalToolService.ElementType;
-import DiagramGlobalToolService.ToolMetaModel;
+import DiagramGlobalToolService.Tool;
 
 public class ToolDefinitionCustomPaletteProvider extends DefaultPaletteProvider {
 	protected static List<DrawerDefinition> ListDrawers = null;
@@ -74,17 +70,19 @@ public class ToolDefinitionCustomPaletteProvider extends DefaultPaletteProvider 
 			if (editorCurrent instanceof IDiagramWorkbenchPart) {
 				Diagram diagram = ((IDiagramWorkbenchPart) editorCurrent)
 						.getDiagram();
-				this.editor = editorCurrent;
-				this.root = root;
-				this.content = content;
-				this.predefinedEntries = predefinedEntries;
 				InitiElements(diagram.getType(),
 						ToolDefinitionResourceProvider
 								.getDiagramGlobalToolDefinition());
-				if (ListDrawers == null) {
+				if (ListDrawers == null||ListDrawers.isEmpty() ) {
+					
 					super.contributeToPalette(editor, content, root,
 							predefinedEntries);
 				} else {
+					
+					this.editor = editorCurrent;
+					this.root = root;
+					this.content = content;
+					this.predefinedEntries = predefinedEntries;
 					contributeCustomPalette(predefinedEntries);
 				}
 
@@ -100,21 +98,22 @@ public class ToolDefinitionCustomPaletteProvider extends DefaultPaletteProvider 
 	 */
 	protected void InitiElements(String diagram,
 			DiagramGlobalToolDefinition global) {
-
+		if(ListDrawers != null){
+			ListDrawers.clear();
+		}
 		DiagramDefinition diagramDefinition = toolProvider.getDiagram(diagram,
 				global);
-		ListDrawers = toolProvider.getDrawers(diagramDefinition);
-	}
+		if(toolProvider.activatePalette(diagram, global)){
+			ListDrawers = toolProvider.getDrawers(diagramDefinition);
 
-	@SuppressWarnings("unchecked")
-	protected static List<ProviderDescriptor> getAvailableProvidors() {
-		return (List<ProviderDescriptor>) PapyrusPaletteService.getInstance()
-				.getProviders();
+		}
 	}
 
 	protected void contributeCustomPalette(Map predefinedEntries) {
 		ToolDefinitionMap.clear();
+		hideDefaultPalette();
 		createDrawers(predefinedEntries);
+
 	}
 
 	protected void createDrawers(Map predefinedEntries) {
@@ -133,27 +132,20 @@ public class ToolDefinitionCustomPaletteProvider extends DefaultPaletteProvider 
 	protected void createElement(DrawerDefinition drawerDefinition,
 			PaletteDrawer drawer, Map predefinedEntries) {
 		ToolEntry entry;
-		Object value;
-		for (AbstractTool elementTool : drawerDefinition.getAbstractToolRef()) {
+
+		for (Tool elementTool : drawerDefinition.getToolRef()) {
 			createPaletteEntry(drawer, elementTool);
 		}
 
 	}
 
-	protected void createPaletteEntry(PaletteDrawer drawer,
-			AbstractTool elementTool) {
+	protected void createPaletteEntry(PaletteDrawer drawer, Tool elementTool) {
 		List<IElementType> elementTypeList;
-		if (elementTool instanceof DiagramGlobalToolService.Tool) {
-			createEntryFromTool(drawer, elementTool);
-		} else {
-			SearchToolElementByName(drawer, predefinedEntries,
-					(ToolMetaModel) elementTool);
-		}
+		createEntryFromTool(drawer, elementTool);
 
 	}
 
-	protected void createEntryFromTool(PaletteDrawer drawer,
-			AbstractTool elementTool) {
+	protected void createEntryFromTool(PaletteDrawer drawer, Tool elementTool) {
 		List<IElementType> elementTypeList;
 		DiagramGlobalToolService.Tool tool = (DiagramGlobalToolService.Tool) elementTool;
 		List<ElementType> listElement = this.toolProvider.getElementTypes(tool);
@@ -171,7 +163,7 @@ public class ToolDefinitionCustomPaletteProvider extends DefaultPaletteProvider 
 	}
 
 	protected void createEdgeToolPaletteEntry(PaletteDrawer drawer,
-			AbstractTool elementTool, List<IElementType> elementType) {
+			Tool elementTool, List<IElementType> elementType) {
 		ToolDefinitionEdgePaletteEntry toolDefinitionEntry;
 		if (!ToolDefinitionMap.containsKey(elementTool.getName())) {
 			createNewEdgeToolPaletteEntry(drawer, elementTool, elementType);
@@ -184,7 +176,7 @@ public class ToolDefinitionCustomPaletteProvider extends DefaultPaletteProvider 
 	}
 
 	protected void createNewEdgeToolPaletteEntry(PaletteDrawer drawer,
-			AbstractTool elementTool, List<IElementType> elementType) {
+			Tool elementTool, List<IElementType> elementType) {
 		ToolDefinitionEdgePaletteEntry toolDefinitionEntry;
 		toolDefinitionEntry = new ToolDefinitionEdgePaletteEntry(
 				(DiagramGlobalToolService.Tool) elementTool, elementType);
@@ -193,7 +185,7 @@ public class ToolDefinitionCustomPaletteProvider extends DefaultPaletteProvider 
 		drawer.add(toolDefinitionEntry);
 	}
 
-	protected void setEdgeToolPaletteEntry(AbstractTool elementTool,
+	protected void setEdgeToolPaletteEntry(Tool elementTool,
 			List<IElementType> elementType) {
 		ToolDefinitionEdgePaletteEntry toolDefinitionEntry;
 		toolDefinitionEntry = (ToolDefinitionEdgePaletteEntry) ToolDefinitionMap
@@ -202,7 +194,7 @@ public class ToolDefinitionCustomPaletteProvider extends DefaultPaletteProvider 
 	}
 
 	protected void createNodeToolPaletteEntry(PaletteDrawer drawer,
-			AbstractTool elementTool, List<IElementType> elementType) {
+			Tool elementTool, List<IElementType> elementType) {
 		ToolDefinitionNodePaletteEntry toolDefinitionNodePaletteEntry;
 		if (!ToolDefinitionMap.containsKey(elementTool.getName())) {
 			createNewNodeToolPaletteEntry(drawer, elementTool, elementType);
@@ -216,7 +208,7 @@ public class ToolDefinitionCustomPaletteProvider extends DefaultPaletteProvider 
 	}
 
 	protected void createNewNodeToolPaletteEntry(PaletteDrawer drawer,
-			AbstractTool elementTool, List<IElementType> elementType) {
+			Tool elementTool, List<IElementType> elementType) {
 		ToolDefinitionNodePaletteEntry toolDefinitionNodePaletteEntry;
 		toolDefinitionNodePaletteEntry = new ToolDefinitionNodePaletteEntry(
 				(DiagramGlobalToolService.Tool) elementTool, elementType);
@@ -226,8 +218,7 @@ public class ToolDefinitionCustomPaletteProvider extends DefaultPaletteProvider 
 		drawer.add(toolDefinitionNodePaletteEntry);
 	}
 
-	protected void setNodeToolPaletteEntry(
-			DiagramGlobalToolService.AbstractTool elementTool,
+	protected void setNodeToolPaletteEntry(Tool elementTool,
 			List<IElementType> elementType) {
 		ToolDefinitionNodePaletteEntry toolDefinitionEntry = (ToolDefinitionNodePaletteEntry) ToolDefinitionMap
 				.get(elementTool.getName());
@@ -273,7 +264,7 @@ public class ToolDefinitionCustomPaletteProvider extends DefaultPaletteProvider 
 
 	protected boolean isCorrespondingIElement(ToolEntry entry,
 			IElementType elementType) {
-		Tool tool = entry.createTool();
+		org.eclipse.gef.Tool tool = entry.createTool();
 
 		if (tool instanceof AspectUnspecifiedTypeCreationTool) {
 			for (IElementType element : ((AspectUnspecifiedTypeCreationTool) tool)
@@ -297,140 +288,12 @@ public class ToolDefinitionCustomPaletteProvider extends DefaultPaletteProvider 
 
 	}
 
-	protected void SearchToolElementByName(PaletteDrawer drawer,
-			Map predefinedEntries,
-			DiagramGlobalToolService.ToolMetaModel elementTool) {
-
-		Set<?> cles = predefinedEntries.keySet();
-		Object cle;
-		ToolEntry entry = null;
-		Object value;
-		Iterator<?> it = cles.iterator();
-		while (it.hasNext()) {
-			cle = it.next();
-			value = predefinedEntries.get(cle);
-			if (value instanceof ToolEntry) {
-				entry = (ToolEntry) value;
-				try {
-					if (entry.getLabel().equals(elementTool.getMetaModel())) {
-						{
-							createMetaToolDefinitionCustomPaletteProvider(
-									entry, drawer, elementTool);
-
-						}
-
-					} else {
-						EClass metaTool = PaletteUtil.getToolMetaclass(entry);
-						if (metaTool != null) {
-							if (metaTool.getName().equals(
-									elementTool.getMetaModel())) {
-
-								createMetaToolDefinitionCustomPaletteProvider(
-										entry, drawer, elementTool);
-							}
-
-						}
-
-					}
-
-				} catch (Exception e) {
-					Activator.log(e.getMessage(), e);
-
-				}
-			}
-		}
-
-	}
-
-	protected void createMetaToolDefinitionCustomPaletteProvider(
-			ToolEntry entry, PaletteDrawer drawer, AbstractTool elementTool) {
-		Tool createTool = entry.createTool();
-		if (createTool instanceof AspectUnspecifiedTypeCreationTool) {
-			createNodeToolMetaToolPaletteEntry(entry, drawer, elementTool);
-
-		}
-
-		else if (createTool instanceof AspectUnspecifiedTypeConnectionTool) {
-			createEdgeToolMetaToolPaletteEntry(entry, drawer, elementTool);
-		}
-
-	}
-
-	protected void createNodeToolMetaToolPaletteEntry(ToolEntry entry,
-			PaletteDrawer drawer, AbstractTool elementTool) {
-		ToolDefinitionNodePaletteEntry toolDefinitionEntry;
-		if (!ToolDefinitionMap.containsKey(elementTool.getName())) {
-			createNewNodeToolMetaToolPaletteEntry(entry, drawer, elementTool);
-		}
-
-		else {
-			setNodeToolMetaToolPaletteEntry(entry, elementTool);
-		}
-
-	}
-
-	protected void setNodeToolMetaToolPaletteEntry(ToolEntry entry,
-			AbstractTool elementTool) {
-		ToolDefinitionNodePaletteEntry toolDefinitionEntry;
-		toolDefinitionEntry = (ToolDefinitionNodePaletteEntry) ToolDefinitionMap
-				.get(elementTool.getName());
-		toolDefinitionEntry.addTypes((AspectUnspecifiedTypeCreationTool) entry
-				.createTool());
-	}
-
-	protected void createNewNodeToolMetaToolPaletteEntry(ToolEntry entry,
-			PaletteDrawer drawer, AbstractTool elementTool) {
-		ToolDefinitionNodePaletteEntry toolDefinitionEntry;
-		toolDefinitionEntry = new ToolDefinitionNodePaletteEntry(entry,
-				(ToolMetaModel) elementTool);
-		ToolDefinitionMap.put(elementTool.getName(), toolDefinitionEntry);
-		drawer.add(toolDefinitionEntry);
-	}
-
-	protected void createEdgeToolMetaToolPaletteEntry(ToolEntry entry,
-			PaletteDrawer drawer, AbstractTool elementTool) {
-		ToolDefinitionEdgePaletteEntry toolDefinitionEntry;
-		if (!ToolDefinitionMap.containsKey(elementTool.getName())) {
-			createNewEdgeToolMetaToolPaletteEntry(entry, drawer, elementTool);
-		}
-
-		else {
-			setEdgeToolMetaToolPaletteEntry(entry, elementTool);
-		}
-	}
-
-	protected void setEdgeToolMetaToolPaletteEntry(ToolEntry entry,
-			AbstractTool elementTool) {
-		ToolDefinitionEdgePaletteEntry toolDefinitionEntry;
-		toolDefinitionEntry = (ToolDefinitionEdgePaletteEntry) ToolDefinitionMap
-				.get(elementTool.getName());
-		toolDefinitionEntry
-				.addTypes((AspectUnspecifiedTypeConnectionTool) entry
-						.createTool());
-	}
-
-	protected void createNewEdgeToolMetaToolPaletteEntry(ToolEntry entry,
-			PaletteDrawer drawer, AbstractTool elementTool) {
-		ToolDefinitionEdgePaletteEntry toolDefinitionEntry;
-		toolDefinitionEntry = new ToolDefinitionEdgePaletteEntry(entry,
-				(ToolMetaModel) elementTool);
-		ToolDefinitionMap.put(elementTool.getName(), toolDefinitionEntry);
-		drawer.add(toolDefinitionEntry);
-	}
-
 	public static void hideDefaultPalette() {
-		for (ProviderDescriptor p : getAvailableProvidors()) {
-			String editorID = p.getTargetEditorID();
-			String paletteID = p.getContributionID();
-			if (paletteID == null) {
-				paletteID = editorID;
-			}
-			if (paletteID != null && editorID != null) {
-				if (!paletteID.equals(editor)) {
-					PapyrusPalettePreferences.changePaletteVisibility(
-							paletteID, editor.getClass().getName(), false);
-				}
+		for (Object child : root.getChildren()) {
 
+			if (child instanceof org.eclipse.gef.palette.PaletteDrawer) {
+				org.eclipse.gef.palette.PaletteDrawer drawer = (org.eclipse.gef.palette.PaletteDrawer) child;
+				drawer.setVisible(false);
 			}
 
 		}

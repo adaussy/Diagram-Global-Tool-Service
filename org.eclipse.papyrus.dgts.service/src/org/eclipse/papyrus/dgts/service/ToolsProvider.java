@@ -3,24 +3,15 @@ package org.eclipse.papyrus.dgts.service;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EClassifier;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.emf.type.core.ElementTypeRegistry;
-import org.eclipse.gmf.runtime.emf.type.core.IClientContext;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.papyrus.dgts.service.interfaces.IToolsProvider;
-import org.eclipse.uml2.uml.UMLFactory;
-import org.eclipse.uml2.uml.UMLPackage;
 
-import DiagramGlobalToolService.AbstractTool;
 import DiagramGlobalToolService.DiagramDefinition;
 import DiagramGlobalToolService.DiagramGlobalToolDefinition;
 import DiagramGlobalToolService.DrawerDefinition;
 import DiagramGlobalToolService.ElementType;
 import DiagramGlobalToolService.Tool;
-
-import DiagramGlobalToolService.ToolMetaModel;
 
 public class ToolsProvider implements IToolsProvider {
 
@@ -40,13 +31,29 @@ public class ToolsProvider implements IToolsProvider {
 		}
 		return null;
 	}
+	
+	public boolean activatePalette(String diagram,DiagramGlobalToolDefinition global){
+		DiagramDefinition diagramDefinition = getDiagram(diagram, global) ;
+		if(diagramDefinition !=  null){
+			return diagramDefinition.isSetPalette();
+		}
+		return false ;
+		
+	}
+	
+	public boolean activatePopup(String diagram,DiagramGlobalToolDefinition global){
+		DiagramDefinition diagramDefinition = getDiagram(diagram, global) ;
+		return diagramDefinition.isSetPopup();
+		
+	}
+	
 
 	// get all tools from a diagram
-	public List<AbstractTool> getTools(DiagramDefinition diagram) {
+	public List<Tool> getTools(DiagramDefinition diagram) {
 		if (diagram != null) {
-			List<AbstractTool> toolList = new ArrayList<AbstractTool>();
+			List<Tool> toolList = new ArrayList<Tool>();
 			for (DrawerDefinition drawer : diagram.getDrawerDefinitionRef()) {
-				for (AbstractTool tool : drawer.getAbstractToolRef()) {
+				for (Tool tool : drawer.getToolRef()) {
 					toolList.add(tool);
 				}
 			}
@@ -56,10 +63,10 @@ public class ToolsProvider implements IToolsProvider {
 	}
 
 	// get all tools from a given drawer
-	public List<AbstractTool> getTools(DrawerDefinition drawer) {
+	public List<Tool> getTools(DrawerDefinition drawer) {
 		if (drawer != null) {
-			List<AbstractTool> toolList = new ArrayList<AbstractTool>();
-			for (AbstractTool tool : drawer.getAbstractToolRef()) {
+			List<Tool> toolList = new ArrayList<Tool>();
+			for (Tool tool : drawer.getToolRef()) {
 				toolList.add(tool);
 			}
 			return toolList;
@@ -93,21 +100,21 @@ public class ToolsProvider implements IToolsProvider {
 
 	
 	
-	 // recupere une liste d'element en fonction du metamodele tu tool.
-	    public List<IElementType> getIElementTypesFromToolMetaModel(ToolMetaModel tool, IClientContext clientContext) {
-		List<IElementType> types = new ArrayList<IElementType>(1);
-		EClassifier eClazzifier = UMLPackage.eINSTANCE.getEClassifier(tool.getMetaModel());
-		if (eClazzifier != null) {
-		    EObject obj = UMLFactory.eINSTANCE.create((EClass) eClazzifier);
-		
-		    IElementType[] elementstype = ElementTypeRegistry.getInstance().getAllTypesMatching(obj, clientContext);
-		    for (IElementType type : elementstype) {
-			types.add(type);
-		    }
-		    return types;
-		}
-		return null;
-	    }
+//	 // recupere une liste d'element en fonction du metamodele tu tool.
+//	    public List<IElementType> getIElementTypesFromToolMetaModel(ToolMetaModel tool, IClientContext clientContext) {
+//		List<IElementType> types = new ArrayList<IElementType>(1);
+//		EClassifier eClazzifier = UMLPackage.eINSTANCE.getEClassifier(tool.getMetaModel());
+//		if (eClazzifier != null) {
+//		    EObject obj = UMLFactory.eINSTANCE.create((EClass) eClazzifier);
+//		
+//		    IElementType[] elementstype = ElementTypeRegistry.getInstance().getAllTypesMatching(obj, clientContext);
+//		    for (IElementType type : elementstype) {
+//			types.add(type);
+//		    }
+//		    return types;
+//		}
+//		return null;
+//	    }
 	    // recupere une liste d'IElementType en fonction d'un tool
 	    public List<IElementType> getIElementTypesFromTool(Tool tool) {
 
@@ -126,9 +133,9 @@ public class ToolsProvider implements IToolsProvider {
 
 	    }
 
-		public List<AbstractTool> getAllElement(
+		public List<Tool> getAllElement(
 				DiagramGlobalToolDefinition globalToolDefinition) {
-			List<AbstractTool> listElement = new ArrayList<AbstractTool>() ;
+			List<Tool> listElement = new ArrayList<Tool>() ;
 			for( DiagramDefinition diagram : globalToolDefinition.getDiagramDefinitionRef()){
 				listElement.addAll(this.getTools(diagram));
 				
