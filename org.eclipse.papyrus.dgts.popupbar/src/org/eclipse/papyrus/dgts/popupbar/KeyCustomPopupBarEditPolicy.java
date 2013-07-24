@@ -467,11 +467,9 @@ public class KeyCustomPopupBarEditPolicy extends GraphicalEditPolicy {
 
     static private int POPUPBAR_DISPLAYATMOUSEHOVERLOCATION = 0x04;
 
-
     // Code of the key for display the popup bar:
     private int codeKey = 262144; // CTRL
 
-    
     /** Bit field for the actrionbar associated bits */
     private int myPopupBarFlags = POPUPBAR_ACTIVATEONHOVER;
 
@@ -492,8 +490,6 @@ public class KeyCustomPopupBarEditPolicy extends GraphicalEditPolicy {
     private MouseMotionListener myMouseMotionListener = new PopupBarMouseMotionListener();
 
     private PopupBarKeyListener myPopupBarKeyListener = new PopupBarKeyListener();
-    
-    
 
     /** flag for whether mouse cursor within shape */
 

@@ -104,7 +104,7 @@ public class CustomModelingAssistantService {
 	    
 	    
 	    //If the last drawer has no types, we need to remove the last drawerbar
-	    if (types != null) {
+	    if (!types.isEmpty()) {
 		if (types.get(types.size() - 1).equals("drawerFlag")) {
 		    types.remove(types.size() - 1);
 		}

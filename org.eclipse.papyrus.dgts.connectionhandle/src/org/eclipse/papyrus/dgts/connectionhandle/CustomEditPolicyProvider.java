@@ -16,6 +16,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.GraphicalNodeEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.services.editpolicy.CreateEditPoliciesOperation;
 import org.eclipse.gmf.runtime.diagram.ui.services.editpolicy.IEditPolicyProvider;
 import org.eclipse.papyrus.dgts.connectionhandle.editpolicies.CustomConnectionHandleEditPolicy;
+import org.eclipse.papyrus.dgts.connectionhandle.editpolicies.DgtsConnectionHandleEditPolicy;
 import org.eclipse.papyrus.dgts.connectionhandle.editpolicies.DgtsContainerNodeEditPolicy;
 import org.eclipse.papyrus.dgts.connectionhandle.editpolicies.DgtsGraphicalNodeEditPolicy;
 import org.eclipse.papyrus.uml.diagram.activity.edit.part.CustomActivityActivityContentCompartmentEditPart;
