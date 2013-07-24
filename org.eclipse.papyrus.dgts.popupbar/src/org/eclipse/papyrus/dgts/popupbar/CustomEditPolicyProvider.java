@@ -20,12 +20,18 @@ public class CustomEditPolicyProvider extends AbstractProvider implements
 	public void createEditPolicies(EditPart editPart) {
 		if (editPart instanceof GraphicalEditPart) {
 			editPart.installEditPolicy(EditPolicyRoles.POPUPBAR_ROLE,
-					new CustomPopupBarEditPolicy());
+					new KeyCustomPopupBarEditPolicy());
 		}
 
-		
-		
+		if (editPart instanceof DiagramEditPart) {
+			editPart.installEditPolicy("KeyListenerForPopupBar",
+					new KeyListenerForPopupBarEditPolicy());
+		}
+
 	}
+	
+	
+	
 
 
 	public boolean provides(IOperation operation) {
