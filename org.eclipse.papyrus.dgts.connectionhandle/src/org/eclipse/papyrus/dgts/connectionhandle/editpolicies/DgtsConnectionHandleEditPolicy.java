@@ -9,7 +9,6 @@ import java.util.List;
 import org.eclipse.draw2d.FigureListener;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.MouseEvent;
-import org.eclipse.draw2d.MouseListener;
 import org.eclipse.draw2d.MouseMotionListener;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.emf.ecore.EObject;
@@ -19,7 +18,6 @@ import org.eclipse.gef.editpolicies.GraphicalEditPolicy;
 import org.eclipse.gef.tools.SelectionTool;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DiagramAssistantEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.handles.ConnectionHandle.HandleDirection;
 import org.eclipse.gmf.runtime.diagram.ui.handles.ConnectionHandleLocator;
 import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramUIMessages;
@@ -27,6 +25,8 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.papyrus.dgts.connectionhandle.CustomModelingAssistantService;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.KeyEvent;
+import org.eclipse.swt.events.KeyListener;
 import org.eclipse.swt.graphics.Cursor;
 import org.eclipse.swt.widgets.Display;
 
@@ -51,10 +51,7 @@ public class DgtsConnectionHandleEditPolicy extends GraphicalEditPolicy implemen
      * when this occurs.
      */
     
-    protected void showDiagramAssistantAfterDelay(int delay) {
-	showDiagramAssistant(null);
-	
-}
+
     
     
     private class OwnerMovedListener implements FigureListener {
@@ -62,6 +59,8 @@ public class DgtsConnectionHandleEditPolicy extends GraphicalEditPolicy implemen
 	public void figureMoved(IFigure source) {
 	    hideDiagramAssistant();
 	}
+	
+	
     }
 
     // listener for owner shape movement 
@@ -99,7 +98,7 @@ public class DgtsConnectionHandleEditPolicy extends GraphicalEditPolicy implemen
 		@Override
 		public void handleMouseExited(MouseEvent event) {
 		    mouseHover = false;
-		    super.handleMouseEntered(event);
+		    super.handleMouseExited(event);
 		}
 	    });
 	}
@@ -120,7 +119,7 @@ public class DgtsConnectionHandleEditPolicy extends GraphicalEditPolicy implemen
 		@Override
 		public void handleMouseExited(MouseEvent event) {
 		    mouseHover = false;
-		    super.handleMouseEntered(event);
+		    super.handleMouseExited(event);
 		}
 		
 	    });
@@ -152,8 +151,47 @@ public class DgtsConnectionHandleEditPolicy extends GraphicalEditPolicy implemen
 	return null;
     }
 
+    
+   private ConnectionKeyListener myConnectionKeyListener = new ConnectionKeyListener();
+   protected boolean keyPressed = false;
+   
+   protected boolean isKeyPressed(){
+       return keyPressed;
+   }
+    
+   
+    private int codeKey =  131072;
+    private class ConnectionKeyListener implements KeyListener {
+
+   	public void keyPressed(KeyEvent event) {
+   	   
+   	     //System.out.println("Code touche pressée : " + event.keyCode +
+   	   //  " - caractère touche pressée : " + event.character);
+
+   	    if (event.keyCode == codeKey) {
+   		if (getMouseLocation() != null) {
+   		
+   		    keyPressed = true;
+   		    showDiagramAssistant(getMouseLocation());
+   		}
+   	    }
+   	}
+
+   	public void keyReleased(KeyEvent event) {
+   	    
+   	    // System.out.println("Code touche relâchée : " + event.keyCode +
+   	    // " - caractère touche relâchée : " + event.character);
+   	 if (event.keyCode == codeKey) {
+   	    keyPressed = false;
+   	    hideDiagramAssistant();
+   	 }
+   	}
+
+       }
     public void activate() {
 	super.activate();
+	
+	 getHost().getViewer().getControl().addKeyListener(this.myConnectionKeyListener);
 
 	((IGraphicalEditPart) getHost()).getFigure().addFigureListener(ownerMovedListener);
     }
@@ -168,6 +206,7 @@ public class DgtsConnectionHandleEditPolicy extends GraphicalEditPolicy implemen
     
     //show the connections handles
     protected void showDiagramAssistant(Point referencePoint) {
+	if (shouldShowDiagramAssistant()){
 	
 	//to avoid double connections handles :
 	hideDiagramAssistant();
@@ -200,8 +239,8 @@ public class DgtsConnectionHandleEditPolicy extends GraphicalEditPolicy implemen
 	    getHost().getViewer().getVisualPartMap().put(handle, getHost());
 	}
 
-	
-	    //hideDiagramAssistant();
+	}
+	  
 	
     }
 
@@ -222,6 +261,9 @@ public class DgtsConnectionHandleEditPolicy extends GraphicalEditPolicy implemen
 	    getHost().getViewer().getVisualPartMap().remove(handle);
 	}
 	handles = null;
+	
+	//we hide the handles: we cant be hover it anymore
+	mouseHover = false;
 	
     }
 
@@ -271,7 +313,7 @@ public class DgtsConnectionHandleEditPolicy extends GraphicalEditPolicy implemen
   
 
     protected boolean shouldShowDiagramAssistant() {
-	return getHost().isActive() && isPreferenceOn() && isHostEditable() && isHostResolvable() && isNotMouseHover() &&isSelectionToolActive();
+	return getHost().isActive() &&isKeyPressed() && isPreferenceOn() && isHostEditable() && isHostResolvable() && isNotMouseHover() &&isSelectionToolActive();
     }
 
     
@@ -305,8 +347,8 @@ public class DgtsConnectionHandleEditPolicy extends GraphicalEditPolicy implemen
     
     public void mouseEntered(MouseEvent me) {
 	setMouseLocation(me.getLocation());
+	
 
-	showDiagramAssistant(getMouseLocation());
 }
 
 /*
@@ -330,7 +372,7 @@ public void mouseMoved(MouseEvent me) {
 	// do not hide the diagram assistant if the user is hovering over it
 	
 
-	//showDiagramAssistant(getMouseLocation());
+	showDiagramAssistant(getMouseLocation());
 }
 
 /*
@@ -351,6 +393,8 @@ public void mouseDragged(MouseEvent me) {
 	// do nothing
 }
     
+
+
 protected boolean isPreferenceOn() {
 	String prefName = getPreferenceName();
 	if (prefName == null) {

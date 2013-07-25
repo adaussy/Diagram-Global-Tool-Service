@@ -15,7 +15,7 @@ public class CustomConnectionHandle extends ConnectionHandle {
     protected DragTracker createDragTracker() {
 	return new CustomConnectionHandleTool(this);
     }
-
+/*
     protected Image getImage(int side) {
 	if (isIncoming()) {
 	  
@@ -27,5 +27,5 @@ public class CustomConnectionHandle extends ConnectionHandle {
 	    return connectionImage;
 
 	}
-    }
+    }*/
 }

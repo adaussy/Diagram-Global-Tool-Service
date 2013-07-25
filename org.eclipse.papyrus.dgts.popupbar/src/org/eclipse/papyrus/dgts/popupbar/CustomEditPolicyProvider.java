@@ -3,10 +3,7 @@ package org.eclipse.papyrus.dgts.popupbar;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.common.core.service.AbstractProvider;
 import org.eclipse.gmf.runtime.common.core.service.IOperation;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.services.editpolicy.CreateEditPoliciesOperation;
 import org.eclipse.gmf.runtime.diagram.ui.services.editpolicy.IEditPolicyProvider;
@@ -23,10 +20,7 @@ public class CustomEditPolicyProvider extends AbstractProvider implements
 					new KeyCustomPopupBarEditPolicy());
 		}
 
-	/*	if (editPart instanceof DiagramEditPart) {
-			editPart.installEditPolicy("KeyListenerForPopupBar",
-					new KeyListenerForPopupBarEditPolicy());
-		}*/
+	
 
 	}
 	

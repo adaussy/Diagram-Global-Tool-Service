@@ -34,7 +34,7 @@ public class CustomEditPolicyProvider extends AbstractProvider implements
 	    	//handle connections system
 		if (editPart instanceof ShapeNodeEditPart) {
 			editPart.installEditPolicy(EditPolicyRoles.CONNECTION_HANDLES_ROLE,
-					new CustomConnectionHandleEditPolicy());
+					new DgtsConnectionHandleEditPolicy());
 			
 		}
 		//creation of link and element with the handle system

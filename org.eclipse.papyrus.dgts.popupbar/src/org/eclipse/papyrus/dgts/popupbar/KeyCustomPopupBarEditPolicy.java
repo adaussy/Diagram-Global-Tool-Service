@@ -435,7 +435,9 @@ public class KeyCustomPopupBarEditPolicy extends GraphicalEditPolicy {
 	public void keyReleased(KeyEvent event) {
 	    // System.out.println("Code touche relâchée : " + event.keyCode +
 	    // " - caractère touche relâchée : " + event.character);
+	    if (event.keyCode == codeKey) {
 	    hideDiagramAssistant();
+	    }
 	}
 
     }

@@ -69,6 +69,8 @@ public class CustomModelingAssistantService extends ModelingAssistantService {
 
     @Override
     public List<?> getRelTypesOnSource(IAdaptable source) {
+	if (source.getAdapter(IGraphicalEditPart.class) instanceof IGraphicalEditPart){
+	
 	IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source.getAdapter(IGraphicalEditPart.class);
 	EClass sourceEClass = sourceEditPart.resolveSemanticElement().eClass();
 	
@@ -82,13 +84,14 @@ public class CustomModelingAssistantService extends ModelingAssistantService {
 		 }
 	    }
 	    return types;
-	}
+	}}
 	return null;
 
     }
 
     @Override
     public List<?> getRelTypesOnTarget(IAdaptable target) {
+	if (target.getAdapter(IGraphicalEditPart.class) instanceof IGraphicalEditPart){
 	IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target.getAdapter(IGraphicalEditPart.class);
 	EClass sourceEClass = targetEditPart.resolveSemanticElement().eClass();
 	
@@ -102,14 +105,16 @@ public class CustomModelingAssistantService extends ModelingAssistantService {
 		 }
 	    }
 	    return types;
-	}
+	}}
 	return null;
 
     }
 
     @Override
     public List<?> getRelTypesOnSourceAndTarget(IAdaptable source, IAdaptable target) {
-	
+	if ((source.getAdapter(IGraphicalEditPart.class) instanceof IGraphicalEditPart)
+	&& (target.getAdapter(IGraphicalEditPart.class) instanceof IGraphicalEditPart))
+	{
 
 	IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source.getAdapter(IGraphicalEditPart.class);
 	IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target.getAdapter(IGraphicalEditPart.class);
@@ -125,7 +130,7 @@ public class CustomModelingAssistantService extends ModelingAssistantService {
 
 	    }
 	    return types;
-	}
+	}}
 	return null;
 
     }
