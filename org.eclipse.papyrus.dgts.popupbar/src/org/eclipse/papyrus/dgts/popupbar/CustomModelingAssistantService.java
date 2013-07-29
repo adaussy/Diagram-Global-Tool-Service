@@ -70,38 +70,43 @@ public class CustomModelingAssistantService {
 			drawerContainType = false;
 			listOfTools = toolsProvider.getTools(drawer);
 			for (Tool tool : listOfTools) {
-			    if (!(tool.isIsEdge())) {
-				List<IElementType> possibleTypes = new ArrayList<IElementType>(1);
+			    if (tool.isSetPopup()) {
+				if (!(tool.isIsEdge())) {
+				    List<IElementType> possibleTypes = new ArrayList<IElementType>(1);
 
-				// //Methode utilisant les IelementTypes du tool
-				if (tool instanceof Tool) {
-				    possibleTypes = toolsProvider.getIElementTypesFromTool((Tool) tool);
-				}
+				    // //Methode utilisant les IelementTypes du
+				    // tool
+				    if (tool instanceof Tool) {
+					possibleTypes = toolsProvider.getIElementTypesFromTool((Tool) tool);
+				    }
 
-				if (possibleTypes != null) {
-				    for (IElementType type : possibleTypes) {
-					// check if its a visual type or not :
+				    if (possibleTypes != null) {
+					for (IElementType type : possibleTypes) {
+					    // check if its a visual type or not
+					    // :
 
-					if (type != null && (!(type instanceof MetamodelType))) {
-					    // check if the type can be add to
-					    // the
-					    // current
-					    // container :
-					    if (isValidType(type, editPart)) {
+					    if (type != null && (!(type instanceof MetamodelType))) {
+						// check if the type can be add
+						// to
+						// the
+						// current
+						// container :
+						if (isValidType(type, editPart)) {
 
-						// dont add if already exist
-						// if (!(types.contains(type)))
-						// {
-						types.add(type);
-						drawerContainType = true;
-						// }
+						    // dont add if already exist
+						    // if
+						    // (!(types.contains(type)))
+						    // {
+						    types.add(type);
+						    drawerContainType = true;
+						    // }
+						}
 					    }
 					}
 				    }
+
 				}
-
 			    }
-
 			}
 
 		    }

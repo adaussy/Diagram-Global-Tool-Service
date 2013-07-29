@@ -42,11 +42,9 @@ import org.eclipse.papyrus.uml.diagram.common.util.ViewServiceUtil;
 import org.eclipse.papyrus.uml.diagram.statemachine.providers.UMLElementTypes;
 import org.eclipse.uml2.uml.UMLFactory;
 
-import DiagramGlobalToolService.AbstractTool;
 import DiagramGlobalToolService.DiagramDefinition;
 import DiagramGlobalToolService.DiagramGlobalToolDefinition;
 import DiagramGlobalToolService.Tool;
-import DiagramGlobalToolService.ToolMetaModel;
 
 @SuppressWarnings("restriction")
 public class CustomModelingAssistantService extends ModelingAssistantService {
@@ -71,93 +69,90 @@ public class CustomModelingAssistantService extends ModelingAssistantService {
 
     @Override
     public List<?> getRelTypesOnSource(IAdaptable source) {
-	if (source.getAdapter(IGraphicalEditPart.class) instanceof IGraphicalEditPart){
-	
-	IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source.getAdapter(IGraphicalEditPart.class);
-	EClass sourceEClass = sourceEditPart.resolveSemanticElement().eClass();
-	
-	List<IElementType> types = new ArrayList<IElementType>();
-	List<IElementType> possibleTypes = getPossibleRelTypes(source);
-	if (possibleTypes != null) {
-	    for (IElementType type : possibleTypes) {
-		EClass typeEClass = type.getEClass();
-		// if (isValidRelationForSource(typeEClass, sourceEClass)) {
-		 types.add(type);
-		// }
+	if (source.getAdapter(IGraphicalEditPart.class) instanceof IGraphicalEditPart) {
+
+	    IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source.getAdapter(IGraphicalEditPart.class);
+	    EClass sourceEClass = sourceEditPart.resolveSemanticElement().eClass();
+
+	    List<IElementType> types = new ArrayList<IElementType>();
+	    List<IElementType> possibleTypes = getPossibleRelTypes(source);
+	    if (possibleTypes != null) {
+		for (IElementType type : possibleTypes) {
+		    EClass typeEClass = type.getEClass();
+		    // if (isValidRelationForSource(typeEClass, sourceEClass)) {
+		    types.add(type);
+		    // }
+		}
+		return types;
 	    }
-	    return types;
-	}}
+	}
 	return Collections.EMPTY_LIST;
 
     }
 
     @Override
     public List<?> getRelTypesOnTarget(IAdaptable target) {
-	if (target.getAdapter(IGraphicalEditPart.class) instanceof IGraphicalEditPart){
-	IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target.getAdapter(IGraphicalEditPart.class);
-	EClass sourceEClass = targetEditPart.resolveSemanticElement().eClass();
-	
-	List<IElementType> types = new ArrayList<IElementType>();
-	List<IElementType> possibleTypes = getPossibleRelTypes(target);
-	if (possibleTypes != null) {
-	    for (IElementType type : possibleTypes) {
-		EClass typeEClass = type.getEClass();
-		// if (isValidRelationForTarget(typeEClass, sourceEClass)) {
-		 types.add(type);
-		// }
+	if (target.getAdapter(IGraphicalEditPart.class) instanceof IGraphicalEditPart) {
+	    IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target.getAdapter(IGraphicalEditPart.class);
+	    EClass sourceEClass = targetEditPart.resolveSemanticElement().eClass();
+
+	    List<IElementType> types = new ArrayList<IElementType>();
+	    List<IElementType> possibleTypes = getPossibleRelTypes(target);
+	    if (possibleTypes != null) {
+		for (IElementType type : possibleTypes) {
+		    EClass typeEClass = type.getEClass();
+		    // if (isValidRelationForTarget(typeEClass, sourceEClass)) {
+		    types.add(type);
+		    // }
+		}
+		return types;
 	    }
-	    return types;
-	}}
+	}
 	return Collections.EMPTY_LIST;
 
     }
 
     @Override
     public List<?> getRelTypesOnSourceAndTarget(IAdaptable source, IAdaptable target) {
-	if ((source.getAdapter(IGraphicalEditPart.class) instanceof IGraphicalEditPart)
-	&& (target.getAdapter(IGraphicalEditPart.class) instanceof IGraphicalEditPart))
-	{
+	if ((source.getAdapter(IGraphicalEditPart.class) instanceof IGraphicalEditPart) && (target.getAdapter(IGraphicalEditPart.class) instanceof IGraphicalEditPart)) {
 
-	IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source.getAdapter(IGraphicalEditPart.class);
-	IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target.getAdapter(IGraphicalEditPart.class);
-	List<IElementType> types = new ArrayList<IElementType>();
-	List<IElementType> possibleTypes = getPossibleRelTypes(source);
-	if (possibleTypes != null) {
-	    for (IElementType type : possibleTypes) {
+	    IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source.getAdapter(IGraphicalEditPart.class);
+	    IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target.getAdapter(IGraphicalEditPart.class);
+	    List<IElementType> types = new ArrayList<IElementType>();
+	    List<IElementType> possibleTypes = getPossibleRelTypes(source);
+	    if (possibleTypes != null) {
+		for (IElementType type : possibleTypes) {
 
-		if (isValidRelationForSourceAndTarget(type, sourceEditPart, targetEditPart)) {
-		  
-		    types.add(type);
+		    if (isValidRelationForSourceAndTarget(type, sourceEditPart, targetEditPart)) {
+
+			types.add(type);
+		    }
+
 		}
-
+		return types;
 	    }
-	    return types;
-	}}
+	}
 	return Collections.EMPTY_LIST;
 
     }
 
     public List<?> getTypesForSourceAndContainer(IAdaptable target, IElementType relationshipType, IGraphicalEditPart container) {
-	
+
 	List<IElementType> types = new ArrayList<IElementType>();
 	List<IElementType> possibleTypes = getPossibleElementTypes(container);
 
 	EClass relationEClass = relationshipType.getEClass();
 	if (possibleTypes != null) {
 	    for (IElementType type : possibleTypes) {
-		
-		
-		
+
 		EClass targetEClass = type.getEClass();
 		if (isValidSource(relationEClass, targetEClass)) {
 
 		    // check if we can create the element at this place
 		    if (isValidType(type, container)) {
-			String semanticHint = ((IHintedType)type).getSemanticHint();
-			
-		
+			String semanticHint = ((IHintedType) type).getSemanticHint();
+
 			types.add(type);
-			
 
 		    }
 		}
@@ -171,7 +166,7 @@ public class CustomModelingAssistantService extends ModelingAssistantService {
     }
 
     public List<IElementType> getTypesForTargetAndContainer(IAdaptable source, IElementType relationshipType, IGraphicalEditPart container) {
-	
+
 	List<IElementType> types = new ArrayList<IElementType>();
 	List<IElementType> possibleTypes = getPossibleElementTypes(container);
 
@@ -222,33 +217,31 @@ public class CustomModelingAssistantService extends ModelingAssistantService {
 	List<Tool> listOfTools = new ArrayList<Tool>();
 	listOfTools = toolsProvider.getTools(diag);
 
-	
 	// traitement de chaque tool
 	if (listOfTools != null) {
 	    for (Tool tool : listOfTools) {
+		if (tool.isSetPopup()) {
 
-		if (!(tool.isIsEdge())) {
+		    if (!(tool.isIsEdge())) {
 
-		    List<IElementType> possibleTypes = new ArrayList<IElementType>(1);
+			List<IElementType> possibleTypes = new ArrayList<IElementType>(1);
 
-	
 			possibleTypes = toolsProvider.getIElementTypesFromTool((Tool) tool);
-		    
 
-		    if (possibleTypes != null) {
-			for (IElementType type : possibleTypes) {
-			    // check if its a visual type or not :
-			    if (type != null ) {
+			if (possibleTypes != null) {
+			    for (IElementType type : possibleTypes) {
+				// check if its a visual type or not :
+				if (type != null) {
 
-				if (!(types.contains(type))) {
-				    types.add(type);
+				    if (!(types.contains(type))) {
+					types.add(type);
+				    }
+
 				}
-
 			    }
 			}
 		    }
 		}
-
 	    }
 
 	    return types;
@@ -282,25 +275,23 @@ public class CustomModelingAssistantService extends ModelingAssistantService {
 	// traitement de chaque tool
 	if (listOfTools != null) {
 	    for (Tool tool : listOfTools) {
+		if (tool.isSetPopup()) {
 
-		if (tool.isIsEdge()) {
+		    if (tool.isIsEdge()) {
 
-		    List<IElementType> possibleTypes = new ArrayList<IElementType>(1);
+			List<IElementType> possibleTypes = new ArrayList<IElementType>(1);
 
-		
-
-		  
 			possibleTypes = toolsProvider.getIElementTypesFromTool((Tool) tool);
-		    
 
-		    if (possibleTypes != null) {
-			for (IElementType type : possibleTypes) {
-			    // check if its a visual type or not :
-			    if (type != null ) {
-				if (!(types.contains(type))) {
-				    types.add(type);
+			if (possibleTypes != null) {
+			    for (IElementType type : possibleTypes) {
+				// check if its a visual type or not :
+				if (type != null) {
+				    if (!(types.contains(type))) {
+					types.add(type);
+				    }
+
 				}
-
 			    }
 			}
 		    }
@@ -328,6 +319,7 @@ public class CustomModelingAssistantService extends ModelingAssistantService {
 
 	return hasReferenceTo(source, relation);
     }
+
     private boolean isValidRelationForTarget(EClass relation, EClass source) {
 
 	return hasReferenceTo(source, relation);
@@ -336,11 +328,11 @@ public class CustomModelingAssistantService extends ModelingAssistantService {
     private boolean isValidRelationForSourceAndTarget(IElementType relationType, EditPart sourceEditPart, EditPart targetEditPart) {
 
 	CreateConnectionViewAndElementRequest request = new CreateConnectionViewAndElementRequest(relationType, null);
-	if (sourceEditPart !=null && targetEditPart != null){
-	Command cmd = CreateConnectionViewAndElementRequest.getCreateCommand(request, sourceEditPart, targetEditPart);
-	if (cmd != null && cmd.canExecute()) {
-	    return true;
-	}
+	if (sourceEditPart != null && targetEditPart != null) {
+	    Command cmd = CreateConnectionViewAndElementRequest.getCreateCommand(request, sourceEditPart, targetEditPart);
+	    if (cmd != null && cmd.canExecute()) {
+		return true;
+	    }
 	}
 	return false;
     }
@@ -349,27 +341,27 @@ public class CustomModelingAssistantService extends ModelingAssistantService {
 	CreateViewAndElementRequest request = new CreateViewAndElementRequest(elementType, null);
 	Command cmd = host.getCommand(request);
 	if (cmd != null && cmd.canExecute()) {
-	    
+
 	    return true;
 	}
 	return false;
     }
-    
+
     private boolean hasReferenceTo(EClass eClass, EClass eClassReferenced) {
 
- 	for (EReference eRef : eClass.getEAllReferences()) {
- 	    if (!eRef.isContainment() && !eRef.isDerived() && !eRef.isUnsettable()) {
- 		EClassifier typeEC = eRef.getEType();
- 		if (typeEC instanceof EClass) {
- 		    EClass typeEClass = (EClass) typeEC;
- 		    if (typeEClass.isSuperTypeOf(eClassReferenced)) {
+	for (EReference eRef : eClass.getEAllReferences()) {
+	    if (!eRef.isContainment() && !eRef.isDerived() && !eRef.isUnsettable()) {
+		EClassifier typeEC = eRef.getEType();
+		if (typeEC instanceof EClass) {
+		    EClass typeEClass = (EClass) typeEC;
+		    if (typeEClass.isSuperTypeOf(eClassReferenced)) {
 
- 			return true;
- 		    }
- 		}
- 	    }
- 	}
- 	return false;
-     }
+			return true;
+		    }
+		}
+	    }
+	}
+	return false;
+    }
 
 }
