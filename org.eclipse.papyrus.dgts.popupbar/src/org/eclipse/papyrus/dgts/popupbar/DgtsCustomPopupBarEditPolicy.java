@@ -31,18 +31,12 @@ import org.eclipse.gef.DragTracker;
 import org.eclipse.gef.Handle;
 import org.eclipse.gef.LayerConstants;
 import org.eclipse.gef.Tool;
-import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gef.tools.SelectionTool;
-import org.eclipse.gmf.runtime.common.ui.services.icon.IconService;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DiagramAssistantEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.internal.editparts.ISurfaceEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramUIMessages;
 import org.eclipse.gmf.runtime.diagram.ui.tools.AbstractPopupBarTool;
-import org.eclipse.gmf.runtime.diagram.ui.tools.PopupBarTool;
-import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.osgi.util.NLS;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.KeyEvent;
 import org.eclipse.swt.events.KeyListener;
@@ -62,72 +56,6 @@ public class DgtsCustomPopupBarEditPolicy extends DiagramAssistantEditPolicy {
 
     protected int DELAY = 50;
 
-    private class PopupBarDescriptor {
-
-	/** The action button tooltip */
-	private String _tooltip = new String();
-
-	/** The image for the button */
-	private Image _icon = null;
-
-	/** The typeinfo used to create the Request for the command */
-	@SuppressWarnings("unused")
-	private IElementType _elementType;
-
-	/** The DracgTracker / Tool associatd with the popup bar button */
-	private DragTracker _dragTracker = null;
-
-	private boolean _isDrawerBar;
-
-	/**
-	 * constructor
-	 * 
-	 * @param s
-	 * @param i
-	 * @param elementType
-	 * @param theTracker
-	 */
-	public PopupBarDescriptor(boolean isDrawerBar, String s, Image i, IElementType elementType, DragTracker theTracker) {
-	    _tooltip = s;
-	    _icon = i;
-	    _dragTracker = theTracker;
-	    _elementType = elementType;
-	    _isDrawerBar = isDrawerBar;
-
-	}
-
-	/**
-	 * gets the icon associated with this Descriptor
-	 * 
-	 * @return Image
-	 */
-	public final Image getIcon() {
-	    return _icon;
-	}
-
-	/**
-	 * gets the drag tracker associated with this Descriptor
-	 * 
-	 * @return drag tracker
-	 */
-	public final DragTracker getDragTracker() {
-	    return _dragTracker;
-	}
-
-	/**
-	 * gets the tool tip associated with this Descriptor
-	 * 
-	 * @return string
-	 */
-	public final String getToolTip() {
-	    return _tooltip;
-	}
-
-	public final boolean isDrawerBar() {
-	    return _isDrawerBar;
-	}
-
-    } // end PopupBarDescriptor
 
     private class PopupBarLabelHandle extends Label implements Handle {
 
@@ -485,110 +413,15 @@ public class DgtsCustomPopupBarEditPolicy extends DiagramAssistantEditPolicy {
 	return getFlag(POPUPBAR_ONDIAGRAMACTIVATED);
     }
 
-    /**
-     * Populates the popup bar with popup bar descriptors added by suclassing
-     * this editpolicy (i.e. <code>fillPopupBarDescriptors</code> and by
-     * querying the modeling assistant service for all types supported on the
-     * popup bar of this host. For those types added by the modeling assistant
-     * service the icons are retrieved using the Icon Service.
-     */
+
     protected void populatePopupBars() {
 
-
-	//Ask the custommodelingassistantservice for types to provide
-	List types = CustomModelingAssistantService.getInstance().getTypesForPopupBar(getHost());
-
-	for (Iterator iter = types.iterator(); iter.hasNext();) {
-	    Object type = iter.next();
-	    if (type instanceof IElementType) {
-		addPopupBarDescriptor((IElementType) type, IconService.getInstance().getIcon((IElementType) type));
-	    } else if (type instanceof String) {
-		//IF it s a drawer bar :
-		if (((String) type).equals("drawerFlag")) {
-		    addPopupBarDescriptor(true, null, null, null, null);
-		}
-	    }
-	}
-
+	myPopupBarDescriptors = CustomModelingAssistantService.getInstance().getTypesForPopupBar(getHost());
+    
     }
 
-    private boolean isSelectionToolActive() {
-	// getViewer calls getParent so check for null
-	if (getHost().getParent() != null && getHost().isActive()) {
-	    Tool theTool = getHost().getViewer().getEditDomain().getActiveTool();
-	    if ((theTool != null) && theTool instanceof SelectionTool) {
-		return true;
-	    }
-	}
-	return false;
-    }
 
  
-    protected void addPopupBarDescriptor(boolean isDrawerBar, IElementType elementType, Image theImage, DragTracker theTracker, String theTip) {
-
-	PopupBarDescriptor desc = new PopupBarDescriptor(isDrawerBar, theTip, theImage, elementType, theTracker);
-	myPopupBarDescriptors.add(desc);
-
-    }
-
-    /**
-     * adds popup bar descriptor
-     * 
-     * @param elementType
-     * @param theImage
-     * @param theTracker
-     */
-    protected void addPopupBarDescriptor(IElementType elementType, Image theImage, DragTracker theTracker) {
-
-	String theInputStr = DiagramUIMessages.PopupBar_AddNew;
-
-	String theTip = NLS.bind(theInputStr, elementType.getDisplayName());
-
-	addPopupBarDescriptor(false, elementType, theImage, theTracker, theTip);
-    }
-
-    /**
-     * default method for plugins which passes along the PopupBarTool as the
-     * tool to be used.
-     * 
-     * @param elementType
-     * @param theImage
-     */
-    protected void addPopupBarDescriptor(IElementType elementType, Image theImage) {
-
-	this.addPopupBarDescriptor(elementType, theImage, new PopupBarTool(getHost(), elementType));
-
-    }
-
-    /**
-     * @param elementType
-     * @param theImage
-     * @param theTip
-     */
-    protected void addPopupBarDescriptor(boolean isDrawerBar, IElementType elementType, Image theImage, String theTip) {
-
-	PopupBarTool theTracker = new PopupBarTool(getHost(), elementType);
-	PopupBarDescriptor desc = new PopupBarDescriptor(isDrawerBar, theTip, theImage, elementType, theTracker);
-
-	myPopupBarDescriptors.add(desc);
-
-    }
-
-    /**
-     * method used primarily to add UnspecifiedTypeCreationTool
-     * 
-     * @param elementType
-     * @param theImage
-     * @param theRequest
-     *            the create request to be used
-     */
-    protected void addPopupBarDescriptor(IElementType elementType, Image theImage, CreateRequest theRequest) {
-
-	PopupBarTool theTracker = new PopupBarTool(getHost(), theRequest);
-
-	this.addPopupBarDescriptor(elementType, theImage, theTracker);
-
-    }
 
     /**
      * gets the popup bar descriptors
@@ -893,6 +726,17 @@ public class DgtsCustomPopupBarEditPolicy extends DiagramAssistantEditPolicy {
 	    return !element.eIsProxy();
 	}
 	return true;
+    }
+
+    private boolean isSelectionToolActive() {
+	// getViewer calls getParent so check for null
+	if (getHost().getParent() != null && getHost().isActive()) {
+	    Tool theTool = getHost().getViewer().getEditDomain().getActiveTool();
+	    if ((theTool != null) && theTool instanceof SelectionTool) {
+		return true;
+	    }
+	}
+	return false;
     }
 
     // //////////////////////////////////////////////////////////

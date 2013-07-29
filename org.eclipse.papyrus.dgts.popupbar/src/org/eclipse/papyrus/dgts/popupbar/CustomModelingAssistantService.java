@@ -7,17 +7,22 @@ import java.util.List;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.gef.commands.Command;
+import org.eclipse.gmf.runtime.common.ui.services.icon.IconService;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.CompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramUIMessages;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
+import org.eclipse.gmf.runtime.diagram.ui.tools.PopupBarTool;
 import org.eclipse.gmf.runtime.emf.type.core.ClientContextManager;
 import org.eclipse.gmf.runtime.emf.type.core.IClientContext;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.type.core.MetamodelType;
+import org.eclipse.osgi.util.NLS;
 import org.eclipse.papyrus.dgts.service.DgtsResourceLoader;
 import org.eclipse.papyrus.dgts.service.ToolDefinitionResourceProvider;
 import org.eclipse.papyrus.dgts.service.ToolsProvider;
+import org.eclipse.swt.graphics.Image;
 
 import DiagramGlobalToolService.DiagramDefinition;
 import DiagramGlobalToolService.DiagramGlobalToolDefinition;
@@ -25,6 +30,38 @@ import DiagramGlobalToolService.DrawerDefinition;
 import DiagramGlobalToolService.Tool;
 
 public class CustomModelingAssistantService {
+
+    public class PopupBarType {
+	private IElementType type;
+	private String iconPath = null;
+	private boolean isDrawerBar = false;
+
+	public IElementType getType() {
+	    return type;
+	}
+
+	public String getIconReference() {
+	    return iconPath;
+	}
+
+	public boolean isDrawerBar() {
+	    return isDrawerBar;
+	}
+
+	PopupBarType(boolean isDrawerBar) {
+	    type = null;
+	    iconPath = null;
+	    isDrawerBar = true;
+	}
+
+	PopupBarType(IElementType theType, String theIconPath) {
+	    type = theType;
+	    iconPath = theIconPath;
+	    isDrawerBar = false;
+
+	}
+
+    }
 
     private final static CustomModelingAssistantService service = new CustomModelingAssistantService();
 
@@ -57,7 +94,6 @@ public class CustomModelingAssistantService {
 		List<Tool> listOfTools = new ArrayList<Tool>();
 		List<DrawerDefinition> listOfDrawers = new ArrayList<DrawerDefinition>();
 		listOfDrawers = toolsProvider.getDrawers(diag);
-
 		boolean drawerContainType = false;
 
 		if (listOfDrawers != null) {
@@ -65,17 +101,17 @@ public class CustomModelingAssistantService {
 		    for (DrawerDefinition drawer : listOfDrawers) {
 			// ADD "drawerflag" to add a drawerBar in the popup bar
 			if (drawerContainType) {
-			    types.add("drawerFlag");
+			    PopupBarDescriptor drawerBar = new PopupBarDescriptor(true, null, null, null, null);
+			    types.add(drawerBar);
 			}
 			drawerContainType = false;
 			listOfTools = toolsProvider.getTools(drawer);
+
 			for (Tool tool : listOfTools) {
 			    if (tool.isSetPopup()) {
 				if (!(tool.isIsEdge())) {
 				    List<IElementType> possibleTypes = new ArrayList<IElementType>(1);
 
-				    // //Methode utilisant les IelementTypes du
-				    // tool
 				    if (tool instanceof Tool) {
 					possibleTypes = toolsProvider.getIElementTypesFromTool((Tool) tool);
 				    }
@@ -86,7 +122,8 @@ public class CustomModelingAssistantService {
 					    // :
 
 					    if (type != null && (!(type instanceof MetamodelType))) {
-						// check if the type can be add
+						// check if the type can be
+						// added
 						// to
 						// the
 						// current
@@ -97,7 +134,11 @@ public class CustomModelingAssistantService {
 						    // if
 						    // (!(types.contains(type)))
 						    // {
-						    types.add(type);
+						 
+
+						    PopupBarDescriptor popupBarDesc = createPopupBarDescriptor(type,editPart,tool);
+
+						    types.add(popupBarDesc);
 						    drawerContainType = true;
 						    // }
 						}
@@ -115,7 +156,7 @@ public class CustomModelingAssistantService {
 		    // last
 		    // drawerbar
 		    if (!types.isEmpty()) {
-			if (types.get(types.size() - 1).equals("drawerFlag")) {
+			if (((PopupBarDescriptor)types.get(types.size() - 1)).isDrawerBar()) {
 			    types.remove(types.size() - 1);
 			}
 		    }
@@ -128,8 +169,31 @@ public class CustomModelingAssistantService {
 
     }
 
-    private boolean isValidType(IElementType elementType, IGraphicalEditPart host) {
+    private PopupBarDescriptor createPopupBarDescriptor(IElementType type, IGraphicalEditPart host, Tool tool) {
+	String iconPath = null;
+	Image img = null;
+	String theInputStr = DiagramUIMessages.PopupBar_AddNew;
+	String tip = NLS.bind(theInputStr, type.getDisplayName());
+	
+	   if (tool.getIconReference() != null) {
+		iconPath = tool.getIconReference().getIconPath();
+		if (iconPath != null){
+		    try {
+			img = new Image(null, getClass().getResourceAsStream(iconPath));
+		    } catch (Exception e) {
+			img=null;
+		    }
+		}
+	   }
+	   if (img==null){
+	       img = IconService.getInstance().getIcon((IElementType) type);
+	   }
 
+	return new PopupBarDescriptor(false, tip, img, type, new PopupBarTool(host, type));
+    }
+
+    private boolean isValidType(IElementType elementType, IGraphicalEditPart host) {
+	
 	boolean valid = false;
 
 	CreateViewAndElementRequest request = new CreateViewAndElementRequest(elementType, null);
