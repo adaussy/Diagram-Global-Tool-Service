@@ -1,3 +1,14 @@
+/*******************************************************************************
+ * Copyright  2013 Atos.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ * Vincent Lartigaut (Atos) vincent.lartigaut@atos.net - Vincent Lartigaut - initial API and implementation
+ * Guilhem Desq (Atos) guilhem.desq@atos.net -  Guilhem Desq - initial API and implementation
+ ******************************************************************************/
 package org.eclipse.papyrus.dgts.service;
 
 import java.util.ArrayList;
@@ -26,13 +37,10 @@ public class ToolsProvider implements IToolsProvider {
 				}
 
 			}
-			
-			
+
 		}
 		return null;
 	}
-
-	
 
 	// get all tools from a diagram
 	public List<Tool> getTools(DiagramDefinition diagram) {
@@ -71,63 +79,46 @@ public class ToolsProvider implements IToolsProvider {
 		}
 		return null;
 	}
-	
-	public List<ElementType> getElementTypes(Tool tool){
-		if(tool != null){
-			List<ElementType> elementTypeList = new ArrayList<ElementType>();	
-			for(ElementType elementType : tool.getElementTypes()){
+
+	public List<ElementType> getElementTypes(Tool tool) {
+		if (tool != null) {
+			List<ElementType> elementTypeList = new ArrayList<ElementType>();
+			for (ElementType elementType : tool.getElementTypes()) {
 				elementTypeList.add(elementType);
 			}
-			return elementTypeList ;
+			return elementTypeList;
 		}
 		return null;
-		
+
 	}
 
-	
-	
-//	 // recupere une liste d'element en fonction du metamodele tu tool.
-//	    public List<IElementType> getIElementTypesFromToolMetaModel(ToolMetaModel tool, IClientContext clientContext) {
-//		List<IElementType> types = new ArrayList<IElementType>(1);
-//		EClassifier eClazzifier = UMLPackage.eINSTANCE.getEClassifier(tool.getMetaModel());
-//		if (eClazzifier != null) {
-//		    EObject obj = UMLFactory.eINSTANCE.create((EClass) eClazzifier);
-//		
-//		    IElementType[] elementstype = ElementTypeRegistry.getInstance().getAllTypesMatching(obj, clientContext);
-//		    for (IElementType type : elementstype) {
-//			types.add(type);
-//		    }
-//		    return types;
-//		}
-//		return null;
-//	    }
-	    // recupere une liste d'IElementType en fonction d'un tool
-	    public List<IElementType> getIElementTypesFromTool(Tool tool) {
+	public List<IElementType> getIElementTypesFromTool(Tool tool) {
 
 		List<IElementType> types = new ArrayList<IElementType>(1);
 		if (tool.getElementTypes() != null) {
-		    for (ElementType type : tool.getElementTypes()) {
-			String ID = type.getElementType();
-			IElementType elementType = ElementTypeRegistry.getInstance().getType(ID);
-			if (elementType != null) {
-			    types.add(elementType);
+			for (ElementType type : tool.getElementTypes()) {
+				String ID = type.getElementType();
+				IElementType elementType = ElementTypeRegistry.getInstance()
+						.getType(ID);
+				if (elementType != null) {
+					types.add(elementType);
+				}
 			}
-		    }
-		    return types;
+			return types;
 		}
 		return null;
 
-	    }
+	}
 
-		public List<Tool> getAllElement(
-				DiagramGlobalToolDefinition globalToolDefinition) {
-			List<Tool> listElement = new ArrayList<Tool>() ;
-			for( DiagramDefinition diagram : globalToolDefinition.getDiagramDefinitionRef()){
-				listElement.addAll(this.getTools(diagram));
-				
-			}
-			return listElement;
+	public List<Tool> getAllElement(
+			DiagramGlobalToolDefinition globalToolDefinition) {
+		List<Tool> listElement = new ArrayList<Tool>();
+		for (DiagramDefinition diagram : globalToolDefinition
+				.getDiagramDefinitionRef()) {
+			listElement.addAll(this.getTools(diagram));
+
 		}
-	
+		return listElement;
+	}
 
 }
