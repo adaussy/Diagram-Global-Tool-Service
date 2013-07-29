@@ -31,21 +31,7 @@ public class ToolsProvider implements IToolsProvider {
 		}
 		return null;
 	}
-	
-	public boolean activatePalette(String diagram,DiagramGlobalToolDefinition global){
-		DiagramDefinition diagramDefinition = getDiagram(diagram, global) ;
-		if(diagramDefinition !=  null){
-			return diagramDefinition.isSetPalette();
-		}
-		return false ;
-		
-	}
-	
-	public boolean activatePopup(String diagram,DiagramGlobalToolDefinition global){
-		DiagramDefinition diagramDefinition = getDiagram(diagram, global) ;
-		return diagramDefinition.isSetPopup();
-		
-	}
+
 	
 
 	// get all tools from a diagram

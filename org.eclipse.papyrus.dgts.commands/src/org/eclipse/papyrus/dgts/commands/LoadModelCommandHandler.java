@@ -1,3 +1,14 @@
+/*******************************************************************************
+ * Copyright  2013 Atos.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ * Vincent Lartigaut (Atos) vincent.lartigaut@atos.net - Vincent Lartigaut - initial API and implementation
+ ******************************************************************************/
+
 package org.eclipse.papyrus.dgts.commands;
 
 import java.io.IOException;
@@ -42,14 +53,11 @@ public class LoadModelCommandHandler extends AbstractHandler {
 	}
 
 	public static void loadFileResource(IFile file) {
-		if (EXTENSION.equals(file
-				.getFileExtension())) {
+		if (EXTENSION.equals(file.getFileExtension())) {
 			try {
-				Resource resource = DgtsResourceLoader
-						.LoadResource(file);
-				ToolDefinitionResourceProvider
-						.setResource(resource);
-			//	UpdatePalette();
+				Resource resource = DgtsResourceLoader.LoadResource(file);
+				ToolDefinitionResourceProvider.setResource(resource);
+				// UpdatePalette();
 
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
@@ -58,19 +66,17 @@ public class LoadModelCommandHandler extends AbstractHandler {
 
 		}
 	}
-	
 
-/*
-	protected void UpdatePalette() {
-		PaletteRoot root = ToolDefinitionCustomPaletteProvider.getRoot();
-		IEditorPart editor = ToolDefinitionCustomPaletteProvider.getEditor();
-		Object content = ToolDefinitionCustomPaletteProvider.getContent();
-		if (root != null && editor != null && content != null) {
-			PaletteService.getInstance().updatePalette(root, editor, content);
-		}
-
-
-	}*/
-	
+	/*
+	 * protected void UpdatePalette() { PaletteRoot root =
+	 * ToolDefinitionCustomPaletteProvider.getRoot(); IEditorPart editor =
+	 * ToolDefinitionCustomPaletteProvider.getEditor(); Object content =
+	 * ToolDefinitionCustomPaletteProvider.getContent(); if (root != null &&
+	 * editor != null && content != null) {
+	 * PaletteService.getInstance().updatePalette(root, editor, content); }
+	 * 
+	 * 
+	 * }
+	 */
 
 }

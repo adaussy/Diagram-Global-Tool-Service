@@ -9,16 +9,18 @@
  * Vincent Lartigaut (Atos) vincent.lartigaut@atos.net - Vincent Lartigaut - initial API and implementation
  ******************************************************************************/
 
-package org.eclipse.papyrus.dgts.commands;
+package org.eclipse.papyrus.dgts.service.provider;
 
-import org.eclipse.papyrus.dgts.service.ToolDefinitionResourceProvider;
-import org.eclipse.ui.IStartup;
+import org.eclipse.gmf.runtime.common.core.service.IOperation;
+import org.eclipse.gmf.runtime.common.core.service.IProvider;
+import org.eclipse.gmf.runtime.emf.type.core.IElementType;
+import org.eclipse.gmf.runtime.emf.type.core.requests.IEditCommandRequest;
 
-public class MenuStartUp implements IStartup {
+public interface ICompleteRequestProvider extends IProvider {
 
-	@Override
-	public void earlyStartup() {
-		ToolDefinitionResourceProvider.notifyObserver();
-	}
+
+	public IEditCommandRequest getIEditCommandRequest(IOperation operation);
+
+	void fillRequest(IEditCommandRequest request, IElementType element);
 
 }

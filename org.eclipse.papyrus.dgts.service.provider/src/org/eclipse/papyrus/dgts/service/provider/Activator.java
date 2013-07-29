@@ -9,13 +9,9 @@
  * Vincent Lartigaut (Atos) vincent.lartigaut@atos.net - Vincent Lartigaut - initial API and implementation
  ******************************************************************************/
 
-package org.eclipse.papyrus.dgts.palette;
+package org.eclipse.papyrus.dgts.service.provider;
 
-import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Status;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
-import org.eclipse.ui.statushandlers.StatusManager;
 import org.osgi.framework.BundleContext;
 
 /**
@@ -24,7 +20,7 @@ import org.osgi.framework.BundleContext;
 public class Activator extends AbstractUIPlugin {
 
 	// The plug-in ID
-	public static final String PLUGIN_ID = "org.eclipse.papyrus.dgts.palette"; //$NON-NLS-1$
+	public static final String PLUGIN_ID = "org.eclipse.papyrus.dgts.service.provider"; //$NON-NLS-1$
 
 	// The shared instance
 	private static Activator plugin;
@@ -62,20 +58,4 @@ public class Activator extends AbstractUIPlugin {
 		return plugin;
 	}
 
-	private static IStatus getStatus(String message, Exception e){
-		if (e instanceof CoreException){
-			//Using already existing status
-			return ((CoreException) e).getStatus();
-		} 
-		return new Status(IStatus.ERROR, PLUGIN_ID, message, e);
-	}
-	
-	public static void log(String message, Exception e){
-		getDefault().getLog().log(getStatus(message, e));
-	}
-	
-	public static void show(String message, Exception e){
-		StatusManager.getManager().handle(getStatus(message, e), StatusManager.LOG | StatusManager.SHOW);
-	}
-	
 }

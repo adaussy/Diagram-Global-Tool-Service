@@ -1,15 +1,30 @@
+/*******************************************************************************
+ * Copyright  2013 Atos.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ * Vincent Lartigaut (Atos) vincent.lartigaut@atos.net - Vincent Lartigaut - initial API and implementation
+ ******************************************************************************/
+
 package org.eclipse.papyrus.dgts.palette;
 
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.eclipse.emf.ecore.EClass;
+import javax.swing.ImageIcon;
+
 import org.eclipse.gef.palette.PaletteRoot;
 import org.eclipse.gef.palette.ToolEntry;
-import org.eclipse.gef.tools.AbstractTool;
 import org.eclipse.gmf.runtime.diagram.ui.internal.services.palette.PaletteToolEntry;
 import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramWorkbenchPart;
 import org.eclipse.gmf.runtime.diagram.ui.providers.DefaultPaletteProvider;
@@ -19,7 +34,6 @@ import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.papyrus.dgts.service.ToolDefinitionResourceProvider;
 import org.eclipse.papyrus.dgts.service.ToolsProvider;
-import org.eclipse.papyrus.uml.diagram.common.part.PaletteUtil;
 import org.eclipse.papyrus.uml.diagram.common.service.AspectUnspecifiedTypeConnectionTool;
 import org.eclipse.papyrus.uml.diagram.common.service.AspectUnspecifiedTypeCreationTool;
 import org.eclipse.ui.IEditorPart;
@@ -73,12 +87,12 @@ public class ToolDefinitionCustomPaletteProvider extends DefaultPaletteProvider 
 				InitiElements(diagram.getType(),
 						ToolDefinitionResourceProvider
 								.getDiagramGlobalToolDefinition());
-				if (ListDrawers == null||ListDrawers.isEmpty() ) {
-					
+				if (ListDrawers == null || ListDrawers.isEmpty()) {
+
 					super.contributeToPalette(editor, content, root,
 							predefinedEntries);
 				} else {
-					
+
 					this.editor = editorCurrent;
 					this.root = root;
 					this.content = content;
@@ -98,15 +112,12 @@ public class ToolDefinitionCustomPaletteProvider extends DefaultPaletteProvider 
 	 */
 	protected void InitiElements(String diagram,
 			DiagramGlobalToolDefinition global) {
-		if(ListDrawers != null){
+		if (ListDrawers != null) {
 			ListDrawers.clear();
 		}
 		DiagramDefinition diagramDefinition = toolProvider.getDiagram(diagram,
 				global);
-		if(toolProvider.activatePalette(diagram, global)){
-			ListDrawers = toolProvider.getDrawers(diagramDefinition);
-
-		}
+		ListDrawers = toolProvider.getDrawers(diagramDefinition);
 	}
 
 	protected void contributeCustomPalette(Map predefinedEntries) {
@@ -124,7 +135,18 @@ public class ToolDefinitionCustomPaletteProvider extends DefaultPaletteProvider 
 					drawerDefinition.getName());
 			drawer.setInitialState(PaletteDrawer.INITIAL_STATE_OPEN);
 			createElement(drawerDefinition, drawer, predefinedEntries);
+			addDrawerIcon(drawer, drawerDefinition);
 			root.add(drawer);
+		}
+
+	}
+
+	protected void addDrawerIcon(PaletteDrawer drawer,
+			DrawerDefinition drawerDefinition) {
+		if (drawerDefinition.getIconReference() != null) {
+			ImageDescriptor img = ImageDescriptor.createFromFile(null,
+					drawerDefinition.getIconReference().getIconPath());
+			drawer.setSmallIcon(img);
 		}
 
 	}
@@ -134,14 +156,19 @@ public class ToolDefinitionCustomPaletteProvider extends DefaultPaletteProvider 
 		ToolEntry entry;
 
 		for (Tool elementTool : drawerDefinition.getToolRef()) {
-			createPaletteEntry(drawer, elementTool);
+			if (elementTool.isSetPalette()) {
+				createPaletteEntry(drawer, elementTool);
+
+			}
 		}
 
 	}
 
 	protected void createPaletteEntry(PaletteDrawer drawer, Tool elementTool) {
 		List<IElementType> elementTypeList;
-		createEntryFromTool(drawer, elementTool);
+		if (!elementTool.getElementTypes().isEmpty()) {
+			createEntryFromTool(drawer, elementTool);
+		}
 
 	}
 
