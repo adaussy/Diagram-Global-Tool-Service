@@ -192,7 +192,6 @@ public class CustomModelingAssistantService extends ModelingAssistantService {
 		    if (isValidType(type, container)) {
 
 			types.add(type);
-			// System.out.println(relationEClass.getName()+" with "+eRef.getName()+" for type "+type.getDisplayName());
 
 		    }
 
