@@ -23,48 +23,48 @@ import org.eclipse.emf.ecore.util.Switch;
  * @generated
  */
 public class DiagramGlobalToolServiceSwitch<T> extends Switch<T> {
-        /**
+	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-        protected static DiagramGlobalToolServicePackage modelPackage;
+	protected static DiagramGlobalToolServicePackage modelPackage;
 
-        /**
+	/**
 	 * Creates an instance of the switch.
 	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-        public DiagramGlobalToolServiceSwitch() {
+	public DiagramGlobalToolServiceSwitch() {
 		if (modelPackage == null) {
 			modelPackage = DiagramGlobalToolServicePackage.eINSTANCE;
 		}
 	}
 
-        /**
+	/**
 	 * Checks whether this is a switch for the given package.
 	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @parameter ePackage the package in question.
 	 * @return whether this is a switch for the given package.
 	 * @generated
 	 */
-        @Override
-        protected boolean isSwitchFor(EPackage ePackage) {
+	@Override
+	protected boolean isSwitchFor(EPackage ePackage) {
 		return ePackage == modelPackage;
 	}
 
-        /**
+	/**
 	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
 	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */
-        @Override
-        protected T doSwitch(int classifierID, EObject theEObject) {
+	@Override
+	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
 			case DiagramGlobalToolServicePackage.DIAGRAM_GLOBAL_TOOL_DEFINITION: {
 				DiagramGlobalToolDefinition diagramGlobalToolDefinition = (DiagramGlobalToolDefinition)theEObject;
@@ -96,98 +96,119 @@ public class DiagramGlobalToolServiceSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case DiagramGlobalToolServicePackage.ICON: {
+				Icon icon = (Icon)theEObject;
+				T result = caseIcon(icon);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
 
-        /**
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Diagram Global Tool Definition</em>'.
 	 * <!-- begin-user-doc -->
-         * This implementation returns null;
-         * returning a non-null result will terminate the switch.
-         * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Diagram Global Tool Definition</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-        public T caseDiagramGlobalToolDefinition(DiagramGlobalToolDefinition object) {
+	public T caseDiagramGlobalToolDefinition(DiagramGlobalToolDefinition object) {
 		return null;
 	}
 
-        /**
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Diagram Definition</em>'.
 	 * <!-- begin-user-doc -->
-         * This implementation returns null;
-         * returning a non-null result will terminate the switch.
-         * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Diagram Definition</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-        public T caseDiagramDefinition(DiagramDefinition object) {
+	public T caseDiagramDefinition(DiagramDefinition object) {
 		return null;
 	}
 
-        /**
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Drawer Definition</em>'.
 	 * <!-- begin-user-doc -->
-         * This implementation returns null;
-         * returning a non-null result will terminate the switch.
-         * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Drawer Definition</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-        public T caseDrawerDefinition(DrawerDefinition object) {
+	public T caseDrawerDefinition(DrawerDefinition object) {
 		return null;
 	}
 
-        /**
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Tool</em>'.
 	 * <!-- begin-user-doc -->
-         * This implementation returns null;
-         * returning a non-null result will terminate the switch.
-         * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Tool</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-        public T caseTool(Tool object) {
+	public T caseTool(Tool object) {
 		return null;
 	}
 
-        /**
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Element Type</em>'.
 	 * <!-- begin-user-doc -->
-         * This implementation returns null;
-         * returning a non-null result will terminate the switch.
-         * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Element Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-        public T caseElementType(ElementType object) {
+	public T caseElementType(ElementType object) {
 		return null;
 	}
 
-        /**
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Icon</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Icon</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIcon(Icon object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
 	 * <!-- begin-user-doc -->
-         * This implementation returns null;
-         * returning a non-null result will terminate the switch, but this is the last case anyway.
-         * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch, but this is the last case anyway.
+	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */
-        @Override
-        public T defaultCase(EObject object) {
+	@Override
+	public T defaultCase(EObject object) {
 		return null;
 	}
 

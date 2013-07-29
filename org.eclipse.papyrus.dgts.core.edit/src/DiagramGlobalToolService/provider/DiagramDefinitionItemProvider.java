@@ -64,9 +64,6 @@ public class DiagramDefinitionItemProvider
 			super.getPropertyDescriptors(object);
 
 			addDiagramTypePropertyDescriptor(object);
-			addSetPalettePropertyDescriptor(object);
-			addSetPopupPropertyDescriptor(object);
-			addSetMenuPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -94,72 +91,6 @@ public class DiagramDefinitionItemProvider
 	}
 
         /**
-	 * This adds a property descriptor for the Set Palette feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSetPalettePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DiagramDefinition_setPalette_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DiagramDefinition_setPalette_feature", "_UI_DiagramDefinition_type"),
-				 DiagramGlobalToolServicePackage.Literals.DIAGRAM_DEFINITION__SET_PALETTE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-								/**
-	 * This adds a property descriptor for the Set Popup feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSetPopupPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DiagramDefinition_setPopup_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DiagramDefinition_setPopup_feature", "_UI_DiagramDefinition_type"),
-				 DiagramGlobalToolServicePackage.Literals.DIAGRAM_DEFINITION__SET_POPUP,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-								/**
-	 * This adds a property descriptor for the Set Menu feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSetMenuPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DiagramDefinition_setMenu_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DiagramDefinition_setMenu_feature", "_UI_DiagramDefinition_type"),
-				 DiagramGlobalToolServicePackage.Literals.DIAGRAM_DEFINITION__SET_MENU,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-								/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -227,9 +158,6 @@ public class DiagramDefinitionItemProvider
 
 		switch (notification.getFeatureID(DiagramDefinition.class)) {
 			case DiagramGlobalToolServicePackage.DIAGRAM_DEFINITION__DIAGRAM_TYPE:
-			case DiagramGlobalToolServicePackage.DIAGRAM_DEFINITION__SET_PALETTE:
-			case DiagramGlobalToolServicePackage.DIAGRAM_DEFINITION__SET_POPUP:
-			case DiagramGlobalToolServicePackage.DIAGRAM_DEFINITION__SET_MENU:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case DiagramGlobalToolServicePackage.DIAGRAM_DEFINITION__DRAWER_DEFINITION_REF:

@@ -103,6 +103,7 @@ public class DrawerDefinitionItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(DiagramGlobalToolServicePackage.Literals.DRAWER_DEFINITION__TOOL_REF);
+			childrenFeatures.add(DiagramGlobalToolServicePackage.Literals.DRAWER_DEFINITION__ICON_REFERENCE);
 		}
 		return childrenFeatures;
 	}
@@ -161,6 +162,7 @@ public class DrawerDefinitionItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case DiagramGlobalToolServicePackage.DRAWER_DEFINITION__TOOL_REF:
+			case DiagramGlobalToolServicePackage.DRAWER_DEFINITION__ICON_REFERENCE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -182,6 +184,11 @@ public class DrawerDefinitionItemProvider
 			(createChildParameter
 				(DiagramGlobalToolServicePackage.Literals.DRAWER_DEFINITION__TOOL_REF,
 				 DiagramGlobalToolServiceFactory.eINSTANCE.createTool()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramGlobalToolServicePackage.Literals.DRAWER_DEFINITION__ICON_REFERENCE,
+				 DiagramGlobalToolServiceFactory.eINSTANCE.createIcon()));
 	}
 
         /**

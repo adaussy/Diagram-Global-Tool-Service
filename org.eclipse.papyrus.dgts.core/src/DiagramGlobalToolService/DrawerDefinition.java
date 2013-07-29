@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link DiagramGlobalToolService.DrawerDefinition#getName <em>Name</em>}</li>
  *   <li>{@link DiagramGlobalToolService.DrawerDefinition#getToolRef <em>Tool Ref</em>}</li>
+ *   <li>{@link DiagramGlobalToolService.DrawerDefinition#getIconReference <em>Icon Reference</em>}</li>
  * </ul>
  * </p>
  *
@@ -24,33 +25,33 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface DrawerDefinition extends EObject {
-        /**
+	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-         * <p>
-         * If the meaning of the '<em>Name</em>' attribute isn't clear,
-         * there really should be more of a description here...
-         * </p>
-         * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see DiagramGlobalToolService.DiagramGlobalToolServicePackage#getDrawerDefinition_Name()
 	 * @model
 	 * @generated
 	 */
-        String getName();
+	String getName();
 
-        /**
+	/**
 	 * Sets the value of the '{@link DiagramGlobalToolService.DrawerDefinition#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Name</em>' attribute.
 	 * @see #getName()
 	 * @generated
 	 */
-        void setName(String value);
+	void setName(String value);
 
-								/**
+	/**
 	 * Returns the value of the '<em><b>Tool Ref</b></em>' containment reference list.
 	 * The list contents are of type {@link DiagramGlobalToolService.Tool}.
 	 * <!-- begin-user-doc -->
@@ -65,5 +66,31 @@ public interface DrawerDefinition extends EObject {
 	 * @generated
 	 */
 	EList<Tool> getToolRef();
+
+	/**
+	 * Returns the value of the '<em><b>Icon Reference</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Icon Reference</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Icon Reference</em>' containment reference.
+	 * @see #setIconReference(Icon)
+	 * @see DiagramGlobalToolService.DiagramGlobalToolServicePackage#getDrawerDefinition_IconReference()
+	 * @model containment="true"
+	 * @generated
+	 */
+	Icon getIconReference();
+
+	/**
+	 * Sets the value of the '{@link DiagramGlobalToolService.DrawerDefinition#getIconReference <em>Icon Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Icon Reference</em>' containment reference.
+	 * @see #getIconReference()
+	 * @generated
+	 */
+	void setIconReference(Icon value);
 
 } // DrawerDefinition

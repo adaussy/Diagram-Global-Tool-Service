@@ -14,21 +14,26 @@
     <genClasses ecoreClass="dgts.ecore#//DiagramDefinition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dgts.ecore#//DiagramDefinition/DrawerDefinitionRef"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dgts.ecore#//DiagramDefinition/DiagramType"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dgts.ecore#//DiagramDefinition/setPalette"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dgts.ecore#//DiagramDefinition/setPopup"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dgts.ecore#//DiagramDefinition/setMenu"/>
     </genClasses>
     <genClasses ecoreClass="dgts.ecore#//DrawerDefinition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dgts.ecore#//DrawerDefinition/Name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dgts.ecore#//DrawerDefinition/ToolRef"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dgts.ecore#//DrawerDefinition/iconReference"/>
     </genClasses>
     <genClasses ecoreClass="dgts.ecore#//Tool">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dgts.ecore#//Tool/elementTypes"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dgts.ecore#//Tool/isEdge"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dgts.ecore#//Tool/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dgts.ecore#//Tool/setPalette"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dgts.ecore#//Tool/setPopup"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dgts.ecore#//Tool/setMenu"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dgts.ecore#//Tool/iconReference"/>
     </genClasses>
     <genClasses ecoreClass="dgts.ecore#//ElementType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dgts.ecore#//ElementType/elementType"/>
+    </genClasses>
+    <genClasses ecoreClass="dgts.ecore#//Icon">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dgts.ecore#//Icon/iconPath"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
