@@ -1,4 +1,14 @@
-package org.eclipse.papyrus.dgts.core ;
+/*******************************************************************************
+ * Copyright  2013 Atos.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ * Vincent Lartigaut (Atos) vincent.lartigaut@atos.net - Vincent Lartigaut - initial API and implementation
+ ******************************************************************************/
+package org.eclipse.papyrus.dgts.core;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
@@ -15,7 +25,7 @@ public class Activator extends AbstractUIPlugin {
 
 	// The shared instance
 	private static Activator plugin;
-	
+
 	/**
 	 * The constructor
 	 */
@@ -24,7 +34,10 @@ public class Activator extends AbstractUIPlugin {
 
 	/*
 	 * (non-Javadoc)
-	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext)
+	 * 
+	 * @see
+	 * org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext
+	 * )
 	 */
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
@@ -33,7 +46,10 @@ public class Activator extends AbstractUIPlugin {
 
 	/*
 	 * (non-Javadoc)
-	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#stop(org.osgi.framework.BundleContext)
+	 * 
+	 * @see
+	 * org.eclipse.ui.plugin.AbstractUIPlugin#stop(org.osgi.framework.BundleContext
+	 * )
 	 */
 	public void stop(BundleContext context) throws Exception {
 		plugin = null;
@@ -42,7 +58,7 @@ public class Activator extends AbstractUIPlugin {
 
 	/**
 	 * Returns the shared instance
-	 *
+	 * 
 	 * @return the shared instance
 	 */
 	public static Activator getDefault() {

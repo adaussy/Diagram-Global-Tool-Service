@@ -1,8 +1,16 @@
+/*******************************************************************************
+ * Copyright  2013 Atos.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ * Vincent Lartigaut (Atos) vincent.lartigaut@atos.net - Vincent Lartigaut - initial API and implementation
+ ******************************************************************************/
+
 package org.eclipse.papyrus.dgts.commands;
 
-import java.util.List;
-
-import org.eclipse.core.commands.CommandManager;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
@@ -10,19 +18,11 @@ import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.e4.core.di.annotations.Execute;
-import org.eclipse.e4.ui.model.application.MApplication;
-import org.eclipse.papyrus.dgts.palette.ToolDefinitionCustomPaletteProvider;
-import org.eclipse.papyrus.uml.diagram.common.part.IPaletteDescription;
-import org.eclipse.papyrus.uml.diagram.common.part.PapyrusPalettePreferences;
-import org.eclipse.ui.IStartup;
-import org.eclipse.ui.IWorkbench;
-import org.eclipse.ui.IWorkbenchWindow;
-import org.eclipse.ui.PlatformUI;
 
-public class ResourceLoadingStartup  {
+public class ResourceLoadingStartup {
 
 	@Execute
-	public void execute(){
+	public void execute() {
 		loadResource();
 
 	}
@@ -36,8 +36,7 @@ public class ResourceLoadingStartup  {
 
 			}
 		}
-		//ToolDefinitionCustomPaletteProvider.hideDefaultPalette();
-		
+
 	}
 
 	private void getFileInProject(IProject project) {
