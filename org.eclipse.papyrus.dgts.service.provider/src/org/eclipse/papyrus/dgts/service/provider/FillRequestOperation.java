@@ -19,8 +19,9 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.IEditCommandRequest;
 public class FillRequestOperation implements IOperation {
 	protected IEditCommandRequest request ;
 	private IElementType element = null;
-	public FillRequestOperation(IEditCommandRequest request){
+	public FillRequestOperation(IEditCommandRequest request, IElementType elementType){
 		this.request = request ;
+		element = elementType ;
 	}
 
 	@Override
@@ -35,10 +36,6 @@ public class FillRequestOperation implements IOperation {
 	
 	public IEditCommandRequest getIEditCommandRequest(){
 		return request ;
-	}
-	
-	public void setIElementType(IElementType elementType){
-		element = elementType ;
 	}
 
 }

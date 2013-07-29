@@ -3,10 +3,10 @@
 <schema targetNamespace="org.eclipse.papyrus.dgts.service.provider" xmlns="http://www.w3.org/2001/XMLSchema">
 <annotation>
       <appinfo>
-         <meta.schema plugin="org.eclipse.papyrus.dgts.service.provider" id="fillrequestprovider" name="fillrequestprovider"/>
+         <meta.schema plugin="org.eclipse.papyrus.dgts.service.provider" id="fillrequestprovider" name="Fill request provider"/>
       </appinfo>
       <documentation>
-         [Enter description of this extension point.]
+         This service provider allows the user to create an operation to complete a create element request in a model explorer context.
       </documentation>
    </annotation>
 
@@ -127,5 +127,17 @@
       </documentation>
    </annotation>
 
+   <annotation>
+      <appinfo>
+         <meta.section type="copyright"/>
+      </appinfo>
+      <documentation>
+         Copyright  2013 Atos.
+All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at 
+ &lt;a href=&quot;http://www.eclipse.org/legal/epl-v10.html&quot;&gt;http://www.eclipse.org/legal/epl-v10.html&lt;/a&gt;
+
+      </documentation>
+   </annotation>
 
 </schema>

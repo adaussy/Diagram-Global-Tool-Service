@@ -37,13 +37,13 @@ public class FillRequestService extends Service {
 	}
 
 	private static class SingleHolder {
-		private  static FillRequestService INSTANCE ;
-		
-		public static FillRequestService getFillRequestService(){
-			if(INSTANCE==null){
-				INSTANCE = new FillRequestService() ;
+		private static FillRequestService INSTANCE;
+
+		public static FillRequestService getFillRequestService() {
+			if (INSTANCE == null) {
+				INSTANCE = new FillRequestService();
 			}
-			return INSTANCE; 
+			return INSTANCE;
 		}
 	}
 
