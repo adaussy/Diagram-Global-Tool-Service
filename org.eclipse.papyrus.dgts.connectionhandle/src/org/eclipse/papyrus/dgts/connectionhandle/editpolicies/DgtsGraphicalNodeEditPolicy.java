@@ -1,3 +1,14 @@
+/*******************************************************************************
+ * Copyright  2013 Atos.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ * Guilhem Desq (Atos) guilhem.desq@atos.net -  Guilhem Desq - initial API and implementation
+ ******************************************************************************/
+
 package org.eclipse.papyrus.dgts.connectionhandle.editpolicies;
 
 
@@ -63,15 +74,7 @@ public class DgtsGraphicalNodeEditPolicy extends GraphicalEditPolicy {
      */
     private static final String CREATE_CONNECTION_COMMAND_LABEL = DiagramUIMessages.GraphicalNodeEditPolicy_createRelationshipCommand_label;
 
-    /**
-     * Gets a command that pops up a menu which allows the user to select which
-     * type of connection to be created and then creates the connection. This
-     * command uses
-     * {@link #getCommandForMenuSelection(Object, CreateConnectionRequest)} on
-     * the connection chosen to get the creation command.
-     * 
-     * @author cmahoney
-     */
+ 
     protected class PromptAndCreateConnectionCommand extends CreateOrSelectElementCommand {
 
 	/**
