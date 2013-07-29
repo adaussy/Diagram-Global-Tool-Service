@@ -60,6 +60,9 @@ public class ToolItemProvider
 
 			addIsEdgePropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
+			addSetPalettePropertyDescriptor(object);
+			addSetPopupPropertyDescriptor(object);
+			addSetMenuPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -109,6 +112,72 @@ public class ToolItemProvider
 	}
 
 								/**
+	 * This adds a property descriptor for the Set Palette feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSetPalettePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Tool_setPalette_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Tool_setPalette_feature", "_UI_Tool_type"),
+				 DiagramGlobalToolServicePackage.Literals.TOOL__SET_PALETTE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+								/**
+	 * This adds a property descriptor for the Set Popup feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSetPopupPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Tool_setPopup_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Tool_setPopup_feature", "_UI_Tool_type"),
+				 DiagramGlobalToolServicePackage.Literals.TOOL__SET_POPUP,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+								/**
+	 * This adds a property descriptor for the Set Menu feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSetMenuPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Tool_setMenu_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Tool_setMenu_feature", "_UI_Tool_type"),
+				 DiagramGlobalToolServicePackage.Literals.TOOL__SET_MENU,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+								/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -121,6 +190,7 @@ public class ToolItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(DiagramGlobalToolServicePackage.Literals.TOOL__ELEMENT_TYPES);
+			childrenFeatures.add(DiagramGlobalToolServicePackage.Literals.TOOL__ICON_REFERENCE);
 		}
 		return childrenFeatures;
 	}
@@ -177,9 +247,13 @@ public class ToolItemProvider
 		switch (notification.getFeatureID(Tool.class)) {
 			case DiagramGlobalToolServicePackage.TOOL__IS_EDGE:
 			case DiagramGlobalToolServicePackage.TOOL__NAME:
+			case DiagramGlobalToolServicePackage.TOOL__SET_PALETTE:
+			case DiagramGlobalToolServicePackage.TOOL__SET_POPUP:
+			case DiagramGlobalToolServicePackage.TOOL__SET_MENU:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case DiagramGlobalToolServicePackage.TOOL__ELEMENT_TYPES:
+			case DiagramGlobalToolServicePackage.TOOL__ICON_REFERENCE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -201,6 +275,11 @@ public class ToolItemProvider
 			(createChildParameter
 				(DiagramGlobalToolServicePackage.Literals.TOOL__ELEMENT_TYPES,
 				 DiagramGlobalToolServiceFactory.eINSTANCE.createElementType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramGlobalToolServicePackage.Literals.TOOL__ICON_REFERENCE,
+				 DiagramGlobalToolServiceFactory.eINSTANCE.createIcon()));
 	}
 
 								/**

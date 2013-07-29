@@ -3,6 +3,7 @@
 package DiagramGlobalToolService;
 
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -16,6 +17,10 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link DiagramGlobalToolService.Tool#getElementTypes <em>Element Types</em>}</li>
  *   <li>{@link DiagramGlobalToolService.Tool#isIsEdge <em>Is Edge</em>}</li>
  *   <li>{@link DiagramGlobalToolService.Tool#getName <em>Name</em>}</li>
+ *   <li>{@link DiagramGlobalToolService.Tool#isSetPalette <em>Set Palette</em>}</li>
+ *   <li>{@link DiagramGlobalToolService.Tool#isSetPopup <em>Set Popup</em>}</li>
+ *   <li>{@link DiagramGlobalToolService.Tool#isSetMenu <em>Set Menu</em>}</li>
+ *   <li>{@link DiagramGlobalToolService.Tool#getIconReference <em>Icon Reference</em>}</li>
  * </ul>
  * </p>
  *
@@ -24,23 +29,23 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface Tool extends EObject {
-        /**
+	/**
 	 * Returns the value of the '<em><b>Element Types</b></em>' containment reference list.
 	 * The list contents are of type {@link DiagramGlobalToolService.ElementType}.
 	 * <!-- begin-user-doc -->
-         * <p>
-         * If the meaning of the '<em>Element Types</em>' reference list isn't clear,
-         * there really should be more of a description here...
-         * </p>
-         * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Element Types</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Element Types</em>' containment reference list.
 	 * @see DiagramGlobalToolService.DiagramGlobalToolServicePackage#getTool_ElementTypes()
 	 * @model containment="true"
 	 * @generated
 	 */
-        EList<ElementType> getElementTypes();
+	EList<ElementType> getElementTypes();
 
-								/**
+	/**
 	 * Returns the value of the '<em><b>Is Edge</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -56,7 +61,7 @@ public interface Tool extends EObject {
 	 */
 	boolean isIsEdge();
 
-								/**
+	/**
 	 * Sets the value of the '{@link DiagramGlobalToolService.Tool#isIsEdge <em>Is Edge</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -66,7 +71,7 @@ public interface Tool extends EObject {
 	 */
 	void setIsEdge(boolean value);
 
-								/**
+	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -82,7 +87,7 @@ public interface Tool extends EObject {
 	 */
 	String getName();
 
-								/**
+	/**
 	 * Sets the value of the '{@link DiagramGlobalToolService.Tool#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -91,5 +96,112 @@ public interface Tool extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Set Palette</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Set Palette</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Set Palette</em>' attribute.
+	 * @see #setSetPalette(boolean)
+	 * @see DiagramGlobalToolService.DiagramGlobalToolServicePackage#getTool_SetPalette()
+	 * @model default="true"
+	 * @generated
+	 */
+	boolean isSetPalette();
+
+	/**
+	 * Sets the value of the '{@link DiagramGlobalToolService.Tool#isSetPalette <em>Set Palette</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Set Palette</em>' attribute.
+	 * @see #isSetPalette()
+	 * @generated
+	 */
+	void setSetPalette(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Set Popup</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Set Popup</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Set Popup</em>' attribute.
+	 * @see #setSetPopup(boolean)
+	 * @see DiagramGlobalToolService.DiagramGlobalToolServicePackage#getTool_SetPopup()
+	 * @model default="true"
+	 * @generated
+	 */
+	boolean isSetPopup();
+
+	/**
+	 * Sets the value of the '{@link DiagramGlobalToolService.Tool#isSetPopup <em>Set Popup</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Set Popup</em>' attribute.
+	 * @see #isSetPopup()
+	 * @generated
+	 */
+	void setSetPopup(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Set Menu</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Set Menu</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Set Menu</em>' attribute.
+	 * @see #setSetMenu(boolean)
+	 * @see DiagramGlobalToolService.DiagramGlobalToolServicePackage#getTool_SetMenu()
+	 * @model default="true"
+	 * @generated
+	 */
+	boolean isSetMenu();
+
+	/**
+	 * Sets the value of the '{@link DiagramGlobalToolService.Tool#isSetMenu <em>Set Menu</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Set Menu</em>' attribute.
+	 * @see #isSetMenu()
+	 * @generated
+	 */
+	void setSetMenu(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Icon Reference</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Icon Reference</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Icon Reference</em>' containment reference.
+	 * @see #setIconReference(Icon)
+	 * @see DiagramGlobalToolService.DiagramGlobalToolServicePackage#getTool_IconReference()
+	 * @model containment="true"
+	 * @generated
+	 */
+	Icon getIconReference();
+
+	/**
+	 * Sets the value of the '{@link DiagramGlobalToolService.Tool#getIconReference <em>Icon Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Icon Reference</em>' containment reference.
+	 * @see #getIconReference()
+	 * @generated
+	 */
+	void setIconReference(Icon value);
 
 } // Tool

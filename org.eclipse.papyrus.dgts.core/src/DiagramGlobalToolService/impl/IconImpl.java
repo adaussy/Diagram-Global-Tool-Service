@@ -3,7 +3,7 @@
 package DiagramGlobalToolService.impl;
 
 import DiagramGlobalToolService.DiagramGlobalToolServicePackage;
-import DiagramGlobalToolService.ElementType;
+import DiagramGlobalToolService.Icon;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -14,44 +14,44 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Element Type</b></em>'.
+ * An implementation of the model object '<em><b>Icon</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link DiagramGlobalToolService.impl.ElementTypeImpl#getElementType <em>Element Type</em>}</li>
+ *   <li>{@link DiagramGlobalToolService.impl.IconImpl#getIconPath <em>Icon Path</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ElementTypeImpl extends MinimalEObjectImpl.Container implements ElementType {
+public class IconImpl extends MinimalEObjectImpl.Container implements Icon {
 	/**
-	 * The default value of the '{@link #getElementType() <em>Element Type</em>}' attribute.
+	 * The default value of the '{@link #getIconPath() <em>Icon Path</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getElementType()
+	 * @see #getIconPath()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String ELEMENT_TYPE_EDEFAULT = "";
+	protected static final String ICON_PATH_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getElementType() <em>Element Type</em>}' attribute.
+	 * The cached value of the '{@link #getIconPath() <em>Icon Path</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getElementType()
+	 * @see #getIconPath()
 	 * @generated
 	 * @ordered
 	 */
-	protected String elementType = ELEMENT_TYPE_EDEFAULT;
+	protected String iconPath = ICON_PATH_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ElementTypeImpl() {
+	protected IconImpl() {
 		super();
 	}
 
@@ -62,7 +62,7 @@ public class ElementTypeImpl extends MinimalEObjectImpl.Container implements Ele
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return DiagramGlobalToolServicePackage.Literals.ELEMENT_TYPE;
+		return DiagramGlobalToolServicePackage.Literals.ICON;
 	}
 
 	/**
@@ -70,8 +70,8 @@ public class ElementTypeImpl extends MinimalEObjectImpl.Container implements Ele
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getElementType() {
-		return elementType;
+	public String getIconPath() {
+		return iconPath;
 	}
 
 	/**
@@ -79,11 +79,11 @@ public class ElementTypeImpl extends MinimalEObjectImpl.Container implements Ele
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setElementType(String newElementType) {
-		String oldElementType = elementType;
-		elementType = newElementType;
+	public void setIconPath(String newIconPath) {
+		String oldIconPath = iconPath;
+		iconPath = newIconPath;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiagramGlobalToolServicePackage.ELEMENT_TYPE__ELEMENT_TYPE, oldElementType, elementType));
+			eNotify(new ENotificationImpl(this, Notification.SET, DiagramGlobalToolServicePackage.ICON__ICON_PATH, oldIconPath, iconPath));
 	}
 
 	/**
@@ -94,8 +94,8 @@ public class ElementTypeImpl extends MinimalEObjectImpl.Container implements Ele
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case DiagramGlobalToolServicePackage.ELEMENT_TYPE__ELEMENT_TYPE:
-				return getElementType();
+			case DiagramGlobalToolServicePackage.ICON__ICON_PATH:
+				return getIconPath();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -108,8 +108,8 @@ public class ElementTypeImpl extends MinimalEObjectImpl.Container implements Ele
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case DiagramGlobalToolServicePackage.ELEMENT_TYPE__ELEMENT_TYPE:
-				setElementType((String)newValue);
+			case DiagramGlobalToolServicePackage.ICON__ICON_PATH:
+				setIconPath((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -123,8 +123,8 @@ public class ElementTypeImpl extends MinimalEObjectImpl.Container implements Ele
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case DiagramGlobalToolServicePackage.ELEMENT_TYPE__ELEMENT_TYPE:
-				setElementType(ELEMENT_TYPE_EDEFAULT);
+			case DiagramGlobalToolServicePackage.ICON__ICON_PATH:
+				setIconPath(ICON_PATH_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -138,8 +138,8 @@ public class ElementTypeImpl extends MinimalEObjectImpl.Container implements Ele
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case DiagramGlobalToolServicePackage.ELEMENT_TYPE__ELEMENT_TYPE:
-				return ELEMENT_TYPE_EDEFAULT == null ? elementType != null : !ELEMENT_TYPE_EDEFAULT.equals(elementType);
+			case DiagramGlobalToolServicePackage.ICON__ICON_PATH:
+				return ICON_PATH_EDEFAULT == null ? iconPath != null : !ICON_PATH_EDEFAULT.equals(iconPath);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -154,10 +154,10 @@ public class ElementTypeImpl extends MinimalEObjectImpl.Container implements Ele
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (elementType: ");
-		result.append(elementType);
+		result.append(" (iconPath: ");
+		result.append(iconPath);
 		result.append(')');
 		return result.toString();
 	}
 
-} //ElementTypeImpl
+} //IconImpl

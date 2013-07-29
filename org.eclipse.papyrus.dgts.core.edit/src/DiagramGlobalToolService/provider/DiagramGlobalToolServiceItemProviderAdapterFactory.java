@@ -187,6 +187,29 @@ public class DiagramGlobalToolServiceItemProviderAdapterFactory extends DiagramG
 	}
 
         /**
+	 * This keeps track of the one adapter used for all {@link DiagramGlobalToolService.Icon} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected IconItemProvider iconItemProvider;
+
+								/**
+	 * This creates an adapter for a {@link DiagramGlobalToolService.Icon}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createIconAdapter() {
+		if (iconItemProvider == null) {
+			iconItemProvider = new IconItemProvider(this);
+		}
+
+		return iconItemProvider;
+	}
+
+								/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -290,6 +313,7 @@ public class DiagramGlobalToolServiceItemProviderAdapterFactory extends DiagramG
 		if (drawerDefinitionItemProvider != null) drawerDefinitionItemProvider.dispose();
 		if (toolItemProvider != null) toolItemProvider.dispose();
 		if (elementTypeItemProvider != null) elementTypeItemProvider.dispose();
+		if (iconItemProvider != null) iconItemProvider.dispose();
 	}
 
 }

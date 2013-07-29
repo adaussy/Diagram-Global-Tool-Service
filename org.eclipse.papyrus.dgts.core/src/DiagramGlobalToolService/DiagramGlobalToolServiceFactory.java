@@ -13,66 +13,75 @@ import org.eclipse.emf.ecore.EFactory;
  * @generated
  */
 public interface DiagramGlobalToolServiceFactory extends EFactory {
-        /**
+	/**
 	 * The singleton instance of the factory.
 	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-        DiagramGlobalToolServiceFactory eINSTANCE = DiagramGlobalToolService.impl.DiagramGlobalToolServiceFactoryImpl.init();
+	DiagramGlobalToolServiceFactory eINSTANCE = DiagramGlobalToolService.impl.DiagramGlobalToolServiceFactoryImpl.init();
 
-        /**
+	/**
 	 * Returns a new object of class '<em>Diagram Global Tool Definition</em>'.
 	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return a new object of class '<em>Diagram Global Tool Definition</em>'.
 	 * @generated
 	 */
-        DiagramGlobalToolDefinition createDiagramGlobalToolDefinition();
+	DiagramGlobalToolDefinition createDiagramGlobalToolDefinition();
 
-        /**
+	/**
 	 * Returns a new object of class '<em>Diagram Definition</em>'.
 	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return a new object of class '<em>Diagram Definition</em>'.
 	 * @generated
 	 */
-        DiagramDefinition createDiagramDefinition();
+	DiagramDefinition createDiagramDefinition();
 
-        /**
+	/**
 	 * Returns a new object of class '<em>Drawer Definition</em>'.
 	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return a new object of class '<em>Drawer Definition</em>'.
 	 * @generated
 	 */
-        DrawerDefinition createDrawerDefinition();
+	DrawerDefinition createDrawerDefinition();
 
-        /**
+	/**
 	 * Returns a new object of class '<em>Tool</em>'.
 	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return a new object of class '<em>Tool</em>'.
 	 * @generated
 	 */
-        Tool createTool();
+	Tool createTool();
 
-        /**
+	/**
 	 * Returns a new object of class '<em>Element Type</em>'.
 	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return a new object of class '<em>Element Type</em>'.
 	 * @generated
 	 */
-        ElementType createElementType();
+	ElementType createElementType();
 
-        /**
+	/**
+	 * Returns a new object of class '<em>Icon</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Icon</em>'.
+	 * @generated
+	 */
+	Icon createIcon();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the package supported by this factory.
 	 * @generated
 	 */
-        DiagramGlobalToolServicePackage getDiagramGlobalToolServicePackage();
+	DiagramGlobalToolServicePackage getDiagramGlobalToolServicePackage();
 
 } //DiagramGlobalToolServiceFactory
