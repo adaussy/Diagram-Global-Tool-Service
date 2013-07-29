@@ -97,7 +97,7 @@ public class DgtsConnectionHandleLocator implements Locator {
      * 
      * @return the client area of the viewport
      */
-    private Rectangle getViewportArea() {
+    protected Rectangle getViewportArea() {
 	IFigure fig = getReference();
 	while (fig != null) {
 	    if (fig instanceof Viewport) {
@@ -112,7 +112,7 @@ public class DgtsConnectionHandleLocator implements Locator {
      * Resets the border point and side variables where the connection handles
      * will appear, based on the cursor location.
      */
-    private void resetBorderPointAndSide() {
+    protected void resetBorderPointAndSide() {
 	Rectangle bounds = getReferenceFigureBounds();
 
 	// Get the point on the edge of the reference figure nearest to the
