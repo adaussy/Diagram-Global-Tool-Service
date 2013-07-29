@@ -188,7 +188,7 @@ public class CustomModelingAssistantService {
 		iconPath = tool.getIconReference().getIconPath();
 		if (iconPath != null){
 		    try {
-			img = new Image(null, getClass().getResourceAsStream(iconPath));
+			img = new Image(null, iconPath);
 		    } catch (Exception e) {
 			img=null;
 		    }
