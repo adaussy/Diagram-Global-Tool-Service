@@ -1,6 +1,8 @@
 package org.eclipse.papyrus.dgts.connectionhandle;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.core.runtime.IAdaptable;
@@ -79,13 +81,13 @@ public class CustomModelingAssistantService extends ModelingAssistantService {
 	if (possibleTypes != null) {
 	    for (IElementType type : possibleTypes) {
 		EClass typeEClass = type.getEClass();
-		 if (isValidRelationForSource(typeEClass, sourceEClass)) {
+		// if (isValidRelationForSource(typeEClass, sourceEClass)) {
 		 types.add(type);
-		 }
+		// }
 	    }
 	    return types;
 	}}
-	return null;
+	return Collections.EMPTY_LIST;
 
     }
 
@@ -100,13 +102,13 @@ public class CustomModelingAssistantService extends ModelingAssistantService {
 	if (possibleTypes != null) {
 	    for (IElementType type : possibleTypes) {
 		EClass typeEClass = type.getEClass();
-		 if (isValidRelationForTarget(typeEClass, sourceEClass)) {
+		// if (isValidRelationForTarget(typeEClass, sourceEClass)) {
 		 types.add(type);
-		 }
+		// }
 	    }
 	    return types;
 	}}
-	return null;
+	return Collections.EMPTY_LIST;
 
     }
 
@@ -131,7 +133,7 @@ public class CustomModelingAssistantService extends ModelingAssistantService {
 	    }
 	    return types;
 	}}
-	return null;
+	return Collections.EMPTY_LIST;
 
     }
 
@@ -164,7 +166,7 @@ public class CustomModelingAssistantService extends ModelingAssistantService {
 	    return types;
 	}
 
-	return null;
+	return Collections.EMPTY_LIST;
 
     }
 
@@ -220,9 +222,7 @@ public class CustomModelingAssistantService extends ModelingAssistantService {
 	List<Tool> listOfTools = new ArrayList<Tool>();
 	listOfTools = toolsProvider.getTools(diag);
 
-	// TODO recuperer le context !!!!!!!!!!!!!
-	IClientContext clientContext = ClientContextManager.getInstance().getClientContext("org.eclipse.papyrus.uml.diagram.clazz.TypeContext");
-
+	
 	// traitement de chaque tool
 	if (listOfTools != null) {
 	    for (Tool tool : listOfTools) {
@@ -232,14 +232,13 @@ public class CustomModelingAssistantService extends ModelingAssistantService {
 		    List<IElementType> possibleTypes = new ArrayList<IElementType>(1);
 
 	
-		    if (tool instanceof Tool) {
 			possibleTypes = toolsProvider.getIElementTypesFromTool((Tool) tool);
-		    }
+		    
 
 		    if (possibleTypes != null) {
 			for (IElementType type : possibleTypes) {
 			    // check if its a visual type or not :
-			    if (type != null && (!(type instanceof MetamodelType))) {
+			    if (type != null ) {
 
 				if (!(types.contains(type))) {
 				    types.add(type);
@@ -280,9 +279,6 @@ public class CustomModelingAssistantService extends ModelingAssistantService {
 	List<Tool> listOfTools = new ArrayList<Tool>();
 	listOfTools = toolsProvider.getTools(diag);
 
-	// TODO recuperer le context !!!!!!!!!!!!!
-	IClientContext clientContext = ClientContextManager.getInstance().getClientContext("org.eclipse.papyrus.uml.diagram.clazz.TypeContext");
-
 	// traitement de chaque tool
 	if (listOfTools != null) {
 	    for (Tool tool : listOfTools) {
@@ -293,14 +289,14 @@ public class CustomModelingAssistantService extends ModelingAssistantService {
 
 		
 
-		    if (tool instanceof Tool) {
+		  
 			possibleTypes = toolsProvider.getIElementTypesFromTool((Tool) tool);
-		    }
+		    
 
 		    if (possibleTypes != null) {
 			for (IElementType type : possibleTypes) {
 			    // check if its a visual type or not :
-			    if (type != null && (!(type instanceof MetamodelType))) {
+			    if (type != null ) {
 				if (!(types.contains(type))) {
 				    types.add(type);
 				}
@@ -340,10 +336,11 @@ public class CustomModelingAssistantService extends ModelingAssistantService {
     private boolean isValidRelationForSourceAndTarget(IElementType relationType, EditPart sourceEditPart, EditPart targetEditPart) {
 
 	CreateConnectionViewAndElementRequest request = new CreateConnectionViewAndElementRequest(relationType, null);
-	
+	if (sourceEditPart !=null && targetEditPart != null){
 	Command cmd = CreateConnectionViewAndElementRequest.getCreateCommand(request, sourceEditPart, targetEditPart);
 	if (cmd != null && cmd.canExecute()) {
 	    return true;
+	}
 	}
 	return false;
     }

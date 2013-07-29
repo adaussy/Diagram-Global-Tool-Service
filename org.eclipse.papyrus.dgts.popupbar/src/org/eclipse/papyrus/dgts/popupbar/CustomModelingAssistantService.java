@@ -35,89 +35,92 @@ public class CustomModelingAssistantService {
     public List<?> getTypesForPopupBar(IAdaptable host) {
 	IGraphicalEditPart editPart = (IGraphicalEditPart) host.getAdapter(IGraphicalEditPart.class);
 
-	
+	if (editPart != null) {
+	    if (editPart.getRoot().getChildren().get(0) instanceof DiagramEditPart) {
+		// type du diagrame courant
+		DiagramEditPart diagramPart = (DiagramEditPart) editPart.getRoot().getChildren().get(0);
+		String diagramType = diagramPart.getDiagramView().getType();
 
-	if (editPart.getRoot().getChildren().get(0) instanceof DiagramEditPart) {
-	    // type du diagrame courant
-	    DiagramEditPart diagramPart = (DiagramEditPart) editPart.getRoot().getChildren().get(0);
-	    String diagramType = diagramPart.getDiagramView().getType();
+		// declaration
+		List<Object> types = new ArrayList<>(1);
+		ToolsProvider toolsProvider = new ToolsProvider();
 
-	    // declaration
-	    List<Object> types = new ArrayList<>(1);
-	    ToolsProvider toolsProvider = new ToolsProvider();
+		// recupere le container
+		// View containerview = editPart.getNotationView();
 
-	    // recupere le container
-	    // View containerview = editPart.getNotationView();
+		// recupere le globalDiagramConfiguration actif
+		Resource resource = ToolDefinitionResourceProvider.getResource();
+		DiagramGlobalToolDefinition globalDiagramConfiguration = DgtsResourceLoader.getDiagramGlobalToolDefinitionFromResource(resource);
 
-	    // recupere le globalDiagramConfiguration actif
-	    Resource resource = ToolDefinitionResourceProvider.getResource();
-	    DiagramGlobalToolDefinition globalDiagramConfiguration = DgtsResourceLoader.getDiagramGlobalToolDefinitionFromResource(resource);
+		// recupere la liste des tools correspondant au diagrame
+		DiagramDefinition diag = toolsProvider.getDiagram(diagramType, globalDiagramConfiguration);
+		List<Tool> listOfTools = new ArrayList<Tool>();
+		List<DrawerDefinition> listOfDrawers = new ArrayList<DrawerDefinition>();
+		listOfDrawers = toolsProvider.getDrawers(diag);
 
-	    // recupere la liste des tools correspondant au diagrame
-	    DiagramDefinition diag = toolsProvider.getDiagram(diagramType, globalDiagramConfiguration);
-	    List<Tool> listOfTools = new ArrayList<Tool>();
-	    List<DrawerDefinition> listOfDrawers = new ArrayList<DrawerDefinition>();
-	    listOfDrawers = toolsProvider.getDrawers(diag);
+		boolean drawerContainType = false;
 
-	    boolean drawerContainType = false;
+		if (listOfDrawers != null) {
 
-	    if (listOfDrawers != null) {
+		    for (DrawerDefinition drawer : listOfDrawers) {
+			// ADD "drawerflag" to add a drawerBar in the popup bar
+			if (drawerContainType) {
+			    types.add("drawerFlag");
+			}
+			drawerContainType = false;
+			listOfTools = toolsProvider.getTools(drawer);
+			for (Tool tool : listOfTools) {
+			    if (!(tool.isIsEdge())) {
+				List<IElementType> possibleTypes = new ArrayList<IElementType>(1);
 
-		for (DrawerDefinition drawer : listOfDrawers) {
-		    // ADD "drawerflag" to add a drawerBar in the popup bar
-		    if (drawerContainType) {
-			types.add("drawerFlag");
-		    }
-		    drawerContainType = false;
-		    listOfTools = toolsProvider.getTools(drawer);
-		    for (Tool tool : listOfTools) {
-			if (!(tool.isIsEdge())) {
-			    List<IElementType> possibleTypes = new ArrayList<IElementType>(1);
+				// //Methode utilisant les IelementTypes du tool
+				if (tool instanceof Tool) {
+				    possibleTypes = toolsProvider.getIElementTypesFromTool((Tool) tool);
+				}
 
-			    // //Methode utilisant les IelementTypes du tool
-			    if (tool instanceof Tool) {
-				possibleTypes = toolsProvider.getIElementTypesFromTool((Tool) tool);
-			    }
+				if (possibleTypes != null) {
+				    for (IElementType type : possibleTypes) {
+					// check if its a visual type or not :
 
-			    if (possibleTypes != null) {
-				for (IElementType type : possibleTypes) {
-				    // check if its a visual type or not :
+					if (type != null && (!(type instanceof MetamodelType))) {
+					    // check if the type can be add to
+					    // the
+					    // current
+					    // container :
+					    if (isValidType(type, editPart)) {
 
-				    if (type != null && (!(type instanceof MetamodelType))) {
-					// check if the type can be add to the
-					// current
-					// container :
-					if (isValidType(type, editPart)) {
-
-					    // dont add if already exist
-					    // if (!(types.contains(type))) {
-					    types.add(type);
-					    drawerContainType = true;
-					    // }
+						// dont add if already exist
+						// if (!(types.contains(type)))
+						// {
+						types.add(type);
+						drawerContainType = true;
+						// }
+					    }
 					}
 				    }
 				}
+
 			    }
 
 			}
 
 		    }
 
-		}
-
-		// If the last drawer has no types, we need to remove the last
-		// drawerbar
-		if (!types.isEmpty()) {
-		    if (types.get(types.size() - 1).equals("drawerFlag")) {
-			types.remove(types.size() - 1);
+		    // If the last drawer has no types, we need to remove the
+		    // last
+		    // drawerbar
+		    if (!types.isEmpty()) {
+			if (types.get(types.size() - 1).equals("drawerFlag")) {
+			    types.remove(types.size() - 1);
+			}
 		    }
-		}
-		return types;
+		    return types;
 
+		}
 	    }
 	}
-
 	return Collections.emptyList();
+
     }
 
     private boolean isValidType(IElementType elementType, IGraphicalEditPart host) {

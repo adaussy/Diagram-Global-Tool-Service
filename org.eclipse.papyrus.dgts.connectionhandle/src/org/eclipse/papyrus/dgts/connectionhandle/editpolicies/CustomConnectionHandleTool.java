@@ -14,7 +14,6 @@ package org.eclipse.papyrus.dgts.connectionhandle.editpolicies;
 import org.eclipse.gef.DragTracker;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
-import org.eclipse.gmf.runtime.diagram.ui.handles.ConnectionHandle;
 import org.eclipse.gmf.runtime.diagram.ui.tools.ConnectionCreationTool;
 import org.eclipse.papyrus.dgts.connectionhandle.CustomModelingAssistantService;
 import org.eclipse.papyrus.dgts.connectionhandle.requests.DgtsCreateUnspecifiedTypeConnectionRequest;
@@ -35,7 +34,7 @@ public class CustomConnectionHandleTool extends ConnectionCreationTool implement
     private static final int NO_RELATED_ELEMENTS_DISPLAY_TIME = 2000;
 
     /** the connection handle containing required information */
-    private ConnectionHandle connectionHandle;
+    private CustomConnectionHandle connectionHandle;
 
     /**
      * Constructor for ConnectionHandleTool.
@@ -43,7 +42,7 @@ public class CustomConnectionHandleTool extends ConnectionCreationTool implement
      * @param connectionHandle
      *            the connection handle
      */
-    public CustomConnectionHandleTool(ConnectionHandle connectionHandle) {
+    public CustomConnectionHandleTool(CustomConnectionHandle connectionHandle) {
 	this.connectionHandle = connectionHandle;
     }
 
@@ -52,7 +51,13 @@ public class CustomConnectionHandleTool extends ConnectionCreationTool implement
      * 
      * @see org.eclipse.gef.tools.TargetingTool#createTargetRequest()
      */
+
+  
     protected Request createTargetRequest() {
+	
+	//Hide the connections handle :
+	HandleRegistry.getInstance().setShouldHideConnectionHandles();
+
 	if (getConnectionHandle().isIncoming()) {
 	    DgtsCreateUnspecifiedTypeConnectionRequest request = new DgtsCreateUnspecifiedTypeConnectionRequest(CustomModelingAssistantService.getInstance().getRelTypesOnTarget(getConnectionHandle().getOwner()), true, getPreferencesHint());
 	    request.setDirectionReversed(true);
@@ -68,10 +73,6 @@ public class CustomConnectionHandleTool extends ConnectionCreationTool implement
      * @see org.eclipse.gef.tools.AbstractTool#getCommand()
      */
     protected Command getCommand() {
-	if (getConnectionHandle().isIncoming()) {
-	    DgtsCreateUnspecifiedTypeConnectionRequest unspecifiedTypeRequest = (DgtsCreateUnspecifiedTypeConnectionRequest) getTargetRequest();
-	    unspecifiedTypeRequest.setDirectionReversed(true);
-	}
 
 	return super.getCommand();
     }
@@ -97,7 +98,7 @@ public class CustomConnectionHandleTool extends ConnectionCreationTool implement
      * 
      * @return the connection handle
      */
-    protected ConnectionHandle getConnectionHandle() {
+    protected CustomConnectionHandle getConnectionHandle() {
 	return connectionHandle;
     }
 

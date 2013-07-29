@@ -1,12 +1,9 @@
 package org.eclipse.papyrus.dgts.connectionhandle.editpolicies;
 
-
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import org.eclipse.draw2d.FigureListener;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.MouseEvent;
 import org.eclipse.draw2d.MouseMotionListener;
@@ -18,23 +15,18 @@ import org.eclipse.gef.editpolicies.GraphicalEditPolicy;
 import org.eclipse.gef.tools.SelectionTool;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.handles.ConnectionHandle.HandleDirection;
-import org.eclipse.gmf.runtime.diagram.ui.handles.ConnectionHandleLocator;
 import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramUIMessages;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.papyrus.dgts.connectionhandle.CustomModelingAssistantService;
+import org.eclipse.papyrus.dgts.connectionhandle.editpolicies.CustomConnectionHandle.HandleDirection;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.KeyEvent;
 import org.eclipse.swt.events.KeyListener;
 import org.eclipse.swt.graphics.Cursor;
 import org.eclipse.swt.widgets.Display;
 
-
 public class DgtsConnectionHandleEditPolicy extends GraphicalEditPolicy implements MouseMotionListener {
 
-    
-    private boolean mousePressed = false;
     private Point mouseLocation;
 
     protected Point getMouseLocation() {
@@ -44,285 +36,140 @@ public class DgtsConnectionHandleEditPolicy extends GraphicalEditPolicy implemen
     protected void setMouseLocation(Point mouseLocation) {
 	this.mouseLocation = mouseLocation;
     }
-    
 
-    /**
-     * Listens to the owner figure being moved so the handles can be removed
-     * when this occurs.
-     */
-    
+    protected boolean keyPressed = false;
 
-    
-    
-    private class OwnerMovedListener implements FigureListener {
+    protected boolean isKeyPressed() {
+	return keyPressed;
+    }
 
-	public void figureMoved(IFigure source) {
-	    hideDiagramAssistant();
+    private ConnectionKeyListener myConnectionKeyListener = new ConnectionKeyListener();
+
+    private class ConnectionKeyListener implements KeyListener {
+
+	public void keyPressed(KeyEvent event) {
+
+	    // CTRL + MAJ
+	    if (((event.stateMask & SWT.CTRL) != 0) && (event.keyCode == SWT.SHIFT)) {
+		HandleRegistry.getInstance().setShouldShowConnectionHandles();
+		if (getMouseLocation() != null) {
+		    showHandles(getMouseLocation());
+		}
+	    }
 	}
-	
-	
+
+	public void keyReleased(KeyEvent event) {
+
+	    HandleRegistry.getInstance().setShouldHideConnectionHandles();
+	    hideHandles();
+
+	}
     }
 
-    // listener for owner shape movement 
-    private OwnerMovedListener ownerMovedListener = new OwnerMovedListener();
-
-    //list of connection handles currently being displayed 
-    private List handles = null;
-
-    // mouseHover on the handle
-    private boolean mouseHover = false;
-  
-    protected boolean isDiagramAssistant(Object object) {
-	return object instanceof CustomConnectionHandle;
-    }
-
-    //Add the connections handles figures :
+    // Add the connections handles figures :
     @SuppressWarnings("unchecked")
-    protected List getHandleFigures() {
+    protected List<CustomConnectionHandle> getHandleFigures() {
 	List list = new ArrayList(2);
 
 	String tooltip;
 	tooltip = buildTooltip(HandleDirection.INCOMING);
 	if (tooltip != null) {
-	    list.add(new CustomConnectionHandle((IGraphicalEditPart) getHost(), HandleDirection.INCOMING, tooltip){
-		
-		
-		// if mouse hover
-		@Override
-		public void handleMouseEntered(MouseEvent event) {
-		   mouseHover = true;
-		   super.handleMouseEntered(event);
-		}
-		
-		// if mouse go out
-		@Override
-		public void handleMouseExited(MouseEvent event) {
-		    mouseHover = false;
-		    super.handleMouseExited(event);
-		}
+	    list.add(new CustomConnectionHandle((IGraphicalEditPart) getHost(), HandleDirection.INCOMING, tooltip) {
+
 	    });
 	}
-
 	tooltip = buildTooltip(HandleDirection.OUTGOING);
 	if (tooltip != null) {
-	    list.add(new CustomConnectionHandle((IGraphicalEditPart) getHost(), HandleDirection.OUTGOING, tooltip){
-		
-		//if mouse hover
-		@Override
-		public void handleMouseEntered(MouseEvent event) { 
-		   mouseHover = true;
-		   super.handleMouseEntered(event);
-		}
-		
-		
-		//if mouse go out
-		@Override
-		public void handleMouseExited(MouseEvent event) {
-		    mouseHover = false;
-		    super.handleMouseExited(event);
-		}
-		
+	    list.add(new CustomConnectionHandle((IGraphicalEditPart) getHost(), HandleDirection.OUTGOING, tooltip) {
+
 	    });
 	}
 
 	return list;
     }
 
-    
-    
-    /**
-     * Builds the applicable tooltip string based on whether the Modeling
-     * Assistant Service supports handle gestures on this element. If no
-     * gestures are supported, the tooltip returned will be null.
-     * 
-     * @param direction
-     *            the handle direction.
-     * @return tooltip the tooltip string; if null, the handle should be not be
-     *         displayed
-     */
+    // Build the applicable tooltip
     protected String buildTooltip(HandleDirection direction) {
 	CustomModelingAssistantService service = CustomModelingAssistantService.getInstance();
 
 	boolean supportsCreation = (direction == HandleDirection.OUTGOING) ? !service.getRelTypesOnSource(getHost()).isEmpty() : !service.getRelTypesOnTarget(getHost()).isEmpty();
-	
+
 	if (supportsCreation) {
 	    return DiagramUIMessages.ConnectionHandle_ToolTip_CreateRelationshipOnly;
 	}
 	return null;
     }
 
-    
-   private ConnectionKeyListener myConnectionKeyListener = new ConnectionKeyListener();
-   protected boolean keyPressed = false;
-   
-   protected boolean isKeyPressed(){
-       return keyPressed;
-   }
-    
-   
-    private int codeKey =  131072;
-    private class ConnectionKeyListener implements KeyListener {
-
-   	public void keyPressed(KeyEvent event) {
-   	   
-   	     //System.out.println("Code touche pressée : " + event.keyCode +
-   	   //  " - caractère touche pressée : " + event.character);
-
-   	    if (event.keyCode == codeKey) {
-   		if (getMouseLocation() != null) {
-   		
-   		    keyPressed = true;
-   		    showDiagramAssistant(getMouseLocation());
-   		}
-   	    }
-   	}
-
-   	public void keyReleased(KeyEvent event) {
-   	    
-   	    // System.out.println("Code touche relâchée : " + event.keyCode +
-   	    // " - caractère touche relâchée : " + event.character);
-   	 if (event.keyCode == codeKey) {
-   	    keyPressed = false;
-   	    hideDiagramAssistant();
-   	 }
-   	}
-
-       }
     public void activate() {
 	super.activate();
-	
-	 getHost().getViewer().getControl().addKeyListener(this.myConnectionKeyListener);
 
-	((IGraphicalEditPart) getHost()).getFigure().addFigureListener(ownerMovedListener);
+	getHost().getViewer().getControl().addKeyListener(this.myConnectionKeyListener);
+
     }
 
     public void deactivate() {
-	((IGraphicalEditPart) getHost()).getFigure().removeFigureListener(ownerMovedListener);
+	getHost().getViewer().getControl().removeKeyListener(this.myConnectionKeyListener);
 
 	super.deactivate();
     }
 
-    
-    
-    //show the connections handles
-    protected void showDiagramAssistant(Point referencePoint) {
-	if (shouldShowDiagramAssistant()){
-	
-	//to avoid double connections handles :
-	hideDiagramAssistant();
-	
-	if (referencePoint == null) {
-	    referencePoint = getHostFigure().getBounds().getRight();
-	}
+    // show the connections handles
+    protected void showHandles(Point referencePoint) {
+	 hideHandles();
+	if (shouldShowHandles()) {
 
-	handles = getHandleFigures();
-	if (handles == null) {
-	    return;
-	}
+	    // to avoid double connections handles :
+	   
 
-	ConnectionHandleLocator locator = getConnectionHandleLocator(referencePoint);
-	IFigure layer = getLayer(LayerConstants.HANDLE_LAYER);
-	for (Iterator iter = handles.iterator(); iter.hasNext();) {
-	    CustomConnectionHandle handle = (CustomConnectionHandle) iter.next();
+	    HandleRegistry.getInstance().setHandles(getHandleFigures());
 
-	    handle.setLocator(locator);
-	    locator.addHandle(handle);
+	    if (!HandleRegistry.getInstance().isHandles()) {
+		return;
+	    }
 
-	    Cursor cursor = new Cursor(Display.getCurrent(), SWT.CURSOR_HAND);
-	    handle.setCursor(cursor);
+	    DgtsConnectionHandleLocator locator = getConnectionHandleLocator(referencePoint);
+	    IFigure layer = getLayer(LayerConstants.HANDLE_LAYER);
 
-	    handle.addMouseMotionListener(this);
-	    layer.add(handle);
+	    for (Iterator iter = HandleRegistry.getInstance().getHandles().iterator(); iter.hasNext();) {
+		CustomConnectionHandle handle = (CustomConnectionHandle) iter.next();
 
-	    // Register this figure with it's host editpart so mouse events
-	    // will be propagated to it's host.
-	    getHost().getViewer().getVisualPartMap().put(handle, getHost());
-	}
+		handle.setLocator(locator);
+		locator.addHandle(handle);
+
+		Cursor cursor = new Cursor(Display.getCurrent(), SWT.CURSOR_HAND);
+		handle.setCursor(cursor);
+
+		layer.add(handle);
+
+		// Register this figure with it's host editpart so mouse events
+		// will be propagated to it's host.
+		getHost().getViewer().getVisualPartMap().put(handle, getHost());
+	    }
 
 	}
-	  
-	
+
     }
 
-
-  
-
-  
     // Removes the connection handles.
-    protected void hideDiagramAssistant() {
-	if (handles == null) {
+    protected void hideHandles() {
+	if (!HandleRegistry.getInstance().isHandles()) {
 	    return;
 	}
 	IFigure layer = getLayer(LayerConstants.HANDLE_LAYER);
-	for (Iterator iter = handles.iterator(); iter.hasNext();) {
+	for (Iterator iter = HandleRegistry.getInstance().getHandles().iterator(); iter.hasNext();) {
 	    IFigure handle = (IFigure) iter.next();
-	    handle.removeMouseMotionListener(this);
 	    layer.remove(handle);
 	    getHost().getViewer().getVisualPartMap().remove(handle);
 	}
-	handles = null;
-	
-	//we hide the handles: we cant be hover it anymore
-	mouseHover = false;
-	
+	HandleRegistry.getInstance().removeHandles();
+
     }
 
-    private boolean isSelectionToolActive() {
-	// getViewer calls getParent so check for null
-	if (getHost().getParent() != null) {
-	    Tool theTool = getHost().getViewer().getEditDomain().getActiveTool();
-	    if ((theTool != null) && theTool instanceof SelectionTool) {
-		return true;
-	    }
-	}
-	return false;
+    // Test if we show the handles or not
+    protected boolean shouldShowHandles() {
+	return getHost().isActive() && isHostEditable() && isHostResolvable() && isSelectionToolActive() && HandleRegistry.getInstance().shouldShowConnectionHandles();
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see
-     * org.eclipse.gmf.runtime.diagram.ui.editpolicies.DiagramAssistantEditPolicy
-     * #shouldShowDiagramAssistant()
-     */
-
-    /**
-     * get the connection handle locator using the host and the passed reference
-     * point
-     * 
-     * @param referencePoint
-     * @return <code>ConnectionHandleLocator</code>
-     */
-    protected ConnectionHandleLocator getConnectionHandleLocator(Point referencePoint) {
-	return new ConnectionHandleLocator(getHostFigure(), referencePoint);
-    }
-
-
-    protected boolean isDiagramAssistantShowing() {
-	return handles != null;
-    }
-
-    protected String getDiagramAssistantID() {
-	return DgtsConnectionHandleEditPolicy.class.getName();
-    }
-
-    public void addHandle(CustomConnectionHandle aHandle) {
-	handles.add(aHandle);
-    }
-
-  
-
-    protected boolean shouldShowDiagramAssistant() {
-	return getHost().isActive() &&isKeyPressed() && isPreferenceOn() && isHostEditable() && isHostResolvable() && isNotMouseHover() &&isSelectionToolActive();
-    }
-
-    
-    //check if the mouse is NOT hover the handles
-    private boolean isNotMouseHover(){
-	return !mouseHover;
-    }
-    
-    
     // Check if host is editable
     private boolean isHostEditable() {
 	if (getHost() instanceof GraphicalEditPart) {
@@ -341,79 +188,43 @@ public class DgtsConnectionHandleEditPolicy extends GraphicalEditPolicy implemen
 	return true;
     }
 
-    
-    
-    
-    
+    // Check if the selection tool is active
+    private boolean isSelectionToolActive() {
+	// getViewer calls getParent so check for null
+	if (getHost().getParent() != null) {
+	    Tool theTool = getHost().getViewer().getEditDomain().getActiveTool();
+	    if ((theTool != null) && theTool instanceof SelectionTool) {
+		return true;
+	    }
+	}
+	return false;
+    }
+
     public void mouseEntered(MouseEvent me) {
 	setMouseLocation(me.getLocation());
-	
 
-}
+    }
 
-/*
- * (non-Javadoc)
- * 
- * @see org.eclipse.draw2d.MouseMotionListener#mouseExited(org.eclipse.draw2d.MouseEvent)
- */
-public void mouseExited(MouseEvent me) {
+    public void mouseExited(MouseEvent me) {
 	setMouseLocation(null);
-	//hideDiagramAssistant();
-}
 
-/*
- * (non-Javadoc)
- * 
- * @see org.eclipse.draw2d.MouseMotionListener#mouseMoved(org.eclipse.draw2d.MouseEvent)
- */
-public void mouseMoved(MouseEvent me) {
+    }
+
+    public void mouseMoved(MouseEvent me) {
 	setMouseLocation(me.getLocation());
+	showHandles(getMouseLocation());
+    }
 
-	// do not hide the diagram assistant if the user is hovering over it
-	
-
-	showDiagramAssistant(getMouseLocation());
-}
-
-/*
- * (non-Javadoc)
- * 
- * @see org.eclipse.draw2d.MouseMotionListener#mouseHover(org.eclipse.draw2d.MouseEvent)
- */
-public void mouseHover(MouseEvent me) {
+    public void mouseHover(MouseEvent me) {
 	// do nothing
-}
+    }
 
-/*
- * (non-Javadoc)
- * 
- * @see org.eclipse.draw2d.MouseMotionListener#mouseDragged(org.eclipse.draw2d.MouseEvent)
- */
-public void mouseDragged(MouseEvent me) {
+    public void mouseDragged(MouseEvent me) {
 	// do nothing
-}
-    
+    }
 
+    protected DgtsConnectionHandleLocator getConnectionHandleLocator(Point referencePoint) {
+	return new DgtsConnectionHandleLocator(getHostFigure(), referencePoint);
+    }
 
-protected boolean isPreferenceOn() {
-	String prefName = getPreferenceName();
-	if (prefName == null) {
-		return true;
-	}
-	IPreferenceStore preferenceStore = (IPreferenceStore) ((IGraphicalEditPart) getHost())
-		.getDiagramPreferencesHint().getPreferenceStore();
-	return preferenceStore.getBoolean(prefName);
-}
-/**
- * The preference name indicating if the preference should be on or off.
- * This preference must be a boolean preference stored in the diagram
- * preferences.
- * 
- * @return the preference name if applicable; null otherwise
- */
-String getPreferenceName() {
-	return null;
-}
-    
-    
 }

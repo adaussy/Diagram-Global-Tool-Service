@@ -17,11 +17,8 @@ import java.util.List;
 
 import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.FigureCanvas;
-import org.eclipse.draw2d.FigureListener;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.KeyEvent;
-import org.eclipse.draw2d.KeyListener;
 import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.MouseEvent;
 import org.eclipse.draw2d.MouseListener;
@@ -40,15 +37,15 @@ import org.eclipse.gmf.runtime.common.ui.services.icon.IconService;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DiagramAssistantEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.internal.editparts.ISurfaceEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.internal.l10n.DiagramUIPluginImages;
 import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramUIMessages;
-import org.eclipse.gmf.runtime.diagram.ui.preferences.IPreferenceConstants;
 import org.eclipse.gmf.runtime.diagram.ui.tools.AbstractPopupBarTool;
 import org.eclipse.gmf.runtime.diagram.ui.tools.PopupBarTool;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.osgi.util.NLS;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.KeyEvent;
+import org.eclipse.swt.events.KeyListener;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Cursor;
 import org.eclipse.swt.graphics.Image;
@@ -61,16 +58,10 @@ import org.eclipse.swt.widgets.Display;
  * 
  * @author affrantz@us.ibm.com, cmahoney
  */
-public class testttttCustomPopupBarEditPolicy extends DiagramAssistantEditPolicy {
+public class DgtsCustomPopupBarEditPolicy extends DiagramAssistantEditPolicy {
 
-    /* ************************** nested classes *********************** */
-    /**
-     * 
-     * Class to hold pertinent information about the tool placed on the popup
-     * bar
-     * 
-     * @author affrantz@us.ibm.com
-     */
+    protected int DELAY = 50;
+
     private class PopupBarDescriptor {
 
 	/** The action button tooltip */
@@ -138,19 +129,7 @@ public class testttttCustomPopupBarEditPolicy extends DiagramAssistantEditPolicy
 
     } // end PopupBarDescriptor
 
-    
-    
-    
-    /**
-     * Default tool placed on the popup bar
-     * 
-     * @author affrantz@us.ibm.com
-     */
     private class PopupBarLabelHandle extends Label implements Handle {
-	/**
-	 * flag to drawFocus rect around the handle when the mouse rolls over it
-	 */
-	private boolean myMouseOver = false;
 
 	private Image myDisabledImage = null;
 
@@ -227,11 +206,9 @@ public class testttttCustomPopupBarEditPolicy extends DiagramAssistantEditPolicy
 	    calculateEnabled();
 
 	    super.handleMouseEntered(event);
-	    myMouseOver = true;
+
 	    repaint();
 	}
-	
-
 
 	/**
 	 * @see org.eclipse.draw2d.IFigure#handleMouseExited(org.eclipse.draw2d.MouseEvent)
@@ -245,31 +222,7 @@ public class testttttCustomPopupBarEditPolicy extends DiagramAssistantEditPolicy
 		label.setBackgroundColor(ColorConstants.buttonLightest);
 	    }
 	    super.handleMouseExited(event);
-	    myMouseOver = false;
 	    repaint();
-	}
-
-	/**
-	 * @see org.eclipse.draw2d.IFigure#handleMousePressed(org.eclipse.draw2d.MouseEvent)
-	 *      set PopupBarEditPolicy.myActionMoveFigure bit so the popup bar
-	 *      is not dismissed after creating an item in the editpart
-	 * 
-	 */
-	public void handleMousePressed(MouseEvent event) {
-
-	    if (1 == event.button) {
-		// this is the flag in PopupBarEditPolicy that
-		// prevents the popup bar from dismissing after a new item
-		// is added to a shape, which causes the editpart to be
-		// resized.
-		setFlag(POPUPBAR_MOVE_FIGURE, true);
-		// future: when other tools besides PopupBarTool are
-		// used
-		// we will need a way in which to call
-
-	    }
-
-	    super.handleMousePressed(event);
 	}
 
 	private void calculateEnabled() {
@@ -300,9 +253,7 @@ public class testttttCustomPopupBarEditPolicy extends DiagramAssistantEditPolicy
 	}
     }
 
-    private static Image IMAGE_POPUPBAR_PLUS = DiagramUIPluginImages.get(DiagramUIPluginImages.IMG_POPUPBAR_PLUS);
-
-    private static Image IMAGE_POPUPBAR = DiagramUIPluginImages.get(DiagramUIPluginImages.IMG_POPUPBAR);
+    private Image IMAGE_POPUPBAR = new Image(null, getClass().getResourceAsStream("icons/popupbar.gif"));
 
     /**
      * 
@@ -349,24 +300,16 @@ public class testttttCustomPopupBarEditPolicy extends DiagramAssistantEditPolicy
 	    graphics.fillRoundRectangle(theBounds, myCornerDimension, myCornerDimension);
 	    graphics.drawRoundRectangle(theBounds, myCornerDimension, myCornerDimension);
 
-	    graphics.drawImage(theTail, theBounds.x + 6, theBounds.y + theBounds.height - 1);
+	    graphics.drawImage(theTail, theBounds.x + 6, theBounds.y + theBounds.height);
 
 	}
 
 	private Image getTail() {
 	    if (!bIsInit) {
-		if (getIsDisplayAtMouseHoverLocation() && !isHostConnection()) {
-		    if (myTailImage == null) {
-			myTailImage = IMAGE_POPUPBAR_PLUS;
-			bIsInit = true;
-		    }
-		} else {
-		    if (myTailImage == null) {
-			myTailImage = IMAGE_POPUPBAR;
-			bIsInit = true;
-		    }
+		if (myTailImage == null) {
+		    myTailImage = IMAGE_POPUPBAR;
+		    bIsInit = true;
 		}
-
 	    }
 	    return myTailImage;
 
@@ -374,39 +317,24 @@ public class testttttCustomPopupBarEditPolicy extends DiagramAssistantEditPolicy
 
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see
-     * org.eclipse.gmf.runtime.diagram.ui.editpolicies.DiagramAssistantEditPolicy
-     * #isDiagramAssistant(java.lang.Object)
-     */
     protected boolean isDiagramAssistant(Object object) {
 	return object instanceof RoundedRectangleWithTail || object instanceof PopupBarLabelHandle;
     }
 
-    /**
-     * Adds the popup bar after a delay
-     */
     public void mouseHover(MouseEvent me) {
 	// if the cursor is inside the popup bar
-	// or the keyboar triggred activation
 	// then we do not want to deactivate
 	if (!isDiagramAssistant(me.getSource()))
 	    setAvoidHidingDiagramAssistant(false);
 
 	setMouseLocation(me.getLocation());
 	if (getIsDisplayAtMouseHoverLocation())
-	    showDiagramAssistantAfterDelay(getAppearanceDelayLocationSpecific()); // no
-										  // delay
+	    showDiagramAssistantAfterDelay(DELAY);
 	else if (shouldShowDiagramAssistant()) {
-	    showDiagramAssistant(getMouseLocation()); // no delay
+	    showDiagramAssistant(getMouseLocation());
 	}
     }
 
-    /**
-     * @see org.eclipse.draw2d.MouseMotionListener#mouseMoved(org.eclipse.draw2d.MouseEvent)
-     */
     public void mouseMoved(MouseEvent me) {
 
 	if (getIsDisplayAtMouseHoverLocation()) {
@@ -425,48 +353,7 @@ public class testttttCustomPopupBarEditPolicy extends DiagramAssistantEditPolicy
 	    if (!isDiagramAssistant(me.getSource()))
 		setAvoidHidingDiagramAssistant(false);
 
-	    showDiagramAssistantAfterDelay(getAppearanceDelay());
-	}
-    }
-
-    /**
-     * Listens to the owner figure being moved so the handles can be removed
-     * when this occurs.
-     * 
-     * @author affrantz@us.ibm.com
-     * 
-     */
-    private class OwnerMovedListener implements FigureListener {
-
-	private Point myPopupBarLastPosition = new Point(0, 0);
-
-	boolean hasPositionChanged(Rectangle theBounds) {
-	    if (theBounds.x != myPopupBarLastPosition.x)
-		return true;
-	    if (theBounds.y != myPopupBarLastPosition.y)
-		return true;
-	    return false;
-	}
-
-	/**
-	 * @see org.eclipse.draw2d.FigureListener#figureMoved(org.eclipse.draw2d.IFigure)
-	 */
-	public void figureMoved(IFigure source) {
-	    // for some reason we get more than one
-	    // figure moved call after compartment items are added
-	    // myActionMoveFigure handles the first one which we expect
-	    // hasPositionChanged handles the others caused by the selection of
-	    // the compartment
-	    // item.
-	    if (getFlag(POPUPBAR_MOVE_FIGURE) && hasPositionChanged(source.getBounds())) {
-		hideDiagramAssistant(); // without delay
-	    } else {
-		setFlag(POPUPBAR_MOVE_FIGURE, false); // toggle flag back
-		Rectangle theBounds = source.getBounds();
-		myPopupBarLastPosition.setLocation(theBounds.x, theBounds.y);
-
-	    }
-
+	    showDiagramAssistantAfterDelay(DELAY);
 	}
     }
 
@@ -495,6 +382,35 @@ public class testttttCustomPopupBarEditPolicy extends DiagramAssistantEditPolicy
 
 	}
     }
+    
+    
+    protected boolean keyPressed = false;
+
+    protected boolean isKeyPressed() {
+	return keyPressed;
+    }
+
+  
+
+    private class PopupBarKeyListener implements KeyListener {
+
+	public void keyPressed(KeyEvent event) {
+
+	    // CTRL + MAJ
+	    if (((event.stateMask & SWT.CTRL) != 0) && (event.keyCode == SWT.SHIFT)) {
+		keyPressed = true;
+		showDiagramAssistantAfterDelay(0);
+
+	    }
+	}
+
+	public void keyReleased(KeyEvent event) {
+
+	    keyPressed = false;
+	    hideDiagramAssistant();
+
+	}
+    }
 
     /* ************************* End nested classes ******************** */
 
@@ -503,8 +419,6 @@ public class testttttCustomPopupBarEditPolicy extends DiagramAssistantEditPolicy
 
     /** Y postion offset from shape where the balloon top begin. */
     static private double BALLOON_X_OFFSET_RHS = 0.65;
-
-    static private double BALLOON_X_OFFSET_LHS = 0.25;
 
     /** Y postion offset from shape where the balloon top begin. */
     static private int ACTION_WIDTH_HGT = 30;
@@ -518,45 +432,18 @@ public class testttttCustomPopupBarEditPolicy extends DiagramAssistantEditPolicy
     static private int ACTION_MARGIN_RIGHT = 10;
 
     /** popup bar bits */
-    static private int POPUPBAR_ACTIVATEONHOVER = 0x01; /*
-							 * Display the action
-							 * when hovering
-							 */
-    static private int POPUPBAR_MOVE_FIGURE = 0x02; /*
-						     * Ignore the first
-						     * figureMoved event when
-						     * creating elements inside
-						     * a shape via a popup bar
-						     */
-    static private int POPUPBAR_DISPLAYATMOUSEHOVERLOCATION = 0x04; /*
-								     * Display
-								     * the popup
-								     * bar at
-								     * the mouse
-								     * location
-								     * used by
-								     * diagrams
-								     * and
-								     * machine
-								     * edit
-								     * parts
-								     */
-    static private int POPUPBAR_ONDIAGRAMACTIVATED = 0x10; /*
-							    * For popup bars on
-							    * diagram and
-							    * machine edit
-							    * parts, where we
-							    * POPUPBAR_DISPLAYATMOUSEHOVERLOCATION
-							    * , don't display
-							    * popup bar until
-							    * user clicks on
-							    * surface
-							    */
-    static private int POPUPBAR_HOST_IS_CONNECTION = 0x20; /*
-							    * For popup bars on
-							    * connection edit
-							    * parts
-							    */
+    static private int POPUPBAR_ACTIVATEONHOVER = 0x01;
+    /*
+     * Display the action when hovering
+     */
+ 
+    static private int POPUPBAR_DISPLAYATMOUSEHOVERLOCATION = 0x04;
+    /*
+     * Display the popup bar at the mouse location used by diagrams and machine
+     * edit parts
+     */
+    static private int POPUPBAR_ONDIAGRAMACTIVATED = 0x10;
+  
 
     /** Bit field for the actrionbar associated bits */
     private int myPopupBarFlags = POPUPBAR_ACTIVATEONHOVER;
@@ -572,14 +459,9 @@ public class testttttCustomPopupBarEditPolicy extends DiagramAssistantEditPolicy
     /** Images created that must be deleted when popup bar is removed */
     protected List imagesToBeDisposed = null;
 
-    /** mouse keys listener for the owner shape */
-    private PopupBarMouseListener myMouseKeyListener = new PopupBarMouseListener();
-
-    
-
-    
-    /** listener for owner shape movement */
-    private OwnerMovedListener myOwnerMovedListener = new OwnerMovedListener();
+    /** mouse and key listeners */
+    private PopupBarMouseListener myMouseListener = new PopupBarMouseListener();
+    private PopupBarKeyListener myConnectionKeyListener = new PopupBarKeyListener();
 
     /** flag for whether mouse cursor within shape */
 
@@ -604,25 +486,6 @@ public class testttttCustomPopupBarEditPolicy extends DiagramAssistantEditPolicy
     }
 
     /**
-     * set the host is connection flag
-     * 
-     * @param bVal
-     *            the new value
-     */
-    protected void setHostConnection(boolean bVal) {
-	setFlag(POPUPBAR_HOST_IS_CONNECTION, bVal);
-    }
-
-    /**
-     * get the host is connection flag
-     * 
-     * @return true or false
-     */
-    protected boolean isHostConnection() {
-	return getFlag(POPUPBAR_HOST_IS_CONNECTION);
-    }
-
-    /**
      * Populates the popup bar with popup bar descriptors added by suclassing
      * this editpolicy (i.e. <code>fillPopupBarDescriptors</code> and by
      * querying the modeling assistant service for all types supported on the
@@ -631,9 +494,8 @@ public class testttttCustomPopupBarEditPolicy extends DiagramAssistantEditPolicy
      */
     protected void populatePopupBars() {
 
-	// ////ICI on apelle direct la fonction du
-	// custommodelingassistantprovider
 
+	//Ask the custommodelingassistantservice for types to provide
 	List types = CustomModelingAssistantService.getInstance().getTypesForPopupBar(getHost());
 
 	for (Iterator iter = types.iterator(); iter.hasNext();) {
@@ -641,6 +503,7 @@ public class testttttCustomPopupBarEditPolicy extends DiagramAssistantEditPolicy
 	    if (type instanceof IElementType) {
 		addPopupBarDescriptor((IElementType) type, IconService.getInstance().getIcon((IElementType) type));
 	    } else if (type instanceof String) {
+		//IF it s a drawer bar :
 		if (((String) type).equals("drawerFlag")) {
 		    addPopupBarDescriptor(true, null, null, null, null);
 		}
@@ -660,22 +523,7 @@ public class testttttCustomPopupBarEditPolicy extends DiagramAssistantEditPolicy
 	return false;
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see
-     * org.eclipse.gmf.runtime.diagram.ui.editpolicies.DiagramAssistantEditPolicy
-     * #shouldShowDiagramAssistant()
-     */
-
-    /**
-     * allows plugins to add their own popup bar tools and tips
-     * 
-     * @param elementType
-     * @param theImage
-     * @param theTracker
-     * @param theTip
-     */
+ 
     protected void addPopupBarDescriptor(boolean isDrawerBar, IElementType elementType, Image theImage, DragTracker theTracker, String theTip) {
 
 	PopupBarDescriptor desc = new PopupBarDescriptor(isDrawerBar, theTip, theImage, elementType, theTracker);
@@ -817,32 +665,16 @@ public class testttttCustomPopupBarEditPolicy extends DiagramAssistantEditPolicy
 		b.setBackgroundColor(ColorConstants.buttonLightest);
 		// /
 		b.addMouseMotionListener(this);
-		b.addMouseListener(this.myMouseKeyListener);
+		b.addMouseListener(this.myMouseListener);
 
 	    }
 	}
 	getBalloon().setSize(totalSize, ACTION_WIDTH_HGT + 2 * ACTION_BUTTON_START_Y);
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see
-     * org.eclipse.gmf.runtime.diagram.ui.editpolicies.DiagramAssistantEditPolicy
-     * #getPreferenceName()
-     */
-
-    String getPreferenceName() {
-	return IPreferenceConstants.PREF_SHOW_POPUP_BARS;
-    }
-
-    /*
-     * (non-Javadoc)
-     * 
-     * @see
-     * org.eclipse.gmf.runtime.diagram.ui.editpolicies.DiagramAssistantEditPolicy
-     * #isDiagramAssistantShowing()
-     */
+ 
+  
+   
     protected boolean isDiagramAssistantShowing() {
 	return getBalloon() != null;
     }
@@ -872,7 +704,7 @@ public class testttttCustomPopupBarEditPolicy extends DiagramAssistantEditPolicy
 	    }
 	}
 	getBalloon().addMouseMotionListener(this);
-	getBalloon().addMouseListener(myMouseKeyListener);
+	getBalloon().addMouseListener(myMouseListener);
 
 	// the feedback layer figures do not recieve mouse events so do not use
 	// it for popup bars
@@ -887,10 +719,6 @@ public class testttttCustomPopupBarEditPolicy extends DiagramAssistantEditPolicy
 
 	getBalloon().setLocation(thePoint);
 
-	// dismiss the popup bar after a delay
-	if (!shouldAvoidHidingDiagramAssistant()) {
-	    hideDiagramAssistantAfterDelay(getDisappearanceDelay());
-	}
     }
 
     /**
@@ -979,7 +807,7 @@ public class testttttCustomPopupBarEditPolicy extends DiagramAssistantEditPolicy
 
     private void teardownPopupBar() {
 	getBalloon().removeMouseMotionListener(this);
-	getBalloon().removeMouseListener(myMouseKeyListener);
+	getBalloon().removeMouseListener(myMouseListener);
 	// the feedback layer figures do not recieve mouse events
 	IFigure layer = getLayer(LayerConstants.HANDLE_LAYER);
 	if (myBalloon.getParent() != null) {
@@ -1000,34 +828,16 @@ public class testttttCustomPopupBarEditPolicy extends DiagramAssistantEditPolicy
 
     protected void hideDiagramAssistant() {
 	if (getBalloon() != null) {
-
 	    teardownPopupBar();
 	}
 
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see
-     * org.eclipse.gmf.runtime.diagram.ui.editpolicies.DiagramAssistantEditPolicy
-     * #showDiagramAssistantAfterDelay(int)
-     */
-    protected void showDiagramAssistantAfterDelay(int theDelay) {
-	// only show the popup bar if it isn't already showing
-	if (!isDiagramAssistantShowing()) {
-	    super.showDiagramAssistantAfterDelay(theDelay);
-	}
-    }
-
     public void activate() {
 	super.activate();
 
-	getHostFigure().addMouseListener(this.myMouseKeyListener);
-	getHostFigure().addFigureListener(this.myOwnerMovedListener);
-	
-	getHostFigure().addKeyListener(this.myPopupBarKeyListener);
-	
+	getHostFigure().addMouseListener(this.myMouseListener);
+	getHost().getViewer().getControl().addKeyListener(this.myConnectionKeyListener);
 
 	if (getHost() instanceof ISurfaceEditPart) {
 	    setIsDisplayAtMouseHoverLocation(true);
@@ -1035,70 +845,26 @@ public class testttttCustomPopupBarEditPolicy extends DiagramAssistantEditPolicy
     }
 
     public void deactivate() {
-	getHostFigure().removeMouseListener(this.myMouseKeyListener);
-	getHostFigure().removeFigureListener(this.myOwnerMovedListener);
-	getHostFigure().removeKeyListener(this.myPopupBarKeyListener);
+	getHostFigure().removeMouseListener(this.myMouseListener);
+	getHost().getViewer().getControl().removeKeyListener(this.myConnectionKeyListener);
 	super.deactivate();
 
     }
 
-    /**
-     * This is the default which places the popup bar to favor the right side of
-     * the shape
-     * 
-     * @deprecated this is not being used anymore
-     */
-    protected void setRightHandDisplay() {
-	this.myBallonOffsetPercent = BALLOON_X_OFFSET_RHS;
-    }
 
-    /**
-     * Place the popup bar to favor the left had side of the shape
-     * 
-     * @deprecated this is not being used anymore
-     */
-    protected void setLeftHandDisplay() {
-	this.myBallonOffsetPercent = BALLOON_X_OFFSET_LHS;
-    }
-
-    /**
-     * check thee right display status
-     * 
-     * @return true or false
-     * @deprecated this is not being used anymore
-     */
-    protected boolean isRightDisplay() {
-	return (BALLOON_X_OFFSET_RHS == myBallonOffsetPercent);
-    }
-
-    /**
-     * Gets the amount of time to wait before showing the popup bar if the popup
-     * bar is to be shown at the mouse location
-     * {@link #getIsDisplayAtMouseHoverLocation()}.
-     * 
-     * @return the time to wait in milliseconds
-     */
-    protected int getAppearanceDelayLocationSpecific() {
-	return getAppearanceDelay();
-    }
-
-    protected String getDiagramAssistantID() {
-	return testttttCustomPopupBarEditPolicy.class.getName();
-    }
-
-    /* MON CODE */
+    
+    
+    ///////////////////////////////////////////////////////////////
     @Override
     protected boolean shouldShowDiagramAssistant() {
+	
 
-	// si on instance de diagramedit part, on met a jour le type du diagrame
-	// courant
-	if (!(getHost().isActive() && isPreferenceOn() && isHostEditable() && isHostResolvable())) {
+	if (!(getHost().isActive() && isPreferenceOn() && isHostEditable() && isHostResolvable() && isKeyPressed())) {
 	    return false;
 	}
 
 	if (this.getIsDisplayAtMouseHoverLocation()) {
-	    if (isHostConnection())
-		return isSelectionToolActive();
+
 	    if (getPopupBarOnDiagramActivated())
 		return isSelectionToolActive();
 	    return false;
@@ -1107,8 +873,6 @@ public class testttttCustomPopupBarEditPolicy extends DiagramAssistantEditPolicy
 
     }
 
-    // /////////////////////////////////////////////////////////////
-    // Meme code que DiagramAssistantEditPolicy
     private boolean isHostEditable() {
 	if (getHost() instanceof GraphicalEditPart) {
 	    return ((GraphicalEditPart) getHost()).isEditModeEnabled();
@@ -1122,7 +886,6 @@ public class testttttCustomPopupBarEditPolicy extends DiagramAssistantEditPolicy
      * @return true if the semantic reference is resolvable, true if there is no
      *         semantic reference, and false otherwise
      */
-    // Meme code que DiagramAssistantEditPolicy
     private boolean isHostResolvable() {
 	final View view = (View) getHost().getModel();
 	EObject element = view.getElement();
@@ -1134,27 +897,6 @@ public class testttttCustomPopupBarEditPolicy extends DiagramAssistantEditPolicy
 
     // //////////////////////////////////////////////////////////
 
-    private PopupBarKeyListener myPopupBarKeyListener = new PopupBarKeyListener();
-    
-    
-    private class PopupBarKeyListener implements KeyListener{
-	
-	    public void keyPressed(KeyEvent event) {
-	      System.out.println("Code touche pressée : " + event.keycode + " - caractère touche pressée : " + event.character);
-	      
-	    }
-	 
-	    public void keyReleased(KeyEvent event) {
-	      System.out.println("Code touche relâchée : " + event.keycode + " - caractère touche relâchée : " + event.character);                      
-	    
-	    }
-	 
-	    
-    }
-    
-    
-    
-    
-    
-    
+
+
 }
