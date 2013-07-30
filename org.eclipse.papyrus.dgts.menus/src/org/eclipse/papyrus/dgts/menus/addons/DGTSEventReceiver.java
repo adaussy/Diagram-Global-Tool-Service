@@ -13,14 +13,12 @@ package org.eclipse.papyrus.dgts.menus.addons;
 
 import java.io.File;
 import java.net.MalformedURLException;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
 
-import org.eclipse.core.runtime.URIUtil;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.core.di.extensions.EventTopic;
 import org.eclipse.e4.ui.model.application.MApplication;
@@ -30,6 +28,7 @@ import org.eclipse.e4.ui.model.application.commands.MParameter;
 import org.eclipse.e4.ui.model.application.ui.menu.MHandledMenuItem;
 import org.eclipse.e4.ui.model.application.ui.menu.MMenu;
 import org.eclipse.e4.ui.model.application.ui.menu.MMenuContribution;
+import org.eclipse.e4.ui.model.application.ui.menu.MMenuElement;
 import org.eclipse.e4.ui.model.application.ui.menu.MMenuFactory;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
@@ -125,10 +124,23 @@ public class DGTSEventReceiver {
 			MHandledMenuItem itemMenu = createItemMenu(command, element,
 					elementTool);
 			if (itemMenu != null) {
-				itemMenuList.add(itemMenu);
+				if (!containItemMenu(itemMenu)) {
+					itemMenuList.add(itemMenu);
+				}
+
 			}
 		}
 		return itemMenuList;
+
+	}
+
+	public boolean containItemMenu(MHandledMenuItem itemMenu) {
+		for (MMenuElement menu : globalMenu.getChildren()) {
+			if (menu.getLabel().equals(itemMenu.getLabel())) {
+				return true;
+			}
+		}
+		return false;
 
 	}
 

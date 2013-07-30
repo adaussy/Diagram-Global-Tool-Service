@@ -25,7 +25,7 @@ import DiagramGlobalToolService.DiagramGlobalToolDefinition;
 
 public class DgtsResourceLoader {
 
-	public static Resource LoadResource(IFile file) throws IOException {
+	public static Resource loadResource(IFile file) throws IOException {
 		URI uri = URI.createFileURI(file.getFullPath().toString());
 		ResourceSet resourceSet = new ResourceSetImpl();
 		org.eclipse.emf.ecore.resource.Resource resource = resourceSet
@@ -45,5 +45,6 @@ public class DgtsResourceLoader {
 		return null;
 
 	}
+
 
 }

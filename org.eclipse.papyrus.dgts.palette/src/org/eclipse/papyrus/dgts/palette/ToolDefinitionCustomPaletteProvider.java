@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.gef.palette.PaletteRoot;
 import org.eclipse.gef.palette.ToolEntry;
 import org.eclipse.gmf.runtime.diagram.ui.internal.services.palette.PaletteToolEntry;
@@ -28,6 +29,10 @@ import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.papyrus.dgts.service.ToolDefinitionResourceProvider;
 import org.eclipse.papyrus.dgts.service.ToolsProvider;
+import org.eclipse.papyrus.dgts.service.model.confguration.DGTSModelConfigurationFileServiceProvider;
+import org.eclipse.papyrus.dgts.service.model.confguration.DGTSModelConfigurationOperation;
+import org.eclipse.papyrus.dgts.service.model.confguration.DGTSModelConfigurationService;
+import org.eclipse.papyrus.dgts.service.model.confguration.IDGTSExtensionDefinition;
 import org.eclipse.papyrus.uml.diagram.common.service.AspectUnspecifiedTypeConnectionTool;
 import org.eclipse.papyrus.uml.diagram.common.service.AspectUnspecifiedTypeCreationTool;
 import org.eclipse.ui.IEditorPart;
@@ -74,13 +79,18 @@ public class ToolDefinitionCustomPaletteProvider extends DefaultPaletteProvider 
 
 	public void contributeToPalette(IEditorPart editorCurrent, Object content,
 			PaletteRoot root, Map predefinedEntries) {
+		Object obj = null;
+//		String path = DGTSModelConfigurationFileServiceProvider
+//				.getModelConfigurationFilePath(IDGTSExtensionDefinition.EXTENTION);
+//		DGTSModelConfigurationOperation op = new DGTSModelConfigurationOperation(
+//				obj, new ResourceSetImpl());
+//		DGTSModelConfigurationService.getInstance().execute(op) ;
 		if (ToolDefinitionResourceProvider.isAvailable()) {
 			if (editorCurrent instanceof IDiagramWorkbenchPart) {
 				Diagram diagram = ((IDiagramWorkbenchPart) editorCurrent)
 						.getDiagram();
 				InitiElements(diagram.getType(),
-						ToolDefinitionResourceProvider
-								.getDiagramGlobalToolDefinition());
+						ToolDefinitionResourceProvider.getDiagramGlobalToolDefinition());
 				if (ListDrawers == null || ListDrawers.isEmpty()) {
 
 					super.contributeToPalette(editor, content, root,

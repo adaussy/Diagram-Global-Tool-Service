@@ -55,7 +55,7 @@ public class LoadModelCommandHandler extends AbstractHandler {
 	public static void loadFileResource(IFile file) {
 		if (EXTENSION.equals(file.getFileExtension())) {
 			try {
-				Resource resource = DgtsResourceLoader.LoadResource(file);
+				Resource resource = DgtsResourceLoader.loadResource(file);
 				ToolDefinitionResourceProvider.setResource(resource);
 				// UpdatePalette();
 
