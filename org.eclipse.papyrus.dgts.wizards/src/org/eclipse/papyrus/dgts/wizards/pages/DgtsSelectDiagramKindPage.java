@@ -1,4 +1,4 @@
-package org.eclipse.papyrus.dgts.pages;
+package org.eclipse.papyrus.dgts.wizards.pages;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,8 +14,8 @@ import org.eclipse.papyrus.commands.CreationCommandRegistry;
 import org.eclipse.papyrus.commands.ICreationCommand;
 import org.eclipse.papyrus.commands.ICreationCommandRegistry;
 import org.eclipse.papyrus.dgts.service.ToolsProvider;
-import org.eclipse.papyrus.dgts.utility.DgtsDiagramKindContentProvider;
-import org.eclipse.papyrus.dgts.utility.SelectionHelper;
+import org.eclipse.papyrus.dgts.wizards.utility.DgtsDiagramKindContentProvider;
+import org.eclipse.papyrus.dgts.wizards.utility.SelectionHelper;
 import org.eclipse.papyrus.infra.core.editor.BackboneException;
 import org.eclipse.papyrus.uml.diagram.wizards.Messages;
 import org.eclipse.papyrus.uml.diagram.wizards.kind.DiagramKindContentProvider;

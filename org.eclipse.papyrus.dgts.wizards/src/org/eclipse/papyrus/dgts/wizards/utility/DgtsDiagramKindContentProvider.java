@@ -1,4 +1,4 @@
-package org.eclipse.papyrus.dgts.utility;
+package org.eclipse.papyrus.dgts.wizards.utility;
 
 import java.util.ArrayList;
 import java.util.Collection;

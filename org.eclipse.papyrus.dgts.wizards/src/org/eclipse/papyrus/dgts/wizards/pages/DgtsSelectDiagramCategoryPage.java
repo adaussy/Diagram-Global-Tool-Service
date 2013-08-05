@@ -1,4 +1,4 @@
-package org.eclipse.papyrus.dgts.pages;
+package org.eclipse.papyrus.dgts.wizards.pages;
 
 import org.eclipse.papyrus.uml.diagram.wizards.Messages;
 import org.eclipse.papyrus.uml.diagram.wizards.pages.SelectDiagramCategoryPage;
