@@ -13,6 +13,7 @@ package org.eclipse.papyrus.dgts.service.interfaces;
 
 import java.util.List;
 
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 
 import DiagramGlobalToolService.DiagramDefinition;
@@ -21,7 +22,13 @@ import DiagramGlobalToolService.DrawerDefinition;
 import DiagramGlobalToolService.Tool;
 
 public interface IToolsProvider {
-	// get Diagram from diagram string and resource
+	
+    	// get all Diagrams from GlobalDiagramToolDef
+    	public List<DiagramDefinition> getAllDiagrams(DiagramGlobalToolDefinition global);
+    	// get the DiagramGlobalToolDefinition from a given resource
+    	public DiagramGlobalToolDefinition getDiagramGlobalToolDefinitionFromResource(Resource resource);
+    
+    	// get Diagram from diagram string and resource
 	public DiagramDefinition getDiagram(String diagramType,
 			DiagramGlobalToolDefinition global);
 

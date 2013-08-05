@@ -12,11 +12,8 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -27,6 +24,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.eclipse.swt.graphics.Image;
 
 /**
  * This is the item provider adapter for a {@link DiagramGlobalToolService.DrawerDefinition} object.
@@ -96,14 +94,14 @@ public class DrawerDefinitionItemProvider
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
         @Override
         public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(DiagramGlobalToolServicePackage.Literals.DRAWER_DEFINITION__TOOL_REF);
-			childrenFeatures.add(DiagramGlobalToolServicePackage.Literals.DRAWER_DEFINITION__ICON_REFERENCE);
+			//childrenFeatures.add(DiagramGlobalToolServicePackage.Literals.DRAWER_DEFINITION__ICON_REFERENCE);
 		}
 		return childrenFeatures;
 	}
@@ -125,10 +123,23 @@ public class DrawerDefinitionItemProvider
 	 * This returns DrawerDefinition.gif.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
         @Override
         public Object getImage(Object object) {
+            
+            	if (object instanceof DrawerDefinition) {
+		    DrawerDefinition drawer = (DrawerDefinition) object;
+		    if (drawer.getIconReference() != null){
+			try {
+			    Image img = new Image(null,drawer.getIconReference().getIconPath());
+				return img;
+			} catch (Exception e) {
+			//DO nothing
+			}
+
+		    }
+		}
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/DrawerDefinition"));
 	}
 
@@ -136,14 +147,14 @@ public class DrawerDefinitionItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
         @Override
         public String getText(Object object) {
 		String label = ((DrawerDefinition)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_DrawerDefinition_type") :
-			getString("_UI_DrawerDefinition_type") + " " + label;
+			"" :
+			 label;
 	}
 
         /**

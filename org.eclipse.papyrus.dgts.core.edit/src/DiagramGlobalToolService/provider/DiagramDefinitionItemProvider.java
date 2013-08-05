@@ -135,14 +135,14 @@ public class DiagramDefinitionItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
         @Override
         public String getText(Object object) {
 		String label = ((DiagramDefinition)object).getDiagramType();
 		return label == null || label.length() == 0 ?
-			getString("_UI_DiagramDefinition_type") :
-			getString("_UI_DiagramDefinition_type") + " " + label;
+			"" :
+			label;
 	}
 
         /**

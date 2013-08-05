@@ -16,5 +16,11 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.edit.ui;visibility:=reexport,
  org.eclipse.ui.ide;visibility:=reexport,
  org.eclipse.emf.ecore.edit;visibility:=reexport,
- org.eclipse.uml2.uml.edit;visibility:=reexport
+ org.eclipse.uml2.uml.edit;visibility:=reexport,
+ org.eclipse.e4.core.di;bundle-version="1.3.0",
+ org.eclipse.e4.ui.workbench;bundle-version="1.0.0",
+ org.eclipse.e4.ui.di;bundle-version="1.0.0",
+ javax.inject;bundle-version="1.0.0",
+ org.eclipse.core.expressions;bundle-version="3.4.500",
+ org.eclipse.papyrus.dgts.wizards
 Bundle-ActivationPolicy: lazy
