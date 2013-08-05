@@ -10,14 +10,5 @@
          </Priority>
       </paletteProvider>
    </extension>
-   <extension
-         point="org.eclipse.papyrus.dgts.service.model.confguration.modelConfiguration">
-      <modelConfigurationProvider
-            class="org.eclipse.papyrus.dgts.palette.ResourceModelConfigurationProvider">
-         <Priority
-               Priority="Highest">
-         </Priority>
-      </modelConfigurationProvider>
-   </extension>
 
 </plugin>

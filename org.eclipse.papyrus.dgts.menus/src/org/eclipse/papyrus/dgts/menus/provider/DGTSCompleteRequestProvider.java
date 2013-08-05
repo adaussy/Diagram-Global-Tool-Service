@@ -9,7 +9,7 @@
  * Vincent Lartigaut (Atos) vincent.lartigaut@atos.net - Vincent Lartigaut - initial API and implementation
  ******************************************************************************/
 
-package org.eclipse.papyrus.dgts.menus.handlers;
+package org.eclipse.papyrus.dgts.menus.provider;
 
 import org.eclipse.gmf.runtime.common.core.service.IOperation;
 import org.eclipse.gmf.runtime.common.core.service.IProviderChangeListener;

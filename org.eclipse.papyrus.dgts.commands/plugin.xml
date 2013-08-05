@@ -28,18 +28,13 @@
       </menuContribution>
    </extension>
    <extension
-         id="id1"
-         point="org.eclipse.e4.workbench.model">
-      <processor
-            beforefragment="false"
-            class="org.eclipse.papyrus.dgts.commands.ResourceLoadingStartup">
-      </processor>
-   </extension>
-   <extension
-         point="org.eclipse.ui.startup">
-      <startup
-            class="org.eclipse.papyrus.dgts.commands.MenuStartUp">
-      </startup>
+         point="org.eclipse.papyrus.dgts.service.model.configuration.modelConfiguration">
+      <modelConfigurationProvider
+            class="org.eclipse.papyrus.dgts.commands.provider.DGTSModelConfigurationCommandProvider">
+         <Priority
+               name="Highest">
+         </Priority>
+      </modelConfigurationProvider>
    </extension>
 
 </plugin>

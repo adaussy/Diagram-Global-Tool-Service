@@ -19,7 +19,7 @@ import javax.annotation.PreDestroy;
 import javax.inject.Inject;
 
 import org.eclipse.e4.core.services.events.IEventBroker;
-import org.eclipse.papyrus.dgts.service.ToolDefinitionResourceProvider;
+import org.eclipse.papyrus.dgts.service.ServiceStaticEventNotifier;
 
 
 public class DGTSEventSender  implements Observer  {
@@ -30,13 +30,15 @@ public class DGTSEventSender  implements Observer  {
 	@Inject
 	IEventBroker eventBroker;
 	public DGTSEventSender(){
+		
 	}
 	
 
 	
 	@PostConstruct
 	void hookListeners() {
-		ToolDefinitionResourceProvider.addObserver(this);
+		ServiceStaticEventNotifier.addObserver(this);
+		
 	}
 	
 	@PreDestroy
@@ -47,11 +49,12 @@ public class DGTSEventSender  implements Observer  {
 	@Override
 	public void update(Observable o, Object data) {
 		if(data !=null){
+			
 			eventBroker.send(DGTSEventTopics.CONF_LOADED, data);
 		}
 		else{
 			eventBroker.send(DGTSEventTopics.CONF_UNLOAD, data);
 		}
-		
+
 	}	
 }

@@ -11,21 +11,18 @@
 
 package org.eclipse.papyrus.dgts.commands;
 
-import java.io.IOException;
-
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IFile;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.papyrus.dgts.service.DgtsResourceLoader;
-import org.eclipse.papyrus.dgts.service.ToolDefinitionResourceProvider;
+import org.eclipse.papyrus.dgts.service.IDGTSExtensionDefinition;
+import org.eclipse.papyrus.dgts.service.ServiceStaticEventNotifier;
+import org.eclipse.papyrus.dgts.service.providers.DGTSFileServiceProvider;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 
 public class LoadModelCommandHandler extends AbstractHandler {
-	protected static final String EXTENSION = "diagramglobaltoolservice";
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
@@ -43,8 +40,13 @@ public class LoadModelCommandHandler extends AbstractHandler {
 				IStructuredSelection structuredSelection = (IStructuredSelection) selection;
 				Object firstElement = structuredSelection.getFirstElement();
 				if (firstElement instanceof IFile) {
-					IFile file = (IFile) firstElement;
-					loadFileResource(file);
+					IFile file = (IFile) firstElement ;
+					if(IDGTSExtensionDefinition.EXTENTION.equals(file.getFileExtension())){
+						DGTSFileServiceProvider.setContent(firstElement);
+						ServiceStaticEventNotifier.notifyObservers(null);
+					}
+					
+					
 
 				}
 			}
@@ -52,31 +54,6 @@ public class LoadModelCommandHandler extends AbstractHandler {
 		return null;
 	}
 
-	public static void loadFileResource(IFile file) {
-		if (EXTENSION.equals(file.getFileExtension())) {
-			try {
-				Resource resource = DgtsResourceLoader.loadResource(file);
-				ToolDefinitionResourceProvider.setResource(resource);
-				// UpdatePalette();
-
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
-		}
-	}
-
-	/*
-	 * protected void UpdatePalette() { PaletteRoot root =
-	 * ToolDefinitionCustomPaletteProvider.getRoot(); IEditorPart editor =
-	 * ToolDefinitionCustomPaletteProvider.getEditor(); Object content =
-	 * ToolDefinitionCustomPaletteProvider.getContent(); if (root != null &&
-	 * editor != null && content != null) {
-	 * PaletteService.getInstance().updatePalette(root, editor, content); }
-	 * 
-	 * 
-	 * }
-	 */
+	
 
 }

@@ -11,7 +11,7 @@
    <extension
          point="org.eclipse.papyrus.dgts.service.provider.fillrequestprovider">
       <commandHandler
-            class="org.eclipse.papyrus.dgts.menus.handlers.DGTSCompleteRequestProvider">
+            class="org.eclipse.papyrus.dgts.menus.provider.DGTSCompleteRequestProvider">
          <Priority
                name="Lowest">
          </Priority>

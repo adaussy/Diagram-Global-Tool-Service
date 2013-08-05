@@ -13,8 +13,6 @@
     <elements xsi:type="commands:Handler" xmi:id="_5e5koO-JEeKWbJV2FlNGvw" elementId="org.eclipse.papyrus.dgts.menus.handler.0" contributionURI="bundleclass://org.eclipse.papyrus.dgts.menus/org.eclipse.papyrus.dgts.menus.handlers.CreateElementHandler" command="_PBjqQO-JEeKWbJV2FlNGvw"/>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_Y-sMUO-KEeKWbJV2FlNGvw" featurename="menuContributions" parentElementId="org.eclipse.e4.legacy.ide.application">
-    <elements xsi:type="menu:MenuContribution" xmi:id="_buD8oO-KEeKWbJV2FlNGvw" elementId="org.eclipse.papyrus.dgts.menus.menucontribution.0" parentId="popup">
-      <children xsi:type="menu:Menu" xmi:id="_7jMOQO-iEeKWbJV2FlNGvw" elementId="org.eclipse.papyrus.dgts.menus.menu.0" label="DGTS"/>
-    </elements>
+    <elements xsi:type="menu:MenuContribution" xmi:id="_buD8oO-KEeKWbJV2FlNGvw" elementId="org.eclipse.papyrus.dgts.menus.menucontribution.0" parentId="popup"/>
   </fragments>
 </fragment:ModelFragments>

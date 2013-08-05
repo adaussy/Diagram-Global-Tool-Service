@@ -37,6 +37,7 @@ import org.eclipse.gmf.runtime.emf.type.core.IHintedType;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.papyrus.dgts.service.DgtsResourceLoader;
 import org.eclipse.papyrus.dgts.service.ToolsProvider;
+import org.eclipse.papyrus.dgts.service.providers.DGTSFileServiceProvider;
 
 import DiagramGlobalToolService.DiagramGlobalToolDefinition;
 import DiagramGlobalToolService.Tool;
@@ -50,11 +51,13 @@ public class DGTSEventReceiver {
 	@Inject
 	@Optional
 	void handleConfLoaded(
-			@EventTopic(DGTSEventTopics.CONF_LOADED) Resource resource,
+			@EventTopic(DGTSEventTopics.CONF_LOADED) DiagramGlobalToolDefinition diagramGlobalToolDefinition,
 			MApplication application) {
-		createGlobalMenu(application);
-		createDynamiqueMenu(resource, application);
-		menuContribution.getChildren().add(globalMenu);
+		if (diagramGlobalToolDefinition != null) {
+			createGlobalMenu(application);
+			createDynamiqueMenu(diagramGlobalToolDefinition, application);
+			menuContribution.getChildren().add(globalMenu);
+		}
 
 	}
 
@@ -83,13 +86,12 @@ public class DGTSEventReceiver {
 
 	}
 
-	protected void createDynamiqueMenu(Resource resource,
+	protected void createDynamiqueMenu(
+			DiagramGlobalToolDefinition diagramGlobalToolDefinition,
 			MApplication application) {
 		toolProvider = new ToolsProvider();
-		DiagramGlobalToolDefinition globalToolDefinition = DgtsResourceLoader
-				.getDiagramGlobalToolDefinitionFromResource(resource);
 		List<Tool> listElementTool = toolProvider
-				.getAllElement(globalToolDefinition);
+				.getAllElement(diagramGlobalToolDefinition);
 		MCommand command = getCommand(application);
 		generateAllItemMenu(listElementTool, command);
 	}
