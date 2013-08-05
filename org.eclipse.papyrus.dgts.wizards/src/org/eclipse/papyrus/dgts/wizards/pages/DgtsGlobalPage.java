@@ -1,4 +1,4 @@
-package org.eclipse.papyrus.dgts.pages;
+package org.eclipse.papyrus.dgts.wizards.pages;
 
 import java.util.Collections;
 import java.util.List;
@@ -14,9 +14,9 @@ import org.eclipse.jface.viewers.ViewerDropAdapter;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.papyrus.dgts.service.ToolsProvider;
-import org.eclipse.papyrus.dgts.utility.ElementRequests;
-import org.eclipse.papyrus.dgts.utility.SelectionHelper;
 import org.eclipse.papyrus.dgts.wizards.AddDiagramWizard;
+import org.eclipse.papyrus.dgts.wizards.utility.ElementRequests;
+import org.eclipse.papyrus.dgts.wizards.utility.SelectionHelper;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.dnd.DragSource;
@@ -808,8 +808,8 @@ public class DgtsGlobalPage extends WizardPage {
 	    handlerToolSelected((Tool) toolSelectionTableViewer.getTable().getItem(itemSelected).getData());
 	    setToolEditionVisilble(true);
 	} else {
-	    setCurrentSelectedDrawer(null);
-	    setDrawerEditionVisilble(false);
+	    setCurrentSelectedTool(null);
+	    setToolEditionVisilble(false);
 	}
 
     }

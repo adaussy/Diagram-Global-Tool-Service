@@ -1,8 +1,8 @@
 package org.eclipse.papyrus.dgts.wizards;
 
 import org.eclipse.jface.wizard.Wizard;
-import org.eclipse.papyrus.dgts.pages.DgtsSelectDiagramCategoryPage;
-import org.eclipse.papyrus.dgts.pages.DgtsGlobalPage;
+import org.eclipse.papyrus.dgts.wizards.pages.DgtsGlobalPage;
+import org.eclipse.papyrus.dgts.wizards.pages.DgtsSelectDiagramCategoryPage;
 
 public class DgtsGlobalWizard extends Wizard {
 

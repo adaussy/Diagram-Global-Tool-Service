@@ -1,4 +1,4 @@
-package org.eclipse.papyrus.dgts.utility;
+package org.eclipse.papyrus.dgts.wizards.utility;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;

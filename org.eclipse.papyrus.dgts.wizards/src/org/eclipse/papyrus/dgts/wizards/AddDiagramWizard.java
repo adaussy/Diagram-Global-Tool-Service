@@ -10,11 +10,11 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.dialogs.IDialogSettings;
 import org.eclipse.jface.wizard.IWizardPage;
 import org.eclipse.jface.wizard.Wizard;
-import org.eclipse.papyrus.dgts.pages.DgtsSelectDiagramCategoryPage;
-import org.eclipse.papyrus.dgts.pages.DgtsSelectDiagramKindPage;
-import org.eclipse.papyrus.dgts.pages.DgtsSelectDiagramKindPage.CategoryProvider;
 import org.eclipse.papyrus.dgts.service.ToolsProvider;
-import org.eclipse.papyrus.dgts.utility.SelectionHelper;
+import org.eclipse.papyrus.dgts.wizards.pages.DgtsSelectDiagramCategoryPage;
+import org.eclipse.papyrus.dgts.wizards.pages.DgtsSelectDiagramKindPage;
+import org.eclipse.papyrus.dgts.wizards.pages.DgtsSelectDiagramKindPage.CategoryProvider;
+import org.eclipse.papyrus.dgts.wizards.utility.SelectionHelper;
 import org.eclipse.papyrus.uml.diagram.wizards.Activator;
 
 import DiagramGlobalToolService.DiagramDefinition;
