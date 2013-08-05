@@ -14,6 +14,8 @@ package org.eclipse.papyrus.dgts.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.gmf.runtime.emf.type.core.ElementTypeRegistry;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.papyrus.dgts.service.interfaces.IToolsProvider;
@@ -26,99 +28,119 @@ import DiagramGlobalToolService.Tool;
 
 public class ToolsProvider implements IToolsProvider {
 
-	// get Diagram from diagram string and resource
-	public DiagramDefinition getDiagram(String diagramType,
-			DiagramGlobalToolDefinition global) {
+    // get the DiagramGlobalToolDefinition from a given resource
+    public DiagramGlobalToolDefinition getDiagramGlobalToolDefinitionFromResource(Resource resource) {
+	if (resource !=null){
+	for (EObject object : resource.getContents()) {
+	    if (object instanceof DiagramGlobalToolDefinition) {
+		return (DiagramGlobalToolDefinition) object;
+	    }
+	}}
+	return null;
 
-		if (global != null) {
-			for (DiagramDefinition diagram : global.getDiagramDefinitionRef()) {
-				if (diagram.getDiagramType().equals(diagramType)) {
-					return diagram;
-				}
+    }
 
-			}
+    // get Diagram from diagram string and resource
+    public DiagramDefinition getDiagram(String diagramType, DiagramGlobalToolDefinition global) {
 
+	if (global != null) {
+	    for (DiagramDefinition diagram : global.getDiagramDefinitionRef()) {
+		if (diagram.getDiagramType().equals(diagramType)) {
+		    return diagram;
 		}
-		return null;
-	}
 
-	// get all tools from a diagram
-	public List<Tool> getTools(DiagramDefinition diagram) {
-		if (diagram != null) {
-			List<Tool> toolList = new ArrayList<Tool>();
-			for (DrawerDefinition drawer : diagram.getDrawerDefinitionRef()) {
-				for (Tool tool : drawer.getToolRef()) {
-					toolList.add(tool);
-				}
-			}
-			return toolList;
-		}
-		return null;
-	}
-
-	// get all tools from a given drawer
-	public List<Tool> getTools(DrawerDefinition drawer) {
-		if (drawer != null) {
-			List<Tool> toolList = new ArrayList<Tool>();
-			for (Tool tool : drawer.getToolRef()) {
-				toolList.add(tool);
-			}
-			return toolList;
-		}
-		return null;
-	}
-
-	// get all drawers from a diagram
-	public List<DrawerDefinition> getDrawers(DiagramDefinition diagram) {
-		if (diagram != null) {
-			List<DrawerDefinition> drawerList = new ArrayList<DrawerDefinition>();
-			for (DrawerDefinition drawer : diagram.getDrawerDefinitionRef()) {
-				drawerList.add(drawer);
-			}
-			return drawerList;
-		}
-		return null;
-	}
-
-	public List<ElementType> getElementTypes(Tool tool) {
-		if (tool != null) {
-			List<ElementType> elementTypeList = new ArrayList<ElementType>();
-			for (ElementType elementType : tool.getElementTypes()) {
-				elementTypeList.add(elementType);
-			}
-			return elementTypeList;
-		}
-		return null;
+	    }
 
 	}
+	return null;
+    }
 
-	public List<IElementType> getIElementTypesFromTool(Tool tool) {
+    // get all Diagrams from GlobalDiagramToolDef
+    public List<DiagramDefinition> getAllDiagrams(DiagramGlobalToolDefinition global) {
+	List<DiagramDefinition> diags = new ArrayList<DiagramDefinition>();
+	if (global != null) {
+	    for (DiagramDefinition diagram : global.getDiagramDefinitionRef()) {
+		diags.add(diagram);
+	    }
+	    return diags;
+	}
+	return null;
+    }
 
-		List<IElementType> types = new ArrayList<IElementType>(1);
-		if (tool.getElementTypes() != null) {
-			for (ElementType type : tool.getElementTypes()) {
-				String ID = type.getElementType();
-				IElementType elementType = ElementTypeRegistry.getInstance()
-						.getType(ID);
-				if (elementType != null) {
-					types.add(elementType);
-				}
-			}
-			return types;
+    // get all tools from a diagram
+    public List<Tool> getTools(DiagramDefinition diagram) {
+	if (diagram != null) {
+	    List<Tool> toolList = new ArrayList<Tool>();
+	    for (DrawerDefinition drawer : diagram.getDrawerDefinitionRef()) {
+		for (Tool tool : drawer.getToolRef()) {
+		    toolList.add(tool);
 		}
-		return null;
+	    }
+	    return toolList;
+	}
+	return null;
+    }
+
+    // get all tools from a given drawer
+    public List<Tool> getTools(DrawerDefinition drawer) {
+	if (drawer != null) {
+	    List<Tool> toolList = new ArrayList<Tool>();
+	    for (Tool tool : drawer.getToolRef()) {
+		toolList.add(tool);
+	    }
+	    return toolList;
+	}
+	return null;
+    }
+
+    // get all drawers from a diagram
+    public List<DrawerDefinition> getDrawers(DiagramDefinition diagram) {
+	if (diagram != null) {
+	    List<DrawerDefinition> drawerList = new ArrayList<DrawerDefinition>();
+	    for (DrawerDefinition drawer : diagram.getDrawerDefinitionRef()) {
+		drawerList.add(drawer);
+	    }
+	    return drawerList;
+	}
+	return null;
+    }
+
+    public List<ElementType> getElementTypes(Tool tool) {
+	if (tool != null) {
+	    List<ElementType> elementTypeList = new ArrayList<ElementType>();
+	    for (ElementType elementType : tool.getElementTypes()) {
+		elementTypeList.add(elementType);
+	    }
+	    return elementTypeList;
+	}
+	return null;
+
+    }
+
+    public List<IElementType> getIElementTypesFromTool(Tool tool) {
+
+	List<IElementType> types = new ArrayList<IElementType>(1);
+	if (tool.getElementTypes() != null) {
+	    for (ElementType type : tool.getElementTypes()) {
+		String ID = type.getElementType();
+		IElementType elementType = ElementTypeRegistry.getInstance().getType(ID);
+		if (elementType != null) {
+		    types.add(elementType);
+		}
+	    }
+	    return types;
+	}
+	return null;
+
+    }
+
+    public List<Tool> getAllElement(DiagramGlobalToolDefinition globalToolDefinition) {
+	List<Tool> listElement = new ArrayList<Tool>();
+	for (DiagramDefinition diagram : globalToolDefinition.getDiagramDefinitionRef()) {
+	    listElement.addAll(this.getTools(diagram));
 
 	}
-
-	public List<Tool> getAllElement(
-			DiagramGlobalToolDefinition globalToolDefinition) {
-		List<Tool> listElement = new ArrayList<Tool>();
-		for (DiagramDefinition diagram : globalToolDefinition
-				.getDiagramDefinitionRef()) {
-			listElement.addAll(this.getTools(diagram));
-
-		}
-		return listElement;
-	}
+	return listElement;
+    }
 
 }

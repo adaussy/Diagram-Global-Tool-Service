@@ -5,9 +5,12 @@ package DiagramGlobalToolService.provider;
 
 import DiagramGlobalToolService.DiagramGlobalToolServiceFactory;
 import DiagramGlobalToolService.DiagramGlobalToolServicePackage;
+import DiagramGlobalToolService.DrawerDefinition;
 import DiagramGlobalToolService.Tool;
+
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -22,6 +25,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.eclipse.swt.graphics.Image;
 
 /**
  * This is the item provider adapter for a {@link DiagramGlobalToolService.Tool} object.
@@ -216,6 +220,18 @@ public class ToolItemProvider
 	 */
         @Override
         public Object getImage(Object object) {
+    	if (object instanceof Tool) {
+	    Tool tool = (Tool) object;
+	    if (tool.getIconReference() != null){
+		try {
+		    Image img = new Image(null,tool.getIconReference().getIconPath());
+			return img;
+		} catch (Exception e) {
+		//DO nothing
+		}
+
+	    }
+	}
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/Tool"));
 	}
 
@@ -229,8 +245,8 @@ public class ToolItemProvider
         public String getText(Object object) {
 		String label = ((Tool)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Tool_type") :
-			getString("_UI_Tool_type") + " " + label;
+			"" :
+			 label;
 	}
 
         /**

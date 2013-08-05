@@ -7,7 +7,8 @@
  * 
  * Contributors:
  * Guilhem Desq (Atos) guilhem.desq@atos.net -  Guilhem Desq - initial API and implementation
- ******************************************************************************/package org.eclipse.papyrus.dgts.popupbar;
+ ******************************************************************************/
+package org.eclipse.papyrus.dgts.popupbar;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -127,32 +128,28 @@ public class CustomModelingAssistantService {
 
 				    if (possibleTypes != null) {
 					for (IElementType type : possibleTypes) {
-					    // check if its a visual type or not
-					    // :
 
-					    if (type != null && (!(type instanceof MetamodelType))) {
-						// check if the type can be
-						// added
-						// to
-						// the
-						// current
-						// container :
-						if (isValidType(type, editPart)) {
+					    // check if the type can be
+					    // added
+					    // to
+					    // the
+					    // current
+					    // container :
+					    if (isValidType(type, editPart)) {
 
-						    // dont add if already exist
-						    // if
-						    // (!(types.contains(type)))
-						    // {
-						 
+						// dont add if already exist
+						// if
+						// (!(types.contains(type)))
+						// {
 
-						    PopupBarDescriptor popupBarDesc = createPopupBarDescriptor(type,editPart,tool);
+						PopupBarDescriptor popupBarDesc = createPopupBarDescriptor(type, editPart, tool);
 
-						    types.add(popupBarDesc);
-						    drawerContainType = true;
-						    // }
-						}
+						types.add(popupBarDesc);
+						drawerContainType = true;
+						// }
 					    }
 					}
+
 				    }
 
 				}
@@ -165,7 +162,7 @@ public class CustomModelingAssistantService {
 		    // last
 		    // drawerbar
 		    if (!types.isEmpty()) {
-			if (((PopupBarDescriptor)types.get(types.size() - 1)).isDrawerBar()) {
+			if (((PopupBarDescriptor) types.get(types.size() - 1)).isDrawerBar()) {
 			    types.remove(types.size() - 1);
 			}
 		    }
@@ -183,26 +180,26 @@ public class CustomModelingAssistantService {
 	Image img = null;
 	String theInputStr = DiagramUIMessages.PopupBar_AddNew;
 	String tip = NLS.bind(theInputStr, type.getDisplayName());
-	
-	   if (tool.getIconReference() != null) {
-		iconPath = tool.getIconReference().getIconPath();
-		if (iconPath != null){
-		    try {
-			img = new Image(null, iconPath);
-		    } catch (Exception e) {
-			img=null;
-		    }
+
+	if (tool.getIconReference() != null) {
+	    iconPath = tool.getIconReference().getIconPath();
+	    if (iconPath != null) {
+		try {
+		    img = new Image(null, iconPath);
+		} catch (Exception e) {
+		    img = null;
 		}
-	   }
-	   if (img==null){
-	       img = IconService.getInstance().getIcon((IElementType) type);
-	   }
+	    }
+	}
+	if (img == null) {
+	    img = IconService.getInstance().getIcon((IElementType) type);
+	}
 
 	return new PopupBarDescriptor(false, tip, img, type, new PopupBarTool(host, type));
     }
 
     private boolean isValidType(IElementType elementType, IGraphicalEditPart host) {
-	
+
 	boolean valid = false;
 
 	CreateViewAndElementRequest request = new CreateViewAndElementRequest(elementType, null);
