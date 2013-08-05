@@ -11,34 +11,35 @@
 
 package org.eclipse.papyrus.dgts.menus.addons;
 
+import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
 
+import org.eclipse.core.runtime.URIUtil;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.core.di.extensions.EventTopic;
 import org.eclipse.e4.ui.model.application.MApplication;
 import org.eclipse.e4.ui.model.application.commands.MCommand;
 import org.eclipse.e4.ui.model.application.commands.MCommandsFactory;
 import org.eclipse.e4.ui.model.application.commands.MParameter;
-import org.eclipse.e4.ui.model.application.ui.MExpression;
 import org.eclipse.e4.ui.model.application.ui.menu.MHandledMenuItem;
 import org.eclipse.e4.ui.model.application.ui.menu.MMenu;
 import org.eclipse.e4.ui.model.application.ui.menu.MMenuContribution;
 import org.eclipse.e4.ui.model.application.ui.menu.MMenuFactory;
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.type.core.IHintedType;
+import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.papyrus.dgts.service.DgtsResourceLoader;
-import org.eclipse.papyrus.dgts.service.ToolDefinitionResourceProvider;
 import org.eclipse.papyrus.dgts.service.ToolsProvider;
-import org.eclipse.papyrus.sysml.service.types.element.SysMLElementTypes;
 
 import DiagramGlobalToolService.DiagramGlobalToolDefinition;
-import DiagramGlobalToolService.ElementType;
 import DiagramGlobalToolService.Tool;
 
 public class DGTSEventReceiver {
@@ -108,56 +109,72 @@ public class DGTSEventReceiver {
 			MCommand command) {
 
 		for (Tool elementTool : listElementTool) {
-			if (elementTool.isSetMenu()){
+			if (!elementTool.isIsEdge() && elementTool.isSetMenu()) {
 				globalMenu.getChildren().addAll(
 						createItemMenus(elementTool, command));
 			}
 
 		}
 	}
-	
-	protected List<MHandledMenuItem> createItemMenus(Tool elementTool,MCommand command){
+
+	protected List<MHandledMenuItem> createItemMenus(Tool elementTool,
+			MCommand command) {
 		List<MHandledMenuItem> itemMenuList = new ArrayList<MHandledMenuItem>();
-		List<IElementType> elementTypes = selectElementType(elementTool) ;
-		for(IElementType element: elementTypes){
-			MHandledMenuItem itemMenu = createItemMenu( command, element,elementTool) ;
-			if(itemMenu != null){
+		List<IElementType> elementTypes = selectElementType(elementTool);
+		for (IElementType element : elementTypes) {
+			MHandledMenuItem itemMenu = createItemMenu(command, element,
+					elementTool);
+			if (itemMenu != null) {
 				itemMenuList.add(itemMenu);
 			}
 		}
 		return itemMenuList;
-		
+
 	}
 
-	protected MHandledMenuItem createItemMenu(MCommand command, IElementType element, Tool elementTool) {
-		
+	protected MHandledMenuItem createItemMenu(MCommand command,
+			IElementType element, Tool elementTool) {
+
 		MHandledMenuItem menuItem = MMenuFactory.INSTANCE
 				.createHandledMenuItem();
-		String label ;
-		if(elementTool.getElementTypes().size()==1){
-			label=elementTool.getName();
+		String label;
+		if (elementTool.getElementTypes().size() == 1) {
+			label = elementTool.getName();
+		} else {
+			label = DGTSEventTopics.getNameFromIElementDisplayName(element
+					.getDisplayName());
 		}
-		else{
-			 label = DGTSEventTopics.getNameFromIElementDisplayName(element.getDisplayName());
-		}
-		menuItem.setLabel("Create a new " +label );
+		menuItem.setLabel("Create a new " + label);
 		menuItem.setElementId(element.getId());
 		menuItem.setCommand(command);
 		menuItem.getParameters().add(createMParameter(element));
 		menuItem.setVisible(true);
-		if (element.getIconURL() != null) {
+		if (elementTool.getIconReference() != null) {
+			ImageDescriptor img = ImageDescriptor.createFromFile(null,
+					elementTool.getIconReference().getIconPath());
+			URL url = null;
+			try {
+				url = new File(elementTool.getIconReference().getIconPath())
+						.toURI().toURL();
+			} catch (MalformedURLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			if (url != null) {
+				menuItem.setIconURI(url.toString());
+			}
+
+		} else if (element.getIconURL() != null) {
 			menuItem.setIconURI(element.getIconURL().toString());
 
 		}
 		return menuItem;
 
 	}
-	
 
 	private ComposedAdapterFactory composedAdapterfactory = new ComposedAdapterFactory(
 			ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
-
-
 
 	protected MParameter createMParameter(IElementType element) {
 
@@ -169,19 +186,19 @@ public class DGTSEventReceiver {
 
 	}
 
-	
 	protected List<IElementType> selectElementType(Tool elementTool) {
-		 List<IElementType> elementTypeReturnList = new ArrayList<IElementType>();
-		 List<IElementType> elementTypeList = toolProvider.getIElementTypesFromTool(elementTool);
-		for( IElementType element : elementTypeList){
-	
-			if(element instanceof IHintedType){
-				IHintedType el = (IHintedType) element ;
-				if(el.getSemanticHint().equals(element.getDisplayName())){
+		List<IElementType> elementTypeReturnList = new ArrayList<IElementType>();
+		List<IElementType> elementTypeList = toolProvider
+				.getIElementTypesFromTool(elementTool);
+		for (IElementType element : elementTypeList) {
+
+			if (element instanceof IHintedType) {
+				IHintedType el = (IHintedType) element;
+				if (el.getSemanticHint().equals(element.getDisplayName())) {
 					elementTypeReturnList.add(element);
 				}
 			}
-			
+
 		}
 		return elementTypeReturnList;
 	}
