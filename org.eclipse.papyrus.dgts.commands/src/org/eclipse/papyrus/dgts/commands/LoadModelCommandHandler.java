@@ -14,16 +14,16 @@ package org.eclipse.papyrus.dgts.commands;
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
-import org.eclipse.core.resources.IFile;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.papyrus.dgts.service.IDGTSExtensionDefinition;
-import org.eclipse.papyrus.dgts.service.ServiceStaticEventNotifier;
-import org.eclipse.papyrus.dgts.service.providers.DGTSFileServiceProvider;
+import org.eclipse.jface.viewers.StructuredSelection;
+import org.eclipse.jface.wizard.WizardDialog;
+import org.eclipse.papyrus.dgts.wizard.selection.DgtsSelectionWizard;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 
 public class LoadModelCommandHandler extends AbstractHandler {
-
+	DgtsSelectionWizard wizard ;
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		// TODO Auto-generated method stub
@@ -35,19 +35,14 @@ public class LoadModelCommandHandler extends AbstractHandler {
 				.getSelectionService().getSelection() : null;
 		if (selection != null) {
 
-			if (selection instanceof IStructuredSelection) {
+			if (selection instanceof StructuredSelection) {
 
 				IStructuredSelection structuredSelection = (IStructuredSelection) selection;
 				Object firstElement = structuredSelection.getFirstElement();
-				if (firstElement instanceof IFile) {
-					IFile file = (IFile) firstElement ;
-					if(IDGTSExtensionDefinition.EXTENTION.equals(file.getFileExtension())){
-						DGTSFileServiceProvider.setContent(firstElement);
-						ServiceStaticEventNotifier.notifyObservers(null);
-					}
-					
-					
-
+				if (firstElement instanceof DiagramEditPart) {
+					wizard = new DgtsSelectionWizard((DiagramEditPart) firstElement) ;
+					WizardDialog dialog = new WizardDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), wizard);
+					dialog.open();
 				}
 			}
 		}

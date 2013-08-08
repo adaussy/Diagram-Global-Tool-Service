@@ -11,6 +11,11 @@
 
 package org.eclipse.papyrus.dgts.menus.addons;
 
+import java.awt.MenuItem;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -18,7 +23,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.xml.bind.Marshaller.Listener;
 
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.core.di.extensions.EventTopic;
 import org.eclipse.e4.ui.model.application.MApplication;
@@ -32,12 +40,20 @@ import org.eclipse.e4.ui.model.application.ui.menu.MMenuElement;
 import org.eclipse.e4.ui.model.application.ui.menu.MMenuFactory;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
+import org.eclipse.emf.facet.infra.browser.uicore.internal.model.ModelElementItem;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.type.core.IHintedType;
 import org.eclipse.jface.resource.ImageDescriptor;
-import org.eclipse.papyrus.dgts.service.DgtsResourceLoader;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.papyrus.dgts.service.ToolsProvider;
-import org.eclipse.papyrus.dgts.service.providers.DGTSFileServiceProvider;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.MenuDetectEvent;
+import org.eclipse.swt.events.MenuDetectListener;
+import org.eclipse.swt.widgets.Event;
+import org.eclipse.ui.ISelectionListener;
+import org.eclipse.ui.ISelectionService;
+import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.PlatformUI;
 
 import DiagramGlobalToolService.DiagramGlobalToolDefinition;
 import DiagramGlobalToolService.Tool;
@@ -48,11 +64,13 @@ public class DGTSEventReceiver {
 	private MMenuContribution menuContribution;
 	private ToolsProvider toolProvider;
 
+
 	@Inject
 	@Optional
 	void handleConfLoaded(
 			@EventTopic(DGTSEventTopics.CONF_LOADED) DiagramGlobalToolDefinition diagramGlobalToolDefinition,
 			MApplication application) {
+
 		if (diagramGlobalToolDefinition != null) {
 			createGlobalMenu(application);
 			createDynamiqueMenu(diagramGlobalToolDefinition, application);
@@ -72,6 +90,14 @@ public class DGTSEventReceiver {
 	}
 
 	protected void createGlobalMenu(MApplication application) {
+//		 if (selectionService instanceof IStructuredSelection) {
+//			Object firstElement = ((IStructuredSelection) selectionService)
+//					.getFirstElement();
+//			if(firstElement instanceof ModelElementItem){
+//				System.out.println("test");
+//				
+//			}
+//		}
 		globalMenu.getChildren().clear();
 		globalMenu.setElementId("Global_Menu_ID");
 		globalMenu.setLabel("Create Custom Child");
@@ -214,7 +240,19 @@ public class DGTSEventReceiver {
 			}
 
 		}
+		// PlatformUI.getWorkbench().
 		return elementTypeReturnList;
+
 	}
+
+//	public class MenuMouseListener implements org.eclipse.swt.widgets.Listener {
+//
+//		@Override
+//		public void handleEvent(Event event) {
+//			// TODO Auto-generated method stub
+//			
+//		}
+//
+//	}
 
 }

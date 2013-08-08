@@ -6,7 +6,7 @@ public class LoadModelStartup implements IStartup {
 
 	@Override
 	public void earlyStartup() {
-		ServiceStaticEventNotifier.notifyObservers(null);
+		ServiceStaticEventNotifier.notifyObservers();
 
 	}
 

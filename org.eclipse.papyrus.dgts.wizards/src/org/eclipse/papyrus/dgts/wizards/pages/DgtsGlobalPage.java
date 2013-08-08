@@ -71,7 +71,11 @@ public class DgtsGlobalPage extends WizardPage {
     private Composite container;
     protected DiagramGlobalToolDefinition globalDiag;
 
-    private ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
+    public DiagramGlobalToolDefinition getGlobalDiag() {
+		return globalDiag;
+	}
+
+	private ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 
     // swt elements
     private Group groupToolSelection;

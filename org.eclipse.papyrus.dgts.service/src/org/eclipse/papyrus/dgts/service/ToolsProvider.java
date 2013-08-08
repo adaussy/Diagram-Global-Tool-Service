@@ -12,6 +12,8 @@
 package org.eclipse.papyrus.dgts.service;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
@@ -64,7 +66,7 @@ public class ToolsProvider implements IToolsProvider {
 	    }
 	    return diags;
 	}
-	return null;
+	return Collections.emptyList();
     }
 
     // get all tools from a diagram
@@ -78,8 +80,15 @@ public class ToolsProvider implements IToolsProvider {
 	    }
 	    return toolList;
 	}
-	return null;
+	return Collections.emptyList();
     }
+    public List<Tool> getTools(List<DrawerDefinition> drawerList) {
+    	List<Tool> listTool =  new ArrayList<>() ;
+    	for(DrawerDefinition drawerDefinition : drawerList){
+    		listTool.addAll(getTools(drawerDefinition));
+    	}
+    	return listTool;
+        }
 
     // get all tools from a given drawer
     public List<Tool> getTools(DrawerDefinition drawer) {
@@ -90,7 +99,7 @@ public class ToolsProvider implements IToolsProvider {
 	    }
 	    return toolList;
 	}
-	return null;
+	return Collections.emptyList();
     }
 
     // get all drawers from a diagram
@@ -102,8 +111,21 @@ public class ToolsProvider implements IToolsProvider {
 	    }
 	    return drawerList;
 	}
-	return null;
+	return Collections.emptyList();
     }
+    
+    public List<DrawerDefinition> getDrawers(DiagramGlobalToolDefinition global) {
+    	List<DrawerDefinition> listDrawers = new ArrayList<>();
+    	if (global != null) {
+    		List<DiagramDefinition> listDiagram = getAllDiagrams(global);
+    		for(DiagramDefinition diagramDefinition :listDiagram ){
+    			listDrawers.addAll(getDrawers(diagramDefinition));
+    		}
+    	}
+		return listDrawers;
+    		
+    		
+    	}
 
     public List<ElementType> getElementTypes(Tool tool) {
 	if (tool != null) {

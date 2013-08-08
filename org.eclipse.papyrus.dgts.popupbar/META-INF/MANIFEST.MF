@@ -7,6 +7,7 @@ Require-Bundle: org.eclipse.gmf.runtime.diagram.ui.properties,
  org.eclipse.gmf.runtime.diagram.ui.render,
  org.eclipse.papyrus.dgts.core,
  org.eclipse.papyrus.dgts.service,
- org.eclipse.papyrus.editor;bundle-version="0.10.1"
+ org.eclipse.papyrus.editor;bundle-version="0.10.1",
+ org.eclipse.papyrus.dgts.service.model.configuration;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

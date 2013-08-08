@@ -1,22 +1,14 @@
 <?xml version="1.0" encoding="ASCII"?>
-<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmlns:ui="http://www.eclipse.org/ui/2010/UIModel/application/ui" xmi:id="_uu8_0PjvEeKzwNf2kbHDgQ">
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_uu8_0PjvEeKzwNf2kbHDgQ">
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_z83PIPjvEeKzwNf2kbHDgQ" featurename="commands" parentElementId="org.eclipse.e4.legacy.ide.application">
-    <elements xsi:type="commands:Command" xmi:id="_J6V9oPjxEeKzwNf2kbHDgQ" elementId="org.eclipse.papyrus.dgts.core.editor.command.addDiagramCommand" commandName="Add Diagram Command"/>
     <elements xsi:type="commands:Command" xmi:id="_KxudUPkMEeKDCvCkFdsRVw" elementId="org.eclipse.papyrus.dgts.core.editor.command.editConfigurationCommand" commandName="Edit Configuration Command"/>
-    <elements xsi:type="commands:Command" xmi:id="_QV4CYPkMEeKDCvCkFdsRVw" elementId="org.eclipse.papyrus.dgts.core.editor.command.addToolCommand" commandName="Add Tool Command"/>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_UZk8oPjxEeKzwNf2kbHDgQ" featurename="handlers" parentElementId="org.eclipse.e4.legacy.ide.application">
-    <elements xsi:type="commands:Handler" xmi:id="_V5oaIPjxEeKzwNf2kbHDgQ" elementId="org.eclipse.papyrus.dgts.core.editor.handler.addDiagramHandler" contributionURI="bundleclass://org.eclipse.papyrus.dgts.core.editor/org.eclipse.papyrus.dgts.core.editor.handlers.AddDiagramHandler" command="_J6V9oPjxEeKzwNf2kbHDgQ"/>
     <elements xsi:type="commands:Handler" xmi:id="_WSvCYPkMEeKDCvCkFdsRVw" elementId="org.eclipse.papyrus.dgts.core.editor.handler.editConfigurationHandler" contributionURI="bundleclass://org.eclipse.papyrus.dgts.core.editor/org.eclipse.papyrus.dgts.core.editor.handlers.EditConfigurationHandler" command="_KxudUPkMEeKDCvCkFdsRVw"/>
-    <elements xsi:type="commands:Handler" xmi:id="_0m6LgPkMEeKDCvCkFdsRVw" elementId="org.eclipse.papyrus.dgts.core.editor.handler.addToolHandler" contributionURI="bundleclass://org.eclipse.papyrus.dgts.core.editor/org.eclipse.papyrus.dgts.core.editor.handlers.AddToolHandler" command="_QV4CYPkMEeKDCvCkFdsRVw"/>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_aNifUPjxEeKzwNf2kbHDgQ" featurename="children" parentElementId="org.eclipse.ui.main.toolbar" positionInList="after:additions">
     <elements xsi:type="menu:ToolBar" xmi:id="_ZFqUcPj1EeKzwNf2kbHDgQ" elementId="org.eclipse.papyrus.dgts.core.editor.toolbar.editorToolbar">
-      <children xsi:type="menu:HandledToolItem" xmi:id="_cuv7APj1EeKzwNf2kbHDgQ" elementId="org.eclipse.papyrus.dgts.core.editor.handledtoolitem.addDiagramToolItem" label="Diagram" tooltip="Diagram" command="_J6V9oPjxEeKzwNf2kbHDgQ">
-        <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_ZC5ZsPkIEeKzwNf2kbHDgQ" coreExpressionId="org.eclipse.papyrus.dgts.core.editor.definition4"/>
-      </children>
       <children xsi:type="menu:HandledToolItem" xmi:id="_5UIIkPkMEeKDCvCkFdsRVw" elementId="org.eclipse.papyrus.dgts.core.editor.handledtoolitem.0" label="Edit Configuration" tooltip="Edit Configuration" command="_KxudUPkMEeKDCvCkFdsRVw"/>
-      <children xsi:type="menu:HandledToolItem" xmi:id="_9pEvkPkMEeKDCvCkFdsRVw" elementId="org.eclipse.papyrus.dgts.core.editor.handledtoolitem.1" label="Tool" tooltip="Tool" command="_QV4CYPkMEeKDCvCkFdsRVw"/>
     </elements>
   </fragments>
 </fragment:ModelFragments>

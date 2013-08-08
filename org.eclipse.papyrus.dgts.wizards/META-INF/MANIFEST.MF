@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Wizards
-Bundle-SymbolicName: org.eclipse.papyrus.dgts.wizards
+Bundle-SymbolicName: org.eclipse.papyrus.dgts.wizards;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: org.eclipse.papyrus.dgts.wizards.Activator
 Require-Bundle: org.eclipse.ui,
@@ -14,7 +14,9 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.papyrus.infra.core;bundle-version="0.10.1",
  org.eclipse.emf.edit.ui;bundle-version="2.9.0",
  org.eclipse.swt,
- org.eclipse.gef
+ org.eclipse.gef,
+ org.eclipse.papyrus.dgts.service.model.configuration;bundle-version="1.0.0",
+ org.eclipse.gmf.runtime.common.core;bundle-version="1.7.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Export-Package: org.eclipse.papyrus.dgts.wizards,

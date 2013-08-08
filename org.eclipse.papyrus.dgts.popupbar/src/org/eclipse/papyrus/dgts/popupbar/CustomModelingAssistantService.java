@@ -24,14 +24,13 @@ import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramUIMessages;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
 import org.eclipse.gmf.runtime.diagram.ui.tools.PopupBarTool;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
-import org.eclipse.gmf.runtime.emf.type.core.MetamodelType;
+import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.osgi.util.NLS;
 import org.eclipse.papyrus.dgts.service.ToolsProvider;
-import org.eclipse.papyrus.dgts.service.providers.DGTSFileServiceProvider;
+import org.eclipse.papyrus.dgts.service.model.configuration.DGTSModelConfigurationOperation;
+import org.eclipse.papyrus.dgts.service.model.configuration.DGTSModelConfigurationService;
 import org.eclipse.swt.graphics.Image;
 
-import DiagramGlobalToolService.DiagramDefinition;
-import DiagramGlobalToolService.DiagramGlobalToolDefinition;
 import DiagramGlobalToolService.DrawerDefinition;
 import DiagramGlobalToolService.Tool;
 
@@ -87,17 +86,15 @@ public class CustomModelingAssistantService {
 		// declaration
 		List<Object> types = new ArrayList<>(1);
 		ToolsProvider toolsProvider = new ToolsProvider();
-
+		
 		// recupere le container
 		// View containerview = editPart.getNotationView();
 
 		// recupere le globalDiagramConfiguration actif
-		DiagramGlobalToolDefinition globalDiagramConfiguration= DGTSFileServiceProvider.getDiagramGlobalToolDefinition() ;
+		DGTSModelConfigurationOperation operation = new DGTSModelConfigurationOperation(Collections.singleton((View)diagramPart.getModel()));
+		List<DrawerDefinition> listOfDrawers = DGTSModelConfigurationService.getInstance().getModelConfiguration(operation);
 		// recupere la liste des tools correspondant au diagrame
-		DiagramDefinition diag = toolsProvider.getDiagram(diagramType, globalDiagramConfiguration);
 		List<Tool> listOfTools = new ArrayList<Tool>();
-		List<DrawerDefinition> listOfDrawers = new ArrayList<DrawerDefinition>();
-		listOfDrawers = toolsProvider.getDrawers(diag);
 		boolean drawerContainType = false;
 
 		if (listOfDrawers != null) {

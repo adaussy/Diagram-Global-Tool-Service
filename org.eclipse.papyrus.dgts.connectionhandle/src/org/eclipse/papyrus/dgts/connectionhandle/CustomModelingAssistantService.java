@@ -31,10 +31,10 @@ import org.eclipse.gmf.runtime.emf.ui.internal.MslUIPlugin;
 import org.eclipse.gmf.runtime.emf.ui.services.modelingassistant.ModelingAssistantService;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.papyrus.dgts.service.ToolsProvider;
-import org.eclipse.papyrus.dgts.service.providers.DGTSFileServiceProvider;
+import org.eclipse.papyrus.dgts.service.model.configuration.DGTSModelConfigurationOperation;
+import org.eclipse.papyrus.dgts.service.model.configuration.DGTSModelConfigurationService;
 
-import DiagramGlobalToolService.DiagramDefinition;
-import DiagramGlobalToolService.DiagramGlobalToolDefinition;
+import DiagramGlobalToolService.DrawerDefinition;
 import DiagramGlobalToolService.Tool;
 
 @SuppressWarnings("restriction")
@@ -198,12 +198,13 @@ public class CustomModelingAssistantService extends ModelingAssistantService {
 	// recupere le container
 	// View containerview = editPart.getNotationView();
 
+
 	// recupere le globalDiagramConfiguration actif
-	DiagramGlobalToolDefinition globalDiagramConfiguration = DGTSFileServiceProvider.getDiagramGlobalToolDefinition() ;
+	DGTSModelConfigurationOperation operation = new DGTSModelConfigurationOperation(Collections.singleton((View)diagramPart.getModel()));
+	List<DrawerDefinition> listOfDrawers = DGTSModelConfigurationService.getInstance().getModelConfiguration(operation);
 	// recupere la liste des tools correspondant au diagrame
-	DiagramDefinition diag = toolsProvider.getDiagram(diagramType, globalDiagramConfiguration);
 	List<Tool> listOfTools = new ArrayList<Tool>();
-	listOfTools = toolsProvider.getTools(diag);
+	listOfTools = toolsProvider.getTools(listOfDrawers);
 
 	// traitement de chaque tool
 	if (listOfTools != null) {
@@ -252,11 +253,11 @@ public class CustomModelingAssistantService extends ModelingAssistantService {
 	// View containerview = editPart.getNotationView();
 
 	// recupere le globalDiagramConfiguration actif
-	DiagramGlobalToolDefinition globalDiagramConfiguration = DGTSFileServiceProvider.getDiagramGlobalToolDefinition() ;
+	DGTSModelConfigurationOperation operation = new DGTSModelConfigurationOperation(Collections.singleton((View)diagramPart.getModel()));
+	List<DrawerDefinition> listOfDrawers = DGTSModelConfigurationService.getInstance().getModelConfiguration(operation);
 	// recupere la liste des tools correspondant au diagrame
-	DiagramDefinition diag = toolsProvider.getDiagram(diagramType, globalDiagramConfiguration);
 	List<Tool> listOfTools = new ArrayList<Tool>();
-	listOfTools = toolsProvider.getTools(diag);
+	listOfTools = toolsProvider.getTools(listOfDrawers);
 
 	// traitement de chaque tool
 	if (listOfTools != null) {
