@@ -17,5 +17,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.uml2.types;visibility:=reexport,
  org.eclipse.uml2.uml;visibility:=reexport,
  org.eclipse.uml2.uml.edit;visibility:=reexport,
- org.eclipse.emf.edit.ui;bundle-version="2.9.0"
+ org.eclipse.emf.edit.ui;bundle-version="2.9.0",
+ org.eclipse.gmf.runtime.emf.type.core,
+ org.eclipse.gmf.runtime.common.ui.services
 Bundle-ActivationPolicy: lazy

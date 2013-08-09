@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated elementRegistry -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="ElementRegistry.presentation.ElementRegistryModelWizardID"
+            name="%_UI_ElementRegistryModelWizard_label"
+            class="ElementRegistry.presentation.ElementRegistryModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ElementRegistryModelFile.gif">
+         <description>%_UI_ElementRegistryModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated elementRegistry -->
+      <editor
+            id="ElementRegistry.presentation.ElementRegistryEditorID"
+            name="%_UI_ElementRegistryEditor_label"
+            icon="icons/full/obj16/ElementRegistryModelFile.gif"
+            extensions="elementregistry"
+            class="ElementRegistry.presentation.ElementRegistryEditor"
+            contributorClass="ElementRegistry.presentation.ElementRegistryActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

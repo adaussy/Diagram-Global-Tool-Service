@@ -235,6 +235,7 @@ public class DgtsSelectDiagramKindPage extends WizardPage {
 	    }
 	});
 	diagramKindTableViewer = new CheckboxTableViewer(diagramKindTable);
+
 	diagramKindTableViewer.setContentProvider(new DgtsDiagramKindContentProvider(getCreationCommandRegistry()));
 
 	diagramKindTableViewer.setLabelProvider(createDiagramKindLabelProvider());
@@ -309,6 +310,7 @@ public class DgtsSelectDiagramKindPage extends WizardPage {
 
 	    List<CreationCommandDescriptor> descriptors = getSelectedCommandDescriptors(categoryId);
 	    for (CreationCommandDescriptor desc : descriptors) {
+		
 		try {
 		    result.add(desc.getCommand().getCreatedDiagramType());
 		} catch (BackboneException e) {

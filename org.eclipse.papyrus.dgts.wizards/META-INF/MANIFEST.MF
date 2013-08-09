@@ -16,8 +16,16 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.swt,
  org.eclipse.gef,
  org.eclipse.papyrus.dgts.service.model.configuration;bundle-version="1.0.0",
- org.eclipse.gmf.runtime.common.core;bundle-version="1.7.0"
+ org.eclipse.gmf.runtime.common.core;bundle-version="1.7.0",
+ org.eclipse.gmf.runtime.emf.type.core,
+ org.eclipse.gmf.runtime.diagram.ui,
+ org.eclipse.papyrus.dgts.elementregistry.core,
+ org.eclipse.ui.ide,
+ org.eclipse.papyrus.dgts.core.editor,
+ org.eclipse.e4.core.di
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Export-Package: org.eclipse.papyrus.dgts.wizards,
+ org.eclipse.papyrus.dgts.wizards.pages,
  org.eclipse.papyrus.dgts.wizards.utility
+Import-Package: org.eclipse.papyrus.gmf.diagram.common.provider

@@ -87,7 +87,7 @@ public class AddDiagramWizard extends Wizard {
 
     @Override
     public boolean performFinish() {
-	Resource resource = SelectionHelper.getResourceFromSelection();
+	Resource resource = SelectionHelper.getResourceFromActiveEditor();
 	DiagramGlobalToolDefinition globalDiagramConfiguration = null;
 	ToolsProvider toolsProvider = new ToolsProvider();
 	List<String> selectedDiagramKinds = selectDiagramKindPage.getSelectedDiagramKinds();

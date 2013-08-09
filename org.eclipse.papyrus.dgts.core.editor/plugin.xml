@@ -40,5 +40,33 @@
             uri="fragments/fragment.e4xmi">
       </fragment>
    </extension>
+   <extension
+         point="org.eclipse.core.expressions.definitions">
+      <definition
+            id="org.eclipse.papyrus.dgts.core.editor.definition3">
+         <test
+               property="org.eclipse.papyrus.dgts.core.editor.propertyTester1">
+         </test>
+      </definition>
+      <definition
+            id="org.eclipse.papyrus.dgts.core.editor.definition4">
+         <with
+               variable="activeEditor">
+            <equals
+                  value="DiagramGlobalToolService.presentation.DiagramGlobalToolServiceEditor">
+            </equals>
+         </with>
+      </definition>
+   </extension>
+   <extension
+         point="org.eclipse.core.expressions.propertyTesters">
+      <propertyTester
+            class="org.eclipse.papyrus.dgts.core.editor.PropertyTester1"
+            id="org.eclipse.papyrus.dgts.core.editor.propertyTester1"
+            namespace="org.eclipse.papyrus.dgts.core.editor"
+            properties="propertyTester1"
+            type="org.eclipse.core.expressions.PropertyTester">
+      </propertyTester>
+   </extension>
 
 </plugin>
