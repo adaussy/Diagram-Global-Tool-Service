@@ -10,9 +10,8 @@ public class ServiceStaticEventNotifier {
 
 	public static void notifyObservers() {
 		listener.setChange();
-		//listener.notifyObservers(DGTSFileServiceProvider
-		//	.getDiagramGlobalToolDefinition());
-	}//
+		//listener.notifyObservers(null);
+	}
 
 	public static void addObserver(Observer o) {
 		listener.addObserver(o);

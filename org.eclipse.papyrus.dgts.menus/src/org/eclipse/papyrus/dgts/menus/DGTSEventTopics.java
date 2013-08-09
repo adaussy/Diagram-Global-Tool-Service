@@ -9,7 +9,7 @@
  * Vincent Lartigaut (Atos) vincent.lartigaut@atos.net - Vincent Lartigaut - initial API and implementation
  ******************************************************************************/
 
-package org.eclipse.papyrus.dgts.menus.addons;
+package org.eclipse.papyrus.dgts.menus;
 
 public class DGTSEventTopics {
 

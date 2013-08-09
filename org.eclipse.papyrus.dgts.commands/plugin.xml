@@ -8,7 +8,7 @@
             locationURI="popup:org.eclipse.ui.popup.any">
          <command
                commandId="org.eclipse.papyrus.dgts.commands.linkModel"
-               label="LoadMenu"
+               label="Define Model Configuration"
                style="push">
          </command>
       </menuContribution>
@@ -16,7 +16,6 @@
    <extension
          point="org.eclipse.ui.commands">
       <command
-            defaultHandler="org.eclipse.papyrus.dgts.commands.LoadModelCommandHandler"
             id="org.eclipse.papyrus.dgts.commands.linkModel"
             name="linkModel">
       </command>

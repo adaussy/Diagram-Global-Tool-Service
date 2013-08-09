@@ -110,6 +110,14 @@ public class CreateElementHandler extends AbstractCreateCommandHandler {
 		return false;
 	}
 
+	public boolean canExecute(IElementType elementType) {
+			this.elemenType = elementType ;
+			if(buildCommand().canExecute()){
+				return true ;
+			}
+			return false ;
+	}
+
 	@Override
 	protected IElementType getElementTypeToCreate() {
 		return elemenType;
