@@ -22,7 +22,7 @@ import org.eclipse.papyrus.dgts.wizard.selection.DgtsSelectionWizard;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 
-public class LoadModelCommandHandler extends AbstractHandler {
+public class DefineMondelConfigurationCommandHandler extends AbstractHandler {
 	DgtsSelectionWizard wizard ;
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
