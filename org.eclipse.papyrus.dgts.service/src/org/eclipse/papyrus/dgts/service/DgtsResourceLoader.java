@@ -25,25 +25,23 @@ import DiagramGlobalToolService.DiagramGlobalToolDefinition;
 
 public class DgtsResourceLoader {
 
-	public static Resource LoadResource(IFile file) throws IOException {
-		URI uri = URI.createFileURI(file.getFullPath().toString());
-		ResourceSet resourceSet = new ResourceSetImpl();
-		org.eclipse.emf.ecore.resource.Resource resource = resourceSet
-				.getResource(uri, true);
-		Map<Object, Object> options = new HashMap<Object, Object>();
-		resource.load(options);
-		return resource;
-	}
+    public static Resource LoadResource(IFile file) throws IOException {
+	URI uri = URI.createFileURI(file.getFullPath().toString());
+	ResourceSet resourceSet = new ResourceSetImpl();
+	org.eclipse.emf.ecore.resource.Resource resource = resourceSet.getResource(uri, true);
+	Map<Object, Object> options = new HashMap<Object, Object>();
+	resource.load(options);
+	return resource;
+    }
 
-	public static DiagramGlobalToolDefinition getDiagramGlobalToolDefinitionFromResource(
-			Resource resource) {
-		for (EObject object : resource.getContents()) {
-			if (object instanceof DiagramGlobalToolDefinition) {
-				return (DiagramGlobalToolDefinition) object;
-			}
-		}
-		return null;
-
+    public static DiagramGlobalToolDefinition getDiagramGlobalToolDefinitionFromResource(Resource resource) {
+	for (EObject object : resource.getContents()) {
+	    if (object instanceof DiagramGlobalToolDefinition) {
+		return (DiagramGlobalToolDefinition) object;
+	    }
 	}
+	return null;
+
+    }
 
 }

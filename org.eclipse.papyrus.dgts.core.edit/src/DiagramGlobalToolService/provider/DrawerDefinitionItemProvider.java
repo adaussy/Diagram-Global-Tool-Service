@@ -140,7 +140,7 @@ public class DrawerDefinitionItemProvider
 
 		    }
 		}
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/DrawerDefinition"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/DrawerDefinition.png"));
 	}
 
         /**

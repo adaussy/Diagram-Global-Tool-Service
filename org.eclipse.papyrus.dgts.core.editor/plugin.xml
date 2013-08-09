@@ -34,13 +34,6 @@
       </editor>
    </extension>
    <extension
-         id="modelContribution"
-         point="org.eclipse.e4.workbench.model">
-      <fragment
-            uri="fragments/fragment.e4xmi">
-      </fragment>
-   </extension>
-   <extension
          point="org.eclipse.core.expressions.definitions">
       <definition
             id="org.eclipse.papyrus.dgts.core.editor.definition3">

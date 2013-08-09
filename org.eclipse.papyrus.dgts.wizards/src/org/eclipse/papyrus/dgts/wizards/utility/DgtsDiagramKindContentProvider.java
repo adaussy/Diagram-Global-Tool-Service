@@ -72,7 +72,7 @@ public class DgtsDiagramKindContentProvider extends DiagramKindContentProvider {
 
     private List<String> getDiagramTypeAlreadyHere() {
 	List<String> listTypes = new ArrayList<String>();
-	Resource resource = SelectionHelper.getResourceFromSelection();
+	Resource resource = SelectionHelper.getResourceFromActiveEditor();
 	ToolsProvider toolsProvider = new ToolsProvider();
 	if (resource != null) {
 	    DiagramGlobalToolDefinition globalToolDef = toolsProvider.getDiagramGlobalToolDefinitionFromResource(resource);

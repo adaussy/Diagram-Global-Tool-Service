@@ -16,7 +16,10 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.papyrus.uml.diagram.sequence;bundle-version="0.10.1",
  org.eclipse.papyrus.uml.diagram.communication;bundle-version="0.10.1",
  org.eclipse.gmf.runtime.emf.type.core,
- org.eclipse.gmf.runtime.notation.edit
+ org.eclipse.gmf.runtime.notation.edit,
+ org.eclipse.papyrus.infra.gmfdiag.commands,
+ org.eclipse.papyrus.infra.core;bundle-version="0.10.1",
+ org.eclipse.papyrus.dgts.elementregistry.core
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Export-Package: org.eclipse.papyrus.dgts.service,

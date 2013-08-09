@@ -1,0 +1,2861 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ElementRegistry:Registry xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ElementRegistry="http://ElementRegistry/1.0">
+  <refDiagrams diagramType="PapyrusUMLDeploymentDiagram">
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.deployment.NamedElement_2012"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.NamedElement" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//NamedElement"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.deployment.Package_1000"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Package" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Package"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.deployment.Node_2008"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Node" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Node"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.deployment.Deployment_4001"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Deployment" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Deployment"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.deployment.Comment_54"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.deployment.Comment_2001"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Comment" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Comment"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.deployment.Artifact_2006"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.deployment.Artifact_25"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.deployment.Artifact_28"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.deployment.Artifact_40"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Artifact" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Artifact"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.deployment.ExecutionEnvironment_2002"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ExecutionEnvironment" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ExecutionEnvironment"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.deployment.Constraint_56"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.deployment.Constraint_2005"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Constraint" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Constraint"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.deployment.Generalization_4003"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Generalization" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Generalization"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.deployment.Dependency_2011"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.deployment.Dependency_4004"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.deployment.Dependency_4010"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Dependency" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Dependency"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.deployment.Manifestation_4002"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Manifestation" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Manifestation"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.deployment.Device_2003"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.deployment.Device_16"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.deployment.Device_44"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Device" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Device"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.deployment.ExecutionEnvironment_21"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.deployment.Model_2010"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.deployment.Node_23"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.deployment.Link_4005"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.deployment.ConstraintConstrainedElement_4007"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.deployment.CommentAnnotatedElement_4006"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.deployment.ExecutionEnvironment_46"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.deployment.Package_2009"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.deployment.Node_42"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.deployment.Package_36"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.deployment.Model_49"/>
+    </refEClass>
+  </refDiagrams>
+  <refDiagrams diagramType="PapyrusUMLSequenceDiagram">
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.sequence.Interaction_2001"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Interaction" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Interaction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.sequence.GeneralOrdering_4012"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.GeneralOrdering" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//GeneralOrdering"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.sequence.ConsiderIgnoreFragment_3007"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ConsiderIgnoreFragment" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ConsiderIgnoreFragment"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.sequence.Package_1000"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Package" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Package"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.sequence.BehaviorExecutionSpecification_3003"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.BehaviorExecutionSpecification" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//BehaviorExecutionSpecification"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.sequence.DestructionOccurrenceSpecification_3022"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.DestructionOccurrenceSpecification" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//DestructionOccurrenceSpecification"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.sequence.Comment_3009"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Comment" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Comment"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.sequence.StateInvariant_3017"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.StateInvariant" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//StateInvariant"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.sequence.TimeObservation_3020"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.TimeObservation" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//TimeObservation"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.sequence.TimeConstraint_3019"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.TimeConstraint" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//TimeConstraint"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.sequence.CombinedFragment_3004"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.sequence.CombinedFragment_3018"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.CombinedFragment" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//CombinedFragment"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.sequence.Constraint_3008"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Constraint" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Constraint"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.sequence.Lifeline_3001"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Lifeline" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Lifeline"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.sequence.InteractionOperand_3005"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.InteractionOperand" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//InteractionOperand"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.sequence.Message_4003"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.sequence.Message_4006"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.sequence.Message_4005"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.sequence.Message_4008"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.sequence.Message_4007"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.sequence.Message_4009"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.sequence.Message_4004"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Message" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Message"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.sequence.DurationObservation_3024"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.DurationObservation" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//DurationObservation"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.sequence.InteractionUse_3002"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.InteractionUse" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//InteractionUse"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.sequence.ActionExecutionSpecification_3006"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ActionExecutionSpecification" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ActionExecutionSpecification"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.sequence.DurationConstraint_3021"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.sequence.DurationConstraint_3023"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.DurationConstraint" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//DurationConstraint"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.sequence.Continuation_3016"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Continuation" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Continuation"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.sequence.ConstraintConstrainedElement_4011"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.sequence.CommentAnnotatedElement_4010"/>
+    </refEClass>
+  </refDiagrams>
+  <refDiagrams diagramType="CompositeStructure">
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Actor_3091"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Actor_2077"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Actor" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Actor"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.TimeConstraint_2111"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.TimeConstraint" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//TimeConstraint"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.FunctionBehavior_2064"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.FunctionBehavior_3107"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.FunctionBehavior_3076"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.FunctionBehavior" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//FunctionBehavior"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Interval_2107"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Interval" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Interval"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.TimeInterval_2105"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.TimeInterval" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//TimeInterval"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.ExecutionEnvironment_2071"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.ExecutionEnvironment_3083"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ExecutionEnvironment" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ExecutionEnvironment"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.IntervalConstraint_2112"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.IntervalConstraint" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//IntervalConstraint"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.DurationInterval_2106"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.DurationInterval" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//DurationInterval"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.StateMachine_2063"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.StateMachine_3106"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.StateMachine_3075"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.StateMachine" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//StateMachine"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.CollaborationUse_3071"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.CollaborationUse" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//CollaborationUse"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.LiteralString_2098"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.LiteralString" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//LiteralString"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Reception_3100"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Reception" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Reception"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.RoleBinding_4017"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Dependency_4010"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Dependency" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Dependency"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Usage_4008"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Usage" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Usage"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Class_2073"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Class_3085"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Class_3114"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Class" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.LiteralNull_2097"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.LiteralNull" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//LiteralNull"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Artifact_3093"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Artifact_2079"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Artifact" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Artifact"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Enumeration_2067"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Enumeration_3111"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Enumeration_3079"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Enumeration" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Enumeration"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.ProtocolStateMachine_2062"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.ProtocolStateMachine_3074"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.ProtocolStateMachine_3105"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ProtocolStateMachine" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ProtocolStateMachine"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.InformationItem_3094"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.InformationItem_2080"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.InformationItem" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//InformationItem"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.TimeExpression_2102"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.TimeExpression" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//TimeExpression"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Port_3069"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Port" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Port"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.OpaqueExpression_2101"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.OpaqueExpression" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//OpaqueExpression"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.LiteralBoolean_2095"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.LiteralBoolean" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//LiteralBoolean"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Comment_3097"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Comment_2109"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Comment" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Comment"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Node_2072"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Node_3084"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Node" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Node"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.LiteralUnlimitedNatural_2099"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.LiteralUnlimitedNatural" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//LiteralUnlimitedNatural"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.LiteralInteger_2096"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.LiteralInteger" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//LiteralInteger"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Device_2070"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Device_3082"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Device" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Device"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.prototype.CollaborationRole_3115"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ConnectableElement" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ConnectableElement"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Interface_3087"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Interface_3110"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Interface_2076"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Interface" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Interface"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.StringExpression_2100"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.StringExpression" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//StringExpression"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.ChangeEvent_2088"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ChangeEvent" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ChangeEvent"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.CallEvent_2084"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.CallEvent" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//CallEvent"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.InformationFlow_4021"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.InformationFlow" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//InformationFlow"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Activity_2060"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Activity_3103"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Activity_3072"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Activity" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Activity"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Generalization_4015"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Generalization" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Generalization"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.UseCase_3096"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.UseCase_2082"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.UseCase" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//UseCase"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.InstanceValue_2108"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.InstanceValue" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceValue"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Interaction_2061"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Interaction_3073"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Interaction_3104"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Interaction" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Interaction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.InterfaceRealization_4005"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.InterfaceRealization" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//InterfaceRealization"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Property_3070"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Property" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Property"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Package_1000"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Package" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Package"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.DataType_2068"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.DataType_3080"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.DataType_3113"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.DataType" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//DataType"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.SignalEvent_2083"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.SignalEvent" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//SignalEvent"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.PrimitiveType_2066"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.PrimitiveType_3112"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.PrimitiveType_3078"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.PrimitiveType" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//PrimitiveType"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Connector_4013"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Connector" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Connector"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Realization_4006"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Realization" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Realization"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.InteractionConstraint_2113"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.InteractionConstraint" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//InteractionConstraint"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.DeploymentSpecification_3092"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.DeploymentSpecification_2078"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.DeploymentSpecification" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//DeploymentSpecification"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Expression_2103"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Expression" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Expression"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Constraint_2114"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Constraint" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Constraint"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Abstraction_4007"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Abstraction" context="ModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Refine" context="ModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Trace" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Abstraction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Parameter_3088"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Parameter" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Parameter"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.AnyReceiveEvent_2085"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.AnyReceiveEvent" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//AnyReceiveEvent"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.TimeObservation_2094"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.TimeObservation" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//TimeObservation"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Duration_2104"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Duration" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Duration"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Collaboration_3086"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Collaboration_3109"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Collaboration_2075"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Collaboration" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Collaboration"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Substitution_4011"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Substitution" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Substitution"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.ComponentRealization_4004"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ComponentRealization" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ComponentRealization"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.TimeEvent_2089"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.TimeEvent" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//TimeEvent"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Manifestation_4012"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Manifestation" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Manifestation"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.DurationObservation_2093"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.DurationObservation" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//DurationObservation"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Component_2069"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Component_3081"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Component" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Deployment_4009"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Deployment" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Deployment"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.OpaqueBehavior_2065"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.OpaqueBehavior_3077"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.OpaqueBehavior_3108"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.OpaqueBehavior" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//OpaqueBehavior"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Signal_3095"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Signal_2081"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Signal" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Signal"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.EnumerationLiteral_3066"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.EnumerationLiteral" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//EnumerationLiteral"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.DurationConstraint_3116"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.CommentAnnotatedElement_4002"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.TimeConstraint_3117"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.TimeObservationEvent_4018"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Representation_4020"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Constraint_3120"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Operation_3102"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Link_4022"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.InteractionConstraint_3119"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Node_3121"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.IntervalConstraint_3118"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Link_4001"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.Property_3101"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.DurationObservationEvent_4019"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.DurationConstraint_2110"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.composite.ConstraintConstrainedElement_4003"/>
+    </refEClass>
+  </refDiagrams>
+  <refDiagrams diagramType="PapyrusUMLActivityDiagram">
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.CreateObjectAction_3086" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.CreateObjectAction" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//CreateObjectAction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.InputPin_3023" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.InputPin_3027" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.InputPin_3019" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.InputPin_3013" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.InputPin_3062" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.InputPin_3055" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.InputPin_3051" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.InputPin_3048" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.InputPin_3092" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.InputPin_3093" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.InputPin_3096" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.InputPin_3089" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.InputPin_3105" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.InputPin_3103" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.InputPin_3101" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.InputPin_3100" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.InputPin" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//InputPin"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.NamedElement_3085" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.ConstraintConstrainedElement_4007" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.ActionLocalPrecondition_4001" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.CommentAnnotatedElement_4006" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.ActionLocalPostcondition_4002" context="DiagramAndModelExplorer"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.Constraint_3003" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.Constraint_3002" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.Constraint_3011" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.Constraint_3012" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.Constraint_3112" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Constraint" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Constraint"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.OutputPin_3098" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.OutputPin_3090" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.OutputPin_3094" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.OutputPin_3087" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.OutputPin_3084" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.OutputPin_3077" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.OutputPin_3064" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.OutputPin_3020" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.OutputPin_3024" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.OutputPin_3014" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.OutputPin_3110" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.OutputPin_3111" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.OutputPin_3109" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.OutputPin" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//OutputPin"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.AddStructuralFeatureValueAction_3091" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.AddStructuralFeatureValueAction" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//AddStructuralFeatureValueAction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.ReadVariableAction_3097" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ReadVariableAction" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ReadVariableAction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.ExceptionHandler_4005" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ExceptionHandler" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ExceptionHandler"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.CentralBufferNode_3104" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.CentralBufferNode" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//CentralBufferNode"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.CallBehaviorAction_3008" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.CallBehaviorAction" context="ModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.interactionoverview.CallBehaviorAction_5000" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//CallBehaviorAction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.ValuePin_3015" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.ValuePin_3017" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.ValuePin_3060" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.ValuePin_3025" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.ValuePin_3022" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.ValuePin_3054" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.ValuePin_3046" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.ValuePin_3049" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ValuePin" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ValuePin"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.ActionInputPin_3016" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.ActionInputPin_3021" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.ActionInputPin_3026" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.ActionInputPin_3018" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.ActionInputPin_3053" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.ActionInputPin_3050" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.ActionInputPin_3047" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.ActionInputPin_3061" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ActionInputPin" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ActionInputPin"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.AcceptEventAction_3063" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.AcceptEventAction" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//AcceptEventAction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.CallOperationAction_3010" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.CallOperationAction" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//CallOperationAction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.DestroyObjectAction_3095" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.DestroyObjectAction" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//DestroyObjectAction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.ReadStructuralFeatureAction_3088" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ReadStructuralFeatureAction" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ReadStructuralFeatureAction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.JoinNode_3041" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.JoinNode" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//JoinNode"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.ActivityFinalNode_3005" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ActivityFinalNode" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ActivityFinalNode"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.MergeNode_3039" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.MergeNode" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//MergeNode"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.SequenceNode_3073" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.SequenceNode" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//SequenceNode"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.DataStoreNode_3078" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.DataStoreNode" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//DataStoreNode"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.IntervalConstraint_3033" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.IntervalConstraint_3032" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.IntervalConstraint" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//IntervalConstraint"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.ForkNode_3040" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ForkNode" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ForkNode"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.Activity_2001" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.Activity_3083" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Activity" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Activity"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.ReadSelfAction_3081" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ReadSelfAction" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ReadSelfAction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.SendSignalAction_3052" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.SendSignalAction" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//SendSignalAction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.Comment_3080" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Comment" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Comment"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.LoopNode_3071" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.LoopNode" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//LoopNode"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.FlowFinalNode_3006" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.FlowFinalNode" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//FlowFinalNode"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.StructuredActivityNode_3065" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.StructuredActivityNode" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//StructuredActivityNode"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.AddVariableValueAction_3099" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.AddVariableValueAction" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//AddVariableValueAction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.InterruptibleActivityRegion_3068" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.InterruptibleActivityRegion" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//InterruptibleActivityRegion"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.ConditionalNode_3069" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ConditionalNode" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ConditionalNode"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.ExpansionNode_3075" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.ExpansionNode_3074" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ExpansionNode" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ExpansionNode"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.DecisionNode_3038" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.DecisionNode" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//DecisionNode"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.OpaqueAction_3007" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.OpaqueAction" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//OpaqueAction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.ControlFlow_4004" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ControlFlow" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ControlFlow"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.BroadcastSignalAction_3102" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.BroadcastSignalAction" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//BroadcastSignalAction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.ActivityParameterNode_3059" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ActivityParameterNode" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ActivityParameterNode"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.SendObjectAction_3042" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.SendObjectAction" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//SendObjectAction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.InitialNode_3004" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.InitialNode" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//InitialNode"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.ObjectFlow_4003" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ObjectFlow" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ObjectFlow"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.DurationConstraint_3035" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.DurationConstraint_3034" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.DurationConstraint" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//DurationConstraint"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.ExpansionRegion_3070" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ExpansionRegion" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ExpansionRegion"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.Parameter_3001" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Parameter" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Parameter"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.ActivityPartition_3067" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ActivityPartition" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ActivityPartition"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.TimeConstraint_3037" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.TimeConstraint_3036" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.TimeConstraint" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//TimeConstraint"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.activity.ValueSpecificationAction_3076" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ValueSpecificationAction" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ValueSpecificationAction"/>
+    </refEClass>
+  </refDiagrams>
+  <refDiagrams diagramType="PapyrusUMLComponentDiagram">
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.component.Interface_2003"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.component.Interface_3072"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Interface" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Interface"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.component.Package_3076"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.component.Model_1000"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.component.Package_3200"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Package" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Package"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.component.Manifestation_4014"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Manifestation" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Manifestation"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.component.Usage_4001"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Usage" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Usage"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.component.Abstraction_4013"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Abstraction" context="ModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Refine" context="ModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Trace" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Abstraction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.component.Port_3069"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Port" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Port"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.component.Component_2002"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.component.Component_3070"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.component.Component_3071"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Component" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.component.Model_3077"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.component.Model_3202"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Model" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Model"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.component.ComponentRealization_4007"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ComponentRealization" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ComponentRealization"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.component.Comment_3199"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.component.Constraint_3075"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Constraint" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Constraint"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.component.Comment_3201"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.component.Comment_3074"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Comment" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Comment"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.component.InterfaceRealization_4006"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.InterfaceRealization" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//InterfaceRealization"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.component.DependencyNode_3203"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.component.Dependency_4017"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.component.Dependency_4010"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Dependency" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Dependency"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.component.Generalization_4003"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Generalization" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Generalization"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.component.Substitution_4012"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Substitution" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Substitution"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.component.DefaultNamedElement_3204"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.NamedElement" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//NamedElement"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.component.Link_4016"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.component.ConstraintConstrainedElement_4009"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.component.CommentAnnotatedElement_4008"/>
+    </refEClass>
+  </refDiagrams>
+  <refDiagrams diagramType="PapyrusUMLCommunicationDiagram">
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.communication.Message_8009"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Message" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Message"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.communication.Lifeline_8001"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Lifeline" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Lifeline"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.communication.Constraint_8004"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Constraint" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Constraint"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.communication.DurationObservation_8007"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.DurationObservation" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//DurationObservation"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.communication.Package_1000"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Package" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Package"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.communication.TimeObservation_8006"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.TimeObservation" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//TimeObservation"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.communication.Diagram_8016"/>
+      <eClass href="http://www.eclipse.org/gmf/runtime/1.0.2/notation#//Diagram"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.communication.Comment_8005"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Comment" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Comment"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.communication.Interaction_8002"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Interaction" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Interaction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.communication.DurationObservationEvent_8012"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.communication.CommentAnnotatedElement_8010"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.communication.ConstraintConstrainedElement_8011"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.communication.TimeObservationEvent_8013"/>
+    </refEClass>
+  </refDiagrams>
+  <refDiagrams diagramType="UseCase">
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.usecase.Classifier_2015"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.usecase.Component_3013"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.usecase.Component_3016"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Classifier" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Classifier"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.usecase.Include_4008"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Include" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Include"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.usecase.Diagram_2019"/>
+      <eClass href="http://www.eclipse.org/gmf/runtime/1.0.2/notation#//Diagram"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.usecase.Extend_4009"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Extend" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Extend"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.usecase.DefaultNamedElement_2022"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.usecase.NamedElement_2023"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.NamedElement" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//NamedElement"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.usecase.Actor_2011"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.usecase.Actor_2012"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.usecase.Actor_3011"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.usecase.Actor_3018"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Actor" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Actor"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.usecase.PackageImport_4019"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.PackageImport" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//PackageImport"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.usecase.UseCase_2013"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.usecase.UseCase_3012"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.usecase.UseCase_3009"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.usecase.UseCase_2014"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.UseCase" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//UseCase"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.usecase.Dependency_4013"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Dependency" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Dependency"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.usecase.ExtensionPoint_3007"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.usecase.ExtensionPoint_3008"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ExtensionPoint" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ExtensionPoint"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.usecase.Abstraction_4015"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Abstraction" context="ModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Refine" context="ModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Trace" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Abstraction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.usecase.Association_4011"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.AssociationBase" context="ModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Association" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Association"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.usecase.Realization_4017"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Realization" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Realization"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.usecase.Comment_3015"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.usecase.Comment_2018"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Comment" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Comment"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.usecase.Usage_4016"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Usage" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Usage"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.usecase.PackageMerge_4018"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.PackageMerge" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//PackageMerge"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.usecase.Generalization_4010"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Generalization" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Generalization"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.usecase.Package_1000"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.usecase.Package_3014"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.usecase.Package_2016"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Package" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Package"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.usecase.Constraint_3017"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.usecase.Constraint_2017"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.usecase.Constraint_3010"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Constraint" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Constraint"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.usecase.ConstraintConstrainedElement_4012"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.usecase.CommentAnnotatedElement_4014"/>
+    </refEClass>
+  </refDiagrams>
+  <refDiagrams diagramType="PapyrusUMLProfileDiagram">
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.profile.Diagram_2016"/>
+      <eClass href="http://www.eclipse.org/gmf/runtime/1.0.2/notation#//Diagram"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.profile.Metaclass_3028"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.profile.Metaclass_1031"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Class" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.profile.Enumeration_2006"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.profile.Enumeration_3025"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Enumeration" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Enumeration"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.profile.DataTypeOperation_3019"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.profile.ClassOperation_3020"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Operation" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Operation"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.profile.Comment_1002"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.profile.CommentCN_1007"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Comment" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Comment"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.profile.PrimitiveType_3026"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.profile.PrimitiveType_2009"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.PrimitiveType" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//PrimitiveType"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.profile.ElementImport_1064"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ElementImport" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ElementImport"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.profile.Package_1004"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.profile.PackageCN_1012"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Package" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Package"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.profile.DataTypeProperty_3018"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.profile.ClassProperty_3002"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Property" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Property"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.profile.Profile_1030"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.profile.Profile_1000"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.profile.Profile_1024"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Profile" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Profile"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.profile.Association_2015"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.profile.Association_4001"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.profile.Association_4019"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.AssociationBase" context="ModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Association" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Association"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.profile.Generalization_4002"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Generalization" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Generalization"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.profile.DataType_2010"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.profile.DataType_3027"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.DataType" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//DataType"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.profile.Stereotype_1026"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.profile.Stereotype_1023"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Stereotype" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Stereotype"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.profile.EnumerationLiteral_1037"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.EnumerationLiteral" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//EnumerationLiteral"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.profile.Model_2005"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.profile.Model_1027"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Model" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Model"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.profile.Extension_1013"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Extension" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Extension"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.profile.Constraint_1014"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.profile.Constraint_1028"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Constraint" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Constraint"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.profile.ProfileApplication_1045"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ProfileApplication" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ProfileApplication"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.profile.PackageImport_1065"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.PackageImport" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//PackageImport"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.profile.Dependency_2014"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.profile.Dependency_4008"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.profile.Dependency_4018"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Dependency" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Dependency"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.profile.ConstraintConstrainedElement_4014"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.profile.ConstraintContext_8500"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.profile.CommentAnnotatedElement_1022"/>
+    </refEClass>
+  </refDiagrams>
+  <refDiagrams diagramType="InternalBlock">
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.ValueType" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//blocks/ValueType"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Optional" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//activities/Optional"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.NoBuffer" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//activities/NoBuffer"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.ControlOperator" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//activities/ControlOperator"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Rationale" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//modelelements/Rationale"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.ConnectorProperty" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//blocks/ConnectorProperty"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Probability" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//activities/Probability"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.RequirementRelated" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//requirements/RequirementRelated"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Satisfy" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//requirements/Satisfy"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Problem" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//modelelements/Problem"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.ViewPoint" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//modelelements/ViewPoint"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Rate" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//activities/Rate"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.View" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//modelelements/View"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Requirement" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//requirements/Requirement"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Discrete" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//activities/Discrete"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Allocated" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//allocations/Allocated"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Block" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//blocks/Block"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.ConstraintProperty" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//constraints/ConstraintProperty"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Verify" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//requirements/Verify"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.DeriveReqt" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//requirements/DeriveReqt"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.TestCase" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//requirements/TestCase"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Copy" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//requirements/Copy"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Dimension" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//blocks/Dimension"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.ItemFlow" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//portandflows/ItemFlow"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.PropertySpecificType" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//blocks/PropertySpecificType"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.ConstraintBlock" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//constraints/ConstraintBlock"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.FlowSpecification" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//portandflows/FlowSpecification"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Continuous" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//activities/Continuous"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.DistributedProperty" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//blocks/DistributedProperty"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.FlowProperty" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//portandflows/FlowProperty"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.ParticipantProperty" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//blocks/ParticipantProperty"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.AllocateActivityPartition" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//allocations/AllocateActivityPartition"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Conform" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//modelelements/Conform"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.NestedConnectorEnd" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//blocks/NestedConnectorEnd"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Overwrite" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//activities/Overwrite"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.BindingConnector" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//blocks/BindingConnector"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.FlowPort" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//portandflows/FlowPort"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Unit" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//blocks/Unit"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Allocate" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//allocations/Allocate"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.Dimension" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.Unit" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.InstanceSpecification" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.AssociationNone" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.AssociationSharedDirected" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.AssociationCompositeDirected" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.AssociationNoneDirected" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.AssociationComposite" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.AssociationShared" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.Association" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.AssociationBase" context="ModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Association" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Association"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.DeriveReqt" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.Verify" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.Satisfy" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.Copy" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.Allocate" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Abstraction" context="ModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Refine" context="ModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Trace" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Abstraction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.FlowPort_NA" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.FlowPort_In" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.FlowPort_InOut" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.FlowPort_Out" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.FlowPort" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Port" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Port"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.Rationale" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.Problem" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Comment" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Comment"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.FlowSpecification" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Interface" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Interface"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.ConstraintProperty" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.ValueProperty" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.PartProperty" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.ActorPartProperty" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.FlowProperty" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.ReferenceProperty" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Property" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Property"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.ViewPoint" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.Block" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.Requirement" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.ConstraintBlock" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Class" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.View" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Package" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Package"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.ValueType_PrimitiveType" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.PrimitiveType" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//PrimitiveType"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.Conform" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Dependency" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Dependency"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.ItemFlow" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.InformationFlow" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//InformationFlow"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.ValueType_Enumeration" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Enumeration" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Enumeration"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.ValueType" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.DataType" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//DataType"/>
+    </refEClass>
+  </refDiagrams>
+  <refDiagrams diagramType="RequirementDiagram">
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.ValueType" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//blocks/ValueType"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Optional" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//activities/Optional"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.NoBuffer" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//activities/NoBuffer"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.ControlOperator" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//activities/ControlOperator"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Rationale" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//modelelements/Rationale"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.ConnectorProperty" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//blocks/ConnectorProperty"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Probability" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//activities/Probability"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.RequirementRelated" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//requirements/RequirementRelated"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Satisfy" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//requirements/Satisfy"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Problem" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//modelelements/Problem"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.ViewPoint" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//modelelements/ViewPoint"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Rate" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//activities/Rate"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.View" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//modelelements/View"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Requirement" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//requirements/Requirement"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Discrete" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//activities/Discrete"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Allocated" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//allocations/Allocated"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Block" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//blocks/Block"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.ConstraintProperty" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//constraints/ConstraintProperty"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Verify" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//requirements/Verify"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.DeriveReqt" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//requirements/DeriveReqt"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.TestCase" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//requirements/TestCase"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Copy" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//requirements/Copy"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Dimension" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//blocks/Dimension"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.ItemFlow" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//portandflows/ItemFlow"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.PropertySpecificType" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//blocks/PropertySpecificType"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.ConstraintBlock" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//constraints/ConstraintBlock"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.FlowSpecification" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//portandflows/FlowSpecification"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Continuous" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//activities/Continuous"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.DistributedProperty" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//blocks/DistributedProperty"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.FlowProperty" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//portandflows/FlowProperty"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.ParticipantProperty" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//blocks/ParticipantProperty"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.AllocateActivityPartition" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//allocations/AllocateActivityPartition"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Conform" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//modelelements/Conform"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.NestedConnectorEnd" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//blocks/NestedConnectorEnd"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Overwrite" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//activities/Overwrite"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.BindingConnector" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//blocks/BindingConnector"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.FlowPort" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//portandflows/FlowPort"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Unit" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//blocks/Unit"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Allocate" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//allocations/Allocate"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.Dimension" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.Unit" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.InstanceSpecification" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.AssociationNone" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.AssociationSharedDirected" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.AssociationCompositeDirected" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.AssociationNoneDirected" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.AssociationComposite" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.AssociationShared" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.Association" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.AssociationBase" context="ModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Association" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Association"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.DeriveReqt" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.Verify" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.Satisfy" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.Copy" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.Allocate" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Abstraction" context="ModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Refine" context="ModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Trace" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Abstraction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.FlowPort_NA" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.FlowPort_In" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.FlowPort_InOut" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.FlowPort_Out" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.FlowPort" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Port" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Port"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.Rationale" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.Problem" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Comment" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Comment"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.FlowSpecification" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Interface" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Interface"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.ConstraintProperty" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.ValueProperty" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.PartProperty" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.ActorPartProperty" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.FlowProperty" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.ReferenceProperty" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Property" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Property"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.ViewPoint" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.Block" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.Requirement" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.ConstraintBlock" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Class" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.View" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Package" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Package"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.ValueType_PrimitiveType" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.PrimitiveType" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//PrimitiveType"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.Conform" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Dependency" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Dependency"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.ItemFlow" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.InformationFlow" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//InformationFlow"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.ValueType_Enumeration" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Enumeration" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Enumeration"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.ValueType" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.DataType" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//DataType"/>
+    </refEClass>
+  </refDiagrams>
+  <refDiagrams diagramType="BlockDefinition">
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.ValueType" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//blocks/ValueType"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Optional" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//activities/Optional"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.NoBuffer" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//activities/NoBuffer"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.ControlOperator" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//activities/ControlOperator"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Rationale" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//modelelements/Rationale"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.ConnectorProperty" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//blocks/ConnectorProperty"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Probability" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//activities/Probability"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.RequirementRelated" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//requirements/RequirementRelated"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Satisfy" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//requirements/Satisfy"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Problem" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//modelelements/Problem"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.ViewPoint" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//modelelements/ViewPoint"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Rate" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//activities/Rate"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.View" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//modelelements/View"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Requirement" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//requirements/Requirement"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Discrete" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//activities/Discrete"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Allocated" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//allocations/Allocated"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Block" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//blocks/Block"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.ConstraintProperty" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//constraints/ConstraintProperty"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Verify" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//requirements/Verify"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.DeriveReqt" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//requirements/DeriveReqt"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.TestCase" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//requirements/TestCase"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Copy" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//requirements/Copy"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Dimension" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//blocks/Dimension"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.ItemFlow" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//portandflows/ItemFlow"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.PropertySpecificType" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//blocks/PropertySpecificType"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.ConstraintBlock" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//constraints/ConstraintBlock"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.FlowSpecification" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//portandflows/FlowSpecification"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Continuous" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//activities/Continuous"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.DistributedProperty" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//blocks/DistributedProperty"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.FlowProperty" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//portandflows/FlowProperty"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.ParticipantProperty" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//blocks/ParticipantProperty"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.AllocateActivityPartition" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//allocations/AllocateActivityPartition"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Conform" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//modelelements/Conform"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.NestedConnectorEnd" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//blocks/NestedConnectorEnd"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Overwrite" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//activities/Overwrite"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.BindingConnector" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//blocks/BindingConnector"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.FlowPort" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//portandflows/FlowPort"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Unit" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//blocks/Unit"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.stereotype.Allocate" context="DiagramAndModelExplorer"/>
+      <eClass href="http://www.eclipse.org/papyrus/0.7.0/SysML#//allocations/Allocate"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.Dimension" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.Unit" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.InstanceSpecification" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.AssociationNone" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.AssociationSharedDirected" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.AssociationCompositeDirected" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.AssociationNoneDirected" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.AssociationComposite" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.AssociationShared" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.Association" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.AssociationBase" context="ModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Association" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Association"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.DeriveReqt" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.Verify" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.Satisfy" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.Copy" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.Allocate" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Abstraction" context="ModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Refine" context="ModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Trace" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Abstraction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.FlowPort_NA" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.FlowPort_In" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.FlowPort_InOut" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.FlowPort_Out" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.FlowPort" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Port" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Port"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.Rationale" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.Problem" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Comment" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Comment"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.FlowSpecification" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Interface" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Interface"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.ConstraintProperty" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.ValueProperty" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.PartProperty" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.ActorPartProperty" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.FlowProperty" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.ReferenceProperty" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Property" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Property"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.ViewPoint" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.Block" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.Requirement" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.ConstraintBlock" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Class" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.View" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Package" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Package"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.ValueType_PrimitiveType" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.PrimitiveType" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//PrimitiveType"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.Conform" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Dependency" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Dependency"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.ItemFlow" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.InformationFlow" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//InformationFlow"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.ValueType_Enumeration" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Enumeration" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Enumeration"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.sysml.ValueType" context="DiagramAndModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.DataType" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//DataType"/>
+    </refEClass>
+  </refDiagrams>
+  <refDiagrams diagramType="PapyrusUMLStateMachineDiagram">
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.statemachine.Region_3000"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Region" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Region"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.statemachine.Pseudostate_9000"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.statemachine.Pseudostate_8000"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.statemachine.Pseudostate_15000"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.statemachine.Pseudostate_12000"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.statemachine.Pseudostate_11000"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.statemachine.Pseudostate_14000"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.statemachine.Pseudostate_16000"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.statemachine.Pseudostate_10000"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.statemachine.Pseudostate_13000"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.statemachine.Pseudostate_17000"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Pseudostate" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Pseudostate"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.statemachine.Package_1000"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Package" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Package"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.statemachine.StateMachineComment"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Comment" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Comment"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.statemachine.State_6000"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.State" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//State"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.statemachine.ConnectionPointReference_18000"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ConnectionPointReference" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ConnectionPointReference"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.statemachine.Constraint_668"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Constraint" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Constraint"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.statemachine.Transition_7000"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.statemachine.InternalTransition_680"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Transition" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Transition"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.statemachine.FinalState_5000"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.FinalState" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//FinalState"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.statemachine.Generalization_19000"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Generalization" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Generalization"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.statemachine.StateMachine_2000"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.StateMachine" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//StateMachine"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.statemachine.ExitStateBehavior_692"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.statemachine.DoActivityStateBehavior_691"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.statemachine.EntryStateBehavior_690"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Behavior" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Behavior"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.statemachine.CommentAnnotatedElement_667"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.statemachine.ConstraintConstrainedElement_670"/>
+    </refEClass>
+  </refDiagrams>
+  <refDiagrams diagramType="PapyrusUMLTimingDiagram">
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.timing.OccurrenceSpecification_12"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.OccurrenceSpecification" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//OccurrenceSpecification"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.timing.TimeObservation_16"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.TimeObservation" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//TimeObservation"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.timing.Gate_69"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Gate" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Gate"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.timing.FullStateInvariant_11"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.timing.CompactStateInvariant_28"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.StateInvariant" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//StateInvariant"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.timing.Interaction_2"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Interaction" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Interaction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.timing.GeneralOrdering_67"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.GeneralOrdering" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//GeneralOrdering"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.timing.DestructionOccurrenceSpecification_27"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.DestructionOccurrenceSpecification" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//DestructionOccurrenceSpecification"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.timing.MessageSync_3"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.timing.MessageFound_53"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.timing.MessageDelete_47"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.timing.MessageCreate_44"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.timing.MessageAsync_4"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.timing.MessageLost_50"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.timing.MessageReply_41"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Message" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Message"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.timing.Lifeline_40"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.timing.Lifeline_19"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.timing.Lifeline_20"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Lifeline" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Lifeline"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.timing.Package_1"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Package" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Package"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.timing.DurationObservation_17"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.DurationObservation" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//DurationObservation"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.timing.MessageOccurrenceSpecification_13"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.MessageOccurrenceSpecification" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//MessageOccurrenceSpecification"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.timing.DurationConstraint_18"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.DurationConstraint" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//DurationConstraint"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.timing.TimeConstraint_15"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.TimeConstraint" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//TimeConstraint"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.timing.Node_26"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.timing.Node_25"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.timing.Node_24"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.timing.Node_39"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.timing.Node_9"/>
+    </refEClass>
+  </refDiagrams>
+  <refDiagrams diagramType="PapyrusUMLClassDiagram">
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Diagram_2016"/>
+      <eClass href="http://www.eclipse.org/gmf/runtime/1.0.2/notation#//Diagram"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.TemplateParameter_3016"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.TemplateParameter" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//TemplateParameter"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Dependency_2014"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Dependency_4018"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Dependency_4008"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Dependency" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Dependency"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.ElementImport_4009"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ElementImport" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ElementImport"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Interface_3037"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Interface_2004"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Interface_3036"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Interface_3038"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Interface_3023"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Interface" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Interface"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.NamedElement_2098"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.NamedElement_2097"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.NamedElement" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//NamedElement"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Usage_4007"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Usage" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Usage"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Abstraction_4006"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Abstraction" context="ModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Refine" context="ModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Trace" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Abstraction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.GeneralizationSet_4020"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.GeneralizationSet" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//GeneralizationSet"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.TimeObservation_2096"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.TimeObservation" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//TimeObservation"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Realization_4005"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Realization" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Realization"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Operation_3003"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Operation_3013"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Operation_3019"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Operation_3042"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Operation_3007"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Operation" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Operation"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Property_3002"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Property_3041"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Property_3012"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Property_3018"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Property_3005"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Property_3006"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Property" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Property"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.DurationObservation_2095"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.DurationObservation" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//DurationObservation"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Generalization_4002"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Generalization" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Generalization"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Package_1000"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Package_2007"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Package_3009"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Package" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Package"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Class_3004"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Class_3008"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Class_3014"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Class_3010"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Class_2008"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Class" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.InformationFlow_4026"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.InformationFlow" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//InformationFlow"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Signal_2003"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Signal_3049"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Signal_3050"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Signal_3051"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Signal_3022"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Signal" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Signal"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.InstanceSpecificationLink_4021"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.InstanceSpecification_2001"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.InstanceSpecification_3020"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.InstanceSpecification" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.TemplateBinding_4015"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.TemplateBinding" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//TemplateBinding"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.InformationItem_3040"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.InformationItem_2099"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.InformationItem" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//InformationItem"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.AssociationClass_2013"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.AssociationClass_4017"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.AssociationClass" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//AssociationClass"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.RedefinableTemplateSignature_3015"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.RedefinableTemplateSignature" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//RedefinableTemplateSignature"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Substitution_4004"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Substitution" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Substitution"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.OperationTemplateParameter_3035"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.OperationTemplateParameter" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//OperationTemplateParameter"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Model_2005"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Model_3024"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Model" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Model"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Association_2015"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Association_4019"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Association_4001"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.AssociationBase" context="ModelExplorer"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Association" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Association"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.TemplateSignature_3033"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.TemplateSignature" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//TemplateSignature"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Component_2002"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Component_3021"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Component" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Constraint_3029"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Constraint_2011"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Constraint" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Constraint"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Slot_3030"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Slot" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Slot"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.PrimitiveType_3026"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.PrimitiveType_3046"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.PrimitiveType_3048"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.PrimitiveType_3047"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.PrimitiveType_2009"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.PrimitiveType" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//PrimitiveType"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Comment_3028"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Comment_2012"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Comment" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Comment"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Reception_3011"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Reception_3039"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Reception" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Reception"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Enumeration_3025"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Enumeration_2006"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Enumeration_3054"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Enumeration_3053"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Enumeration_3052"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Enumeration" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Enumeration"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.ClassifierTemplateParameter_3031"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ClassifierTemplateParameter" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ClassifierTemplateParameter"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.EnumerationLiteral_3017"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.EnumerationLiteral" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//EnumerationLiteral"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.PackageImport_4010"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.PackageImport" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//PackageImport"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.DataType_3027"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.DataType_3043"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.DataType_3044"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.DataType_3045"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.DataType_2010"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.DataType" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//DataType"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.ConnectableElementTemplateParameter_3034"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ConnectableElementTemplateParameter" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ConnectableElementTemplateParameter"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.InterfaceRealization_4003"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.InterfaceRealization" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//InterfaceRealization"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.PackageMerge_4011"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.PackageMerge" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//PackageMerge"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.ProfileApplication_4012"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ProfileApplication" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ProfileApplication"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.ConstraintContext_8500"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.CommentAnnotatedElement_4013"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.TimeObservationEvent_4024"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.Link_4016"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.DurationObservationEvent_4025"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.ConstraintConstrainedElement_4014"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.ContainmentLink_4023"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.ContainmentCircle_3032"/>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.diagram.clazz.AddedLink_4022"/>
+    </refEClass>
+  </refDiagrams>
+  <refDiagrams diagramType="Others">
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ReadLinkObjectEndAction" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ReadLinkObjectEndAction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.LinkEndData" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//LinkEndData"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Namespace" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Namespace"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.PackageableElement" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//PackageableElement"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.CommunicationPath" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//CommunicationPath"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ReadIsClassifiedObjectAction" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ReadIsClassifiedObjectAction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.MessageEvent" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//MessageEvent"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Event" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Event"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.QualifierValue" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//QualifierValue"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ReclassifyObjectAction" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ReclassifyObjectAction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.StartObjectBehaviorAction" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//StartObjectBehaviorAction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ReadExtentAction" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ReadExtentAction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.RemoveVariableValueAction" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//RemoveVariableValueAction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.StructuralFeature" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//StructuralFeature"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ClearStructuralFeatureAction" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ClearStructuralFeatureAction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ProtocolConformance" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ProtocolConformance"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.MultiplicityElement" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//MultiplicityElement"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.FinalNode" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//FinalNode"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.LiteralReal" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//LiteralReal"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ClearVariableAction" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ClearVariableAction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ParameterSet" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ParameterSet"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ExtensionEnd" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ExtensionEnd"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Variable" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Variable"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.stereotype.Refine" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML/Profile/L2#//Refine"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Clause" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Clause"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ReadLinkObjectEndQualifierAction" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ReadLinkObjectEndQualifierAction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Vertex" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Vertex"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.UnmarshallAction" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//UnmarshallAction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Feature" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Feature"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.BehavioralFeature" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//BehavioralFeature"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.infra.emf.page" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.StructuralFeatureAction" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//StructuralFeatureAction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Element" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Element"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.InvocationAction" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//InvocationAction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.MessageEnd" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//MessageEnd"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.StartClassifierBehaviorAction" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//StartClassifierBehaviorAction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Trigger" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Trigger"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.DirectedRelationship" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//DirectedRelationship"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.RemoveStructuralFeatureValueAction" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//RemoveStructuralFeatureValueAction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Pin" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Pin"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.StructuredClassifier" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//StructuredClassifier"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.VariableAction" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//VariableAction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.EncapsulatedClassifier" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//EncapsulatedClassifier"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ActivityNode" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ActivityNode"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.CreateLinkAction" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//CreateLinkAction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.WriteVariableAction" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//WriteVariableAction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Image" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Image"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Relationship" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Relationship"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ExecutionOccurrenceSpecification" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ExecutionOccurrenceSpecification"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ConnectorEnd" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ConnectorEnd"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.stereotype.Trace" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML/Profile/L2#//Trace"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.DeploymentTarget" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//DeploymentTarget"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.TemplateParameterSubstitution" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//TemplateParameterSubstitution"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.CreateLinkObjectAction" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//CreateLinkObjectAction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.LiteralSpecification" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//LiteralSpecification"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ReadLinkAction" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ReadLinkAction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.DestroyLinkAction" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//DestroyLinkAction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Action" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Action"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ReplyAction" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ReplyAction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.InteractionFragment" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//InteractionFragment"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ExecutionSpecification" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ExecutionSpecification"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.DeployedArtifact" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//DeployedArtifact"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.AcceptCallAction" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//AcceptCallAction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.RaiseExceptionAction" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//RaiseExceptionAction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Observation" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Observation"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ValueSpecification" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ValueSpecification"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ExecutableNode" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ExecutableNode"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ClearAssociationAction" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ClearAssociationAction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.TypedElement" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//TypedElement"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.LinkEndCreationData" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//LinkEndCreationData"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ProtocolTransition" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ProtocolTransition"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ActivityEdge" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ActivityEdge"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.LinkEndDestructionData" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//LinkEndDestructionData"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.WriteLinkAction" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//WriteLinkAction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.CallAction" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//CallAction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.RedefinableElement" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//RedefinableElement"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.BehavioredClassifier" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//BehavioredClassifier"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.Type" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//Type"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.TemplateableElement" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//TemplateableElement"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.WriteStructuralFeatureAction" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//WriteStructuralFeatureAction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ControlNode" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ControlNode"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.TestIdentityAction" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//TestIdentityAction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ActivityGroup" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ActivityGroup"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ReduceAction" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ReduceAction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ParameterableElement" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ParameterableElement"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.ObjectNode" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//ObjectNode"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.LinkAction" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//LinkAction"/>
+    </refEClass>
+    <refEClass>
+      <refElementTypes elementTypeID="org.eclipse.papyrus.uml.PartDecomposition" context="ModelExplorer"/>
+      <eClass href="http://www.eclipse.org/uml2/4.0.0/UML#//PartDecomposition"/>
+    </refEClass>
+  </refDiagrams>
+</ElementRegistry:Registry>

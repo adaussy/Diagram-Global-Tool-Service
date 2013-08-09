@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.papyrus.dgts.elementregistry.core/src"
+    modelPluginID="org.eclipse.papyrus.dgts.elementregistry.core" modelName="ElementRegistry"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false" usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>elementRegistry.ecore</foreignModel>
+  <genPackages prefix="ElementRegistry" disposableProviderFactory="true" ecorePackage="elementRegistry.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="elementRegistry.ecore#//Context">
+      <genEnumLiterals ecoreEnumLiteral="elementRegistry.ecore#//Context/Diagram"/>
+      <genEnumLiterals ecoreEnumLiteral="elementRegistry.ecore#//Context/ModelExplorer"/>
+      <genEnumLiterals ecoreEnumLiteral="elementRegistry.ecore#//Context/DiagramAndModelExplorer"/>
+    </genEnums>
+    <genClasses ecoreClass="elementRegistry.ecore#//Registry">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference elementRegistry.ecore#//Registry/refDiagrams"/>
+    </genClasses>
+    <genClasses ecoreClass="elementRegistry.ecore#//DiagramDefinition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference elementRegistry.ecore#//DiagramDefinition/refEClass"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute elementRegistry.ecore#//DiagramDefinition/diagramType"/>
+    </genClasses>
+    <genClasses ecoreClass="elementRegistry.ecore#//EClassDefinition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference elementRegistry.ecore#//EClassDefinition/refElementTypes"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference elementRegistry.ecore#//EClassDefinition/eClass"/>
+    </genClasses>
+    <genClasses ecoreClass="elementRegistry.ecore#//ElementType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute elementRegistry.ecore#//ElementType/elementTypeID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute elementRegistry.ecore#//ElementType/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute elementRegistry.ecore#//ElementType/context"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
