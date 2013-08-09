@@ -137,7 +137,7 @@ public class ElementRequests {
 	    tools.add(tool);
 	    if (editingDomain instanceof EditingDomain) {
 		EditingDomain domain = (EditingDomain) editingDomain;
-
+	
 		DeleteCommand cmd = new DeleteCommand(domain, tools);
 		if ((cmd != null) && cmd.canExecute()) {
 		    domain.getCommandStack().execute(cmd);
@@ -152,6 +152,7 @@ public class ElementRequests {
 	    Object editingDomain = AdapterFactoryEditingDomain.getEditingDomainFor(tool);
 	    if (editingDomain instanceof EditingDomain) {
 		EditingDomain domain = (EditingDomain) editingDomain;
+
 		ElementType element = DiagramGlobalToolServiceFactory.eINSTANCE.createElementType();
 		element.setElementType(ielementType.getId());
 
@@ -167,22 +168,23 @@ public class ElementRequests {
     public static void deleteIElementType(IElementType element, Tool tool) {
 	if (tool != null &&element!=null) {
 	    Object editingDomain = AdapterFactoryEditingDomain.getEditingDomainFor(tool);
-	    Collection<IElementType> elements = new ArrayList<IElementType>();
-	    elements.add(element);
 
 	    if (editingDomain instanceof EditingDomain) {
 		EditingDomain domain = (EditingDomain) editingDomain;
-		List<ElementType> types = tool.getElementTypes();
 		Collection<ElementType> toDelete = new ArrayList<ElementType>();
-		for (ElementType type : types) {
+
+		for (ElementType type : tool.getElementTypes()) {
+
 		    if (type.getElementType().equals(element.getId())) {
 			toDelete.add(type);
+			
 		    }
 		}
-		DeleteCommand cmd = new DeleteCommand(domain, toDelete);
+		tool.getElementTypes().removeAll(toDelete);
+		/*DeleteCommand cmd = new DeleteCommand(domain, toDelete);
 		if ((cmd != null) && cmd.canExecute()) {
 		    domain.getCommandStack().execute(cmd);
-		}
+		}*/
 
 	    }
 	}
@@ -194,6 +196,7 @@ public class ElementRequests {
 	    Object editingDomain = AdapterFactoryEditingDomain.getEditingDomainFor(drawer);
 	    if (editingDomain instanceof EditingDomain) {
 		EditingDomain domain = (EditingDomain) editingDomain;
+	
 		Tool tool = DiagramGlobalToolServiceFactory.eINSTANCE.createTool();
 		tool.setName(eclass.getEClass().getName());
 		for (ElementRegistry.ElementType element : eclass.getRefElementTypes()){
