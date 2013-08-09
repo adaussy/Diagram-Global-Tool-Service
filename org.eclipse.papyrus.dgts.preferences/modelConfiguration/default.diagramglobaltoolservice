@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DiagramGlobalToolService:DiagramGlobalToolDefinition xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:DiagramGlobalToolService="http://DiagramGlobalToolService/1.0">
+  <DiagramDefinitionRef DiagramType="BlockDefinition">
+    <DrawerDefinitionRef Name="Model Element">
+      <ToolRef name="Actor">
+        <elementTypes elementType="org.eclipse.papyrus.uml.Actor"/>
+      </ToolRef>
+      <ToolRef name="Block">
+        <elementTypes elementType="org.eclipse.papyrus.sysml.Block"/>
+      </ToolRef>
+      <ToolRef name="Package">
+        <elementTypes elementType="org.eclipse.papyrus.uml.Package"/>
+      </ToolRef>
+      <ToolRef isEdge="true" name="Generalization">
+        <elementTypes elementType="org.eclipse.papyrus.uml.Generalization"/>
+      </ToolRef>
+      <ToolRef isEdge="true" name="Dependency">
+        <elementTypes elementType="org.eclipse.papyrus.uml.Dependency"/>
+      </ToolRef>
+    </DrawerDefinitionRef>
+    <DrawerDefinitionRef Name="Part element">
+      <ToolRef name="Actor Part">
+        <elementTypes elementType="org.eclipse.papyrus.sysml.ActorPartProperty"/>
+      </ToolRef>
+      <ToolRef name="Part">
+        <elementTypes elementType="org.eclipse.papyrus.sysml.PartProperty"/>
+      </ToolRef>
+      <ToolRef name="Reference">
+        <elementTypes elementType="org.eclipse.papyrus.sysml.ReferenceProperty"/>
+      </ToolRef>
+    </DrawerDefinitionRef>
+    <DrawerDefinitionRef Name="Edges">
+      <ToolRef isEdge="true" name="Direct Association">
+        <elementTypes elementType="org.eclipse.papyrus.sysml.AssociationNoneDirected"/>
+      </ToolRef>
+      <ToolRef isEdge="true" name="Direct Composition">
+        <elementTypes elementType="org.eclipse.papyrus.sysml.AssociationCompositeDirected"/>
+      </ToolRef>
+      <ToolRef isEdge="true" name="Direct Agregation">
+        <elementTypes elementType="org.eclipse.papyrus.sysml.AssociationSharedDirected"/>
+      </ToolRef>
+    </DrawerDefinitionRef>
+    <DrawerDefinitionRef Name="Comments">
+      <ToolRef name="Comments" setMenu="false">
+        <elementTypes elementType="org.eclipse.papyrus.uml.Comment"/>
+      </ToolRef>
+      <ToolRef name="Comment/Constraint Link" setMenu="false">
+        <elementTypes elementType="org.eclipse.papyrus.uml.diagram.clazz.CommentAnnotatedElement_4013"/>
+        <elementTypes elementType="org.eclipse.papyrus.uml.diagram.clazz.ConstraintConstrainedElement_4014"/>
+      </ToolRef>
+    </DrawerDefinitionRef>
+  </DiagramDefinitionRef>
+  <DiagramDefinitionRef DiagramType="InternalBlock">
+    <DrawerDefinitionRef Name="Elements">
+      <ToolRef name="Part">
+        <elementTypes elementType="org.eclipse.papyrus.sysml.PartProperty"/>
+      </ToolRef>
+      <ToolRef name="References">
+        <elementTypes elementType="org.eclipse.papyrus.sysml.ReferenceProperty"/>
+      </ToolRef>
+      <ToolRef name="FlowPort">
+        <elementTypes elementType="org.eclipse.papyrus.sysml.FlowPort_InOut"/>
+        <elementTypes elementType="org.eclipse.papyrus.sysml.FlowPort_In"/>
+        <elementTypes elementType="org.eclipse.papyrus.sysml.FlowPort_Out"/>
+      </ToolRef>
+      <ToolRef name="Property"/>
+    </DrawerDefinitionRef>
+    <DrawerDefinitionRef Name="Connectors">
+      <ToolRef isEdge="true" name="Connector">
+        <elementTypes elementType="org.eclipse.papyrus.uml.Connector"/>
+      </ToolRef>
+      <ToolRef isEdge="true" name="Dependency">
+        <elementTypes elementType="org.eclipse.papyrus.uml.Dependency"/>
+      </ToolRef>
+    </DrawerDefinitionRef>
+    <DrawerDefinitionRef Name="Comment">
+      <ToolRef name="Comment" setMenu="false">
+        <elementTypes elementType="org.eclipse.papyrus.uml.Comment"/>
+      </ToolRef>
+      <ToolRef isEdge="true" name="Constrait/Comment Link" setMenu="false">
+        <elementTypes elementType="org.eclipse.papyrus.uml.diagram.clazz.CommentAnnotatedElement_4013"/>
+        <elementTypes elementType="org.eclipse.papyrus.uml.diagram.clazz.ConstraintConstrainedElement_4014"/>
+      </ToolRef>
+    </DrawerDefinitionRef>
+  </DiagramDefinitionRef>
+  <DiagramDefinitionRef DiagramType="PapyrusUMLClassDiagram">
+    <DrawerDefinitionRef Name="Nodes">
+      <ToolRef name="package">
+        <elementTypes elementType="org.eclipse.papyrus.uml.diagram.clazz.Package_1000"/>
+        <elementTypes elementType="org.eclipse.papyrus.uml.diagram.clazz.Package_2007"/>
+      </ToolRef>
+      <ToolRef name="class">
+        <elementTypes elementType="org.eclipse.papyrus.uml.diagram.clazz.Class_2008"/>
+        <elementTypes elementType="org.eclipse.papyrus.uml.diagram.clazz.Class_3014"/>
+        <elementTypes elementType="org.eclipse.papyrus.uml.diagram.clazz.Class_3004"/>
+        <elementTypes elementType="org.eclipse.papyrus.uml.diagram.clazz.Class_3008"/>
+        <elementTypes elementType="org.eclipse.papyrus.uml.diagram.clazz.Class_3010"/>
+      </ToolRef>
+    </DrawerDefinitionRef>
+    <DrawerDefinitionRef Name="Edges">
+      <ToolRef isEdge="true" name="asso">
+        <elementTypes elementType="org.eclipse.papyrus.uml.diagram.clazz.AssociationClass_4017"/>
+        <elementTypes elementType="org.eclipse.papyrus.uml.diagram.clazz.Association_4001"/>
+      </ToolRef>
+      <ToolRef isEdge="true" name="depend">
+        <elementTypes elementType="org.eclipse.papyrus.uml.diagram.clazz.Dependency_2014"/>
+        <elementTypes elementType="org.eclipse.papyrus.uml.diagram.clazz.Dependency_4008"/>
+        <elementTypes elementType="org.eclipse.papyrus.uml.diagram.clazz.Dependency_4018"/>
+      </ToolRef>
+    </DrawerDefinitionRef>
+    <DrawerDefinitionRef Name="Others">
+      <ToolRef name="coment">
+        <elementTypes elementType="org.eclipse.papyrus.uml.diagram.clazz.Comment_2012"/>
+      </ToolRef>
+    </DrawerDefinitionRef>
+  </DiagramDefinitionRef>
+</DiagramGlobalToolService:DiagramGlobalToolDefinition>
