@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="DGTSPreferences" name="%extPoint.DGTSPreferences" schema="schema/DGTSPreferences.exsd"/>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="org.eclipse.papyrus.dgts.preferences.DGTSWorkbenchPreference"
+            id="org.eclipse.papyrus.dgts.preferences.dgts"
+            name="DGTS Preference">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.papyrus.dgts.service.model.configuration.modelConfiguration">
+      <modelConfigurationProvider
+            class="org.eclipse.papyrus.dgts.preferences.provider.DGTSPreferenceProvider">
+         <Priority
+               name="Low">
+         </Priority>
+      </modelConfigurationProvider>
+   </extension>
+   <extension
+         point="org.eclipse.papyrus.dgts.preferences.DGTSPreferences">
+      <resource
+            ID="defaultID"
+            description="Default model configuration"
+            resource="modelConfiguration/default.diagramglobaltoolservice">
+      </resource>
+   </extension>
+
+</plugin>

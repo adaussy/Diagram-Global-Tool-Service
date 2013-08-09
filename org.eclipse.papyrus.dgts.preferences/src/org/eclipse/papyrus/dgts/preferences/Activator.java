@@ -8,7 +8,7 @@
  * Contributors:
  * Vincent Lartigaut (Atos) vincent.lartigaut@atos.net - Vincent Lartigaut - initial API and implementation
  ******************************************************************************/
-package org.eclipse.papyrus.dgts.wizard.selection;
+package org.eclipse.papyrus.dgts.preferences;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
@@ -19,7 +19,7 @@ import org.osgi.framework.BundleContext;
 public class Activator extends AbstractUIPlugin {
 
 	// The plug-in ID
-	public static final String PLUGIN_ID = "org.eclipse.papyrus.dgts.wizard.selection"; //$NON-NLS-1$
+	public static final String PLUGIN_ID = "org.eclipse.papyrus.dgts.preferences"; //$NON-NLS-1$
 
 	// The shared instance
 	private static Activator plugin;
