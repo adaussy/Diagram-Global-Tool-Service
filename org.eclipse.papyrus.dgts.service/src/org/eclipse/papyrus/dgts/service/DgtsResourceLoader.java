@@ -26,6 +26,7 @@ import DiagramGlobalToolService.DiagramGlobalToolDefinition;
 
 public class DgtsResourceLoader {
 
+
 	public static Resource loadResource(IFile file) throws IOException {
 		URI uri = URI.createFileURI(file.getFullPath().toString());
 		ResourceSet resourceSet = new ResourceSetImpl();
@@ -35,6 +36,7 @@ public class DgtsResourceLoader {
 		resource.load(options);
 		return resource;
 	}
+
     public static Resource LoadResource(IFile file) throws IOException {
 	URI uri = URI.createFileURI(file.getFullPath().toString());
 	ResourceSet resourceSet = new ResourceSetImpl();
@@ -50,8 +52,9 @@ public class DgtsResourceLoader {
 		return (DiagramGlobalToolDefinition) object;
 	    }
 	}
-	return null;
+	return null ;
     }
+   
 	
 	public static DiagramGlobalToolDefinition  getDiagramToolDefinitionFromPath(String path){
 		URI uri = URI
