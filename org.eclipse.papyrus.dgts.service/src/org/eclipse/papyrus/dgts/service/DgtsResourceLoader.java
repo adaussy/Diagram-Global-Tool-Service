@@ -18,12 +18,24 @@ import java.util.Map;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.*;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 
 import DiagramGlobalToolService.DiagramGlobalToolDefinition;
 
 public class DgtsResourceLoader {
+
+
+	public static Resource loadResource(IFile file) throws IOException {
+		URI uri = URI.createFileURI(file.getFullPath().toString());
+		ResourceSet resourceSet = new ResourceSetImpl();
+		org.eclipse.emf.ecore.resource.Resource resource = resourceSet
+				.getResource(uri, true);
+		Map<Object, Object> options = new HashMap<Object, Object>();
+		resource.load(options);
+		return resource;
+	}
 
     public static Resource LoadResource(IFile file) throws IOException {
 	URI uri = URI.createFileURI(file.getFullPath().toString());
@@ -40,7 +52,22 @@ public class DgtsResourceLoader {
 		return (DiagramGlobalToolDefinition) object;
 	    }
 	}
-	return null;
+	return null ;
+    }
+   
+	
+	public static DiagramGlobalToolDefinition  getDiagramToolDefinitionFromPath(String path){
+		URI uri = URI
+				.createFileURI(path);
+		ResourceSet resourceSet = new ResourceSetImpl();
+		Resource resource = resourceSet.getResource(uri, true);
+		Map<Object, Object> options = new HashMap<Object, Object>();
+		try {
+			resource.load(options);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return getDiagramGlobalToolDefinitionFromResource(resource) ;
 
     }
 

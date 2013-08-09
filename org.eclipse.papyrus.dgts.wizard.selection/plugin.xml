@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.papyrus.dgts.service.model.configuration.modelConfiguration">
+      <modelConfigurationProvider
+            class="org.eclipse.papyrus.dgts.wizard.selection.DGTSModelConfigurationWizardProvider">
+         <Priority
+               name="Highest">
+         </Priority>
+      </modelConfigurationProvider>
+   </extension>
+
+</plugin>

@@ -11,10 +11,16 @@
 
 package org.eclipse.papyrus.dgts.palette;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Observable;
+import java.util.Observer;
 import java.util.Set;
 
 import org.eclipse.gef.palette.PaletteRoot;
@@ -24,19 +30,22 @@ import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramWorkbenchPart;
 import org.eclipse.gmf.runtime.diagram.ui.providers.DefaultPaletteProvider;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.internal.palette.PaletteDrawer;
-import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.jface.resource.ImageDescriptor;
-import org.eclipse.papyrus.dgts.service.ToolDefinitionResourceProvider;
 import org.eclipse.papyrus.dgts.service.ToolsProvider;
+import org.eclipse.papyrus.dgts.service.model.configuration.DGTSModelConfigurationOperation;
+import org.eclipse.papyrus.dgts.service.model.configuration.DGTSModelConfigurationService;
 import org.eclipse.papyrus.uml.diagram.common.service.AspectUnspecifiedTypeConnectionTool;
 import org.eclipse.papyrus.uml.diagram.common.service.AspectUnspecifiedTypeCreationTool;
+import org.eclipse.papyrus.uml.diagram.common.service.PapyrusPaletteService;
+import org.eclipse.papyrus.uml.diagram.common.service.PapyrusPaletteService.ProviderDescriptor;
 import org.eclipse.ui.IEditorPart;
 
-import DiagramGlobalToolService.DiagramDefinition;
-import DiagramGlobalToolService.DiagramGlobalToolDefinition;
 import DiagramGlobalToolService.DrawerDefinition;
 import DiagramGlobalToolService.ElementType;
 import DiagramGlobalToolService.Tool;
+
+import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.Multimap;
 
 public class ToolDefinitionCustomPaletteProvider extends DefaultPaletteProvider {
 	protected static List<DrawerDefinition> ListDrawers = null;
@@ -45,73 +54,47 @@ public class ToolDefinitionCustomPaletteProvider extends DefaultPaletteProvider 
 		return ListDrawers;
 	}
 
+	private Multimap<String, String> setToHide = ArrayListMultimap.create();
+	Map<String, String> editorIDtoClassName = new HashMap<>();
+
+	DGTSPaletteProviderObserver listener = new DGTSPaletteProviderObserver(this);
+
 	protected Map predefinedEntries;
-	protected static IEditorPart editor = null;
-	protected static PaletteRoot root = null;
+	protected IEditorPart editor = null;
+	protected PaletteRoot root = null;
 	protected ToolsProvider toolProvider = new ToolsProvider();
 
-	public static IEditorPart getEditor() {
-		return editor;
-	}
-
-	public static PaletteRoot getRoot() {
-		return root;
-	}
-
-	public static Object getContent() {
-		return content;
-	}
-
-	public static Object content;
+	public Object content;
 	private String diagramID;
 	private String PATH;
 	protected static Map ToolDefinitionMap = new HashMap<String, AbstractToolDefinitionPaletteEntry>();
 
-	public ToolDefinitionCustomPaletteProvider() {
-		// TODO Auto-generated constructor stub
-
-	}
-
 	public void contributeToPalette(IEditorPart editorCurrent, Object content,
 			PaletteRoot root, Map predefinedEntries) {
-		if (ToolDefinitionResourceProvider.isAvailable()) {
-			if (editorCurrent instanceof IDiagramWorkbenchPart) {
-				Diagram diagram = ((IDiagramWorkbenchPart) editorCurrent)
-						.getDiagram();
-				InitiElements(diagram.getType(),
-						ToolDefinitionResourceProvider
-								.getDiagramGlobalToolDefinition());
-				if (ListDrawers == null || ListDrawers.isEmpty()) {
 
-					super.contributeToPalette(editor, content, root,
-							predefinedEntries);
-				} else {
+		if (editorCurrent instanceof IDiagramWorkbenchPart) {
+			DGTSModelConfigurationOperation operation = new DGTSModelConfigurationOperation(
+					Collections.singleton( ((IDiagramWorkbenchPart) editorCurrent).getDiagram()));
+			ListDrawers = DGTSModelConfigurationService.getInstance()
+					.getModelConfiguration(operation);
 
-					this.editor = editorCurrent;
-					this.root = root;
-					this.content = content;
-					this.predefinedEntries = predefinedEntries;
-					contributeCustomPalette(predefinedEntries);
-				}
-
+			if (!(ListDrawers == null || ListDrawers.isEmpty())) {
+				this.editor = editorCurrent;
+				this.root = root;
+				this.content = content;
+				this.predefinedEntries = predefinedEntries;
+				contributeCustomPalette(predefinedEntries);
 			}
 
-		} else {
-			super.contributeToPalette(editor, content, root, predefinedEntries);
 		}
-	}
 
-	/*
-	 * Init global variable
-	 */
-	protected void InitiElements(String diagram,
-			DiagramGlobalToolDefinition global) {
-		if (ListDrawers != null) {
-			ListDrawers.clear();
+		else {
+			super.contributeToPalette(editorCurrent, content, root,
+					predefinedEntries);
 		}
-		DiagramDefinition diagramDefinition = toolProvider.getDiagram(diagram,
-				global);
-		ListDrawers = toolProvider.getDrawers(diagramDefinition);
+		/*
+		 * Init global variable
+		 */
 	}
 
 	protected void contributeCustomPalette(Map predefinedEntries) {
@@ -124,6 +107,7 @@ public class ToolDefinitionCustomPaletteProvider extends DefaultPaletteProvider 
 	protected void createDrawers(Map predefinedEntries) {
 		PaletteDrawer drawer;
 		PaletteToolEntry entry;
+		DrawerDefinition test = ListDrawers.get(0);
 		for (DrawerDefinition drawerDefinition : ListDrawers) {
 			drawer = new PaletteDrawer("drawer " + drawerDefinition.getName(),
 					drawerDefinition.getName());
@@ -309,7 +293,7 @@ public class ToolDefinitionCustomPaletteProvider extends DefaultPaletteProvider 
 
 	}
 
-	public static void hideDefaultPalette() {
+	public void hideDefaultPalette() {
 		for (Object child : root.getChildren()) {
 
 			if (child instanceof org.eclipse.gef.palette.PaletteDrawer) {
@@ -318,6 +302,105 @@ public class ToolDefinitionCustomPaletteProvider extends DefaultPaletteProvider 
 			}
 
 		}
+		// setPalettes();
+		// PapyrusPalettePreferences.changePaletteVisibility(IPapyrusPaletteConstant.PALETTE_DEFINITION,
+		// IPapyrusPaletteConstant.EDITOR_ID, true);
+	}
+
+	/**
+	 * Activate palettes
+	 */
+	protected void setPalettes() {
+		Multimap<String, String> visiblePalettes = getVisiblePalettes();
+		// Look if visible palette has been specified
+		if (visiblePalettes != null) {
+			// Map of all palette to hide
+			Map<String, List<String>> paletteToHide = new HashMap<String, List<String>>();
+			for (ProviderDescriptor p : getAvailableProvidors()) {
+				String editorID = p.getTargetEditorID();
+				String paletteID = p.getContributionID();
+				if (editorID == null) {
+					editorID = paletteID;
+				}
+				Collection<String> visiblePaletteForThisEditor = visiblePalettes
+						.get(editorID);
+				if (visiblePaletteForThisEditor == null) {
+					visiblePaletteForThisEditor = Collections.emptyList();
+				}
+				if (editorID != null) {
+					if (!visiblePaletteForThisEditor.contains(paletteID)) {
+						List<String> editorPalettesToHide = paletteToHide
+								.get(editorID);
+						if (editorPalettesToHide == null) {
+							editorPalettesToHide = new ArrayList<String>();
+						}
+						editorPalettesToHide.add(paletteID);
+						paletteToHide.put(editorID, editorPalettesToHide);
+					}
+				}
+			}
+			// Hide all palette which are not visible palettes
+			for (Entry<String, List<String>> entry : paletteToHide.entrySet()) {
+				String editorID = entry.getKey();
+				String editorClassName = editorIDtoClassName.get(editorID);
+				if (editorClassName == null) {
+					editorClassName = editorID;
+				}
+				for (String paletteID : entry.getValue()) {
+					if (!ProcessPalettePreferences.isHiddenPalette(paletteID,
+							editorClassName)) {
+						ProcessPalettePreferences.changePaletteVisibility(
+								paletteID, editorClassName, false);
+						setToHide.put(editorClassName, paletteID);
+					}
+				}
+			}
+		}
+	}
+
+	private Multimap<String, String> getVisiblePalettes() {
+		Multimap<String, String> visiblePalettes = ArrayListMultimap.create();
+		// TODO Auto-generated method stub
+		visiblePalettes.put("org.eclipse.papyrus.sysml.diagram.internalblock",
+				"org.eclipse.pdw.editor.functional.palette");
+		return visiblePalettes;
+	}
+
+	protected List<ProviderDescriptor> getAvailableProvidors() {
+		return (List<ProviderDescriptor>) PapyrusPaletteService.getInstance()
+				.getProviders();
+	}
+
+	public static class DGTSPaletteProviderObserver implements Observer {
+		private ToolDefinitionCustomPaletteProvider paletteProvider;
+
+		public DGTSPaletteProviderObserver(
+				ToolDefinitionCustomPaletteProvider paletteProvider) {
+			this.paletteProvider = paletteProvider;
+			// ServiceStaticEventNotifier.addObserver(this);
+		}
+
+		@Override
+		public void update(Observable arg0, Object arg1) {
+			// PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().closeEditor(paletteProvider.editor,
+			// true);
+			// paletteProvider.contributeToPalette(editorPart, new PaletteRoot()
+			// , null,paletteProvider.predefinedEntries);type name = new
+			// type(arguments);
+			// PapyrusPaletteService.getInstance().updatePalette(paletteProvider.root,
+			// editorPart, paletteProvider.content);
+			// PaletteService.getInstance().updatePalette(new PaletteRoot(),
+			// paletteProvider.editor, paletteProvider.content);
+			// PaletteService.getInstance().createPalette(paletteProvider.editor,
+			// paletteProvider.content);
+			// PapyrusPaletteCustomizerDialog.PalettesTableContentProvider.
+			// PapyrusPalettePreferences.
+			// List<IPaletteDescription> list =
+			// PapyrusPalettePreferences.getLocalPalettes();
+			// IPapyrusPaletteConstant.PALETTE
+
+		}
+
 	}
 
 }

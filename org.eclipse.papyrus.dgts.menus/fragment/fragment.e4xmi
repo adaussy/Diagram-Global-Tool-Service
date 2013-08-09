@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_rAt-sO7XEeKxUIoUgPWlDw">
-  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_Glap0O7YEeKxUIoUgPWlDw" featurename="addons" parentElementId="org.eclipse.e4.legacy.ide.application">
-    <elements xsi:type="application:Addon" xmi:id="_Je-Q4O7YEeKxUIoUgPWlDw" elementId="org.eclipse.papyrus.dgts.menus.addon.0" contributionURI="bundleclass://org.eclipse.papyrus.dgts.menus/org.eclipse.papyrus.dgts.menus.addons.DGTSEventSender"/>
-    <elements xsi:type="application:Addon" xmi:id="_C7L-UO7ZEeKxUIoUgPWlDw" elementId="org.eclipse.papyrus.dgts.menus.addon.1" contributionURI="bundleclass://org.eclipse.papyrus.dgts.menus/org.eclipse.papyrus.dgts.menus.addons.DGTSEventReceiver"/>
-  </fragments>
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_rAt-sO7XEeKxUIoUgPWlDw">
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_KQLl8O-JEeKWbJV2FlNGvw" featurename="commands" parentElementId="org.eclipse.e4.legacy.ide.application">
     <elements xsi:type="commands:Command" xmi:id="_PBjqQO-JEeKWbJV2FlNGvw" elementId="org.eclipse.papyrus.dgts.menus.command.createElement" commandName="Create Element Command">
       <parameters xmi:id="_S2vzIO-JEeKWbJV2FlNGvw" elementId="org.eclipse.papyrus.dgts.menus.command.commandParameter" name="elementType" optional="false"/>
@@ -14,7 +10,9 @@
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_Y-sMUO-KEeKWbJV2FlNGvw" featurename="menuContributions" parentElementId="org.eclipse.e4.legacy.ide.application">
     <elements xsi:type="menu:MenuContribution" xmi:id="_buD8oO-KEeKWbJV2FlNGvw" elementId="org.eclipse.papyrus.dgts.menus.menucontribution.0" parentId="popup">
-      <children xsi:type="menu:Menu" xmi:id="_7jMOQO-iEeKWbJV2FlNGvw" elementId="org.eclipse.papyrus.dgts.menus.menu.0" label="DGTS"/>
+      <children xsi:type="menu:Menu" xmi:id="_1d_GoAAhEeO2aoc1sT1duQ" elementId="org.eclipse.papyrus.dgts.menus.menu.0" label="Create Custom Child">
+        <children xsi:type="menu:DynamicMenuContribution" xmi:id="_FeNB8AAiEeO2aoc1sT1duQ" elementId="org.eclipse.papyrus.dgts.menus.dynamicmenucontribution.0" label="Dynamique Menu Constribution" contributionURI="bundleclass://org.eclipse.papyrus.dgts.menus/org.eclipse.papyrus.dgts.menus.DynamicMenuConstribution"/>
+      </children>
     </elements>
   </fragments>
 </fragment:ModelFragments>

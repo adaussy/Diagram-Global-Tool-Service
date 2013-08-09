@@ -9,12 +9,11 @@
  * Vincent Lartigaut (Atos) vincent.lartigaut@atos.net - Vincent Lartigaut - initial API and implementation
  ******************************************************************************/
 
-package org.eclipse.papyrus.dgts.menus.handlers;
+package org.eclipse.papyrus.dgts.menus.provider;
 
 import org.eclipse.gmf.runtime.common.core.service.IOperation;
 import org.eclipse.gmf.runtime.common.core.service.IProviderChangeListener;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
-import org.eclipse.gmf.runtime.emf.type.core.IHintedType;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.IEditCommandRequest;
 import org.eclipse.papyrus.dgts.service.provider.FillRequestOperation;
@@ -24,8 +23,9 @@ import org.eclipse.papyrus.sysml.diagram.common.commands.CreatePartWithTypeConfi
 import org.eclipse.papyrus.sysml.diagram.common.commands.CreateReferenceWithTypeConfigureCommandFactory;
 import org.eclipse.papyrus.sysml.service.types.element.SysMLElementTypes;
 
-public class DGTSCompleteRequestProvider implements ICompleteRequestProvider {
 
+public class DGTSCompleteRequestProvider implements ICompleteRequestProvider {
+	
 	@Override
 	public void addProviderChangeListener(IProviderChangeListener listener) {
 

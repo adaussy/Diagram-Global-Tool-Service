@@ -15,7 +15,6 @@ import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.core.runtime.IAdaptable;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.common.ui.services.icon.IconService;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.CompartmentEditPart;
@@ -24,18 +23,14 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramUIMessages;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
 import org.eclipse.gmf.runtime.diagram.ui.tools.PopupBarTool;
-import org.eclipse.gmf.runtime.emf.type.core.ClientContextManager;
-import org.eclipse.gmf.runtime.emf.type.core.IClientContext;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
-import org.eclipse.gmf.runtime.emf.type.core.MetamodelType;
+import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.osgi.util.NLS;
-import org.eclipse.papyrus.dgts.service.DgtsResourceLoader;
-import org.eclipse.papyrus.dgts.service.ToolDefinitionResourceProvider;
 import org.eclipse.papyrus.dgts.service.ToolsProvider;
+import org.eclipse.papyrus.dgts.service.model.configuration.DGTSModelConfigurationOperation;
+import org.eclipse.papyrus.dgts.service.model.configuration.DGTSModelConfigurationService;
 import org.eclipse.swt.graphics.Image;
 
-import DiagramGlobalToolService.DiagramDefinition;
-import DiagramGlobalToolService.DiagramGlobalToolDefinition;
 import DiagramGlobalToolService.DrawerDefinition;
 import DiagramGlobalToolService.Tool;
 
@@ -91,19 +86,15 @@ public class CustomModelingAssistantService {
 		// declaration
 		List<Object> types = new ArrayList<>(1);
 		ToolsProvider toolsProvider = new ToolsProvider();
-
+		
 		// recupere le container
 		// View containerview = editPart.getNotationView();
 
 		// recupere le globalDiagramConfiguration actif
-		Resource resource = ToolDefinitionResourceProvider.getResource();
-		DiagramGlobalToolDefinition globalDiagramConfiguration = DgtsResourceLoader.getDiagramGlobalToolDefinitionFromResource(resource);
-
+		DGTSModelConfigurationOperation operation = new DGTSModelConfigurationOperation(Collections.singleton((View)diagramPart.getModel()));
+		List<DrawerDefinition> listOfDrawers = DGTSModelConfigurationService.getInstance().getModelConfiguration(operation);
 		// recupere la liste des tools correspondant au diagrame
-		DiagramDefinition diag = toolsProvider.getDiagram(diagramType, globalDiagramConfiguration);
 		List<Tool> listOfTools = new ArrayList<Tool>();
-		List<DrawerDefinition> listOfDrawers = new ArrayList<DrawerDefinition>();
-		listOfDrawers = toolsProvider.getDrawers(diag);
 		boolean drawerContainType = false;
 
 		if (listOfDrawers != null) {

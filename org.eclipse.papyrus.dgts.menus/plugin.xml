@@ -2,20 +2,20 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension
+         point="org.eclipse.papyrus.dgts.service.provider.fillrequestprovider">
+      <commandHandler
+            class="org.eclipse.papyrus.dgts.menus.provider.DGTSCompleteRequestProvider">
+         <Priority
+               name="Lowest">
+         </Priority>
+      </commandHandler>
+   </extension>
+   <extension
          id="id1"
          point="org.eclipse.e4.workbench.model">
       <fragment
             uri="fragment/fragment.e4xmi">
       </fragment>
-   </extension>
-   <extension
-         point="org.eclipse.papyrus.dgts.service.provider.fillrequestprovider">
-      <commandHandler
-            class="org.eclipse.papyrus.dgts.menus.handlers.DGTSCompleteRequestProvider">
-         <Priority
-               name="Lowest">
-         </Priority>
-      </commandHandler>
    </extension>
 
 </plugin>
