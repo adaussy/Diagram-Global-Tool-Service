@@ -41,7 +41,7 @@ public class DgtsElementTypeRegistry {
 
     private Registry registry;
 
-    protected Registry getRegistry() {
+    public Registry getRegistry() {
 	return registry;
     }
 
@@ -169,7 +169,7 @@ public class DgtsElementTypeRegistry {
 	Resource resource;
 	Registry elementRegistry = null;
 	try {
-	    resource = DgtsResourceLoader.LoadResource(file);
+	    resource = DgtsResourceLoader.loadResource(file);
 	    System.out.println("file loaded");
 	} catch (IOException e) {
 	    resource = null;

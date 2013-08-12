@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="ASCII"?>
-<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_uu8_0PjvEeKzwNf2kbHDgQ">
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmlns:ui="http://www.eclipse.org/ui/2010/UIModel/application/ui" xmi:id="_uu8_0PjvEeKzwNf2kbHDgQ">
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_z83PIPjvEeKzwNf2kbHDgQ" featurename="commands" parentElementId="org.eclipse.e4.legacy.ide.application">
     <elements xsi:type="commands:Command" xmi:id="_KxudUPkMEeKDCvCkFdsRVw" elementId="org.eclipse.papyrus.dgts.wizards.command.editConfigurationCommand" commandName="Edit Configuration Command"/>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_UZk8oPjxEeKzwNf2kbHDgQ" featurename="handlers" parentElementId="org.eclipse.e4.legacy.ide.application">
     <elements xsi:type="commands:Handler" xmi:id="_WSvCYPkMEeKDCvCkFdsRVw" elementId="org.eclipse.papyrus.dgts.wizards.handler.editConfigurationHandler" contributionURI="bundleclass://org.eclipse.papyrus.dgts.wizards/org.eclipse.papyrus.dgts.wizards.handlers.EditConfigurationHandler" command="_KxudUPkMEeKDCvCkFdsRVw"/>
   </fragments>
-  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_aNifUPjxEeKzwNf2kbHDgQ" featurename="children" parentElementId="org.eclipse.ui.main.toolbar" positionInList="after:additions">
-    <elements xsi:type="menu:ToolBar" xmi:id="_ZFqUcPj1EeKzwNf2kbHDgQ" elementId="org.eclipse.papyrus.dgts.wizards.toolbar.editorToolbar">
-      <children xsi:type="menu:HandledToolItem" xmi:id="_5UIIkPkMEeKDCvCkFdsRVw" elementId="org.eclipse.papyrus.wizards.editor.handledtoolitem.0" label="Edit Configuration" tooltip="Edit Configuration" command="_KxudUPkMEeKDCvCkFdsRVw"/>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_bvevkAMrEeOyppjPwnAxQA" featurename="menuContributions" parentElementId="org.eclipse.e4.legacy.ide.application">
+    <elements xsi:type="menu:MenuContribution" xmi:id="_pw-UYAMrEeOyppjPwnAxQA" elementId="org.eclipse.papyrus.dgts.wizards.menucontribution.0" positionInParent="before=group.new" parentId="popup">
+      <children xsi:type="menu:HandledMenuItem" xmi:id="_sVsT4AMrEeOyppjPwnAxQA" elementId="org.eclipse.papyrus.dgts.wizards.handledmenuitem.0" label="Open with DGTS EDITOR" iconURI="platform:/plugin/org.eclipse.papyrus.dgts.wizards/src/org/eclipse/papyrus/dgts/wizards/icons/editconfiguration.png" command="_KxudUPkMEeKDCvCkFdsRVw">
+        <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_HBQawAMwEeOyppjPwnAxQA" coreExpressionId="org.eclipse.papyrus.dgts.wizards.checkfiletypedefinition"/>
+      </children>
     </elements>
   </fragments>
 </fragment:ModelFragments>

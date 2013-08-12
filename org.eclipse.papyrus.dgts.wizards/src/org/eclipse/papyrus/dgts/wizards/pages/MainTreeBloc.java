@@ -459,6 +459,7 @@ public class MainTreeBloc {
 	Image deleteElementImage = new Image(null,getClass().getResourceAsStream("../icons/deleteElementIcon.png"));
 	deleteElementButton.setImage(deleteElementImage);
 	deleteElementButton.setToolTipText("Remove the selected IElementType");
+	deleteElementButton.setEnabled(false);
 	deleteElementButton.addMouseListener(new MouseListener() {
 
 	    @Override

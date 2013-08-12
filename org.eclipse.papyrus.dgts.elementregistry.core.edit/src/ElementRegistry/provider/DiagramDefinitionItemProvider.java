@@ -142,7 +142,7 @@ public class DiagramDefinitionItemProvider
                 String label = ((DiagramDefinition)object).getDiagramType();
                 return label == null || label.length() == 0 ?
                         getString("_UI_DiagramDefinition_type") :
-                        getString("_UI_DiagramDefinition_type") + " " + label;
+                        label;
         }
 
         /**

@@ -23,32 +23,29 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 
 public class DefineMondelConfigurationCommandHandler extends AbstractHandler {
-	DgtsSelectionWizard wizard ;
-	@Override
-	public Object execute(ExecutionEvent event) throws ExecutionException {
-		// TODO Auto-generated method stub
+    DgtsSelectionWizard wizard;
 
-		IWorkbenchWindow activeWorkbenchWindow = PlatformUI.getWorkbench()
-				.getActiveWorkbenchWindow();
+    @Override
+    public Object execute(ExecutionEvent event) throws ExecutionException {
+	// TODO Auto-generated method stub
 
-		Object selection = (activeWorkbenchWindow != null) ? activeWorkbenchWindow
-				.getSelectionService().getSelection() : null;
-		if (selection != null) {
+	IWorkbenchWindow activeWorkbenchWindow = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
 
-			if (selection instanceof StructuredSelection) {
+	Object selection = (activeWorkbenchWindow != null) ? activeWorkbenchWindow.getSelectionService().getSelection() : null;
+	if (selection != null) {
 
-				IStructuredSelection structuredSelection = (IStructuredSelection) selection;
-				Object firstElement = structuredSelection.getFirstElement();
-				if (firstElement instanceof DiagramEditPart) {
-					wizard = new DgtsSelectionWizard((DiagramEditPart) firstElement) ;
-					WizardDialog dialog = new WizardDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), wizard);
-					dialog.open();
-				}
-			}
+	    if (selection instanceof StructuredSelection) {
+
+		IStructuredSelection structuredSelection = (IStructuredSelection) selection;
+		Object firstElement = structuredSelection.getFirstElement();
+		if (firstElement instanceof DiagramEditPart) {
+		    wizard = new DgtsSelectionWizard((DiagramEditPart) firstElement);
+		    WizardDialog dialog = new WizardDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), wizard);
+		    dialog.open();
 		}
-		return null;
+	    }
 	}
-
-	
+	return null;
+    }
 
 }

@@ -1,5 +1,10 @@
 package org.eclipse.papyrus.dgts.wizards;
 
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.eclipse.core.internal.resources.SaveContext;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.papyrus.dgts.wizards.pages.DgtsGlobalPage;
 import org.eclipse.ui.IEditorPart;
@@ -20,15 +25,20 @@ public class DgtsGlobalWizard extends Wizard {
     
     @Override
     public boolean performFinish() {
-//    	saveModelConfiguration();	
-//    	DGTSFileServiceProvider.setContent(mainPage.getGlobalDiag());
-//		ServiceStaticEventNotifier.notifyObservers();
+	saveModelConfiguration();
     	return true;
     }
 
 
 	private void saveModelConfiguration() {
-		IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
+	    Map<Object, Object> options = new HashMap<Object, Object>();
+	    try {
+		DgtsGlobalPage.getResource().save(options);
+	    } catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	    }
+	IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
     	IEditorPart editor = page.getActiveEditor();
     	page.saveEditor(editor, false );
 	}

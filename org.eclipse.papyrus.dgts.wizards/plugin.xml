@@ -8,4 +8,19 @@
             uri="fragments/fragment.e4xmi">
       </fragment>
    </extension>
+<extension
+      point="org.eclipse.core.expressions.definitions">
+   <definition
+         id="org.eclipse.papyrus.dgts.wizards.checkfiletypedefinition">
+      <iterate>
+         <adapt
+               type="org.eclipse.core.resources.IResource">
+            <test
+                  property="org.eclipse.core.resources.name"
+                  value="*.diagramglobaltoolservice">
+            </test>
+         </adapt>
+      </iterate>
+   </definition>
+</extension>
 </plugin>

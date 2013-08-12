@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.papyrus.commands.CreationCommandDescriptor;
 import org.eclipse.papyrus.commands.ICreationCommandRegistry;
 import org.eclipse.papyrus.dgts.service.ToolsProvider;
+import org.eclipse.papyrus.dgts.wizards.pages.DgtsGlobalPage;
 import org.eclipse.papyrus.infra.core.editor.BackboneException;
 import org.eclipse.papyrus.uml.diagram.wizards.kind.DiagramKindContentProvider;
 
@@ -72,7 +73,7 @@ public class DgtsDiagramKindContentProvider extends DiagramKindContentProvider {
 
     private List<String> getDiagramTypeAlreadyHere() {
 	List<String> listTypes = new ArrayList<String>();
-	Resource resource = SelectionHelper.getResourceFromActiveEditor();
+	Resource resource = DgtsGlobalPage.getResource();
 	ToolsProvider toolsProvider = new ToolsProvider();
 	if (resource != null) {
 	    DiagramGlobalToolDefinition globalToolDef = toolsProvider.getDiagramGlobalToolDefinitionFromResource(resource);

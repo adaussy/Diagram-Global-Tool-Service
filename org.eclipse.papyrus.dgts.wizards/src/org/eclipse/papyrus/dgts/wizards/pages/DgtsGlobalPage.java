@@ -53,7 +53,15 @@ public class DgtsGlobalPage extends WizardPage {
     private String TOOL_TYPE = "ToolType";
 
     // TODO change the way we get the resource
-    protected Resource myResource = SelectionHelper.getResourceFromActiveEditor();
+    protected static Resource myResource = null;
+    
+ 
+    public static Resource getResource() {
+        return myResource;
+    }
+
+   
+
     protected ToolsProvider toolsProvider = new ToolsProvider();
     private Composite container;
     protected DiagramGlobalToolDefinition globalDiag;
@@ -86,7 +94,7 @@ public class DgtsGlobalPage extends WizardPage {
     public DgtsGlobalPage() {
 
 	super("Tools Configuration Helper");
-
+	DgtsGlobalPage.myResource = SelectionHelper.getResourceFromSelection();
 	setTitle("Tools Configuration Helper");
 
 	setDescription("Tools Configuration Helper");
@@ -142,16 +150,7 @@ public class DgtsGlobalPage extends WizardPage {
 		AddDiagramWizard newWizard = new AddDiagramWizard();
 		WizardDialog dialog = new WizardDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), newWizard);
 		if (dialog.open() == WizardDialog.OK) {
-		    List<AddCommand> cmds = newWizard.getCommands();
-		    if (!cmds.isEmpty()) {
-
-			for (AddCommand cmd : cmds) {
-			    if (cmd != null && cmd.canExecute()) {
-				newWizard.getEditingDomain().getCommandStack().execute(cmd);
-
-			    }
-			}
-		    }
+		
 
 		}
 
