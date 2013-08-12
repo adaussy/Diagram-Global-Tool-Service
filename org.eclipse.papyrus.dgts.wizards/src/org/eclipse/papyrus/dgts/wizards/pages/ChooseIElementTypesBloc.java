@@ -5,6 +5,7 @@ import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.gmf.runtime.emf.type.core.ElementTypeRegistry;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
+import org.eclipse.jface.viewers.ComboViewer;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.papyrus.dgts.service.DgtsElementTypeRegistry;
 import org.eclipse.papyrus.dgts.wizards.utility.MyObjectTransfer;
@@ -16,7 +17,9 @@ import org.eclipse.swt.dnd.DragSourceEvent;
 import org.eclipse.swt.dnd.Transfer;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
+import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
@@ -29,6 +32,7 @@ import ElementRegistry.EClassDefinition;
 public class ChooseIElementTypesBloc {
     private ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
     private IElementType currentSelectedIElementType;
+   
 
     protected IElementType getCurrentSelectedIElementType() {
 	return currentSelectedIElementType;
@@ -40,6 +44,7 @@ public class ChooseIElementTypesBloc {
 
     private Label labelIElementTypeContext;
     private TreeViewer elementTypeSelectionTreeViewer;
+    private Combo comboSelectDiagram;
  
     private int HEIGHT_ELEMENT_SELECTION = 200;
 
@@ -53,31 +58,69 @@ public class ChooseIElementTypesBloc {
 
     public void RefreshBloc(DiagramDefinition diagram) {
 	if (diagram != null) {
+	    
 	    ElementRegistry.DiagramDefinition diag = DgtsElementTypeRegistry.getInstance().getDiagram(diagram.getDiagramType());
-
+	    setDefaultDiagram(diag);
 	    elementTypeSelectionTreeViewer.setInput(diag);
+	}
+    }
+    
+    public void setDefaultDiagram(ElementRegistry.DiagramDefinition diagram){
+	if (diagram !=null){  
+	    ElementRegistry.Registry registry = (ElementRegistry.Registry)diagram.eContainer();   
+	    comboSelectDiagram.select(registry.getRefDiagrams().indexOf(diagram));
 	}
 
     }
+    
 
     public ChooseIElementTypesBloc(Composite container) {
+	Group groupElementSelection = DgtsGlobalPage.createGroup(container, "Drag And Drop Tools");
+	
+	comboSelectDiagram = new Combo(groupElementSelection, SWT.BORDER | SWT.READ_ONLY);
+	comboSelectDiagram.addSelectionListener(new SelectionListener() {
 
-	elementTypeSelectionTreeViewer = createIElementTypeSelectionForm(container);
+	    /**
+	     * {@inheritDoc}
+	     */
+	    public void widgetSelected(SelectionEvent e) {
+		
+		int index = comboSelectDiagram.getSelectionIndex();
+		ElementRegistry.DiagramDefinition diagram= DgtsElementTypeRegistry.getInstance().getRegistry().getRefDiagrams().get(index);
+		elementTypeSelectionTreeViewer.setInput(diagram);
+	
+	    }
+
+	    /**
+	     * {@inheritDoc}
+	     */
+	    public void widgetDefaultSelected(SelectionEvent e) {
+		// does nothing
+	    }
+	});
+	
+	ComboViewer comboViewerSelectDiagram = new ComboViewer(comboSelectDiagram);
+	comboViewerSelectDiagram.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
+	comboViewerSelectDiagram.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
+	comboViewerSelectDiagram.setInput(DgtsElementTypeRegistry.getInstance().getRegistry());
+
+	
+	elementTypeSelectionTreeViewer = createIElementTypeSelectionForm(groupElementSelection);
     }
 
     public TreeViewer createIElementTypeSelectionForm(Composite composite) {
 
-	Group groupElementSelection = DgtsGlobalPage.createGroup(composite, "Drag And Drop Tools");
+
 
 	GridData selectionData = new GridData(SWT.FILL, SWT.FILL, true, true);
 	selectionData.heightHint = HEIGHT_ELEMENT_SELECTION;
 	// Element Selection
 
-	final Tree elementSelectionTree = new Tree(groupElementSelection, SWT.NO_BACKGROUND);
+	final Tree elementSelectionTree = new Tree(composite, SWT.NO_BACKGROUND);
 
 	elementSelectionTree.setLayoutData(selectionData);
-	elementSelectionTree.setFont(groupElementSelection.getFont());
-	elementSelectionTree.setBackground(groupElementSelection.getBackground());
+	elementSelectionTree.setFont(composite.getFont());
+	elementSelectionTree.setBackground(composite.getBackground());
 
 	elementSelectionTree.addSelectionListener(new SelectionListener() {
 
@@ -125,7 +168,7 @@ public class ChooseIElementTypesBloc {
 	    }
 	});
 
-	labelIElementTypeContext = new Label(groupElementSelection, SWT.NONE);
+	labelIElementTypeContext = new Label(composite, SWT.NONE);
 
 	labelIElementTypeContext.setText("                                                     ");
 

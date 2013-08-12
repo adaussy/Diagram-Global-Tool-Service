@@ -11,6 +11,7 @@ import org.eclipse.jface.dialogs.IDialogSettings;
 import org.eclipse.jface.wizard.IWizardPage;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.papyrus.dgts.service.ToolsProvider;
+import org.eclipse.papyrus.dgts.wizards.pages.DgtsGlobalPage;
 import org.eclipse.papyrus.dgts.wizards.pages.DgtsSelectDiagramCategoryPage;
 import org.eclipse.papyrus.dgts.wizards.pages.DgtsSelectDiagramKindPage;
 import org.eclipse.papyrus.dgts.wizards.pages.DgtsSelectDiagramKindPage.CategoryProvider;
@@ -87,7 +88,7 @@ public class AddDiagramWizard extends Wizard {
 
     @Override
     public boolean performFinish() {
-	Resource resource = SelectionHelper.getResourceFromActiveEditor();
+	Resource resource = DgtsGlobalPage.getResource();
 	DiagramGlobalToolDefinition globalDiagramConfiguration = null;
 	ToolsProvider toolsProvider = new ToolsProvider();
 	List<String> selectedDiagramKinds = selectDiagramKindPage.getSelectedDiagramKinds();
@@ -96,21 +97,17 @@ public class AddDiagramWizard extends Wizard {
 		globalDiagramConfiguration = toolsProvider.getDiagramGlobalToolDefinitionFromResource(resource);
 		if (globalDiagramConfiguration != null) {
 
-		    //We get the editdomain
-		    Object editingDomain = AdapterFactoryEditingDomain.getEditingDomainFor(globalDiagramConfiguration);
-		    if (editingDomain instanceof EditingDomain) {
-			domain = (EditingDomain) editingDomain;
+
 
 			for (String diagramType : selectedDiagramKinds) {
 			    if (diagramType != null) {
 
 				DiagramDefinition diag = DiagramGlobalToolServiceFactory.eINSTANCE.createDiagramDefinition();
 				diag.setDiagramType(diagramType);
-				AddCommand cmd = new AddCommand(domain, globalDiagramConfiguration, DiagramGlobalToolServicePackage.Literals.DIAGRAM_GLOBAL_TOOL_DEFINITION__DIAGRAM_DEFINITION_REF, diag);
-				cmds.add(cmd);
+				globalDiagramConfiguration.getDiagramDefinitionRef().add(diag);
 
 			    }
-			}
+			
 		    }
 		}
 	    }

@@ -57,7 +57,7 @@ public class MainTreeBloc {
     private static final String DELETE_TOOL_TOOLTIP = "Delete this tool";
     private static final String ADD_TOOL_TOOLTIP = "Add a tool";
 
-
+    private Button deleteElementButton;
     private Button addToolButton;
     private Button deleteToolButton;
     private Button addDrawerButton;
@@ -412,6 +412,7 @@ public class MainTreeBloc {
 
     protected void handleSelection(Object data) {
 	setCurrentTarget(data);
+	deleteElementButton.setEnabled(false);
 
     }
 
@@ -423,14 +424,10 @@ public class MainTreeBloc {
 	selectionData.heightHint = HEIGHT_IELEMENT_SELECTION;
 	// Element Selection
 	final Table elementSelectionTable = new Table(groupElementSelection, SWT.NO_BACKGROUND);
-	// final TableColumn elementSelectionColumn = new
-	// TableColumn(elementSelectionTable, SWT.NO_BACKGROUND);
+	
 	elementSelectionTable.setLayoutData(selectionData);
 	elementSelectionTable.setFont(groupElementSelection.getFont());
 	elementSelectionTable.setBackground(groupElementSelection.getBackground());
-	// elementSelectionColumn.setWidth(WIDTH_ELEMENT_SELECTION);
-	// elementSelectionTable.setSize(WIDTH_ELEMENT_SELECTION,
-	// HEIGHT_ELEMENT_SELECTION);
 	elementSelectionTable.addSelectionListener(new SelectionListener() {
 
 	    /**
@@ -438,8 +435,9 @@ public class MainTreeBloc {
 	     */
 	    public void widgetSelected(SelectionEvent e) {
 		if (e.item.getData() instanceof IElementType) {
-
+		    
 		    currentSelectedIElementType = (IElementType) e.item.getData();
+		    deleteElementButton.setEnabled(true);
 		}
 	    }
 
@@ -457,9 +455,12 @@ public class MainTreeBloc {
 	elementTypeFinalTableViewer.setLabelProvider(new IElementTypeLabelProvider());
 
 	// delete
-	Button deleteToolButton = new Button(groupElementSelection, SWT.PUSH);
-	deleteToolButton.setText("Remove IelementType");
-	deleteToolButton.addMouseListener(new MouseListener() {
+	deleteElementButton = new Button(groupElementSelection, SWT.PUSH);
+	Image deleteElementImage = new Image(null,getClass().getResourceAsStream("../icons/deleteElementIcon.png"));
+	deleteElementButton.setImage(deleteElementImage);
+	deleteElementButton.setToolTipText("Remove the selected IElementType");
+	deleteElementButton.setEnabled(false);
+	deleteElementButton.addMouseListener(new MouseListener() {
 
 	    @Override
 	    public void mouseDoubleClick(MouseEvent e) {
@@ -474,6 +475,8 @@ public class MainTreeBloc {
 		if (currentSelectedIElementType != null) {
 		    ElementRequests.deleteIElementType(currentSelectedIElementType, currentSelectedTool);
 		    refreshIElementTypeBloc();
+		    currentSelectedIElementType=null;
+		    deleteElementButton.setEnabled(false);
 		}
 
 	    }

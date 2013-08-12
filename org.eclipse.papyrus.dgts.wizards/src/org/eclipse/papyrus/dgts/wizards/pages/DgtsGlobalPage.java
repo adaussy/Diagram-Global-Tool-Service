@@ -1,22 +1,18 @@
 package org.eclipse.papyrus.dgts.wizards.pages;
 
-import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
-import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.ViewerDropAdapter;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.jface.wizard.WizardPage;
-import org.eclipse.papyrus.dgts.service.DgtsElementTypeRegistry;
 import org.eclipse.papyrus.dgts.service.ToolsProvider;
 import org.eclipse.papyrus.dgts.wizards.AddDiagramWizard;
 import org.eclipse.papyrus.dgts.wizards.utility.DgtsDiagramDefinitionLabelProvider;
-import org.eclipse.papyrus.dgts.wizards.utility.ElementRequests;
 import org.eclipse.papyrus.dgts.wizards.utility.MyObjectTransfer;
 import org.eclipse.papyrus.dgts.wizards.utility.SelectionHelper;
 import org.eclipse.swt.SWT;
@@ -26,11 +22,8 @@ import org.eclipse.swt.dnd.DragSourceAdapter;
 import org.eclipse.swt.dnd.DragSourceEvent;
 import org.eclipse.swt.dnd.Transfer;
 import org.eclipse.swt.dnd.TransferData;
-import org.eclipse.swt.events.KeyEvent;
-import org.eclipse.swt.events.KeyListener;
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.events.MouseListener;
-import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.graphics.Color;
@@ -38,21 +31,15 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Group;
-import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Table;
-import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
-import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.PlatformUI;
 
 import DiagramGlobalToolService.DiagramDefinition;
 import DiagramGlobalToolService.DiagramGlobalToolDefinition;
 import DiagramGlobalToolService.DrawerDefinition;
 import DiagramGlobalToolService.Tool;
-import ElementRegistry.EClassDefinition;
-import ElementRegistry.ElementType;
 
 public class DgtsGlobalPage extends WizardPage {
 
@@ -66,41 +53,36 @@ public class DgtsGlobalPage extends WizardPage {
     private String TOOL_TYPE = "ToolType";
 
     // TODO change the way we get the resource
-    protected Resource myResource = SelectionHelper.getResourceFromActiveEditor();
+    protected static Resource myResource = null;
+    
+ 
+    public static Resource getResource() {
+        return myResource;
+    }
+
+   
+
     protected ToolsProvider toolsProvider = new ToolsProvider();
     private Composite container;
     protected DiagramGlobalToolDefinition globalDiag;
 
-    public DiagramGlobalToolDefinition getGlobalDiag() {
-		return globalDiag;
-	}
+    private ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 
-	private ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
-
-    //Blocs
+    // Blocs
     ChooseIElementTypesBloc chooseIElementTypesBloc;
     MainTreeBloc mainTreeBloc;
     EditBloc editBloc;
-    
 
     private Button addDiagramButton;
 
-
     private TableViewer diagramSelectionTableViewer;
-
 
     // current state of the wizard
     private static DiagramDefinition currentSelectedDiagram;
-    private DrawerDefinition currentSelectedDrawer;
-    private static Tool currentSelectedTool;
-
-    public static Tool getCurrentSelectedTool() {
-	return currentSelectedTool;
-    }
 
 
 
-
+  
     public static DiagramDefinition getCurrentDiagram() {
 	return currentSelectedDiagram;
     }
@@ -110,9 +92,9 @@ public class DgtsGlobalPage extends WizardPage {
     }
 
     public DgtsGlobalPage() {
-	
-	super("Tools Configuration Helper");
 
+	super("Tools Configuration Helper");
+	DgtsGlobalPage.myResource = SelectionHelper.getResourceFromSelection();
 	setTitle("Tools Configuration Helper");
 
 	setDescription("Tools Configuration Helper");
@@ -120,9 +102,7 @@ public class DgtsGlobalPage extends WizardPage {
 
     @Override
     public void createControl(Composite parent) {
-	
-	
-	
+
 	container = new Composite(parent, SWT.NONE);
 	GridLayout layout = new GridLayout();
 	container.setLayout(layout);
@@ -133,79 +113,58 @@ public class DgtsGlobalPage extends WizardPage {
 
 	createDiagramSelectionForm(group);
 	editBloc = new EditBloc(group);
-	
-	
-	
+
 	globalDiag = toolsProvider.getDiagramGlobalToolDefinitionFromResource(myResource);
 	diagramSelectionTableViewer.setInput(globalDiag);
-	
 
-	
-	
 	mainTreeBloc = new MainTreeBloc(container);
 	editBloc.setMainTreeBloc(mainTreeBloc);
 	mainTreeBloc.setEditBloc(editBloc);
 	chooseIElementTypesBloc = new ChooseIElementTypesBloc(container);
 
 	mainTreeBloc.disableToolBar();
-	
-	
 
-	
 	setPageComplete(true);
 
     }
 
-    
-    
-
     protected void createDiagramSelectionForm(Group mainGroup) {
-	
+
 	// Add Diagram
-		addDiagramButton = new Button(mainGroup, SWT.PUSH);
-		addDiagramButton.setText("Add Diagram");
-		addDiagramButton.addMouseListener(new MouseListener() {
+	addDiagramButton = new Button(mainGroup, SWT.PUSH);
+	addDiagramButton.setText("Add Diagram");
+	addDiagramButton.addMouseListener(new MouseListener() {
 
-		    @Override
-		    public void mouseDoubleClick(MouseEvent e) {
-		    }
+	    @Override
+	    public void mouseDoubleClick(MouseEvent e) {
+	    }
 
-		    @Override
-		    public void mouseDown(MouseEvent e) {
-		    }
+	    @Override
+	    public void mouseDown(MouseEvent e) {
+	    }
 
-		    @Override
-		    public void mouseUp(MouseEvent e) {
+	    @Override
+	    public void mouseUp(MouseEvent e) {
 
-			// Create an AddDiagramWizard
-			AddDiagramWizard newWizard = new AddDiagramWizard();
-			WizardDialog dialog = new WizardDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), newWizard);
-			if (dialog.open() == WizardDialog.OK) {
-			    List<AddCommand> cmds = newWizard.getCommands();
-			    if (!cmds.isEmpty()) {
+		// Create an AddDiagramWizard
+		AddDiagramWizard newWizard = new AddDiagramWizard();
+		WizardDialog dialog = new WizardDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), newWizard);
+		if (dialog.open() == WizardDialog.OK) {
+		
 
-				for (AddCommand cmd : cmds) {
-				    if (cmd != null && cmd.canExecute()) {
-					newWizard.getEditingDomain().getCommandStack().execute(cmd);
+		}
 
-				    }
-				}
-			    }
+		// Refresh
+		diagramSelectionTableViewer.setInput(globalDiag);
 
-			}
+	    }
 
-			// Refresh
-			diagramSelectionTableViewer.setInput(globalDiag);
-
-		    }
-
-		});
+	});
 	Group group = createGroup(mainGroup, "Select a diagram");
-	
-	
+
 	group.setSize(-1, HEIGHT_DIAGRAM_SELECTION);
 	GridData selectionData = new GridData(SWT.FILL, SWT.FILL, true, true);
-	
+
 	final Table diagramSelectionTable = new Table(group, SWT.NO_BACKGROUND | SWT.FULL_SELECTION);
 	diagramSelectionTable.getHorizontalBar().setEnabled(false);
 	diagramSelectionTable.setFont(group.getFont());
@@ -221,14 +180,14 @@ public class DgtsGlobalPage extends WizardPage {
 		if (e.item.getData() instanceof DiagramDefinition) {
 		    DiagramDefinition diag = (DiagramDefinition) e.item.getData();
 		    setCurrentDiagram(diag);
-		    
+
 		    editBloc.setCurrentSelectedDrawer(null);
 		    editBloc.setCurrentSelectedTool(null);
 		    editBloc.refreshBloc();
 		    mainTreeBloc.setCurrentTarget(null);
 		    mainTreeBloc.refreshBloc(getCurrentDiagram());
 		    chooseIElementTypesBloc.RefreshBloc(getCurrentDiagram());
-		   
+
 		}
 
 	    }
@@ -247,8 +206,6 @@ public class DgtsGlobalPage extends WizardPage {
 	Transfer[] types = new Transfer[] { new MyObjectTransfer(new String[] { DIAGRAM_TYPE }) };
 	addDragSupport(types, diagramSelectionTableViewer);
 	addDropSupportForDiagram(types);
-
-	
 
     }
 
@@ -300,10 +257,6 @@ public class DgtsGlobalPage extends WizardPage {
 	return group;
     }
 
-
-
-
-
     protected void addDragSupport(Transfer[] types, TableViewer tableViewer) {
 	tableViewer.addDragSupport(DND.DROP_MOVE, types, new DragSourceAdapter() {
 	    @Override
@@ -317,8 +270,4 @@ public class DgtsGlobalPage extends WizardPage {
 	});
     }
 
-
-
-
-    
 }
