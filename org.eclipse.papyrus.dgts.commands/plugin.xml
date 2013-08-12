@@ -10,6 +10,14 @@
                commandId="org.eclipse.papyrus.dgts.commands.linkModel"
                label="Define Model Configuration"
                style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <iterate>
+                  <adapt
+                        type="org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart">
+                  </adapt>
+               </iterate>
+            </visibleWhen>
          </command>
       </menuContribution>
    </extension>

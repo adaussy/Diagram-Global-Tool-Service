@@ -17,5 +17,16 @@
             uri="fragment/fragment.e4xmi">
       </fragment>
    </extension>
+   <extension
+         point="org.eclipse.core.expressions.definitions">
+      <definition
+            id="org.eclipse.papyrus.dgts.menus.definition1">
+         <iterate>
+            <adapt
+                  type="org.eclipse.emf.facet.infra.browser.uicore.internal.model.ModelElementItem">
+            </adapt>
+         </iterate>
+      </definition>
+   </extension>
 
 </plugin>
