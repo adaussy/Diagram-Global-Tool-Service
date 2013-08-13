@@ -23,31 +23,24 @@ import org.eclipse.gmf.runtime.diagram.ui.services.editpolicy.IEditPolicyProvide
 
 /**
  * @author gdesq
- *
- * EditPolicy Provider to add editPolicies to display PopupBar in the diagram.
+ * 
+ *         EditPolicy Provider to add editPolicies to display PopupBar in the diagram.
  */
-public class CustomEditPolicyProvider extends AbstractProvider implements
-		IEditPolicyProvider {
+public class CustomEditPolicyProvider extends AbstractProvider implements IEditPolicyProvider {
 
-	
 
-	
 	public void createEditPolicies(EditPart editPart) {
-		if (editPart instanceof GraphicalEditPart) {
-			editPart.installEditPolicy(EditPolicyRoles.POPUPBAR_ROLE,
-					new DgtsCustomPopupBarEditPolicy());
+		if(editPart instanceof GraphicalEditPart) {
+			editPart.installEditPolicy(EditPolicyRoles.POPUPBAR_ROLE, new DgtsCustomPopupBarEditPolicy());
 		}
 
 	}
-	
-	
-	
 
 
 	public boolean provides(IOperation operation) {
-		if (operation instanceof CreateEditPoliciesOperation) {
-			CreateEditPoliciesOperation cepOper = (CreateEditPoliciesOperation) operation;
-			if (cepOper.getEditPart() instanceof GraphicalEditPart)
+		if(operation instanceof CreateEditPoliciesOperation) {
+			CreateEditPoliciesOperation cepOper = (CreateEditPoliciesOperation)operation;
+			if(cepOper.getEditPart() instanceof GraphicalEditPart)
 				return true;
 		}
 		return false;
