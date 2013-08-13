@@ -22,50 +22,38 @@ import org.eclipse.gmf.runtime.diagram.ui.services.editpolicy.IEditPolicyProvide
 import org.eclipse.papyrus.dgts.connectionhandle.editpolicies.DgtsConnectionHandleEditPolicy;
 import org.eclipse.papyrus.dgts.connectionhandle.editpolicies.DgtsGraphicalNodeEditPolicy;
 
-public class CustomEditPolicyProvider extends AbstractProvider implements
-		IEditPolicyProvider {
 
-	
 
-	
+/**
+ * @author gdesq
+ * EditPolicy Provider, provide edit policies to activate connections handles.
+ */
+public class CustomEditPolicyProvider extends AbstractProvider implements IEditPolicyProvider {
+
+
+
+
 	public void createEditPolicies(EditPart editPart) {
-	    	//editPart.removeEditPolicy(EditPolicyRoles.CONNECTION_HANDLES_ROLE);
-	    	//editPart.removeEditPolicy(org.eclipse.gef.EditPolicy.GRAPHICAL_NODE_ROLE);
-	    	
-	    	//handle connections system
-		if (editPart instanceof ShapeNodeEditPart) {
-			editPart.installEditPolicy(EditPolicyRoles.CONNECTION_HANDLES_ROLE,
-					new DgtsConnectionHandleEditPolicy());
-			
+
+		//handle connections system
+		if(editPart instanceof ShapeNodeEditPart) {
+			editPart.installEditPolicy(EditPolicyRoles.CONNECTION_HANDLES_ROLE, new DgtsConnectionHandleEditPolicy());
+
 		}
-		//creation of link and element with the handle system
-		
-		/*if (editPart instanceof DiagramEditPart || editPart instanceof ShapeCompartmentEditPart) {
-			editPart.installEditPolicy("DgtsGraphicalContainer",
-					new DgtsContainerNodeEditPolicy());
-		}*/
-		
+
 		//Creation of link between 2 shapeEditpart
-		
-		if (editPart instanceof ShapeEditPart ){
-		    editPart.installEditPolicy("DgtsGraphicalNode",
-				new DgtsGraphicalNodeEditPolicy());
-		    
+
+		if(editPart instanceof ShapeEditPart) {
+			editPart.installEditPolicy("DgtsGraphicalNode", new DgtsGraphicalNodeEditPolicy());
+
 		}
-		
-		
-		
+
 	}
 
 	public boolean provides(IOperation operation) {
-		if (operation instanceof CreateEditPoliciesOperation) {
-			/*CreateEditPoliciesOperation cepOper = (CreateEditPoliciesOperation) operation;
-			if (cepOper.getEditPart() instanceof  ShapeNodeEditPart ||
-				cepOper.getEditPart() instanceof ShapeEditPart||
-				cepOper.getEditPart() instanceof DiagramEditPart||
-				cepOper.getEditPart() instanceof CompartmentEditPart
-				)*/
-				return true;
+		if(operation instanceof CreateEditPoliciesOperation) {
+
+			return true;
 		}
 		return false;
 	}

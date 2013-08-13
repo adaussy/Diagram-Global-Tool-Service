@@ -25,17 +25,22 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.l10n.SharedImages;
 import org.eclipse.swt.graphics.Image;
 
+
+/**
+ * @author gdesq
+ *         Define the layout of the connections handles
+ */
 public class CustomConnectionHandle extends AbstractHandle {
 
-
-    /**
+	/**
 	 * An enumeration of connection directions.
 	 * OUTGOING = source to target
 	 * INCOMING = target to source
 	 */
 	public static final class HandleDirection {
+
 		private HandleDirection() {
-		    // empty
+			// empty
 		}
 
 		/** source to target */
@@ -46,13 +51,10 @@ public class CustomConnectionHandle extends AbstractHandle {
 	}
 
 	/** the error icon that can be superimposed on the connection handle image */
-	private static final ImageFigure ERROR_IMAGE = new ImageFigure(SharedImages
-		.get(SharedImages.IMG_ERROR));
+	private static final ImageFigure ERROR_IMAGE = new ImageFigure(SharedImages.get(SharedImages.IMG_ERROR));
 
 	static {
-		ERROR_IMAGE.setSize(SharedImages.get(SharedImages.IMG_ERROR)
-			.getBounds().width, SharedImages.get(SharedImages.IMG_ERROR)
-			.getBounds().height);
+		ERROR_IMAGE.setSize(SharedImages.get(SharedImages.IMG_ERROR).getBounds().width, SharedImages.get(SharedImages.IMG_ERROR).getBounds().height);
 	}
 
 	/** direction that the relationship is to be created */
@@ -60,14 +62,15 @@ public class CustomConnectionHandle extends AbstractHandle {
 
 	/**
 	 * Creates a new <code>ConnectionHandle</code>.
-	 * @param ownerEditPart the editpart for which the handle belongs
-	 * @param relationshipDirection direction that the relationship is to be created
-	 * @param tooltip the tooltip
+	 * 
+	 * @param ownerEditPart
+	 *        the editpart for which the handle belongs
+	 * @param relationshipDirection
+	 *        direction that the relationship is to be created
+	 * @param tooltip
+	 *        the tooltip
 	 */
-	public CustomConnectionHandle(
-		IGraphicalEditPart ownerEditPart,
-		HandleDirection relationshipDirection,
-		String tooltip) {
+	public CustomConnectionHandle(IGraphicalEditPart ownerEditPart, HandleDirection relationshipDirection, String tooltip) {
 
 		setOwner(ownerEditPart);
 		setRelationshipDirection(relationshipDirection);
@@ -76,14 +79,14 @@ public class CustomConnectionHandle extends AbstractHandle {
 		// A stack layout is used so that the error icon can be overlayed on top.
 		setLayoutManager(new StackLayout());
 	}
-	
+
 
 	/**
 	 * @see org.eclipse.draw2d.IFigure#findFigureAt(int, int, org.eclipse.draw2d.TreeSearch)
 	 */
 	public IFigure findFigureAt(int x, int y, TreeSearch search) {
 		// return the ConnectionHandle and not the children figures
-		if (containsPoint(x, y)) {
+		if(containsPoint(x, y)) {
 			return this;
 		}
 		return super.findFigureAt(x, y, search);
@@ -91,6 +94,7 @@ public class CustomConnectionHandle extends AbstractHandle {
 
 	/**
 	 * Make public.
+	 * 
 	 * @see org.eclipse.gef.handles.AbstractHandle#setLocator(org.eclipse.draw2d.Locator)
 	 */
 	public void setLocator(Locator locator) {
@@ -99,6 +103,7 @@ public class CustomConnectionHandle extends AbstractHandle {
 
 	/**
 	 * Make public.
+	 * 
 	 * @see org.eclipse.gef.handles.AbstractHandle#getOwner()
 	 */
 	public GraphicalEditPart getOwner() {
@@ -107,7 +112,9 @@ public class CustomConnectionHandle extends AbstractHandle {
 
 	/**
 	 * Sets the direction that the relationship is to be created.
-	 * @param direction the <code>HandleDirection</code> that the relationship is to be created
+	 * 
+	 * @param direction
+	 *        the <code>HandleDirection</code> that the relationship is to be created
 	 */
 	protected void setRelationshipDirection(HandleDirection direction) {
 		handleDirection = direction;
@@ -115,6 +122,7 @@ public class CustomConnectionHandle extends AbstractHandle {
 
 	/**
 	 * Is this for incoming relationships?
+	 * 
 	 * @return true if this is for incoming relationships, false otherwise
 	 */
 	public boolean isIncoming() {
@@ -132,23 +140,23 @@ public class CustomConnectionHandle extends AbstractHandle {
 	 * Removes the error icon if it is being displayed.
 	 */
 	public void removeErrorIcon() {
-		if (getChildren().contains(ERROR_IMAGE)) {
+		if(getChildren().contains(ERROR_IMAGE)) {
 			remove(ERROR_IMAGE);
 		}
 	}
 
 	/**
 	 * Updates the images used for the handles, based on the side they will
-	 * appear on.  Sets the location of the handles using the locator.
+	 * appear on. Sets the location of the handles using the locator.
+	 * 
 	 * @see org.eclipse.draw2d.IFigure#validate()
 	 */
 	public void validate() {
-		if (isValid())
+		if(isValid())
 			return;
 
 		removeAll();
-		int side = ((DgtsConnectionHandleLocator) getLocator())
-			.getBorderSide();
+		int side = ((DgtsConnectionHandleLocator)getLocator()).getBorderSide();
 		Image image = getImage(side);
 
 		ImageFigure imageFigure = new ImageFigure(image);
@@ -160,31 +168,26 @@ public class CustomConnectionHandle extends AbstractHandle {
 		super.validate();
 	}
 
-    
-    
-    
-    
-    
-    protected DragTracker createDragTracker() {
-	return new CustomConnectionHandleTool(this);
-    }
 
-    
-   
-    protected Image getImage(int side) {
-        if (side == PositionConstants.WEST) {
-            return isIncoming() ? new Image(null, getClass().getResourceAsStream("../icons/IMG_HANDLE_INCOMING_WEST.png"))
-                : new Image(null, getClass().getResourceAsStream("../icons/IMG_HANDLE_OUTGOING_WEST.png"));
-        } else if (side == PositionConstants.EAST) {
-            return isIncoming() ? new Image(null, getClass().getResourceAsStream("../icons/IMG_HANDLE_INCOMING_EST.png"))
-            : new Image(null, getClass().getResourceAsStream("../icons/IMG_HANDLE_OUTGOING_EST.png"));
-        } else if (side == PositionConstants.SOUTH) {
-            return isIncoming() ? new Image(null, getClass().getResourceAsStream("../icons/IMG_HANDLE_INCOMING_SOUTH.png"))
-            : new Image(null, getClass().getResourceAsStream("../icons/IMG_HANDLE_OUTGOING_SOUTH.png"));
-        } else {
-            return isIncoming() ? new Image(null, getClass().getResourceAsStream("../icons/IMG_HANDLE_INCOMING_NORTH.png"))
-            : new Image(null, getClass().getResourceAsStream("../icons/IMG_HANDLE_OUTGOING_NORTH.png"));
-        }
-    }
-    
+
+
+
+	protected DragTracker createDragTracker() {
+		return new CustomConnectionHandleTool(this);
+	}
+
+
+
+	protected Image getImage(int side) {
+		if(side == PositionConstants.WEST) {
+			return isIncoming() ? new Image(null, getClass().getResourceAsStream("../icons/IMG_HANDLE_INCOMING_WEST.png")) : new Image(null, getClass().getResourceAsStream("../icons/IMG_HANDLE_OUTGOING_WEST.png"));
+		} else if(side == PositionConstants.EAST) {
+			return isIncoming() ? new Image(null, getClass().getResourceAsStream("../icons/IMG_HANDLE_INCOMING_EST.png")) : new Image(null, getClass().getResourceAsStream("../icons/IMG_HANDLE_OUTGOING_EST.png"));
+		} else if(side == PositionConstants.SOUTH) {
+			return isIncoming() ? new Image(null, getClass().getResourceAsStream("../icons/IMG_HANDLE_INCOMING_SOUTH.png")) : new Image(null, getClass().getResourceAsStream("../icons/IMG_HANDLE_OUTGOING_SOUTH.png"));
+		} else {
+			return isIncoming() ? new Image(null, getClass().getResourceAsStream("../icons/IMG_HANDLE_INCOMING_NORTH.png")) : new Image(null, getClass().getResourceAsStream("../icons/IMG_HANDLE_OUTGOING_NORTH.png"));
+		}
+	}
+
 }
