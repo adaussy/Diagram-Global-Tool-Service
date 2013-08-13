@@ -17,15 +17,13 @@ import org.eclipse.gef.Tool;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.papyrus.uml.diagram.common.service.AspectUnspecifiedTypeConnectionTool;
 
+
+/** Define a edge element to add in the palette
+ * @author vlartiga
+ *
+ */
 public class ToolDefinitionEdgePaletteEntry extends
 		AbstractToolDefinitionPaletteEntry {
-
-//	public ToolDefinitionEdgePaletteEntry(ToolEntry entry, DiagramGlobalToolService.ToolMetaModel toolMetaTool) {
-//		super(entry,toolMetaTool);
-//		AspectUnspecifiedTypeConnectionTool tool = (AspectUnspecifiedTypeConnectionTool) entry.createTool();
-//		addTypes(tool.getElementTypes());
-//	}
-
 
 	public ToolDefinitionEdgePaletteEntry(DiagramGlobalToolService.Tool elementTool,
 			List<IElementType> elementTypeList) {

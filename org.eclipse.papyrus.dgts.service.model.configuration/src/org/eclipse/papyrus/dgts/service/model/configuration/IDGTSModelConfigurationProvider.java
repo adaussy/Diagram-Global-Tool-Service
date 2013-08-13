@@ -18,6 +18,10 @@ import org.eclipse.gmf.runtime.common.core.service.IProvider;
 
 import DiagramGlobalToolService.DrawerDefinition;
 
+/** Interface which will be implemented by all the DGTS model configuration provider
+ * @author vlartiga
+ *
+ */
 public interface IDGTSModelConfigurationProvider extends IProvider{
 	
 	public List<DrawerDefinition>  provideModelConfiguration(Collection<EObject> content) ;

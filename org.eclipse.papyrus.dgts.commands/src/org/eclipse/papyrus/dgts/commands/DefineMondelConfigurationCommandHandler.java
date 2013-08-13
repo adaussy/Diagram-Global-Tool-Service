@@ -22,6 +22,12 @@ import org.eclipse.papyrus.dgts.wizard.selection.DgtsSelectionWizard;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 
+
+/** Handler witch load wiard for select current model configuration. The execute function is called when the user click on 
+ * "Define model configuration" on a diagram
+ * @author vlartiga
+ *
+ */
 public class DefineMondelConfigurationCommandHandler extends AbstractHandler {
     DgtsSelectionWizard wizard;
 

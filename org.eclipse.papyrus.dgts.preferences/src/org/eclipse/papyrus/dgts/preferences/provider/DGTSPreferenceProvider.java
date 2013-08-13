@@ -17,8 +17,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.swing.text.View;
-
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -26,10 +24,8 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.gmf.runtime.common.core.service.IOperation;
 import org.eclipse.gmf.runtime.common.core.service.IProviderChangeListener;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.papyrus.dgts.preferences.DGTSWorkbenchPreference;
-import org.eclipse.papyrus.dgts.service.DgtsResourceLoader;
 import org.eclipse.papyrus.dgts.service.ToolsProvider;
 import org.eclipse.papyrus.dgts.service.model.configuration.DGTSModelConfigurationOperation;
 import org.eclipse.papyrus.dgts.service.model.configuration.IDGTSModelConfigurationProvider;
@@ -38,6 +34,11 @@ import DiagramGlobalToolService.DiagramDefinition;
 import DiagramGlobalToolService.DiagramGlobalToolDefinition;
 import DiagramGlobalToolService.DrawerDefinition;
 
+/** Provide list of Diagram Definition from the model explorer define in DGTS Preferences.
+ * It is provide the extension point org.eclipse.papyrus.dgts.preferences.DGTSPreferences
+ * @author vlartiga
+ *
+ */
 public class DGTSPreferenceProvider implements IDGTSModelConfigurationProvider {
 	protected ToolsProvider toolProvider = new ToolsProvider();
 

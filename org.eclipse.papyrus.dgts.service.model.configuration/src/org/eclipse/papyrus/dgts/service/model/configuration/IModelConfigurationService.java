@@ -10,10 +10,12 @@
  ******************************************************************************/
 package org.eclipse.papyrus.dgts.service.model.configuration;
 
-import java.util.List;
-
 import org.eclipse.gmf.runtime.common.core.service.IOperation;
 
+/** Interface implemented by the DGTS Model configuration service
+ * @author vlartiga
+ *
+ */
 public interface IModelConfigurationService {
 	
 	public Object getModelConfiguration(IOperation operation) ;

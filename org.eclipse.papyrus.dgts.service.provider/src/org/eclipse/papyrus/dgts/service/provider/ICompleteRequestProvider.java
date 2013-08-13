@@ -16,6 +16,10 @@ import org.eclipse.gmf.runtime.common.core.service.IProvider;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.type.core.requests.IEditCommandRequest;
 
+/** Interface which will be implemented by all the complete request providers
+ * @author vlartiga
+ *
+ */
 public interface ICompleteRequestProvider extends IProvider {
 
 

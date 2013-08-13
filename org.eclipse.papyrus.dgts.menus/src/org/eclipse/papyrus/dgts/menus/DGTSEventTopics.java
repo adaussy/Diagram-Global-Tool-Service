@@ -11,6 +11,11 @@
 
 package org.eclipse.papyrus.dgts.menus;
 
+
+/** Kind of final String used in the menu creation
+ * @author vlartiga
+ *
+ */
 public class DGTSEventTopics {
 
 	public static final String CONF_LOADED = "CONF_LOADED";

@@ -65,6 +65,11 @@ import org.eclipse.ui.PlatformUI;
 import DiagramGlobalToolService.DrawerDefinition;
 import DiagramGlobalToolService.Tool;
 
+
+/** Class used to create dynamic menu in the model explorer
+ * @author vlartiga
+ *
+ */
 public class DynamicMenuConstribution {
 
 	private MMenuContribution menuContribution;

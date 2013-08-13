@@ -42,14 +42,23 @@ import org.eclipse.papyrus.uml.service.types.filter.UmlElementCommandFilter;
 import org.eclipse.papyrus.uml.service.types.handlers.AbstractCreateCommandHandler;
 import org.eclipse.papyrus.uml.service.types.utils.ICommandContext;
 
-import DiagramGlobalToolService.Tool;
 
+/** Handler called when the user select an element to create in the model explorer
+ * @author vlartiga
+ *
+ */
+@SuppressWarnings("restriction")
 public class CreateElementHandler extends AbstractCreateCommandHandler {
 
 	private IElementType elemenType;
 	protected ToolsProvider toolProvider = new ToolsProvider();
-	private Tool tool;
 
+	/**
+	 * @param ElementTypeID
+	 * @param selection
+	 * @return
+	 * @throws ExecutionException
+	 */
 	@Execute
 	public Object execute(
 			@Named("org.eclipse.papyrus.dgts.menus.command.commandParameter") String ElementTypeID,
@@ -60,6 +69,10 @@ public class CreateElementHandler extends AbstractCreateCommandHandler {
 
 	}
 
+	/* (non-Javadoc)
+	 * @see org.eclipse.papyrus.uml.service.types.handlers.AbstractCreateCommandHandler#buildCommand()
+	 */
+	
 	protected Command buildCommand() {
 
 		if (getCommandContext() == null) {
@@ -95,7 +108,13 @@ public class CreateElementHandler extends AbstractCreateCommandHandler {
 
 	}
 
+	/**
+	 * @param selection
+	 * @param part
+	 * @return
+	 */
 	@CanExecute
+	
 	public boolean canExecute(
 			@Optional @Named(IServiceConstants.ACTIVE_SELECTION) ISelection selection,
 			@Named(IServiceConstants.ACTIVE_PART) MPart part) {
@@ -110,6 +129,7 @@ public class CreateElementHandler extends AbstractCreateCommandHandler {
 		return false;
 	}
 
+	
 	public boolean canExecute(IElementType elementType) {
 			this.elemenType = elementType ;
 			if(buildCommand().canExecute()){
@@ -118,18 +138,30 @@ public class CreateElementHandler extends AbstractCreateCommandHandler {
 			return false ;
 	}
 
+	/* (non-Javadoc)
+	 * @see org.eclipse.papyrus.uml.service.types.handlers.AbstractCreateCommandHandler#getElementTypeToCreate()
+	 */
 	@Override
+	
 	protected IElementType getElementTypeToCreate() {
 		return elemenType;
 
 	}
 
+	/* (non-Javadoc)
+	 * @see org.eclipse.papyrus.uml.service.types.handlers.AbstractCreateCommandHandler#getCommandFilter()
+	 */
 	@Override
+	
 	public ICommandFilter getCommandFilter() {
 		return UmlElementCommandFilter.INSTANCE;
 	}
 
+	/* (non-Javadoc)
+	 * @see org.eclipse.papyrus.uml.service.types.handlers.AbstractCommandHandler#getCommandContext()
+	 */
 	@Override
+	
 	protected ICommandContext getCommandContext() {
 		return ModelExplorerUtils.getSelectionCommandContext();
 	}

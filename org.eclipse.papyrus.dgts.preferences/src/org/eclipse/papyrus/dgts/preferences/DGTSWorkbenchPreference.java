@@ -22,18 +22,22 @@ import java.util.Set;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.Platform;
-import org.eclipse.jface.preference.BooleanFieldEditor;
 import org.eclipse.jface.preference.ComboFieldEditor;
 import org.eclipse.jface.preference.FieldEditorPreferencePage;
-import org.eclipse.jface.util.IPropertyChangeListener;
-import org.eclipse.jface.util.PropertyChangeEvent;
 import org.eclipse.papyrus.dgts.service.ServiceStaticEventNotifier;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
 import org.osgi.framework.Bundle;
 
+/**
+ * Define the DGTS Preference page
+ * 
+ * @author vlartiga
+ * 
+ */
 public class DGTSWorkbenchPreference extends FieldEditorPreferencePage
 		implements IWorkbenchPreferencePage {
+	@SuppressWarnings("rawtypes")
 	protected Map mapResource = new HashMap();
 
 	@Override
@@ -54,14 +58,10 @@ public class DGTSWorkbenchPreference extends FieldEditorPreferencePage
 	protected void addPreferences() {
 		Set<?> cles = mapResource.keySet();
 		Object cle;
-		Object value;
 		PreferenceObject preferenceObject;
 		Iterator<?> it = cles.iterator();
 		String[][] theme = new String[mapResource.size() + 1][2];
 		int i = 0;
-		String property;
-		Object oldValue;
-		Object newValue;
 		while (it.hasNext()) {
 			cle = it.next();
 			preferenceObject = (PreferenceObject) mapResource.get(cle);
@@ -77,11 +77,13 @@ public class DGTSWorkbenchPreference extends FieldEditorPreferencePage
 		addField(editor);
 	}
 
+	@SuppressWarnings("deprecation")
 	public static String getDGTSPreference() {
 		return Activator.getDefault().getPluginPreferences()
 				.getString("SelectDGTSTheme");
 	}
 
+	@SuppressWarnings("unchecked")
 	public void laodDGTSPreferences() {
 		IConfigurationElement[] conf = Platform.getExtensionRegistry()
 				.getConfigurationElementsFor(
@@ -103,7 +105,6 @@ public class DGTSWorkbenchPreference extends FieldEditorPreferencePage
 				try {
 					file = new File(FileLocator.resolve(url).toURI());
 				} catch (URISyntaxException | IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				mapResource.put(ID, new PreferenceObject(
@@ -122,7 +123,6 @@ public class DGTSWorkbenchPreference extends FieldEditorPreferencePage
 	}
 
 	protected void loadDGTSPreferenceResource(String r) {
-		// TODO Auto-generated method stub
 
 	}
 
@@ -150,16 +150,6 @@ public class DGTSWorkbenchPreference extends FieldEditorPreferencePage
 
 		public void setDescription(String description) {
 			this.description = description;
-		}
-
-	}
-
-	protected static class Test extends PropertyChangeEvent {
-
-		public Test(Object source, String property, Object oldValue,
-				Object newValue) {
-			super(source, property, oldValue, newValue);
-			// TODO Auto-generated constructor stub
 		}
 
 	}

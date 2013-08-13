@@ -29,6 +29,11 @@ import DiagramGlobalToolService.DiagramDefinition;
 import DiagramGlobalToolService.DiagramGlobalToolDefinition;
 import DiagramGlobalToolService.DrawerDefinition;
 
+
+/** Provide a list of drawer definition from a model configuration which his url is present in diagram view EAnnotation
+ * @author vlartiga
+ *
+ */
 public class DGTSModelConfigurationWizardProvider implements
 		IDGTSModelConfigurationProvider {
 	protected ToolsProvider toolProvider = new ToolsProvider();
@@ -46,7 +51,6 @@ public class DGTSModelConfigurationWizardProvider implements
 	@Override
 	public boolean provides(IOperation operation) {
 		if(operation instanceof DGTSModelConfigurationOperation){
-			DGTSModelConfigurationOperation op = (DGTSModelConfigurationOperation) operation ;
 			return true ;
 		}
 		return false;

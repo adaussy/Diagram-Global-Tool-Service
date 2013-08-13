@@ -18,6 +18,10 @@ import org.eclipse.gmf.runtime.common.core.service.Service;
 
 import DiagramGlobalToolService.DrawerDefinition;
 
+/** Service which execute operation to get list of drawer definition
+ * @author vlartiga
+ *
+ */
 public class DGTSModelConfigurationService extends Service implements
 		IModelConfigurationService {
 
@@ -41,6 +45,7 @@ public class DGTSModelConfigurationService extends Service implements
 		return SingleHolder.getFillRequestService();
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public List<DrawerDefinition> getModelConfiguration(IOperation operation) {
 		if (operation instanceof DGTSModelConfigurationOperation) {

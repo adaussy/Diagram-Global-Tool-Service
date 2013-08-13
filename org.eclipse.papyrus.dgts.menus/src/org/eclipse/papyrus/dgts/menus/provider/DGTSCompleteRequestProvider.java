@@ -24,6 +24,11 @@ import org.eclipse.papyrus.sysml.diagram.common.commands.CreateReferenceWithType
 import org.eclipse.papyrus.sysml.service.types.element.SysMLElementTypes;
 
 
+/** Provider of the extension point org.eclipse.papyrus.dgts.service.provider.fillrequestprovider.
+ * Complete the request of element creation in model explorer. Add a command factory if the created element need it.
+ * @author vlartiga
+ *
+ */
 public class DGTSCompleteRequestProvider implements ICompleteRequestProvider {
 	
 	@Override

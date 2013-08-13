@@ -16,6 +16,10 @@ import org.eclipse.gmf.runtime.common.core.service.IProvider;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.type.core.requests.IEditCommandRequest;
 
+/** Operation to fill a menu explorer element creation request.
+ * @author vlartiga
+ *
+ */
 public class FillRequestOperation implements IOperation {
 	protected IEditCommandRequest request ;
 	private IElementType element = null;

@@ -14,6 +14,10 @@ package org.eclipse.papyrus.dgts.menus.handlers;
 import org.eclipse.gmf.runtime.emf.type.core.AbstractElementTypeEnumerator;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 
+/** Provide and element type in function of the element id
+ * @author vlartiga
+ *
+ */
 public class DGTSElementTypeCreator extends AbstractElementTypeEnumerator{
 	public static IElementType getIElementType(String ID){
 		return getElementType(ID) ;

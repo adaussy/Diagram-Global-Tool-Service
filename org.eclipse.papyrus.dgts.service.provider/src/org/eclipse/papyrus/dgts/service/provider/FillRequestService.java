@@ -15,12 +15,14 @@ package org.eclipse.papyrus.dgts.service.provider;
 import java.util.Collections;
 import java.util.List;
 
-import org.eclipse.core.runtime.IExtensionPoint;
-import org.eclipse.core.runtime.Platform;
 import org.eclipse.gmf.runtime.common.core.service.ExecutionStrategy;
 import org.eclipse.gmf.runtime.common.core.service.IOperation;
 import org.eclipse.gmf.runtime.common.core.service.Service;
 
+/** Service with execute the fill request operation
+ * @author vlartiga
+ *
+ */
 public class FillRequestService extends Service {
 
 	public FillRequestService() {
@@ -28,6 +30,7 @@ public class FillRequestService extends Service {
 		this.configureProviders(Activator.PLUGIN_ID, "fillrequestprovider");
 	}
 
+	@SuppressWarnings("rawtypes")
 	public final List execute(IOperation operation) {
 		if (operation instanceof FillRequestOperation) {
 			List list = super.execute(ExecutionStrategy.REVERSE, operation);

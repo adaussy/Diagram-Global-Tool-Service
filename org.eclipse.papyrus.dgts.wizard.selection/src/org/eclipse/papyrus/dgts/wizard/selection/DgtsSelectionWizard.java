@@ -19,6 +19,11 @@ import org.eclipse.papyrus.commands.wrappers.GMFtoEMFCommandWrapper;
 import org.eclipse.papyrus.dgts.service.ServiceStaticEventNotifier;
 import org.eclipse.papyrus.dgts.wizard.selection.command.DGTSWizardTransactionalAddEAnnotationCommand;
 
+
+/** Wizard to select model configuration to add to a diagram.
+ * @author vlartiga
+ *
+ */
 public class DgtsSelectionWizard extends Wizard {
 
 	DgtsCustomPage mainPage;

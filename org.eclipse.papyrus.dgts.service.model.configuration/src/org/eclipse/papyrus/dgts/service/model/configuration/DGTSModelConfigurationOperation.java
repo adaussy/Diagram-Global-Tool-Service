@@ -19,10 +19,16 @@ import org.eclipse.gmf.runtime.common.core.service.IProvider;
 
 import DiagramGlobalToolService.DrawerDefinition;
 
+
+/** Operation to get model configuration from the context
+ * @author vlartiga
+ *
+ */
 public class DGTSModelConfigurationOperation implements IOperation{
 	
 	private Collection<EObject> context;
 
+	@SuppressWarnings("unchecked")
 	public DGTSModelConfigurationOperation(Collection<? extends EObject> content){
 		this.context =  (Collection<EObject>) content ;
 		

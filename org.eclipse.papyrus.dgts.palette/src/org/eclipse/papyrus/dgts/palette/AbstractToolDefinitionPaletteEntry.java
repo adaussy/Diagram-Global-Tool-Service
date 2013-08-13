@@ -20,6 +20,10 @@ import org.eclipse.jface.resource.ImageDescriptor;
 
 import DiagramGlobalToolService.Tool;
 
+/** Abstract class providing element to add in palette
+ * @author vlartiga
+ *
+ */
 public abstract class AbstractToolDefinitionPaletteEntry extends ToolEntry {
 	protected List<IElementType> types = new ArrayList<IElementType>();
 

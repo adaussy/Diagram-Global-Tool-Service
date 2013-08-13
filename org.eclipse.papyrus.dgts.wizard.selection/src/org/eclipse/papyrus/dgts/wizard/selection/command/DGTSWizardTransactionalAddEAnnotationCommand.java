@@ -27,6 +27,10 @@ import org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCo
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.papyrus.dgts.wizard.selection.DgtsCustomPage;
 
+/** Command to add EAnnotation with the model configuration url to a diagram view.
+ * @author vlartiga
+ *
+ */
 public class DGTSWizardTransactionalAddEAnnotationCommand extends
 		AbstractTransactionalCommand {
 
@@ -34,9 +38,8 @@ public class DGTSWizardTransactionalAddEAnnotationCommand extends
 	private DgtsCustomPage mainPage;
 
 	public DGTSWizardTransactionalAddEAnnotationCommand(TransactionalEditingDomain domain,
-			String label, List affectedFiles) {
+			String label, @SuppressWarnings("rawtypes") List affectedFiles) {
 		super(domain, label, affectedFiles);
-		// TODO Auto-generated constructor stub
 	}
 
 	public DGTSWizardTransactionalAddEAnnotationCommand(Diagram diagramView, String description,DgtsCustomPage mainPage){

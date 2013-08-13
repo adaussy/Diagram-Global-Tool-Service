@@ -47,6 +47,10 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.ui.PlatformUI;
 import org.osgi.framework.Bundle;
 
+/** Page present in the DGTS Selection wizard which allow the user to select a custom DGTS model configuration
+ * @author vlartiga
+ *
+ */
 public class DgtsCustomPage extends WizardPage{
 
 	private Composite container;
@@ -200,13 +204,9 @@ public class DgtsCustomPage extends WizardPage{
 							"org.eclipse.papyrus.dgts.preferences.DGTSPreferences");
 			String resource = null;
 			String ID = null;
-			String description = null;
-
 			for (IConfigurationElement c : conf) {
-
 				resource = c.getAttribute("resource");
 				ID = c.getAttribute("ID");
-				description = c.getAttribute("description");
 				if (resource != null && ID != null) {
 					Bundle bundle = Platform
 							.getBundle(c.getContributor().getName());
@@ -242,28 +242,8 @@ public class DgtsCustomPage extends WizardPage{
 	        }
 
 
-	private void getAllFile(List<IFile> listFile, IResource[] iResources) throws CoreException {
-		for(IResource resource : iResources){
-			  if(resource instanceof IFile){
-				 IFile file = (IFile) resource ;
-				 if(file.getFileExtension().equals(IDGTSExtensionDefinition.EXTENTION)){
-					 listFile.add(file);
-				 }
-			  }
-			  else if(resource instanceof IFolder){
-				  IFolder folder = (IFolder) resource ;
-				  getAllFile(listFile,folder.members());
-			  }
-		  }	}
-
-	public Object getGlobalDiag() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
 	public List<String> getAllModelConfigurationPath(){
 		return listPath ;
-		
 		
 	}
 
