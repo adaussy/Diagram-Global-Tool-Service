@@ -9,51 +9,50 @@
  * Vincent Lartigaut (Atos) vincent.lartigaut@atos.net - Vincent Lartigaut - initial API and implementation
  * Guilhem Desq (Atos) guilhem.desq@atos.net -  Guilhem Desq - initial API and implementation
  ******************************************************************************/
-package org.eclipse.papyrus.dgts.wizards.utility;
+package org.eclipse.papyrus.dgts.wizard.editor.providers;
 
-import java.util.Collections;
 import java.util.List;
 
-import javax.tools.ToolProvider;
-
-import org.eclipse.gmf.runtime.emf.type.core.IElementType;
-import org.eclipse.jface.viewers.IStructuredContentProvider;
+import org.eclipse.emf.common.util.ECollections;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.papyrus.dgts.service.DgtsElementTypeRegistry;
-import org.eclipse.papyrus.dgts.service.ToolsProvider;
-import org.eclipse.papyrus.dgts.wizards.pages.DgtsGlobalPage;
+import org.eclipse.papyrus.dgts.wizard.editor.utility.EClassDefinitionTypeComparator;
 
-import DiagramGlobalToolService.DiagramDefinition;
-import DiagramGlobalToolService.ElementType;
-import DiagramGlobalToolService.Tool;
 import ElementRegistry.EClassDefinition;
 
+
+
+
+/**
+ * Content provider for the Ielementtype bloc
+ * @author gdesq
+ *
+ */
 public class ElementTypeContentProvider implements ITreeContentProvider {
 
     @Override
     public void dispose() {
-	// TODO Auto-generated method stub
+
 
     }
 
     @Override
     public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
-	// TODO Auto-generated method stub
+
 
     }
 
     @Override
     public Object[] getElements(Object inputElement) {
 
-	    if (inputElement instanceof Tool) {
-		ToolsProvider toolsProvider = new ToolsProvider();
-		Tool tool = (Tool) inputElement;
-		DiagramDefinition diagram = DgtsGlobalPage.getCurrentDiagram();
-		List<EClassDefinition> result = DgtsElementTypeRegistry.getInstance().getAllEclassFromDiagram(diagram.getDiagramType());
-		//List<EClassDefinition> filter = toolsProvider.getIElementTypesFromTool(tool);
-		//result.removeAll(filter);
-		//Collections.sort(result, new EClassDefinitionTypeComparator());
+	    if (inputElement instanceof ElementRegistry.DiagramDefinition) {
+		ElementRegistry.DiagramDefinition diagram = (ElementRegistry.DiagramDefinition) inputElement;
+		
+		EList<EClassDefinition> result = (EList<EClassDefinition>) DgtsElementTypeRegistry.getInstance().getAllEclassFromDiagram(diagram.getDiagramType());
+		
+		ECollections.sort(result, new EClassDefinitionTypeComparator());
 		return result.toArray(new Object[result.size()]);
 	  
 	    }
@@ -65,19 +64,32 @@ public class ElementTypeContentProvider implements ITreeContentProvider {
 
     @Override
     public Object[] getChildren(Object parentElement) {
-	// TODO Auto-generated method stub
+	if (parentElement instanceof EClassDefinition){
+	    EClassDefinition eclass = (EClassDefinition) parentElement;
+	  List<ElementRegistry.ElementType> result =  eclass.getRefElementTypes();
+	  return result.toArray(new Object[result.size()]);
+	}
+	
+	
 	return null;
     }
 
     @Override
     public Object getParent(Object element) {
-	// TODO Auto-generated method stub
+	if (element instanceof ElementRegistry.ElementType){
+	    return ((ElementRegistry.ElementType) element).eContainer();
+	}
+
 	return null;
     }
 
     @Override
     public boolean hasChildren(Object element) {
-	// TODO Auto-generated method stub
+	if (element instanceof EClassDefinition){
+	EClassDefinition eclass = (EClassDefinition) element;
+	if (eclass.getRefElementTypes() != null){
+	    return true;
+	}}
 	return false;
     }
 

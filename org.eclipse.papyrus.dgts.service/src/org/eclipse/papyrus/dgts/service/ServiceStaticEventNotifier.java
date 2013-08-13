@@ -14,6 +14,12 @@ package org.eclipse.papyrus.dgts.service;
 import java.util.Observable;
 import java.util.Observer;
 
+
+
+/**
+ * @author vlartigaut
+ * 
+ */
 public class ServiceStaticEventNotifier {
 
 	protected static ToolDefintionMenuObservable listener = new ToolDefintionMenuObservable();

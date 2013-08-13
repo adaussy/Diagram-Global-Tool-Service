@@ -10,29 +10,35 @@
  * Guilhem Desq (Atos) guilhem.desq@atos.net -  Guilhem Desq - initial API and implementation
  ******************************************************************************/
 
-package org.eclipse.papyrus.dgts.wizards.pages;
+package org.eclipse.papyrus.dgts.wizard.editor.pages;
 
 import org.eclipse.papyrus.uml.diagram.wizards.Messages;
 import org.eclipse.papyrus.uml.diagram.wizards.pages.SelectDiagramCategoryPage;
 
+
+/**
+ * @author gdesq
+ *         This is the first page of the add new diagram wizard,
+ *         the user avec to choose a diagram category
+ */
 public class DgtsSelectDiagramCategoryPage extends SelectDiagramCategoryPage {
 
-    @Override
-    protected boolean validatePage() {
-	setMessage(null);
-	setErrorMessage(null);
-	String[] categories = getDiagramCategories();
-	if(categories == null || categories.length == 0) {
-		setErrorMessage(Messages.SelectDiagramCategoryPage_select_one_category);
-		return false;
-	}
-	for(String newCategory : categories) {
-		if(!validateCategoryExists(newCategory)) {
+	@Override
+	protected boolean validatePage() {
+		setMessage(null);
+		setErrorMessage(null);
+		String[] categories = getDiagramCategories();
+		if(categories == null || categories.length == 0) {
+			setErrorMessage(Messages.SelectDiagramCategoryPage_select_one_category);
 			return false;
 		}
+		for(String newCategory : categories) {
+			if(!validateCategoryExists(newCategory)) {
+				return false;
+			}
+		}
+		return true;
 	}
-	return true;
-}
 
-    
+
 }

@@ -4,11 +4,11 @@
     <elements xsi:type="commands:Command" xmi:id="_KxudUPkMEeKDCvCkFdsRVw" elementId="org.eclipse.papyrus.dgts.wizards.command.editConfigurationCommand" commandName="Edit Configuration Command"/>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_UZk8oPjxEeKzwNf2kbHDgQ" featurename="handlers" parentElementId="org.eclipse.e4.legacy.ide.application">
-    <elements xsi:type="commands:Handler" xmi:id="_WSvCYPkMEeKDCvCkFdsRVw" elementId="org.eclipse.papyrus.dgts.wizards.handler.editConfigurationHandler" contributionURI="bundleclass://org.eclipse.papyrus.dgts.wizards/org.eclipse.papyrus.dgts.wizards.handlers.EditConfigurationHandler" command="_KxudUPkMEeKDCvCkFdsRVw"/>
+    <elements xsi:type="commands:Handler" xmi:id="_WSvCYPkMEeKDCvCkFdsRVw" elementId="org.eclipse.papyrus.dgts.wizards.handler.editConfigurationHandler" contributionURI="bundleclass://org.eclipse.papyrus.dgts.wizard.editor/org.eclipse.papyrus.dgts.wizard.editor.handlers.EditConfigurationHandler" command="_KxudUPkMEeKDCvCkFdsRVw"/>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_bvevkAMrEeOyppjPwnAxQA" featurename="menuContributions" parentElementId="org.eclipse.e4.legacy.ide.application">
     <elements xsi:type="menu:MenuContribution" xmi:id="_pw-UYAMrEeOyppjPwnAxQA" elementId="org.eclipse.papyrus.dgts.wizards.menucontribution.0" positionInParent="before=group.new" parentId="popup">
-      <children xsi:type="menu:HandledMenuItem" xmi:id="_sVsT4AMrEeOyppjPwnAxQA" elementId="org.eclipse.papyrus.dgts.wizards.handledmenuitem.0" label="Open with DGTS EDITOR" iconURI="platform:/plugin/org.eclipse.papyrus.dgts.wizards/src/org/eclipse/papyrus/dgts/wizards/icons/editconfiguration.png" command="_KxudUPkMEeKDCvCkFdsRVw">
+      <children xsi:type="menu:HandledMenuItem" xmi:id="_sVsT4AMrEeOyppjPwnAxQA" elementId="org.eclipse.papyrus.dgts.wizards.handledmenuitem.0" label="Open with DGTS EDITOR" iconURI="platform:/plugin/org.eclipse.papyrus.dgts.wizard.editor/src/org/eclipse/papyrus/dgts/wizard/editor/icons/editconfiguration.png" command="_KxudUPkMEeKDCvCkFdsRVw">
         <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_HBQawAMwEeOyppjPwnAxQA" coreExpressionId="org.eclipse.papyrus.dgts.wizards.checkfiletypedefinition"/>
       </children>
     </elements>

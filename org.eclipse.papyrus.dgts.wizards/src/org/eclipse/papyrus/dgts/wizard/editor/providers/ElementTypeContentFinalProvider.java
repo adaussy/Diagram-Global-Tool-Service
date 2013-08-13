@@ -10,7 +10,7 @@
  * Guilhem Desq (Atos) guilhem.desq@atos.net -  Guilhem Desq - initial API and implementation
  ******************************************************************************/
 
-package org.eclipse.papyrus.dgts.wizards.utility;
+package org.eclipse.papyrus.dgts.wizard.editor.providers;
 
 import java.util.List;
 
@@ -21,6 +21,13 @@ import org.eclipse.papyrus.dgts.service.ToolsProvider;
 
 import DiagramGlobalToolService.Tool;
 
+
+
+/**
+ * Content provider for the Ielementtype form of the main tree bloc
+ * @author gdesq
+ *
+ */
 public class ElementTypeContentFinalProvider implements IStructuredContentProvider{
 
     @Override

@@ -10,9 +10,14 @@
  * Guilhem Desq (Atos) guilhem.desq@atos.net -  Guilhem Desq - initial API and implementation
  ******************************************************************************/
 package org.eclipse.papyrus.dgts.service;
+
 import org.eclipse.ui.IStartup;
 
 
+/**
+ * @author vlartigaut
+ * 
+ */
 public class LoadModelStartup implements IStartup {
 
 	@Override

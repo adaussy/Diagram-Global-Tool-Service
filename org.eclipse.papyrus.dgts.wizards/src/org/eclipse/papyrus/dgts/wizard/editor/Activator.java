@@ -9,7 +9,7 @@
  * Vincent Lartigaut (Atos) vincent.lartigaut@atos.net - Vincent Lartigaut - initial API and implementation
  * Guilhem Desq (Atos) guilhem.desq@atos.net -  Guilhem Desq - initial API and implementation
  ******************************************************************************/
-package org.eclipse.papyrus.dgts.wizards;
+package org.eclipse.papyrus.dgts.wizard.editor;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;

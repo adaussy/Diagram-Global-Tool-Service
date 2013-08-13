@@ -9,34 +9,45 @@
  * Vincent Lartigaut (Atos) vincent.lartigaut@atos.net - Vincent Lartigaut - initial API and implementation
  * Guilhem Desq (Atos) guilhem.desq@atos.net -  Guilhem Desq - initial API and implementation
  ******************************************************************************/
-package org.eclipse.papyrus.dgts.wizards.utility;
+package org.eclipse.papyrus.dgts.wizard.editor.utility;
 
 import org.eclipse.gef.dnd.SimpleObjectTransfer;
 
+
+
+
+/**
+ * The object transfert used by the drag and drop listener.
+ * 
+ * @author gdesq
+ * 
+ */
 public class MyObjectTransfer extends SimpleObjectTransfer {
+
 	private String[] myTypes;
+
 	final int[] myTypeIds;
 
 	public MyObjectTransfer(String[] types) {
-	    super();
-	    this.myTypes = types;
-	    int[] typeIds = new int[types.length];
-	    for (int i = 0; i < types.length; i++) {
-		typeIds[i] = registerType(types[i]);
-	    }
-	    this.myTypeIds = typeIds;
+		super();
+		this.myTypes = types;
+		int[] typeIds = new int[types.length];
+		for(int i = 0; i < types.length; i++) {
+			typeIds[i] = registerType(types[i]);
+		}
+		this.myTypeIds = typeIds;
 
 	}
 
 	@Override
 	protected String[] getTypeNames() {
 
-	    return myTypes;
+		return myTypes;
 	}
 
 	@Override
 	protected int[] getTypeIds() {
-	    return myTypeIds;
+		return myTypeIds;
 	}
 
 }

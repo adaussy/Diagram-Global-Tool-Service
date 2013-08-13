@@ -9,36 +9,37 @@
  * Vincent Lartigaut (Atos) vincent.lartigaut@atos.net - Vincent Lartigaut - initial API and implementation
  * Guilhem Desq (Atos) guilhem.desq@atos.net -  Guilhem Desq - initial API and implementation
  ******************************************************************************/
-package org.eclipse.papyrus.dgts.wizards.handlers;
+package org.eclipse.papyrus.dgts.wizard.editor.handlers;
 
-import org.eclipse.core.resources.IFile;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
-import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.WizardDialog;
-import org.eclipse.papyrus.dgts.wizards.DgtsGlobalWizard;
-import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.papyrus.dgts.wizard.editor.DgtsGlobalWizard;
 import org.eclipse.ui.PlatformUI;
 
+
+
+
+/**
+ * @author gdesq
+ * This handler launch the dgts wizard editor
+ */
 public class EditConfigurationHandler {
 
-    @Execute
-    public void execute() {
-	
+	@Execute
+	public void execute() {
 
+		DgtsGlobalWizard newWizard = new DgtsGlobalWizard();
+		WizardDialog dialog = new WizardDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), newWizard);
+		if(dialog.open() == WizardDialog.OK) {
 
-	DgtsGlobalWizard newWizard = new DgtsGlobalWizard();
-	WizardDialog dialog = new WizardDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), newWizard);
-	 if (dialog.open() == WizardDialog.OK) {
+		}
 
-	    }
-	
-    }
+	}
 
-    @CanExecute
-    public boolean canExecute() {
-	return true;
-    }
+	@CanExecute
+	public boolean canExecute() {
+		return true;
+	}
 
 }
