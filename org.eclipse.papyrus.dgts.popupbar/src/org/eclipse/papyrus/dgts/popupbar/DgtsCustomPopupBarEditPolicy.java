@@ -4,8 +4,9 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *  
  * Contributors:
+ * Vincent Lartigaut (Atos) vincent.lartigaut@atos.net - Vincent Lartigaut - initial API and implementation
  * Guilhem Desq (Atos) guilhem.desq@atos.net -  Guilhem Desq - initial API and implementation
  ******************************************************************************/
 package org.eclipse.papyrus.dgts.popupbar;
@@ -46,10 +47,12 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
 
 /**
- * Popup bars are esentially a cartoon balloon with buttons that are activated
- * during mouse hover over a shape.
  * 
- * @author affrantz@us.ibm.com, cmahoney
+ * Class inspired by the class PopupBarEditPolicy from affrantz@us.ibm.com, cmahoney
+ * 
+ * This display a popup bar when the user is over a diagram and hit the keys CTRL+ MAJ
+ * 
+ * @author gdesq
  */
 public class DgtsCustomPopupBarEditPolicy extends DiagramAssistantEditPolicy {
 
@@ -73,7 +76,7 @@ public class DgtsCustomPopupBarEditPolicy extends DiagramAssistantEditPolicy {
 
 	    myDisabledImage = new Image(Display.getCurrent(), theImage, SWT.IMAGE_DISABLE);
 	    if (imagesToBeDisposed == null) {
-		imagesToBeDisposed = new ArrayList();
+		imagesToBeDisposed = new ArrayList<Image>();
 	    }
 	    imagesToBeDisposed.add(myDisabledImage);
 	    return myDisabledImage;
@@ -372,7 +375,7 @@ public class DgtsCustomPopupBarEditPolicy extends DiagramAssistantEditPolicy {
     static private int POPUPBAR_ONDIAGRAMACTIVATED = 0x10;
   
 
-    /** Bit field for the actrionbar associated bits */
+    /** Bit field for the actionbar associated bits */
     private int myPopupBarFlags = POPUPBAR_ACTIVATEONHOVER;
 
     private double myBallonOffsetPercent = BALLOON_X_OFFSET_RHS;
@@ -381,10 +384,10 @@ public class DgtsCustomPopupBarEditPolicy extends DiagramAssistantEditPolicy {
     private IFigure myBalloon = null;
 
     /** The popup bar descriptors for the popup bar buttons */
-    private List myPopupBarDescriptors = new ArrayList();
+    private List<PopupBarDescriptor> myPopupBarDescriptors = new ArrayList<PopupBarDescriptor>();
 
     /** Images created that must be deleted when popup bar is removed */
-    protected List imagesToBeDisposed = null;
+    protected List<Image> imagesToBeDisposed = null;
 
     /** mouse and key listeners */
     private PopupBarMouseListener myMouseListener = new PopupBarMouseListener();
@@ -415,19 +418,18 @@ public class DgtsCustomPopupBarEditPolicy extends DiagramAssistantEditPolicy {
 
     protected void populatePopupBars() {
 
-	myPopupBarDescriptors = CustomModelingAssistantService.getInstance().getTypesForPopupBar(getHost());
+	myPopupBarDescriptors = PopupBarService.getInstance().getTypesForPopupBar(getHost());
     
     }
 
 
- 
 
     /**
      * gets the popup bar descriptors
      * 
      * @return list
      */
-    protected List getPopupBarDescriptors() {
+    protected List<PopupBarDescriptor> getPopupBarDescriptors() {
 	return myPopupBarDescriptors;
     }
 
@@ -447,7 +449,7 @@ public class DgtsCustomPopupBarEditPolicy extends DiagramAssistantEditPolicy {
 
     private void initPopupBars() {
 
-	List theList = getPopupBarDescriptors();
+	List<PopupBarDescriptor> theList = getPopupBarDescriptors();
 	if (theList.isEmpty()) {
 	    return;
 	}
@@ -457,7 +459,7 @@ public class DgtsCustomPopupBarEditPolicy extends DiagramAssistantEditPolicy {
 	int xLoc = ACTION_BUTTON_START_X;
 	int yLoc = ACTION_BUTTON_START_Y;
 
-	for (Iterator iter = theList.iterator(); iter.hasNext();) {
+	for (Iterator<PopupBarDescriptor> iter = theList.iterator(); iter.hasNext();) {
 	    PopupBarDescriptor theDesc = (PopupBarDescriptor) iter.next();
 
 	    if (theDesc.isDrawerBar()) {
@@ -650,7 +652,7 @@ public class DgtsCustomPopupBarEditPolicy extends DiagramAssistantEditPolicy {
 	this.myPopupBarDescriptors.clear();
 
 	if (imagesToBeDisposed != null) {
-	    for (Iterator iter = imagesToBeDisposed.iterator(); iter.hasNext();) {
+	    for (Iterator<Image> iter = imagesToBeDisposed.iterator(); iter.hasNext();) {
 		((Image) iter.next()).dispose();
 	    }
 	    imagesToBeDisposed.clear();
@@ -671,9 +673,10 @@ public class DgtsCustomPopupBarEditPolicy extends DiagramAssistantEditPolicy {
 	getHostFigure().addMouseListener(this.myMouseListener);
 	getHost().getViewer().getControl().addKeyListener(this.myConnectionKeyListener);
 
-	if (getHost() instanceof ISurfaceEditPart) {
-	    setIsDisplayAtMouseHoverLocation(true);
-	}
+	
+		if(getHost() instanceof ISurfaceEditPart) {
+			setIsDisplayAtMouseHoverLocation(true);
+		}
     }
 
     public void deactivate() {

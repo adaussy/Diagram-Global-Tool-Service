@@ -1,7 +1,18 @@
-package org.eclipse.papyrus.dgts.wizards.utility;
+/*******************************************************************************
+ * Copyright  2013 Atos.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *   
+ * Contributors:
+ * Vincent Lartigaut (Atos) vincent.lartigaut@atos.net - Vincent Lartigaut - initial API and implementation
+ * Guilhem Desq (Atos) guilhem.desq@atos.net -  Guilhem Desq - initial API and implementation
+ ******************************************************************************/
+
+package org.eclipse.papyrus.dgts.wizard.editor.providers;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -10,13 +21,21 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.papyrus.commands.CreationCommandDescriptor;
 import org.eclipse.papyrus.commands.ICreationCommandRegistry;
 import org.eclipse.papyrus.dgts.service.ToolsProvider;
-import org.eclipse.papyrus.dgts.wizards.pages.DgtsGlobalPage;
+import org.eclipse.papyrus.dgts.wizard.editor.pages.DgtsGlobalPage;
 import org.eclipse.papyrus.infra.core.editor.BackboneException;
 import org.eclipse.papyrus.uml.diagram.wizards.kind.DiagramKindContentProvider;
 
 import DiagramGlobalToolService.DiagramDefinition;
 import DiagramGlobalToolService.DiagramGlobalToolDefinition;
 
+
+
+/**
+ * Label provider for Diagram (when the input element is a creationcommandescriptor) 
+ * Used for the create diagram wizard
+ * @author gdesq
+ *
+ */
 public class DgtsDiagramKindContentProvider extends DiagramKindContentProvider {
 
     public DgtsDiagramKindContentProvider(ICreationCommandRegistry creationCommandRegistry) {

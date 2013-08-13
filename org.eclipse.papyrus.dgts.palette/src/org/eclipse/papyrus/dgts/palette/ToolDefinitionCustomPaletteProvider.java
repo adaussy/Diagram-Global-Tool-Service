@@ -4,11 +4,11 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *  
  * Contributors:
  * Vincent Lartigaut (Atos) vincent.lartigaut@atos.net - Vincent Lartigaut - initial API and implementation
+ * Guilhem Desq (Atos) guilhem.desq@atos.net -  Guilhem Desq - initial API and implementation
  ******************************************************************************/
-
 package org.eclipse.papyrus.dgts.palette;
 
 import java.util.Collections;
@@ -43,55 +43,203 @@ import DiagramGlobalToolService.Tool;
 @SuppressWarnings("restriction")
 
 public class ToolDefinitionCustomPaletteProvider extends DefaultPaletteProvider {
-	protected static List<DrawerDefinition> ListDrawers = null;
+    protected static List<DrawerDefinition> ListDrawers = null;
 
-	public static List<DrawerDefinition> getListDrawers() {
-		return ListDrawers;
-	}
+    public static List<DrawerDefinition> getListDrawers() {
+	return ListDrawers;
+    }
+    Map<String, String> editorIDtoClassName = new HashMap<>();
 
-	Map<String, String> editorIDtoClassName = new HashMap<>();
-
-	@SuppressWarnings("rawtypes")
+    @SuppressWarnings("rawtypes")
 	protected Map predefinedEntries;
-	protected IEditorPart editor = null;
-	protected PaletteRoot root = null;
-	protected ToolsProvider toolProvider = new ToolsProvider();
+    protected IEditorPart editor = null;
+    protected PaletteRoot root = null;
+    protected ToolsProvider toolProvider = new ToolsProvider();
 
-	public Object content;
-	@SuppressWarnings("rawtypes")
-	protected static Map ToolDefinitionMap = new HashMap<String, AbstractToolDefinitionPaletteEntry>();
+    public Object content;
+    protected static HashMap<String, AbstractToolDefinitionPaletteEntry> ToolDefinitionMap = new HashMap<String, AbstractToolDefinitionPaletteEntry>();
 
-	/* (non-Javadoc)
-	 * @see org.eclipse.gmf.runtime.diagram.ui.providers.DefaultPaletteProvider#contributeToPalette(org.eclipse.ui.IEditorPart, java.lang.Object, org.eclipse.gef.palette.PaletteRoot, java.util.Map)
-	 */
-	@SuppressWarnings("rawtypes")
-	
-	public void contributeToPalette(IEditorPart editorCurrent, Object content,
-			PaletteRoot root, Map predefinedEntries) {
+    @SuppressWarnings("rawtypes")
+	public void contributeToPalette(IEditorPart editorCurrent, Object content, PaletteRoot root, Map predefinedEntries) {
 
-		if (editorCurrent instanceof IDiagramWorkbenchPart) {
-			DGTSModelConfigurationOperation operation = new DGTSModelConfigurationOperation(
-					Collections
-							.singleton(((IDiagramWorkbenchPart) editorCurrent)
-									.getDiagram()));
-			ListDrawers = DGTSModelConfigurationService.getInstance()
-					.getModelConfiguration(operation);
+	if (editorCurrent instanceof IDiagramWorkbenchPart) {
+	    DGTSModelConfigurationOperation operation = new DGTSModelConfigurationOperation(Collections.singleton(((IDiagramWorkbenchPart) editorCurrent).getDiagram()));
+	    ListDrawers = DGTSModelConfigurationService.getInstance().getModelConfiguration(operation);
 
-			if (!(ListDrawers == null || ListDrawers.isEmpty())) {
-				this.editor = editorCurrent;
-				this.root = root;
-				this.content = content;
-				this.predefinedEntries = predefinedEntries;
-				contributeCustomPalette(predefinedEntries);
-			}
+	    if (!(ListDrawers == null || ListDrawers.isEmpty())) {
+		this.editor = editorCurrent;
+		this.root = root;
+		this.content = content;
+		this.predefinedEntries = predefinedEntries;
+		contributeCustomPalette(predefinedEntries);
+	    }
 
-		}
-
-		else {
-			super.contributeToPalette(editorCurrent, content, root,
-					predefinedEntries);
-		}
 	}
+	else {
+	    super.contributeToPalette(editorCurrent, content, root, predefinedEntries);
+	}
+	
+    }
+
+
+    protected void addDrawerIcon(PaletteDrawer drawer, DrawerDefinition drawerDefinition) {
+	if (drawerDefinition.getIconReference() != null) {
+	    ImageDescriptor img = ImageDescriptor.createFromFile(null, drawerDefinition.getIconReference().getIconPath());
+	    drawer.setSmallIcon(img);
+	}
+
+    }
+
+    @SuppressWarnings("rawtypes")
+	protected void createElement(DrawerDefinition drawerDefinition, PaletteDrawer drawer, Map predefinedEntries) {
+	for (Tool elementTool : drawerDefinition.getToolRef()) {
+	    if (elementTool.isSetPalette()) {
+		createPaletteEntry(drawer, elementTool);
+
+	    }
+	}
+
+    }
+
+    protected void createPaletteEntry(PaletteDrawer drawer, Tool elementTool) {
+	if (!elementTool.getElementTypes().isEmpty()) {
+	    createEntryFromTool(drawer, elementTool);
+	}
+
+    }
+
+    protected void createEntryFromTool(PaletteDrawer drawer, Tool elementTool) {
+	List<IElementType> elementTypeList;
+	DiagramGlobalToolService.Tool tool = (DiagramGlobalToolService.Tool) elementTool;
+	elementTypeList = this.toolProvider.getIElementTypesFromTool(tool);
+	if (elementTool.isIsEdge()) {
+	    createEdgeToolPaletteEntry(drawer, (DiagramGlobalToolService.Tool) elementTool, elementTypeList);
+
+	} else {
+	    createNodeToolPaletteEntry(drawer, (DiagramGlobalToolService.Tool) elementTool, elementTypeList);
+	}
+    }
+
+    protected void createEdgeToolPaletteEntry(PaletteDrawer drawer, Tool elementTool, List<IElementType> elementType) {
+	if (!ToolDefinitionMap.containsKey(elementTool.getName())) {
+	    createNewEdgeToolPaletteEntry(drawer, elementTool, elementType);
+	}
+
+	else {
+	    setEdgeToolPaletteEntry(elementTool, elementType);
+
+	}
+    }
+
+    protected void createNewEdgeToolPaletteEntry(PaletteDrawer drawer, Tool elementTool, List<IElementType> elementType) {
+	ToolDefinitionEdgePaletteEntry toolDefinitionEntry;
+	toolDefinitionEntry = new ToolDefinitionEdgePaletteEntry((DiagramGlobalToolService.Tool) elementTool, elementType);
+	ToolDefinitionMap.put(elementTool.getName(), toolDefinitionEntry);
+	setMissingImageIcon(toolDefinitionEntry, elementType);
+	drawer.add(toolDefinitionEntry);
+    }
+
+    protected void setEdgeToolPaletteEntry(Tool elementTool, List<IElementType> elementType) {
+	ToolDefinitionEdgePaletteEntry toolDefinitionEntry;
+	toolDefinitionEntry = (ToolDefinitionEdgePaletteEntry) ToolDefinitionMap.get(elementTool.getName());
+	toolDefinitionEntry.addTypes(elementType);
+    }
+
+    protected void createNodeToolPaletteEntry(PaletteDrawer drawer, Tool elementTool, List<IElementType> elementType) {
+	if (!ToolDefinitionMap.containsKey(elementTool.getName())) {
+	    createNewNodeToolPaletteEntry(drawer, elementTool, elementType);
+	}
+
+	else {
+	    setNodeToolPaletteEntry(elementTool, elementType);
+
+	}
+
+    }
+
+    protected void createNewNodeToolPaletteEntry(PaletteDrawer drawer, Tool elementTool, List<IElementType> elementType) {
+	ToolDefinitionNodePaletteEntry toolDefinitionNodePaletteEntry;
+	toolDefinitionNodePaletteEntry = new ToolDefinitionNodePaletteEntry((DiagramGlobalToolService.Tool) elementTool, elementType);
+	ToolDefinitionMap.put(elementTool.getName(), toolDefinitionNodePaletteEntry);
+	setMissingImageIcon(toolDefinitionNodePaletteEntry, elementType);
+	drawer.add(toolDefinitionNodePaletteEntry);
+    }
+
+    protected void setNodeToolPaletteEntry(Tool elementTool, List<IElementType> elementType) {
+	ToolDefinitionNodePaletteEntry toolDefinitionEntry = (ToolDefinitionNodePaletteEntry) ToolDefinitionMap.get(elementTool.getName());
+	toolDefinitionEntry.addTypes(elementType);
+
+    }
+
+    protected void setMissingImageIcon(AbstractToolDefinitionPaletteEntry toolDefinitionEntry, List<IElementType> elementTypeList) {
+	ImageDescriptor missing = ImageDescriptor.getMissingImageDescriptor();
+	if (toolDefinitionEntry.getSmallIcon().equals(missing)) {
+	    for (IElementType iElement : elementTypeList) {
+		ToolEntry entry = searchToolElementByIElementType(iElement);
+		if (entry != null) {
+		    toolDefinitionEntry.setSmallIcon(entry.getSmallIcon());
+		}
+	    }
+	}
+    }
+
+    protected ToolEntry searchToolElementByIElementType(IElementType elementType) {
+	Set<?> cles = predefinedEntries.keySet();
+	Object cle;
+	Object value;
+	Iterator<?> it = cles.iterator();
+	while (it.hasNext()) {
+	    cle = it.next();
+	    value = predefinedEntries.get(cle);
+	    if (value instanceof ToolEntry) {
+		if (isCorrespondingIElement((ToolEntry) value, elementType)) {
+		    return (ToolEntry) value;
+
+		}
+
+	    }
+
+	}
+
+	return null;
+
+    }
+
+    protected boolean isCorrespondingIElement(ToolEntry entry, IElementType elementType) {
+	org.eclipse.gef.Tool tool = entry.createTool();
+
+	if (tool instanceof AspectUnspecifiedTypeCreationTool) {
+	    for (IElementType element : ((AspectUnspecifiedTypeCreationTool) tool).getElementTypes()) {
+		if (element.equals(elementType)) {
+		    return true;
+		}
+
+	    }
+	} else if (tool instanceof AspectUnspecifiedTypeConnectionTool) {
+	    for (IElementType element : ((AspectUnspecifiedTypeConnectionTool) tool).getElementTypes()) {
+		if (element.equals(elementType)) {
+		    return true;
+		}
+
+	    }
+	}
+
+	return false;
+
+    }
+
+    public void hideDefaultPalette() {
+	for (Object child : root.getChildren()) {
+
+	    if (child instanceof org.eclipse.gef.palette.PaletteDrawer) {
+		org.eclipse.gef.palette.PaletteDrawer drawer = (org.eclipse.gef.palette.PaletteDrawer) child;
+		drawer.setVisible(false);
+	    }
+
+	}
+    }
+
+   
 
 	@SuppressWarnings("rawtypes")
 	
@@ -114,187 +262,7 @@ public class ToolDefinitionCustomPaletteProvider extends DefaultPaletteProvider 
 			root.add(drawer);
 		}
 
-	}
+    }
 
-	protected void addDrawerIcon(PaletteDrawer drawer,
-			DrawerDefinition drawerDefinition) {
-		if (drawerDefinition.getIconReference() != null) {
-			ImageDescriptor img = ImageDescriptor.createFromFile(null,
-					drawerDefinition.getIconReference().getIconPath());
-			drawer.setSmallIcon(img);
-		}
 
-	}
-
-	@SuppressWarnings("rawtypes")
-	protected void createElement(DrawerDefinition drawerDefinition,
-			PaletteDrawer drawer, Map predefinedEntries) {
-		for (Tool elementTool : drawerDefinition.getToolRef()) {
-			if (elementTool.isSetPalette()) {
-				createPaletteEntry(drawer, elementTool);
-
-			}
-		}
-
-	}
-
-	protected void createPaletteEntry(PaletteDrawer drawer, Tool elementTool) {
-		if (!elementTool.getElementTypes().isEmpty()) {
-			createEntryFromTool(drawer, elementTool);
-		}
-
-	}
-
-	protected void createEntryFromTool(PaletteDrawer drawer, Tool elementTool) {
-		List<IElementType> elementTypeList;
-		DiagramGlobalToolService.Tool tool = (DiagramGlobalToolService.Tool) elementTool;
-		elementTypeList = this.toolProvider.getIElementTypesFromTool(tool);
-		if (elementTool.isIsEdge()) {
-			createEdgeToolPaletteEntry(drawer,
-					(DiagramGlobalToolService.Tool) elementTool,
-					elementTypeList);
-
-		} else {
-			createNodeToolPaletteEntry(drawer,
-					(DiagramGlobalToolService.Tool) elementTool,
-					elementTypeList);
-		}
-	}
-
-	protected void createEdgeToolPaletteEntry(PaletteDrawer drawer,
-			Tool elementTool, List<IElementType> elementType) {
-		if (!ToolDefinitionMap.containsKey(elementTool.getName())) {
-			createNewEdgeToolPaletteEntry(drawer, elementTool, elementType);
-		}
-
-		else {
-			setEdgeToolPaletteEntry(elementTool, elementType);
-
-		}
-	}
-
-	@SuppressWarnings("unchecked")
-	protected void createNewEdgeToolPaletteEntry(PaletteDrawer drawer,
-			Tool elementTool, List<IElementType> elementType) {
-		ToolDefinitionEdgePaletteEntry toolDefinitionEntry;
-		toolDefinitionEntry = new ToolDefinitionEdgePaletteEntry(
-				(DiagramGlobalToolService.Tool) elementTool, elementType);
-		ToolDefinitionMap.put(elementTool.getName(), toolDefinitionEntry);
-		setMissingImageIcon(toolDefinitionEntry, elementType);
-		drawer.add(toolDefinitionEntry);
-	}
-
-	protected void setEdgeToolPaletteEntry(Tool elementTool,
-			List<IElementType> elementType) {
-		ToolDefinitionEdgePaletteEntry toolDefinitionEntry;
-		toolDefinitionEntry = (ToolDefinitionEdgePaletteEntry) ToolDefinitionMap
-				.get(elementTool.getName());
-		toolDefinitionEntry.addTypes(elementType);
-	}
-
-	protected void createNodeToolPaletteEntry(PaletteDrawer drawer,
-			Tool elementTool, List<IElementType> elementType) {
-		if (!ToolDefinitionMap.containsKey(elementTool.getName())) {
-			createNewNodeToolPaletteEntry(drawer, elementTool, elementType);
-		}
-
-		else {
-			setNodeToolPaletteEntry(elementTool, elementType);
-
-		}
-
-	}
-
-	@SuppressWarnings("unchecked")
-	protected void createNewNodeToolPaletteEntry(PaletteDrawer drawer,
-			Tool elementTool, List<IElementType> elementType) {
-		ToolDefinitionNodePaletteEntry toolDefinitionNodePaletteEntry;
-		toolDefinitionNodePaletteEntry = new ToolDefinitionNodePaletteEntry(
-				(DiagramGlobalToolService.Tool) elementTool, elementType);
-		ToolDefinitionMap.put(elementTool.getName(),
-				toolDefinitionNodePaletteEntry);
-		setMissingImageIcon(toolDefinitionNodePaletteEntry, elementType);
-		drawer.add(toolDefinitionNodePaletteEntry);
-	}
-
-	protected void setNodeToolPaletteEntry(Tool elementTool,
-			List<IElementType> elementType) {
-		ToolDefinitionNodePaletteEntry toolDefinitionEntry = (ToolDefinitionNodePaletteEntry) ToolDefinitionMap
-				.get(elementTool.getName());
-		toolDefinitionEntry.addTypes(elementType);
-
-	}
-
-	protected void setMissingImageIcon(
-			AbstractToolDefinitionPaletteEntry toolDefinitionEntry,
-			List<IElementType> elementTypeList) {
-		ImageDescriptor missing = ImageDescriptor.getMissingImageDescriptor();
-		if (toolDefinitionEntry.getSmallIcon().equals(missing)) {
-			for (IElementType iElement : elementTypeList) {
-				ToolEntry entry = searchToolElementByIElementType(iElement);
-				if (entry != null) {
-					toolDefinitionEntry.setSmallIcon(entry.getSmallIcon());
-				}
-			}
-		}
-	}
-
-	protected ToolEntry searchToolElementByIElementType(IElementType elementType) {
-		Set<?> cles = predefinedEntries.keySet();
-		Object cle;
-		Object value;
-		Iterator<?> it = cles.iterator();
-		while (it.hasNext()) {
-			cle = it.next();
-			value = predefinedEntries.get(cle);
-			if (value instanceof ToolEntry) {
-				if (isCorrespondingIElement((ToolEntry) value, elementType)) {
-					return (ToolEntry) value;
-
-				}
-
-			}
-
-		}
-
-		return null;
-
-	}
-
-	protected boolean isCorrespondingIElement(ToolEntry entry,
-			IElementType elementType) {
-		org.eclipse.gef.Tool tool = entry.createTool();
-
-		if (tool instanceof AspectUnspecifiedTypeCreationTool) {
-			for (IElementType element : ((AspectUnspecifiedTypeCreationTool) tool)
-					.getElementTypes()) {
-				if (element.equals(elementType)) {
-					return true;
-				}
-
-			}
-		} else if (tool instanceof AspectUnspecifiedTypeConnectionTool) {
-			for (IElementType element : ((AspectUnspecifiedTypeConnectionTool) tool)
-					.getElementTypes()) {
-				if (element.equals(elementType)) {
-					return true;
-				}
-
-			}
-		}
-
-		return false;
-
-	}
-
-	public void hideDefaultPalette() {
-		for (Object child : root.getChildren()) {
-
-			if (child instanceof org.eclipse.gef.palette.PaletteDrawer) {
-				org.eclipse.gef.palette.PaletteDrawer drawer = (org.eclipse.gef.palette.PaletteDrawer) child;
-				drawer.setVisible(false);
-			}
-
-		}
-	}
 }

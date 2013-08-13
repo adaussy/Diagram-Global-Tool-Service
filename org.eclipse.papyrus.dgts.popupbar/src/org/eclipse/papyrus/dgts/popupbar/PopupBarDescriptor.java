@@ -4,8 +4,9 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *  
  * Contributors:
+ * Vincent Lartigaut (Atos) vincent.lartigaut@atos.net - Vincent Lartigaut - initial API and implementation
  * Guilhem Desq (Atos) guilhem.desq@atos.net -  Guilhem Desq - initial API and implementation
  ******************************************************************************/
 package org.eclipse.papyrus.dgts.popupbar;
@@ -14,6 +15,14 @@ import org.eclipse.gef.DragTracker;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.swt.graphics.Image;
 
+
+/**
+ * @author gdesq
+ *         PopupBarDescriptor :
+ *         Contain :
+ *         the IElementType, the tooltip, the icon, the dragTracker, and a boolean _isDrawerbar = True when the PopupBarDescriptor is a drawer bar to
+ *         display.
+ */
 public class PopupBarDescriptor {
 
 	/** The action button tooltip */
@@ -40,11 +49,11 @@ public class PopupBarDescriptor {
 	 * @param theTracker
 	 */
 	public PopupBarDescriptor(boolean isDrawerBar, String s, Image i, IElementType elementType, DragTracker theTracker) {
-	    _tooltip = s;
-	    _icon = i;
-	    _dragTracker = theTracker;
-	    _elementType = elementType;
-	    _isDrawerBar = isDrawerBar;
+		_tooltip = s;
+		_icon = i;
+		_dragTracker = theTracker;
+		_elementType = elementType;
+		_isDrawerBar = isDrawerBar;
 
 	}
 
@@ -54,7 +63,7 @@ public class PopupBarDescriptor {
 	 * @return Image
 	 */
 	public final Image getIcon() {
-	    return _icon;
+		return _icon;
 	}
 
 	/**
@@ -63,7 +72,7 @@ public class PopupBarDescriptor {
 	 * @return drag tracker
 	 */
 	public final DragTracker getDragTracker() {
-	    return _dragTracker;
+		return _dragTracker;
 	}
 
 	/**
@@ -72,11 +81,11 @@ public class PopupBarDescriptor {
 	 * @return string
 	 */
 	public final String getToolTip() {
-	    return _tooltip;
+		return _tooltip;
 	}
 
 	public final boolean isDrawerBar() {
-	    return _isDrawerBar;
+		return _isDrawerBar;
 	}
 
-   } // end PopupBarDescriptor
+} // end PopupBarDescriptor
