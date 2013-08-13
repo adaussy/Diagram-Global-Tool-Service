@@ -35,8 +35,16 @@ import org.eclipse.swt.graphics.Image;
 import DiagramGlobalToolService.DrawerDefinition;
 import DiagramGlobalToolService.Tool;
 
+/**
+ * @author gdesq
+ *
+ */
 public class CustomModelingAssistantService {
 
+    /**
+     * @author gdesq
+     *
+     */
     public class PopupBarType {
 	private IElementType type;
 	private String iconPath = null;
@@ -53,6 +61,7 @@ public class CustomModelingAssistantService {
 	public boolean isDrawerBar() {
 	    return isDrawerBar;
 	}
+
 
 	PopupBarType(boolean isDrawerBar) {
 	    type = null;

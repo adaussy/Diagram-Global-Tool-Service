@@ -19,6 +19,13 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.services.editpolicy.CreateEditPoliciesOperation;
 import org.eclipse.gmf.runtime.diagram.ui.services.editpolicy.IEditPolicyProvider;
 
+
+
+/**
+ * @author gdesq
+ *
+ * EditPolicy Provider to add editPolicies to display PopupBar in the diagram.
+ */
 public class CustomEditPolicyProvider extends AbstractProvider implements
 		IEditPolicyProvider {
 
