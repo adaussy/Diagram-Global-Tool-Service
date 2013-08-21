@@ -5,7 +5,7 @@ Bundle-SymbolicName: org.eclipse.papyrus.dgts.core.edit;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: DiagramGlobalToolService.provider.DgtsEditPlugin$Implementation
-Bundle-Vendor: %providerName
+Bundle-Vendor: AtoS
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: DiagramGlobalToolService.provider

@@ -19,3 +19,4 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.papyrus.dgts.service.model.configuration
 Export-Package: org.eclipse.papyrus.dgts.wizard.selection
+Bundle-Vendor: AtoS
